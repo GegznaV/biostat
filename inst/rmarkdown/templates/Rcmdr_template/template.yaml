@@ -1,0 +1,4 @@
+name: Rcmdr template
+description: >
+ Template for R Commander reports.
+create_dir: false

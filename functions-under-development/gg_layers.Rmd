@@ -1,0 +1,41 @@
+```{r setup}
+library(tidyverse)
+```
+
+```{r}
+data <- data.frame(x = rgamma(1000, shape = 2, rate = 1),
+                   y = rnorm(1000, 10, 30),
+                   gr = ifelse(rpois(1000, 2) < 2, "A", "B"))
+
+# data$y[22] <- 500
+```
+
+
+stat_normal
+==============================================================================
+
+
+
+```{r}
+ggplot(data, aes(y, color = gr, fill = gr)) + 
+    geom_histogram(aes(y = ..density..),
+                   color = "grey20",
+                   alpha = 0.7,
+                   # position = position_dodge(12),
+                   bins = 11,
+                   size = 1) +
+    # stat_function(fun = dnorm, args = list(mean = mean(data$y), sd = sd(data$y))) +
+    stat_normal_density(aes(y = ..density..), color = "black", size = 1.5, trim = 0) +
+facet_grid(c(".~gr"))
+```
+```{r}
+ggplot(data, aes(sample = y, color = gr, fill = gr)) + 
+    stat_qq_line(color = "black") +
+    stat_qq() +
+    facet_wrap(~gr)
+```
+
+```{r}
+qq_plot(y ~ gr, data)
+```
+

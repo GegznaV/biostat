@@ -1,0 +1,12 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+data-raw*
+functions-removed*
+functions-under-development*
+tutorials-under-development*
+^codecov\.yml$
+.travis.yml
+codecov.yml
+README.Rmd
+_pkgdown.yaml
+^docs*

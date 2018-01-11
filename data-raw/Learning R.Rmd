@@ -1,0 +1,26 @@
+---
+title: "Learning R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Working with model formulas
+
+?formula
+
+?model.frame  
+?model.matrix  
+
+?all.vars  
+
+?all.names  
+
+
+```{r}
+
+```
+
+

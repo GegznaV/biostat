@@ -1,0 +1,55 @@
+Package: biostat
+Type: Package
+Title: Routines for Basic (Bio)Statistics
+Description: A collection of functions that either are intended to be used with 
+             R Commander plugin `RcmdrPlugin.BioStat` or to do several common 
+             statistical routines (without writing to much code). 
+             The functions are created to complement other R Commander plugins 
+             that can be used to teach basic statistics especially in 
+             biostatistics and biometry lectures.
+Version: 0.0.14
+Date: 2018-01-10
+Authors@R: c(
+    person("Vilmantas", "Gegna", role = c("aut","cre"),
+            email = "GegznaV@gmail.com")
+    )
+License: GPL (>= 3)
+Encoding: UTF-8
+URL: https://gegznav.github.io/biostat/
+BugReports: https://github.com/GegznaV/biostat/issues
+LazyData: true
+ByteCompile: TRUE
+Depends:
+    R (>= 3.3),
+    magrittr,
+    ggplot2
+Imports:
+    methods,
+    checkmate,
+    glue,
+    rlang,
+    pander,
+    readr,
+    stringr,
+    forcats,
+    dplyr,
+    tidyr,
+    broom,
+    tibble,
+    purrr,
+    stats,
+    nortest,
+    fitdistrplus,
+    MASS,
+    multcompView,
+    psych,
+    withr
+RoxygenNote: 6.0.1
+Suggests:
+    covr,
+    testthat,
+    QuantPsyc,
+    PMCMR,
+    Hmisc,
+    rcompanion,
+    data.table

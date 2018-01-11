@@ -1,0 +1,39 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+-----------------------------------------------------
+    Type       Treatment    statistic   p.value      
+------------- ------------ ----------- --------- ----
+   Quebec      nonchilled     0.825      <0.01    ** 
+
+   Quebec       chilled       0.853      <0.01    ** 
+
+ Mississippi   nonchilled     0.855      <0.01    ** 
+
+ Mississippi    chilled       0.948      0.31        
+-----------------------------------------------------
+
+Table: The results of Shapiro-Wilk normality test.
+
+
+
+-----------------------------------------------------
+    Type       Treatment    statistic   p.value      
+------------- ------------ ----------- -------------
+   Quebec      nonchilled     0.825      <0.01 ** 
+
+   Quebec       chilled       0.853      <0.01 ** 
+
+ Mississippi   nonchilled     0.855      <0.01 ** 
+
+ Mississippi    chilled       0.948      0.31        
+-----------------------------------------------------
+
+Table: The results of Shapiro-Wilk normality test.
+

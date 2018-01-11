@@ -1,0 +1,4 @@
+- Parameter "x" renamed to "y" in functions `qq_data`, `qq_plot`, `test_normality`,
+ `do_summary`, `ci_mean_t`, `ci_mean_boot`, `trim`, `scale_vector` and other.
+
+- Parameter "x" renamed to "obj" in functions `head_tail`

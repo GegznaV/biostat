@@ -1,0 +1,30 @@
+---
+title: "Plan to construct R packages"
+subtitle: "biostat & RcmdrPlugin.biostat"
+output: html_notebook
+---
+
+BioStat & RcmdrPlugin.BioStat
+============================================================================= 
+
+1. Functions to tidy data (from package `tidyr`):
+    - gather;
+    - spread;
+    - unite;
+    - separate;
+    
+2. Functions to manipulate data (from package `dplyr`):
+    - filter;
+    - arrange;
+    - select;
+    - mutate; ?
+    - rename;
+    - group_by; ?
+    
+3. Normality test by group;  OK
+
+4. Normality plots by group; OK
+
+
+    
+    
