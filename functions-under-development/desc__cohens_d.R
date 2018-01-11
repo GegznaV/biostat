@@ -67,7 +67,7 @@
 #'
 #' @examples
 #' data("d.pizza", package = "DescTools")
-#' library(BioStat)
+#' library(biostat)
 #'
 #' x <- d.pizza$price[d.pizza$driver == "Carter"]
 #' y <- d.pizza$price[d.pizza$driver == "Miller"]

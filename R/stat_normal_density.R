@@ -27,7 +27,7 @@
 #'
 #' @examples
 #' library(ggplot2)
-#' library(BioStat)
+#' library(biostat)
 #'
 #' ggplot(mtcars, aes(mpg)) + stat_normal_density()
 #'
@@ -61,7 +61,7 @@ StatNormalDensity <-
             compute_group = function(data, scales, min_x, max_x,
                                      trim = 0, n = 50) {
                 d <- na.omit(data$x)
-                d_trimmed <- BioStat::trim(d, trim = trim)
+                d_trimmed <- biostat::trim(d, trim = trim)
                 x <- seq(min_x, max_x, length.out = n)
                 y <- dnorm(x, mean(d_trimmed), sd(d_trimmed))
 

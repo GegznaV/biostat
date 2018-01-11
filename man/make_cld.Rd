@@ -58,7 +58,7 @@ Make a compact letter display for results of pair-wise comparisons
 (e.g., ANOVA post-hoc tests, Kruskal-Wallis post-hoc tests and other).
 }
 \examples{
-library(BioStat)
+library(biostat)
 
 # Example 1: class `pairwise.htest`
 

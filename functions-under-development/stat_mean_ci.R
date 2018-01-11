@@ -24,7 +24,7 @@ StatMeanCiY <-
 
                 # y <- na.omit(data$y)
 
-                res <- BioStat::ci_mean_boot(x,
+                res <- biostat::ci_mean_boot(x,
                                              repetitions = repetitions,
                                              conf_level = conf_level)
 

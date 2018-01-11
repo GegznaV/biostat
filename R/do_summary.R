@@ -26,7 +26,7 @@
 #' @export
 #'
 #' @examples
-#' library(BioStat)
+#' library(biostat)
 #' data(cabbages, package = "MASS")
 #'
 #' do_summary(~VitC, data = cabbages) %>%

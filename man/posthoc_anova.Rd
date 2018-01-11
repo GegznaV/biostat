@@ -89,7 +89,7 @@ on code of function \code{posthocTGH()} in package \pkg{userfriendlyscience}
 (version 0.7.0).
 }
 \examples{
-library(BioStat)
+library(biostat)
 
 # Compute post-hoc statistics using the Games-Howell method
 posthoc_anova(weight ~ Diet, data = ChickWeight, method = "Games-Howell")

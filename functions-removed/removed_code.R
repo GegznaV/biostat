@@ -51,7 +51,7 @@
 
 
 
-# library(BioStat)
+# library(biostat)
 # library(PMCMR)
 #
 # model_tukey <- posthoc.kruskal.conover.test(decrease ~ treatment, data = OrchardSprays)

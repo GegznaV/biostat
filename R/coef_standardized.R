@@ -87,7 +87,7 @@ coef_standardized <- function(obj) {
 #' @name deprecated_functions
 #' @description Depreceted functions. They exist for compatibility with
 #'              previous versions.
-#' @title Deprecated functions in `BioStat` package
+#' @title Deprecated functions in `biostat` package
 #' @param obj \code{lm} object.
 #' @export
 standardized_coef <- function(obj) {

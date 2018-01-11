@@ -1,40 +1,40 @@
 context("helper_functions")
 
 test_that("first_capital works", {
-    expect_equal(BioStat:::first_capital("aaa bbb ccc;ddd-eee"), "Aaa Bbb Ccc;Ddd-Eee")
+    expect_equal(biostat:::first_capital("aaa bbb ccc;ddd-eee"), "Aaa Bbb Ccc;Ddd-Eee")
 })
 
 test_that("eval_ works", {
     a <- 1
-    expect_equal(BioStat:::eval_("a"), 1)
+    expect_equal(biostat:::eval_("a"), 1)
 })
 
 test_that("head_tail works", {
     a <- 1
-    expect_length(BioStat:::head_tail(chickwts), 2)
-    expect_equal(nrow(BioStat:::head_tail(chickwts)), 10)
-    expect_output(print(BioStat:::head_tail(chickwts)),
+    expect_length(biostat:::head_tail(chickwts), 2)
+    expect_equal(nrow(biostat:::head_tail(chickwts)), 10)
+    expect_output(print(biostat:::head_tail(chickwts)),
                   "\\.\\.\\.    \\.\\.\\.       \\.\\.\\.")
 })
 
 test_that("warning_glue works", {
     a <- 123
-    expect_warning(BioStat:::warning_glue("{a}"))
+    expect_warning(biostat:::warning_glue("{a}"))
 })
 
 test_that("stop_glue works", {
     a <- 123
-    expect_message(BioStat:::message_glue("{a}"))
+    expect_message(biostat:::message_glue("{a}"))
 })
 
 test_that("stop_glue works", {
     a <- 123
-    expect_error(BioStat:::stop_glue("{a}"))
+    expect_error(biostat:::stop_glue("{a}"))
 })
 
 
 test_that("class_stat_summary works", {
-    expect_is(BioStat:::class_stat_summary(list("a")), "stat_summary")
+    expect_is(biostat:::class_stat_summary(list("a")), "stat_summary")
 })
 
 

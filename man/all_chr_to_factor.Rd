@@ -17,7 +17,7 @@ A convenience function to convert all character variables in a data frame
 to factor variables.
 }
 \examples{
-library(BioStat)
+library(biostat)
 data(PlantGrowth)
 
 

@@ -26,7 +26,7 @@
 #' @export
 #'
 #' @examples
-#' library(BioStat)
+#' library(biostat)
 #'
 #' # Example 1: class `pairwise.htest`
 #'

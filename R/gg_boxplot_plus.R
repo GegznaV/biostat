@@ -64,7 +64,7 @@
 #' @keywords ggplot2 plots
 #'
 #' @examples
-#' library(BioStat)
+#' library(biostat)
 #'
 #' # Example 1
 #' gg_boxplot_plus(decrease ~ treatment, OrchardSprays)

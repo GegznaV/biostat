@@ -41,7 +41,7 @@
 #'
 #' @export
 #' @examples
-#' library(BioStat)
+#' library(biostat)
 #'
 #' # Prettify p-values
 #'
@@ -105,7 +105,7 @@ format_p_values <- function(p, digits_p = 3, signif_stars = TRUE, rm_zero = FALS
 format_p <- function(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE, rm_spaces = FALSE) {
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     s_i <- if (signif_stars == TRUE) {
-        BioStat::get_signif_stars(p_i)
+        biostat::get_signif_stars(p_i)
     } else {
         ""
     }
@@ -137,7 +137,7 @@ format_p <- function(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE, ad
     }
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (rm_zero == TRUE) {
-        p_i <- BioStat::rm_zero(p_i)
+        p_i <- biostat::rm_zero(p_i)
     }
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     if (add_p == TRUE) {
@@ -272,7 +272,7 @@ rm_zero <- function(str) {
 #         }
 #
 #         if (rm_zero == TRUE) {
-#             data[[colname_i]] %<>% purrr::map_chr(BioStat::rm_zero)
+#             data[[colname_i]] %<>% purrr::map_chr(biostat::rm_zero)
 #         }
 #     }
 #     data

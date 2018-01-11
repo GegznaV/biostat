@@ -1,9 +1,9 @@
 ## Unit teststest_that("format_pvalue works", {
-# expect_equal(BioStat:::format_pvalue(.3), "p = 0.3")
+# expect_equal(biostat:::format_pvalue(.3), "p = 0.3")
 # })
 #
 # test_that("noZero works", {
-#     expect_equal(BioStat:::noZero(0.3), ".3")
+#     expect_equal(biostat:::noZero(0.3), ".3")
 # })
 
 

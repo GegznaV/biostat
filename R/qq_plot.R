@@ -36,7 +36,7 @@
 #' @seealso \code{\link[car]{qqPlot}} from \pkg{car} package,
 #'          \code{\link[stats]{qqplot}} from \pkg{stats} package.
 #' @examples
-#' library(BioStat)
+#' library(biostat)
 #' data(iris)
 #'
 #' # Formula (no groups):

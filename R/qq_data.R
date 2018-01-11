@@ -67,7 +67,7 @@
 #'
 #' @examples
 #'
-#' library(BioStat)
+#' library(biostat)
 #' data(chickwts, package = "datasets")
 #'
 #' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -439,7 +439,7 @@ coef.qqdata <- function(object, ...) {
 #' @param use_colors (logical) use colors for multiple groups
 #' @import ggplot2
 #' @examples
-#' library(BioStat)
+#' library(biostat)
 #' data(chickwts, package = "datasets")
 #'
 #' # Input as formula + data:

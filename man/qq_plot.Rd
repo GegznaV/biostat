@@ -96,7 +96,7 @@ Function \code{qq_plot} is inspired by \code{qqPlot()} in package \pkg{car}
 (writen by J. Fox).
 }
 \examples{
-library(BioStat)
+library(biostat)
 data(iris)
 
 # Formula (no groups):

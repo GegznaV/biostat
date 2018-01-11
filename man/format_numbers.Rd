@@ -30,7 +30,7 @@ Function formats numeric columns only.
 Other classes are left intact.
 }
 \examples{
-library(BioStat)
+library(biostat)
 DATA <- head(iris)
 
 # The same rounding for each column

@@ -1,4 +1,4 @@
-#' @name BioStat
+#' @name biostat
 #' @docType package
 #' @title A Collection of Functions for Biostatistics and Biometry Lectures
 #'

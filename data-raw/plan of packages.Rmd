@@ -4,7 +4,7 @@ subtitle: "biostat & RcmdrPlugin.biostat"
 output: html_notebook
 ---
 
-BioStat & RcmdrPlugin.BioStat
+biostat & RcmdrPlugin.biostat
 ============================================================================= 
 
 1. Functions to tidy data (from package `tidyr`):

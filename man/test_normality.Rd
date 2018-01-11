@@ -118,7 +118,7 @@ The available tests: Shapiro-Wilk (default),
 Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other.
 }
 \examples{
-library(BioStat)
+library(biostat)
 library(pander)
 data(CO2)
 

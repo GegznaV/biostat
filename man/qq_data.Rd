@@ -119,7 +119,7 @@ Function \code{qq_data} is inspired by \code{qqPlot()} in package \pkg{car}
 }
 \examples{
 
-library(BioStat)
+library(biostat)
 data(chickwts, package = "datasets")
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -165,7 +165,7 @@ coef(my_qq_df)
 
 
 
-library(BioStat)
+library(biostat)
 data(chickwts, package = "datasets")
 
 # Input as formula + data:

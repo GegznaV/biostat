@@ -74,7 +74,7 @@ distributions.
 
 \examples{
 library(ggplot2)
-library(BioStat)
+library(biostat)
 
 ggplot(mtcars, aes(mpg)) + stat_normal_density()
 

@@ -1,5 +1,5 @@
 library(testthat)
-library(BioStat)
+library(biostat)
 library(QuantPsyc)
 
-test_check("BioStat")
+test_check("biostat")
