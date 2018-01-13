@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Format p-values � format_p_values • biostat</title>
+<title>[!!!] Format p-values � format_p_values • biostat</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -81,29 +81,54 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Format p-values</h1>
+    <h1>[!!!] Format p-values</h1>
     </div>
 
     
     <p>Fuctions to fromat p values.</p>
     
 
-    <pre class="usage"><span class='fu'>format_p_values</span>(<span class='no'>p</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+    <pre class="usage"><span class='fu'>format_p_values</span>(<span class='no'>p</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+
+<span class='co'># S3 method for default</span>
+<span class='fu'>format_p_values</span>(<span class='no'>p</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='no'>...</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
 
 <span class='fu'>format_p</span>(<span class='no'>p_i</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+
+<span class='co'># S3 method for data.frame</span>
+<span class='fu'>format_p_values</span>(<span class='no'>data</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>,
+  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>add_signif_stars</span>(<span class='no'>p</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+
+<span class='fu'>get_signif_stars</span>(<span class='no'>p</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+
+<span class='no'>signif_syms_05s</span>
+
+<span class='no'>signif_syms_01s</span>
+
+<span class='no'>signif_syms_001s</span>
+
+<span class='no'>signif_syms_001</span>
+
+<span class='no'>signif_syms_01</span>
+
+<span class='no'>signif_syms_05</span>
+
+<span class='no'>signif_syms</span>
+
+<span class='fu'>signif_stars_legend</span>(<span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+
+<span class='fu'>signif_stars_legend_2</span>(<span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='fu'>rm_zero</span>(<span class='no'>str</span>, <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>)
 
 <span class='fu'>format_as_p_columns</span>(<span class='no'>data</span>, <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"p.value"</span>, <span class='st'>"p.adjust"</span>), <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
-
-<span class='fu'>add_signif_stars</span>(<span class='no'>p</span>)
-
-<span class='fu'>get_signif_stars</span>(<span class='no'>p</span>)
-
-<span class='fu'>signif_stars_legend</span>()
-
-<span class='fu'>rm_zero</span>(<span class='no'>str</span>)</pre>
+  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
@@ -123,6 +148,10 @@
 </ol></li>
 <li><p>if <code>digits_p = 3</code>, only formatting <code>"&lt;0.01"</code> is skipped.</p></li>
 </ul></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Arguments to further methods.</p></td>
     </tr>
     <tr>
       <th>signif_stars</th>
@@ -151,18 +180,18 @@ removed.</p></td>
       <td><p>A dataset.</p></td>
     </tr>
     <tr>
-      <th>colnames</th>
-      <td><p>(character) vector with column names to be formatted as p values.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Arguments to further methods.</p></td>
-    </tr>
-    <tr>
       <th>str</th>
       <td><p>A string or convertible to string</p></td>
     </tr>
+    <tr>
+      <th>colnames</th>
+      <td><p>(character) vector with column names to be formatted as p values.</p></td>
+    </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An object of class <code>numeric</code> of length 1.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -185,18 +214,23 @@ removed.</p></td>
 
 <span class='co'># Prettify p-values</span>
 
-<span class='fu'>format_p_values</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'>
-<span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] " 0.005 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] " 0.005"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] " .005 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "&lt;0.01 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt;.01"</div><div class='input'>
-<span class='fu'>format_p_values</span>(<span class='fl'>0.00022</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='st'>"0.00022"</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='st'>"0.052"</span>)</div><div class='output co'>#&gt; [1] " 0.052 .  "</div><div class='input'>
-<span class='fu'>format_p_values</span>(<span class='fu'>c</span>(<span class='fl'>0.005</span>, <span class='fl'>0.0005</span>, <span class='fl'>0.052147</span>))</div><div class='output co'>#&gt; [1] " 0.005 ** " "&lt;0.001 ***" " 0.052 .  "</div><div class='input'>
+<span class='fu'>format_p_values</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.001 ***"</div><div class='input'>
+<span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "  0.005 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "  0.005"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "  .005 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.01 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt; .01"</div><div class='input'>
+<span class='fu'>format_p_values</span>(<span class='fl'>0.00022</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.001 ***"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='st'>"0.00022"</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.001 ***"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='st'>"0.052"</span>)</div><div class='output co'>#&gt; [1] "  0.052 .  "</div><div class='input'>
+<span class='fu'>format_p_values</span>(<span class='fu'>c</span>(<span class='fl'>0.005</span>, <span class='fl'>0.0005</span>, <span class='fl'>0.052147</span>))</div><div class='output co'>#&gt; [1] "  0.005 ** " "&lt; 0.001 ***" "  0.052 .  "</div><div class='input'>
 
-<span class='fu'>get_signif_stars</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "**"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "0.005 **"</div><div class='input'>
-<span class='fu'>get_signif_stars</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "***"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "5e-04 ***"</div><div class='input'>
-<span class='fu'>get_signif_stars</span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "."</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "0.052147 ."</div><div class='input'>
+<span class='fu'>get_signif_stars</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "**"
+#&gt; attr(,"legend")
+#&gt; [1] "0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "0.005 **"</div><div class='input'>
+<span class='fu'>get_signif_stars</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "***"
+#&gt; attr(,"legend")
+#&gt; [1] "0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "5e-04 ***"</div><div class='input'>
+<span class='fu'>get_signif_stars</span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "."
+#&gt; attr(,"legend")
+#&gt; [1] "0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "0.052147 ."</div><div class='input'>
 <span class='fu'>signif_stars_legend</span>()</div><div class='output co'>#&gt; [1] "0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1"</div><div class='input'>
 
-<span class='fu'>format_p</span>(<span class='fl'>.02</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] " 0.02 *  "</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001"</div><div class='input'>
-<span class='fu'>rm_zero</span>(<span class='fl'>0.02</span>)</div><div class='output co'>#&gt; [1] ".02"</div><div class='input'>
+<span class='fu'>format_p</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.001 ***"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.02</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "  0.02 *  "</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.001 ***"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt; 0.001"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"*****"</span> <span class='kw'>=</span> <span class='fl'>0.001</span>))</div><div class='output co'>#&gt; [1] "&lt; 0.001 *****"</div><div class='input'><span class='fu'>rm_zero</span>(<span class='fl'>0.020</span>)</div><div class='output co'>#&gt; [1] ".02"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -204,6 +238,8 @@ removed.</p></td>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#format">Format</a></li>
+
       <li><a href="#value">Value</a></li>
 
       <li><a href="#details">Details</a></li>

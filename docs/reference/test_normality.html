@@ -252,16 +252,20 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 <span class='fu'>data</span>(<span class='no'>CO2</span>)
 
 <span class='co'># For whole dataset</span>
-<span class='fu'>test_normality</span>(~<span class='no'>uptake</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>test_normality</span>(~<span class='no'>uptake</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;   statistic p.value    
-#&gt; 1     0.941  &lt;0.001 ***
+#&gt; 1     0.941 &lt; 0.001 ***
 #&gt; 
 #&gt; Legend for p-values:  
 #&gt;  0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 </div><div class='input'>
 <span class='co'># For each subgroup</span>
-<span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;    Treatment statistic p.value    
@@ -273,7 +277,9 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 <span class='co'># For each subgroup by several factor variables</span>
 <span class='no'>rez</span> <span class='kw'>&lt;-</span> <span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>,
                       <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)
-<span class='no'>rez</span></div><div class='output co'>#&gt; 
+<span class='no'>rez</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -285,7 +291,9 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 #&gt; Legend for p-values:  
 #&gt;  0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 </div><div class='input'>
 <span class='co'># Modify printed output</span>
-<span class='fu'>print</span>(<span class='no'>rez</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>print</span>(<span class='no'>rez</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -296,13 +304,15 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 #&gt; 
 #&gt; Legend for p-values:  
 #&gt;  0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 </div><div class='input'>
-<span class='fu'>print</span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>print</span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
-#&gt; 1      Quebec nonchilled     0.825   &lt;0.01 ** 
-#&gt; 2      Quebec    chilled     0.853   &lt;0.01 ** 
-#&gt; 3 Mississippi nonchilled     0.855   &lt;0.01 ** 
+#&gt; 1      Quebec nonchilled     0.825  &lt; 0.01 ** 
+#&gt; 2      Quebec    chilled     0.853  &lt; 0.01 ** 
+#&gt; 3 Mississippi nonchilled     0.855  &lt; 0.01 ** 
 #&gt; 4 Mississippi    chilled     0.948    0.31    
 #&gt; 
 #&gt; Legend for p-values:  
@@ -312,7 +322,9 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 <span class='no'>rez2</span> <span class='kw'>&lt;-</span> <span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>,
                       <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>,
                       <span class='kw'>test</span> <span class='kw'>=</span> <span class='st'>"chi-sq"</span>)
-<span class='no'>rez2</span></div><div class='output co'>#&gt; 
+<span class='no'>rez2</span></div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Pearson chi-square normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -325,7 +337,9 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 #&gt;  0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 </div><div class='input'>
 
 <span class='co'># Print as a 'pandoc' table (for R Markdown reports)</span>
-<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt; -------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value  
 #&gt; ------------- ------------ ----------- ----------
@@ -342,7 +356,9 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 #&gt; 
 #&gt; Legend for p-values:  
 #&gt; ` 0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 `  </div><div class='input'>
-<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt; -------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value  
 #&gt; ------------- ------------ ----------- ----------
@@ -359,24 +375,28 @@ is printed (default). If <code>NULL</code> � no caption is printed.</p></td>
 #&gt; 
 #&gt; Legend for p-values:  
 #&gt; ` 0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 `  </div><div class='input'>
-<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
-#&gt; -------------------------------------------------
-#&gt;     Type       Treatment    statistic   p.value  
-#&gt; ------------- ------------ ----------- ----------
-#&gt;    Quebec      nonchilled     0.825     &lt;0.01 ** 
+<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
+#&gt; --------------------------------------------------
+#&gt;     Type       Treatment    statistic    p.value  
+#&gt; ------------- ------------ ----------- -----------
+#&gt;    Quebec      nonchilled     0.825     &lt; 0.01 ** 
 #&gt; 
-#&gt;    Quebec       chilled       0.853     &lt;0.01 ** 
+#&gt;    Quebec       chilled       0.853     &lt; 0.01 ** 
 #&gt; 
-#&gt;  Mississippi   nonchilled     0.855     &lt;0.01 ** 
+#&gt;  Mississippi   nonchilled     0.855     &lt; 0.01 ** 
 #&gt; 
-#&gt;  Mississippi    chilled       0.948       0.31   
-#&gt; -------------------------------------------------
+#&gt;  Mississippi    chilled       0.948       0.31    
+#&gt; --------------------------------------------------
 #&gt; 
 #&gt; Table: The results of Shapiro-Wilk normality test.
 #&gt; 
 #&gt; Legend for p-values:  
 #&gt; ` 0 �***� 0.001 �**� 0.01 �*� 0.05 �.� 0.1 � � 1 `  </div><div class='input'>
-<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: 'format_as_p_columns' is deprecated.</span>
+#&gt; <span class='warning'>Use 'format_p_values' instead.</span>
+#&gt; <span class='warning'>See help("Deprecated")</span></div><div class='output co'>#&gt; 
 #&gt; ------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value 
 #&gt; ------------- ------------ ----------- ---------
