@@ -15,8 +15,8 @@
 \alias{signif_syms_01}
 \alias{signif_syms_05}
 \alias{signif_syms}
-\alias{signif_stars_legend}
 \alias{signif_stars_legend_2}
+\alias{signif_stars_legend}
 \alias{rm_zero}
 \alias{format_as_p_columns}
 \title{[!!!] Format p-values}
@@ -53,9 +53,9 @@ signif_syms_05
 
 signif_syms
 
-signif_stars_legend(ss = signif_syms)
+signif_stars_legend_2(ss = signif_syms)
 
-signif_stars_legend_2(ss = signif_syms, decreasing = FALSE)
+signif_stars_legend(ss = signif_syms, decreasing = FALSE)
 
 rm_zero(str, dec = ".")
 
