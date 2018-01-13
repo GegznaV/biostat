@@ -165,7 +165,8 @@ test_normality <- function(y,
                            test = "Shapiro-Wilk",
                            p_adjust_method = NULL,
                            ...,
-                           groups = NULL
+                           groups = NULL,
+                           ss = signif_syms
 ) {
 
     # Choose the test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -222,7 +223,8 @@ test_normality <- function(y,
           p_adjust_method = p_adjust_method,
           ...,
           groups = groups,
-          test = use_test)
+          test = use_test,
+          ss = ss)
 }
 
 # test_()===================================================================
@@ -231,7 +233,8 @@ test_ <- function(y,
                   p_adjust_method = NULL,
                   ...,
                   groups = NULL,
-                  test = stats::shapiro.test)
+                  test = stats::shapiro.test,
+                  ss = NULL)
     # na.rm = getOption("na.rm", FALSE)
 {
     # Make formula according to input type
@@ -282,7 +285,8 @@ test_ <- function(y,
         rez <- structure(rez,
                          class = c("test_normality", "data.frame"),
                          test = levels(rez$method),
-                         p_adjust_method = p_adjust_method)
+                         p_adjust_method = p_adjust_method,
+                         ss = ss)
 
         return(rez)
 
@@ -299,12 +303,13 @@ test_ <- function(y,
 print.test_normality <- function(x,
                                  ...,
                                  digits_p = 3,
-                                 signif_stars = TRUE,
+                                 signif_stars = !is.null(ss),
                                  digits_stat = 3,
                                  format_stat = c("auto","f", "g"),
                                  rm_zero = FALSE,
                                  legend = TRUE,
-                                 show_col_method = FALSE
+                                 show_col_method = FALSE,
+                                 ss = attr(x, "ss")
 ) {
     format_stat <- match.arg(format_stat)
     x <- format_object(x,
@@ -315,7 +320,8 @@ print.test_normality <- function(x,
                        signif_as_separate_column = TRUE,
                        signif_stars_col_name = " ",
                        rm_zero = rm_zero,
-                       show_col_method = show_col_method
+                       show_col_method = show_col_method,
+                       ss = ss
     )
 
     # Print the name of the method
@@ -326,7 +332,7 @@ print.test_normality <- function(x,
 
     # Print signif. stars legend
     if (legend == TRUE && signif_stars == TRUE)
-        cat("\nLegend for p-values:  \n", signif_stars_legend(), "\n")
+        cat("\nLegend for p-values:  \n", signif_stars_legend(ss = ss), "\n")
 
     # Print p adjust. method:
     p_adjust_method <- attr(x, "p_adjust_method")
@@ -342,12 +348,14 @@ pander.test_normality <- function(x,
                                   caption = NA,
                                   ...,
                                   digits_p = 3,
-                                  signif_stars = TRUE,
+                                  signif_stars = !is.null(ss),
                                   digits_stat = 3,
                                   format_stat = c("auto", "f", "g"),
                                   rm_zero = FALSE,
                                   legend = TRUE,
-                                  show_col_method = FALSE) {
+                                  show_col_method = FALSE,
+                                  ss = attr(x, "ss")
+) {
 
     format_stat <- match.arg(format_stat)
 
@@ -358,7 +366,8 @@ pander.test_normality <- function(x,
                        signif_stars = signif_stars,
                        signif_as_separate_column = FALSE,
                        rm_zero = rm_zero,
-                       show_col_method = show_col_method
+                       show_col_method = show_col_method,
+                       ss = ss
     )
 
     # String for p adjust. method:
@@ -386,7 +395,7 @@ pander.test_normality <- function(x,
 
     # Print legend
     if (legend == TRUE && signif_stars == TRUE)
-        cat("Legend for p-values:  \n`", signif_stars_legend(), "`  \n")
+        cat("Legend for p-values:  \n`", signif_stars_legend(ss = ss), "`  \n")
 
 }
 
