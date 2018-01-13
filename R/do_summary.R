@@ -17,6 +17,7 @@
 #'      \item \code{"Q3"} - 3-rd quartile,
 #'      \item \code{"max"} - maximum value,
 #'      \item \code{"IQR"} - interquartile range,
+#'      \item \code{"mad"} - median absolute deviation from median (more details \link[stats]{mad}),
 #'      \item \code{"skewness"} - skewness,
 #'      \item \code{"kurtosis"} - excess kurtosis.
 #'  }
@@ -57,6 +58,7 @@ do_summary <- function(
              "Q3",
              "max",
              "IQR",
+             "mad",
              "skewness",
              "kurtosis")) {
 
@@ -72,9 +74,10 @@ do_summary <- function(
          var <- purrr::partial(stats::var,     na.rm = TRUE)
         mean <- purrr::partial(base::mean,     na.rm = TRUE)
           Md <- purrr::partial(stats::median,  na.rm = TRUE)
-         max <- purrr::partial(max,            na.rm = TRUE)
-         min <- purrr::partial(min,            na.rm = TRUE)
+         max <- purrr::partial(base::max,      na.rm = TRUE)
+         min <- purrr::partial(base::min,      na.rm = TRUE)
          IQR <- purrr::partial(stats::IQR,     na.rm = TRUE)
+         mad <- purrr::partial(stats::mad,     na.rm = TRUE)
     skewness <- purrr::partial(psych::skew,    na.rm = TRUE)
     kurtosis <- purrr::partial(psych::kurtosi, na.rm = TRUE)
 
@@ -157,6 +160,7 @@ print.num_summaries <- function(x, ..., digits = NA, format = "f") {
                    Md = digits,
                    Q3 = digits,
                    max = digits,
+                   mad = digits,
                    IQR = digits,
                    skewness = 2,
                    kurtosis = 2),
