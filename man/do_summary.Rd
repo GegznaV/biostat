@@ -6,7 +6,7 @@
 \title{Do numerical summaries by groups}
 \usage{
 do_summary(y, data = NULL, stat = c("n", "missing", "mean", "sd", "var",
-  "min", "Q1", "Md", "Q3", "max", "IQR", "skewness", "kurtosis"))
+  "min", "Q1", "Md", "Q3", "max", "IQR", "mad", "skewness", "kurtosis"))
 
 \method{print}{num_summaries}(x, ..., digits = NA, format = "f")
 }
@@ -28,6 +28,7 @@ do_summary(y, data = NULL, stat = c("n", "missing", "mean", "sd", "var",
     \item \code{"Q3"} - 3-rd quartile,
     \item \code{"max"} - maximum value,
     \item \code{"IQR"} - interquartile range,
+    \item \code{"mad"} - median absolute deviation from median (more details \link[stats]{mad}),
     \item \code{"skewness"} - skewness,
     \item \code{"kurtosis"} - excess kurtosis.
 }}
