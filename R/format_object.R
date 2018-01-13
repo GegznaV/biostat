@@ -1,5 +1,4 @@
 # Internal functions
-
 # ============================================================================
 format_object <- function(x, ...) {
     UseMethod("format_object")
@@ -13,7 +12,9 @@ format_object.test_normality <- function(x,
                                          signif_as_separate_column = TRUE,
                                          signif_stars_col_name = "signif.",
                                          rm_zero = FALSE,
-                                         show_col_method = FALSE
+                                         show_col_method = FALSE,
+                                         ss = ss,
+                                         ...
 ) {
     # Should column "method" be removed?
     if (show_col_method == FALSE) {
@@ -28,9 +29,9 @@ format_object.test_normality <- function(x,
         # And for unadjusted otherwise
         x[[signif_stars_col_name]] <-
             if (!is.null(p_adjust_method)) {
-                sprintf("%-3s", get_signif_stars(x$p.adjust))
+                sprintf("%-3s", get_signif_stars(x$p.adjust, ss = ss))
             } else {
-                sprintf("%-3s", get_signif_stars(x$p.value))
+                sprintf("%-3s", get_signif_stars(x$p.value, ss = ss))
             }
 
         # There is no point to show significance stars two times
@@ -38,10 +39,20 @@ format_object.test_normality <- function(x,
     }
 
     # Round
-    x <- format_as_p_columns(x,
+    # x <- format_as_p_columns(x,
+    #                          digits_p = digits_p,
+    #                          rm_zero = rm_zero,
+    #                          signif_stars = signif_stars)
+
+    suppressMessages({
+        # Suppress message which columns with p values were formatted.
+        x <- format_p_values(x,
                              digits_p = digits_p,
                              rm_zero = rm_zero,
-                             signif_stars = signif_stars)
+                             signif_stars = signif_stars,
+                             ss = ss,
+                             ...)
+    })
 
     if (is.numeric(x$statistic)) {
         # The rounding of values is chosen according to the maximum value
@@ -58,12 +69,15 @@ format_object.test_normality <- function(x,
             if (all_stat_values_lt(1)) {
                 digits_stat <- digits_stat
                 format_stat <- "f"
+
             } else if (all_stat_values_lt(10)) {
                 digits_stat <- digits_stat - 1
                 format_stat <- "f"
+
             } else if (all_stat_values_lt(100)) {
                 digits_stat <- digits_stat - 2
                 format_stat <- "f"
+
             } else {
                 digits_stat <- digits_stat
                 format_stat <- "g"
@@ -77,5 +91,5 @@ format_object.test_normality <- function(x,
         x$statistic %<>% biostat::rm_zero()
     }
     # Output:
-    x
+    structure(x, ss = ss)
 }
