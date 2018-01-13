@@ -324,9 +324,12 @@ print.posthoc_anova <- function(x,
                               "ci_upper" = digits,
                               "t" = 2))
 
-    dat <- format_as_p_columns(dat,
-                               colnames = p_cols,
-                               digits_p = digits_p)
+    # dat <- format_as_p_columns(dat,
+    #                            colnames = p_cols,
+    #                            digits_p = digits_p)
+    dat <- format_p_values(dat,
+                           cols = p_cols,
+                           digits_p = digits_p)
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     desc_stat <- format_numbers(x$output$descriptives,
