@@ -5,7 +5,7 @@ template:
     bootswatch: sandstone
 
 navbar:
-  title: "BioStat | R package"
+  title: "biostat | R package"
   type: inverse
   left:
   - icon: fa-home fa-lg
@@ -14,4 +14,4 @@ navbar:
     href: reference/index.html
   right:
   - icon: fa-github fa-lg
-    href: https://github.com/GegznaV/BioStat
+    href: https://github.com/GegznaV/biostat
