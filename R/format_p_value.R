@@ -1,5 +1,5 @@
 # ====================================================================
-#' Format p-values
+#' [!!!] Format p-values
 #'
 #' Fuctions to fromat p values.
 #'
@@ -71,8 +71,33 @@
 #'
 #' signif_stars_legend()
 #'
-format_p_values <- function(p, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE,
-                            add_p = FALSE, rm_spaces = FALSE) {
+
+# TO DO:
+# 1. Include alpha paramerer to start marking significance.
+format_p_values <- function(p,
+                            digits_p = 3,
+                            ...,
+                            alpha = 0.05,
+                            signif_stars = TRUE,
+                            rm_zero = FALSE,
+                            add_p = FALSE,
+                            rm_spaces = FALSE,
+                            ss = signif_syms
+) {
+
+    UseMethod("format_p_values")
+}
+
+#' @rdname format_p_values
+#' @export
+format_p_values.default <- function(p,
+                                    digits_p = 3,
+                                    ...,
+                                    signif_stars = TRUE,
+                                    rm_zero = FALSE,
+                                    add_p = FALSE,
+                                    rm_spaces = FALSE,
+                                    ss = signif_syms) {
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     p %<>% as.character() %>% as.numeric()
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -85,10 +110,15 @@ format_p_values <- function(p, digits_p = 3, signif_stars = TRUE, rm_zero = FALS
              "Values NA, NULL, -Inf, and Inf are not accepted.")
     }
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    sapply(p, format_p, digits_p = digits_p,
-                        rm_zero = rm_zero,
-                        signif_stars = signif_stars,
-                        add_p = add_p
+    sapply(p, format_p,
+           digits_p = digits_p,
+           signif_stars = signif_stars,
+           rm_zero = rm_zero,
+           add_p = add_p,
+           rm_spaces = rm_spaces,
+           ss = ss,
+           ...
+
     )
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
@@ -98,14 +128,31 @@ format_p_values <- function(p, digits_p = 3, signif_stars = TRUE, rm_zero = FALS
 #' @export
 #' @examples
 #'
+#' format_p(0)
 #' format_p(.02, digits_p = 2)
 #' format_p(.0002)
 #' format_p(.0002, signif_stars = FALSE)
-#'
-format_p <- function(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE, rm_spaces = FALSE) {
+#' format_p(.0002, ss = c("*****" = 0.001))
+
+# [!!!] TO DO:
+# 1. Add parameter to emable p value correction
+#    from p = 1 into, e.g., p > 0.999;
+#
+# 2. merge parameters `ss` and `signif_stars`
+
+format_p <-
+    function(p_i,
+             digits_p = 3,
+             signif_stars = TRUE,
+             rm_zero = FALSE,
+             add_p = FALSE,
+             rm_spaces = FALSE,
+             ss = signif_syms
+    ) {
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     s_i <- if (signif_stars == TRUE) {
-        biostat::get_signif_stars(p_i)
+        biostat::get_signif_stars(p_i, ss = ss)
     } else {
         ""
     }
@@ -117,16 +164,16 @@ format_p <- function(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE, ad
         min_limit <- 10^-(digits_p)
 
         p_i <- if (digits_p > 3 & p_i < min_limit) {
-            paste0("<", formatC(min_limit, digits = digits_p, format = "f"))
+            paste0("< ", formatC(min_limit, digits = digits_p, format = "f"))
 
         } else if (digits_p <= 3 & p_i < 0.001) {
-            "<0.001"
+            "< 0.001"
 
         } else if (digits_p <= 2 & p_i < 0.01) {
-            "<0.01"
+            "< 0.01"
 
         } else {
-            paste0(" ", formatC(p_i, digits = digits_p, format = "f"))
+            paste0("  ", formatC(p_i, digits = digits_p, format = "f"))
         }
         # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         p_i <- if (signif_stars == TRUE) {
@@ -158,68 +205,156 @@ format_p <- function(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE, ad
 # ============================================================================
 #' @rdname format_p_values
 #' @export
-format_as_p_columns <- function(data,
-                                colnames = c("p.value", "p.adjust"),
-                                digits_p = 3,
-                                rm_zero = FALSE,
-                                signif_stars = FALSE,
-                                ...)
+format_p_values.data.frame <- function(data,
+                                       digits_p = 3,
+                                       # colnames = NULL,
+                                       cols = NULL,
+                                       ...,
+                                       ss = signif_syms,
+                                       signif_stars = TRUE,
+                                       rm_zero = FALSE,
+                                       add_p = FALSE,
+                                       rm_spaces = FALSE)
 {
     data_colnames <- names(data)
-    colname <- data_colnames[data_colnames %in% colnames]
+
+    if (is.null(cols)) {
+        is_p <- grepl("^p$|^p.?val|^p.?adj", data_colnames, ignore.case = TRUE)
+
+        message("The p-value formatting applied for these columns: ",
+                paste(data_colnames[is_p], collapse = ", "))
+
+    } else if (is.character(cols)) {
+        is_p <- data_colnames %in% cols
+
+    } else if (is.numeric(cols)) {
+        is_p <- cols
+    } else if (is.logical(cols)) {
+        is_p <- cols
+    } else {
+        stop("The type of argument `cols` is incorrect.")
+    }
+
+    colname <- data_colnames[is_p]
 
     for (colname_i in colname) {
         data[[colname_i]] %<>%
                 purrr::map_chr(format_p_values,
                                digits_p = digits_p,
-                               rm_zero = rm_zero,
                                signif_stars = signif_stars,
+                               ss = ss,
+                               rm_zero = rm_zero,
+                               add_p = add_p,
+                               rm_spaces = rm_spaces,
                                ...
                                )
         }
     data
 }
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
-add_signif_stars <- function(p) {
-    paste(p, format(get_signif_stars(p)))
+add_signif_stars <- function(p, ss = signif_syms) {
+    paste(p, format(get_signif_stars(p, ss = ss)))
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
-get_signif_stars <- function(p) {
-    checkmate::assert_numeric(p, lower = 0, upper = 1)
+get_signif_stars <- function(p, ss = signif_syms) {
+    checkmate::assert_numeric(p,  lower = 0, upper = 1)
+    checkmate::assert_numeric(ss, lower = 0, upper = 1)
 
-    sapply(p, function(p_i) {
-        symnum(
-            p_i,
-            corr = FALSE,
-            na = FALSE,
-            cutpoints = c(0, 0.001, 0.01, 0.05, 0.1, 1),
-            symbols = c("***", "**", "*", ".", " ")
-        )
-    })
+    ss_obj <- signif_parse(ss)
+
+    # sapply(p, function(p_i) {
+    #     stats::symnum(
+    #         p_i,
+    #         corr = FALSE,
+    #         na = FALSE,
+    #         cutpoints = ss_obj$cutpoints,
+    #         symbols   = ss_obj$symbols
+    #     )
+    # })
+
+    res <- stats::symnum(
+        p,
+        corr = FALSE,
+        na = FALSE,
+        cutpoints = ss_obj$cutpoints,
+        symbols   = ss_obj$symbols
+    )
+
+    unclass(res)
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
-signif_stars_legend <- function() {
-    tmp <- symnum(1, corr = FALSE, na = FALSE,
-                cutpoints = c(0, 0.001, 0.01, 0.05, 0.1, 1),
-                symbols = c("***", "**", "*", ".", " "))
+signif_syms_05s  <- c("*" = 0.05)
+#' @rdname format_p_values
+#' @export
+signif_syms_01s  <- c("*" = 0.01)
+#' @rdname format_p_values
+#' @export
+signif_syms_001s <- c("*" = 0.001)
+#' @rdname format_p_values
+#' @export
+signif_syms_001  <- c("***" = 0.001)
+#' @rdname format_p_values
+#' @export
+signif_syms_01   <- c("***" = 0.001, "**" = 0.01)
+#' @rdname format_p_values
+#' @export
+signif_syms_05   <- c("***" = 0.001, "**" = 0.01, "*" = 0.05)
+#' @rdname format_p_values
+#' @export
+signif_syms      <- c("***" = 0.001, "**" = 0.01, "*" = 0.05, "." = 0.1)
+
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+signif_parse <- function(ss = NULL) {
+    # ss is a named numeric vector, e.g.,
+    # ss <- c("***" = 0.001, "**" = 0.01, "*" = 0.05)
+    ss <- ss[order(ss)]
+
+    list(symbols   = c(names(ss), " "),
+         cutpoints = c(0, as.numeric(ss), 1))
+}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @rdname format_p_values
+#' @export
+signif_stars_legend <- function(ss = signif_syms) {
+    # ss is a named numeric vector, e.g.,
+    # ss <- c("***" = 0.001, "**" = 0.01, "*" = 0.05)
+
+    ss_obj <- signif_parse(ss)
+
+    tmp <- stats::symnum(1, corr = FALSE, na = FALSE,
+                         cutpoints = ss_obj$cutpoints,
+                         symbols   = ss_obj$symbols)
 
     attr(tmp, "legend")
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
+signif_stars_legend_2 <- function(ss = signif_syms, decreasing = FALSE) {
+    ss <- ss[order(ss, decreasing = decreasing)]
+    xx <- c(names(ss),
+            paste0("p < ", as.numeric(ss))) %>%
+        matrix(ncol = 2)
+
+    paste(paste(xx[, 1], xx[, 2]), collapse = ", ")
+}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @rdname format_p_values
+#' @export
 #' @examples
-#' rm_zero(0.02)
+#' rm_zero(0.020)
 #'
-rm_zero <- function(str) {
-    sub("0\\.", ".", as.character(str))
+rm_zero <- function(str, dec = ".") {
+    sub(paste0("0", dec), dec, as.character(str), fixed = TRUE)
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -277,3 +412,34 @@ rm_zero <- function(str) {
 #     }
 #     data
 # }
+
+
+# Deprecated --------------------------------------------------------------
+
+
+#' @rdname format_p_values
+#' @export
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+format_as_p_columns <- function(data,
+                                colnames = c("p.value", "p.adjust"),
+                                digits_p = 3,
+                                rm_zero = FALSE,
+                                signif_stars = FALSE,
+                                ...)
+{
+    .Deprecated("format_p_values")
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    data_colnames <- names(data)
+    colname <- data_colnames[data_colnames %in% colnames]
+
+    for (colname_i in colname) {
+        data[[colname_i]] %<>%
+            purrr::map_chr(format_p_values,
+                           digits_p = digits_p,
+                           rm_zero = rm_zero,
+                           signif_stars = signif_stars,
+                           ...
+            )
+    }
+    data
+}
