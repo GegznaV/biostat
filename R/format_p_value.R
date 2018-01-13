@@ -324,7 +324,7 @@ signif_parse <- function(ss = NULL) {
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
-signif_stars_legend <- function(ss = signif_syms) {
+signif_stars_legend_2 <- function(ss = signif_syms) {
     # ss is a named numeric vector, e.g.,
     # ss <- c("***" = 0.001, "**" = 0.01, "*" = 0.05)
 
@@ -339,10 +339,11 @@ signif_stars_legend <- function(ss = signif_syms) {
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
-signif_stars_legend_2 <- function(ss = signif_syms, decreasing = FALSE) {
+# [!!!] en dash (–) might cause error on CRAN checks.
+signif_stars_legend <- function(ss = signif_syms, decreasing = FALSE) {
     ss <- ss[order(ss, decreasing = decreasing)]
     xx <- c(names(ss),
-            paste0("p < ", as.numeric(ss))) %>%
+            paste0("– p < ", as.numeric(ss))) %>%
         matrix(ncol = 2)
 
     paste(paste(xx[, 1], xx[, 2]), collapse = ", ")
