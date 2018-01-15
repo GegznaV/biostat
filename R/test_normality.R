@@ -332,7 +332,9 @@ print.test_normality <- function(x,
 
     # Print signif. stars legend
     if (legend == TRUE && signif_stars == TRUE)
-        cat("\nLegend for p-values:  \n", signif_stars_legend(ss = ss), "\n")
+        cat(paste0("\n",
+            # "Legend for p-values:  \n",
+            signif_stars_legend(ss = ss, collapse = ", "), "\n"))
 
     # Print p adjust. method:
     p_adjust_method <- attr(x, "p_adjust_method")
@@ -395,8 +397,10 @@ pander.test_normality <- function(x,
 
     # Print legend
     if (legend == TRUE && signif_stars == TRUE)
-        cat("Legend for p-values:  \n`", signif_stars_legend(ss = ss), "`  \n")
-
+        # cat("Legend for p-values:  \n`", signif_stars_legend(ss = ss), "`  \n")
+        cat(paste0(
+            # "\nLegend for p-values:  \n",
+            signif_stars_legend(ss = ss), "\n"))
 }
 
 # helpers --------------------------------------------------------------------
