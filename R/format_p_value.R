@@ -76,6 +76,7 @@
 # 1. Include alpha paramerer to start marking significance.
 format_p_values <- function(p,
                             digits_p = 3,
+                            cols = NULL,
                             ...,
                             alpha = 0.05,
                             signif_stars = TRUE,
@@ -92,6 +93,7 @@ format_p_values <- function(p,
 #' @export
 format_p_values.default <- function(p,
                                     digits_p = 3,
+                                    cols = NULL,
                                     ...,
                                     signif_stars = TRUE,
                                     rm_zero = FALSE,
@@ -164,13 +166,13 @@ format_p <-
         min_limit <- 10^-(digits_p)
 
         p_i <- if (digits_p > 3 & p_i < min_limit) {
-            paste0("< ", formatC(min_limit, digits = digits_p, format = "f"))
+            paste0("<", formatC(min_limit, digits = digits_p, format = "f"))
 
         } else if (digits_p <= 3 & p_i < 0.001) {
-            "< 0.001"
+            "<0.001"
 
         } else if (digits_p <= 2 & p_i < 0.01) {
-            "< 0.01"
+            "<0.01"
 
         } else {
             paste0("  ", formatC(p_i, digits = digits_p, format = "f"))
@@ -235,7 +237,16 @@ format_p_values.data.frame <- function(data,
         stop("The type of argument `cols` is incorrect.")
     }
 
-    colname <- data_colnames[is_p]
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    is_num <- sapply(data, is.numeric)
+    not_numeric_p <- is_p & (!is_num)
+    if (any(not_numeric_p)) {
+        message("These columns are not numeric thus p-formatting skipped: ",
+                paste(data_colnames[not_numeric_p], collapse = ", "))
+    }
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    colname <- data_colnames[is_p & is_num]
 
     for (colname_i in colname) {
         data[[colname_i]] %<>%
@@ -294,10 +305,19 @@ get_signif_stars <- function(p, ss = signif_syms) {
 signif_syms_05s  <- c("*" = 0.05)
 #' @rdname format_p_values
 #' @export
+p05 <- c("*" = 0.05)
+#' @rdname format_p_values
+#' @export
 signif_syms_01s  <- c("*" = 0.01)
 #' @rdname format_p_values
 #' @export
+p01  <- c("*" = 0.01)
+#' @rdname format_p_values
+#' @export
 signif_syms_001s <- c("*" = 0.001)
+#' @rdname format_p_values
+#' @export
+p001 <- c("*" = 0.001)
 #' @rdname format_p_values
 #' @export
 signif_syms_001  <- c("***" = 0.001)
@@ -310,6 +330,12 @@ signif_syms_05   <- c("***" = 0.001, "**" = 0.01, "*" = 0.05)
 #' @rdname format_p_values
 #' @export
 signif_syms      <- c("***" = 0.001, "**" = 0.01, "*" = 0.05, "." = 0.1)
+#' @rdname format_p_values
+#' @export
+p05_01_001   <- c("***" = 0.001, "**" = 0.01, "*" = 0.05, "." = 0.1)
+#' @rdname format_p_values
+#' @export
+p05plus   <- c("***" = 0.001, "**" = 0.01, "*" = 0.05, "." = 0.1)
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -340,13 +366,16 @@ signif_stars_legend_2 <- function(ss = signif_syms) {
 #' @rdname format_p_values
 #' @export
 # [!!!] en dash (–) might cause error on CRAN checks.
-signif_stars_legend <- function(ss = signif_syms, decreasing = FALSE) {
+signif_stars_legend <- function(ss = signif_syms,
+                                decreasing = FALSE,
+                                collapse = c("  \n", ", ", "; ")) {
+    collapse <- match.arg(collapse)
     ss <- ss[order(ss, decreasing = decreasing)]
     xx <- c(names(ss),
-            paste0("– p < ", as.numeric(ss))) %>%
+            paste0("- p < ", as.numeric(ss))) %>%
         matrix(ncol = 2)
 
-    paste(paste(xx[, 1], xx[, 2]), collapse = ", ")
+    paste(paste(xx[, 1], xx[, 2]), collapse = collapse)
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
@@ -429,7 +458,7 @@ format_as_p_columns <- function(data,
                                 ...)
 {
     .Deprecated("format_p_values")
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     data_colnames <- names(data)
     colname <- data_colnames[data_colnames %in% colnames]
 
@@ -444,3 +473,4 @@ format_as_p_columns <- function(data,
     }
     data
 }
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

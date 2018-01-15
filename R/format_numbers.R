@@ -11,10 +11,14 @@
 #
 # ... - to be passed to `fun`
 # fun - formatting function to be applied. Default is `formatC`
+#
+# TODO:
+# 1) add parameter `skip` - for columns to skip.
+# 2) add parameter `include` - for the only columns to format.
 
 
 
-#' Format Numbers in Columns of a Dataframe
+#' Format values of numeric columns in a dataframe.
 #'
 #' Function formats numeric columns only.
 #' Other classes are left intact.

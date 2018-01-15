@@ -9,12 +9,17 @@
 \alias{add_signif_stars}
 \alias{get_signif_stars}
 \alias{signif_syms_05s}
+\alias{p05}
 \alias{signif_syms_01s}
+\alias{p01}
 \alias{signif_syms_001s}
+\alias{p001}
 \alias{signif_syms_001}
 \alias{signif_syms_01}
 \alias{signif_syms_05}
 \alias{signif_syms}
+\alias{p05_01_001}
+\alias{p05plus}
 \alias{signif_stars_legend_2}
 \alias{signif_stars_legend}
 \alias{rm_zero}
@@ -22,11 +27,13 @@
 \title{[!!!] Format p-values}
 \format{An object of class \code{numeric} of length 1.}
 \usage{
-format_p_values(p, digits_p = 3, ..., alpha = 0.05, signif_stars = TRUE,
-  rm_zero = FALSE, add_p = FALSE, rm_spaces = FALSE, ss = signif_syms)
+format_p_values(p, digits_p = 3, cols = NULL, ..., alpha = 0.05,
+  signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE,
+  rm_spaces = FALSE, ss = signif_syms)
 
-\method{format_p_values}{default}(p, digits_p = 3, ..., signif_stars = TRUE,
-  rm_zero = FALSE, add_p = FALSE, rm_spaces = FALSE, ss = signif_syms)
+\method{format_p_values}{default}(p, digits_p = 3, cols = NULL, ...,
+  signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE,
+  rm_spaces = FALSE, ss = signif_syms)
 
 format_p(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE,
   add_p = FALSE, rm_spaces = FALSE, ss = signif_syms)
@@ -41,9 +48,15 @@ get_signif_stars(p, ss = signif_syms)
 
 signif_syms_05s
 
+p05
+
 signif_syms_01s
 
+p01
+
 signif_syms_001s
+
+p001
 
 signif_syms_001
 
@@ -53,9 +66,14 @@ signif_syms_05
 
 signif_syms
 
+p05_01_001
+
+p05plus
+
 signif_stars_legend_2(ss = signif_syms)
 
-signif_stars_legend(ss = signif_syms, decreasing = FALSE)
+signif_stars_legend(ss = signif_syms, decreasing = FALSE,
+  collapse = c("  \\n", ", ", "; "))
 
 rm_zero(str, dec = ".")
 
