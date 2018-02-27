@@ -7,8 +7,8 @@ Description: A collection of functions that either are intended to be used with
              The functions are created to complement other R Commander plugins 
              that can be used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.14.9002
-Date: 2018-01-15
+Version: 0.0.14.9004
+Date: 2018-02-27
 Authors@R: c(
     person("Vilmantas", "Gegna", role = c("aut","cre"),
             email = "GegznaV@gmail.com")
@@ -44,7 +44,9 @@ Imports:
     multcompView,
     psych,
     withr,
-    SuppDists
+    SuppDists,
+    styler,
+    boot
 RoxygenNote: 6.0.1
 Suggests:
     covr,

@@ -1,0 +1,114 @@
+---
+title: "Untitled"
+author: "VG"
+date: "February 7, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(Hmisc)
+library(MASS)
+library(tidyverse)
+library(biostat)
+library(ggridges)
+```
+
+```{r}
+hist(sort(rnorm(1e5)))
+```
+
+```{r}
+Sitka
+```
+
+```{r}
+Sitka89
+```
+```{r}
+SP500
+```
+
+
+```{r}
+Traffic %>% glimpse()
+```
+
+```{r}
+glimpse(UScereal)
+```
+
+```{r}
+psych::describe(UScereal)  %>% 
+    pander::pander()
+```
+
+```{r}
+mad(UScereal$calories)
+```
+
+
+
+```{r}
+ggplot(anorexia, aes(x = Prewt, y = Postwt, color = Treat)) +
+    geom_point() +
+    geom_smooth(method = "lm", se = FALSE)
+```
+
+```{r}
+anorexia2 <-
+    anorexia %>% 
+    mutate(diff_wt = Postwt - Prewt)
+
+ggplot(anorexia2, aes(x = Treat, y = diff_wt)) +
+    geom_boxplot()
+```
+```{r}
+ggplot(anorexia2, aes(x = Treat, y = diff_wt, color = Treat)) +
+    geom_violin() +
+    geom_jitter(width = .1) +
+    coord_flip()
+```
+
+
+```{r}
+ggplot(anorexia2, aes(x = diff_wt, fill = Treat)) +
+    geom_density(alpha = 0.3, adjust = 1.6) +
+    coord_flip()
+```
+```{r}
+ggplot(anorexia2, aes(x = diff_wt, y = Treat, fill = Treat)) +
+    geom_density_ridges(alpha = 0.3, scale = 0.9, bw = 3)
+```
+
+```{r}
+ggplot(anorexia2, aes(x = diff_wt, fill = Treat)) +
+    geom_density(alpha = 0.3, adjust = 1.6) +
+    coord_flip()
+```
+
+
+```{r}
+anorexia3 <- anorexia  %>% 
+    mutate(id = row_number()) %>% 
+    gather(key = "time", value = "weight", Prewt, Postwt)  %>% 
+    separate(col = time, into = c("time", "del"), sep = -2)  %>% 
+    select(-del)  %>% 
+    mutate(time = fct_relevel(time, "Pre", "Post"))
+
+ggplot(anorexia3, aes(x = time, y = weight, group = id)) +
+    geom_line() +
+    geom_point(color = "orange") +
+    facet_grid(. ~ Treat)
+```
+
+
+
+```{r}
+qq_plot(diff_wt ~ Treat, data = anorexia2)
+biostat::test_normality(diff_wt ~ Treat, data = anorexia2)
+PMCMR::posthoc.kruskal.conover.test(diff_wt ~ Treat, data = anorexia2) %>% 
+    make_cld()
+```
+
