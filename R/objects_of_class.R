@@ -1,4 +1,3 @@
-
 #' List objects of a certain class.
 #'
 #' @param class (character) The name of class.
