@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Do numerical summaries by groups � do_summary • biostat</title>
+<title>Do numerical summaries by groups — do_summary â€¢ biostat</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,6 +18,8 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -25,6 +27,10 @@
 <script src="../pkgdown.js"></script>
   
   
+<meta property="og:title" content="Do numerical summaries by groups — do_summary" />
+
+<meta property="og:description" content="Do numerical summaries by groups with formaula interface. Missing values are automatically removed." />
+<meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -89,7 +95,7 @@
     
 
     <pre class="usage"><span class='fu'>do_summary</span>(<span class='no'>y</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"n"</span>, <span class='st'>"missing"</span>, <span class='st'>"mean"</span>, <span class='st'>"sd"</span>, <span class='st'>"var"</span>,
-  <span class='st'>"min"</span>, <span class='st'>"Q1"</span>, <span class='st'>"Md"</span>, <span class='st'>"Q3"</span>, <span class='st'>"max"</span>, <span class='st'>"IQR"</span>, <span class='st'>"skewness"</span>, <span class='st'>"kurtosis"</span>))
+  <span class='st'>"min"</span>, <span class='st'>"Q1"</span>, <span class='st'>"Md"</span>, <span class='st'>"Q3"</span>, <span class='st'>"max"</span>, <span class='st'>"IQR"</span>, <span class='st'>"mad"</span>, <span class='st'>"skewness"</span>, <span class='st'>"kurtosis"</span>))
 
 <span class='co'># S3 method for num_summaries</span>
 <span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"f"</span>)</pre>
@@ -119,6 +125,7 @@
 <li><p><code>"Q3"</code> - 3-rd quartile,</p></li>
 <li><p><code>"max"</code> - maximum value,</p></li>
 <li><p><code>"IQR"</code> - interquartile range,</p></li>
+<li><p><code>"mad"</code> - median absolute deviation from median (more details <a href='http://www.rdocumentation.org/packages/stats/topics/mad'>mad</a>),</p></li>
 <li><p><code>"skewness"</code> - skewness,</p></li>
 <li><p><code>"kurtosis"</code> - excess kurtosis.</p></li>
 </ul></td>
@@ -160,15 +167,15 @@ Each value will be passed to <code>fun</code> separately.
 <span class='fu'>do_summary</span>(~<span class='no'>VitC</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   summary_of  n missing  mean    sd    var   min    Q1    Md    Q3   max   IQR
 #&gt; 1       VitC 60       0 57.95 10.12 102.39 41.00 50.75 56.00 66.25 84.00 15.50
-#&gt;   skewness kurtosis
-#&gt; 1     0.32    -0.68</div><div class='input'>
+#&gt;     mad skewness kurtosis
+#&gt; 1 10.38     0.32    -0.68</div><div class='input'>
 <span class='fu'>do_summary</span>(<span class='no'>VitC</span> ~ <span class='no'>Cult</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   summary_of Cult  n missing  mean   sd   var   min    Q1    Md    Q3   max
 #&gt; 1       VitC  c39 30       0 51.50 7.12 50.74 41.00 46.00 51.00 54.75 68.00
 #&gt; 2       VitC  c52 30       0 64.40 8.46 71.49 47.00 58.00 64.50 70.75 84.00
-#&gt;     IQR skewness kurtosis
-#&gt; 1  8.75     0.58    -0.26
-#&gt; 2 12.75     0.12    -0.62</div><div class='input'>
+#&gt;     IQR  mad skewness kurtosis
+#&gt; 1  8.75 5.93     0.58    -0.26
+#&gt; 2 12.75 9.64     0.12    -0.62</div><div class='input'>
 <span class='fu'>do_summary</span>(<span class='no'>VitC</span> ~ <span class='no'>Cult</span> + <span class='no'>Date</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"mean"</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   summary_of Cult Date  mean
 #&gt; 1       VitC  c39  d16 50.30
@@ -214,7 +221,7 @@ Each value will be passed to <code>fun</code> separately.
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>

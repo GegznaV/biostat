@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • biostat</title>
+<title>Function reference â€¢ biostat</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,6 +18,8 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -25,6 +27,7 @@
 <script src="../pkgdown.js"></script>
   
   
+<meta property="og:title" content="Function reference" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -83,7 +86,7 @@
     <div class="page-header">
       <h1>
         Reference
-        <small>version&nbsp;0.0.14.9000</small>
+        <small>version&nbsp;0.0.14.9005</small>
       </h1>
     </div>
 
@@ -141,6 +144,12 @@
         </tr><tr>
           <!--  -->
           <td>
+            <p><code><a href="do_corr.html">do_corr</a></code> <code><a href="do_corr.html">print</a></code> <code><a href="do_corr.html">pander</a></code> </p>
+          </td>
+          <td><p>do_corr</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
             <p><code><a href="do_summary.html">do_summary</a></code> <code><a href="do_summary.html">print</a></code> </p>
           </td>
           <td><p>Do numerical summaries by groups</p></td>
@@ -149,11 +158,11 @@
           <td>
             <p><code><a href="format_numbers.html">format_numbers</a></code> </p>
           </td>
-          <td><p>Format Numbers in Columns of a Dataframe</p></td>
+          <td><p>Format values of numeric columns in a dataframe.</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="format_p_values.html">format_p_values</a></code> <code><a href="format_p_values.html">format_p</a></code> <code><a href="format_p_values.html">add_signif_stars</a></code> <code><a href="format_p_values.html">get_signif_stars</a></code> <code><a href="format_p_values.html">signif_syms_05s</a></code> <code><a href="format_p_values.html">signif_syms_01s</a></code> <code><a href="format_p_values.html">signif_syms_001s</a></code> <code><a href="format_p_values.html">signif_syms_001</a></code> <code><a href="format_p_values.html">signif_syms_01</a></code> <code><a href="format_p_values.html">signif_syms_05</a></code> <code><a href="format_p_values.html">signif_syms</a></code> <code><a href="format_p_values.html">signif_stars_legend</a></code> <code><a href="format_p_values.html">signif_stars_legend_2</a></code> <code><a href="format_p_values.html">rm_zero</a></code> <code><a href="format_p_values.html">format_as_p_columns</a></code> </p>
+            <p><code><a href="format_p_values.html">format_p_values</a></code> <code><a href="format_p_values.html">format_p</a></code> <code><a href="format_p_values.html">add_signif_stars</a></code> <code><a href="format_p_values.html">get_signif_stars</a></code> <code><a href="format_p_values.html">signif_syms_05s</a></code> <code><a href="format_p_values.html">p05</a></code> <code><a href="format_p_values.html">signif_syms_01s</a></code> <code><a href="format_p_values.html">p01</a></code> <code><a href="format_p_values.html">signif_syms_001s</a></code> <code><a href="format_p_values.html">p001</a></code> <code><a href="format_p_values.html">signif_syms_001</a></code> <code><a href="format_p_values.html">signif_syms_01</a></code> <code><a href="format_p_values.html">signif_syms_05</a></code> <code><a href="format_p_values.html">signif_syms</a></code> <code><a href="format_p_values.html">p05_01_001</a></code> <code><a href="format_p_values.html">p05plus</a></code> <code><a href="format_p_values.html">signif_stars_legend_2</a></code> <code><a href="format_p_values.html">signif_stars_legend</a></code> <code><a href="format_p_values.html">rm_zero</a></code> <code><a href="format_p_values.html">format_as_p_columns</a></code> </p>
           </td>
           <td><p>[!!!] Format p-values</p></td>
         </tr><tr>
@@ -180,6 +189,12 @@
             <p><code><a href="make_cld.html">make_cld</a></code> </p>
           </td>
           <td><p>Make a compact letter display (cld) for pair-wise comparison</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="objects_of_class.html">objects_of_class</a></code> </p>
+          </td>
+          <td><p>List objects of a certain class.</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -225,6 +240,12 @@
         </tr><tr>
           <!--  -->
           <td>
+            <p><code><a href="tidy_ggedit_code.html">tidy_ggedit_code</a></code> </p>
+          </td>
+          <td><p>Extract and tidy code from ggedit object.</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
             <p><code><a href="trim.html">trim</a></code> </p>
           </td>
           <td><p>Trim certain proportion of the most extreme values</p></td>
@@ -248,7 +269,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>

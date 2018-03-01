@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check and adjust length of vector according to the number of columns in a data frame
-(Function for value recycling) — adjust_vector_length â€¢ biostat</title>
+<title>do_corr — do_corr â€¢ biostat</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,11 +27,9 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="Check and adjust length of vector according to the number of columns in a data frame
-(Function for value recycling) — adjust_vector_length" />
+<meta property="og:title" content="do_corr — do_corr" />
 
-<meta property="og:description" content="Check and adjust length of vector according to the number of columns in a data frame
-(Function for value recycling)" />
+<meta property="og:description" content="do_corr" />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -90,41 +87,31 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check and adjust length of vector according to the number of columns in a data frame
-(Function for value recycling)</h1>
+    <h1>do_corr</h1>
     </div>
 
     
-    <p>Check and adjust length of vector according to the number of columns in a data frame
-(Function for value recycling)</p>
+    <p>do_corr</p>
     
 
-    <pre class="usage"><span class='fu'>adjust_vector_length</span>(<span class='no'>x</span>, <span class='no'>data</span>, <span class='kw'>make_named</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>a vector to check and recycle</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>a data frame</p></td>
-    </tr>
-    <tr>
-      <th>make_named</th>
-      <td><p>(logical) If <code>TRUE</code>, vector elements will be given names
-of data frame columns.</p></td>
-    </tr>
-    </table>
-    
+    <pre class="usage"><span class='fu'>do_corr</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"spearman"</span>, <span class='st'>"kendall"</span>, <span class='st'>"pearson"</span>)[<span class='fl'>1</span>],
+  <span class='kw'>use</span> <span class='kw'>=</span> <span class='st'>"complete.cases"</span>, <span class='kw'>conf</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>R</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='kw'>sim</span> <span class='kw'>=</span> <span class='st'>"balanced"</span>,
+  <span class='kw'>ci_type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"bca"</span>), <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='no'>p.adjust.methods</span>[<span class='fl'>1</span>])
+
+<span class='co'># S3 method for do_corr</span>
+<span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05</span>,
+  <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='st'>"p.adj"</span>, <span class='kw'>p_col_rm</span> <span class='kw'>=</span> <span class='st'>"p"</span>)
+
+<span class='co'># S3 method for do_corr</span>
+<span class='fu'>pander</span>(<span class='no'>x</span>, <span class='no'>...</span>,
+  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"The results of correlation analysis"</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>,
+  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05</span>, <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='st'>"p.adj"</span>, <span class='kw'>p_col_rm</span> <span class='kw'>=</span> <span class='st'>"p"</span>)</pre>
+        
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
                 </ul>
 
   </div>
