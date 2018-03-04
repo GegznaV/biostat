@@ -3,29 +3,31 @@
 
 -----
 
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/biostat)](https://cran.r-project.org/package=biostat)
 [![GitHub
-version](https://img.shields.io/badge/GitHub-v0.0.14.9004-brightgreen.svg)](https://github.com/GegznaV/biostat)
+version](https://img.shields.io/badge/GitHub-v0.0.15-brightgreen.svg)](https://github.com/GegznaV/biostat)
 [![Travis-CI Build
 Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
-[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--03--01-yellowgreen.svg)](/commits/master)
+[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--03--04-yellowgreen.svg)](/commits/master)
 
 -----
 
 <img src="https://raw.githubusercontent.com/GegznaV/biostat/master/docs/logo.png" width="30%" height="30%" style="display: block; margin: auto;" />
 
-# `biostat` – Routines for Basic (Bio)Statistics
+# Package ***biostat*** – Routines for Basic (Bio)Statistics
 
-`biostat` is an *R* package that contains a collection of functions that
-either are intended to be used with R Commander plugin
+Package ***biostat*** is an *R* package that contains a collection of
+functions that either are intended to be used with R Commander plugin
 *RcmdrPlugin.biostat* or to do several common statistical routines
 (without writing to much code). The functions are created to complement
 other *R Commander* plugins that can be used to teach basic statistics
 in biostatistics and biometry lectures.
 
-The package is still in its development and some functions are for
-demonstration purposes only as they may change in the future.
+<font color="red"> The package is still in its **early development
+stage** and some functions are for demonstration purposes only as they
+may change in the future. </font>
 
 Documentation and more information available at
 <http://gegznav.github.io/biostat/>
@@ -51,11 +53,13 @@ devtools::install_github("GegznaV/biostat")
 
 <!-- *** -->
 
-<!-- # Other related packages -->
+## Related packages
 
 <!-- Other related packages are *R Commander* (*Rcmdr*) plugins: -->
 
-<!-- a. **RcmdrPlugin.biostat** -- an *R Commander* plugin for `biostat` package ([homepage](https://gegznav.github.io/RcmdrPlugin.biostat/)); -->
+1.  **RcmdrPlugin.biostat** – an *R Commander* plugin for **biostat**
+    package
+([homepage](https://gegznav.github.io/RcmdrPlugin.biostat/))
 
 <!-- b. **RcmdrPlugin.EZR.2** -- an *R Commander* plugin for the most common statistical analyses (the same as *RcmdrPlugin.EZR*, except that *RcmdrPlugin.EZR.2* does not modify original *Rcmdr* menu so dramatically); -->
 

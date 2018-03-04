@@ -5,10 +5,10 @@ Description: A collection of functions that either are intended to be used with
              R Commander plugin `RcmdrPlugin.biostat` or to do several common 
              statistical routines (without writing to much code). 
              The functions are created to complement other R Commander plugins 
-             that can be used to teach basic statistics especially in 
+             that are used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.14.9005
-Date: 2018-02-27
+Version: 0.0.15
+Date: 2018-03-04
 Authors@R: c(
     person("Vilmantas", "Gegna", role = c("aut","cre"),
             email = "GegznaV@gmail.com")

@@ -237,13 +237,13 @@ on code of function <code>posthocTGH()</code> in package <span class="pkg">userf
 <span class='co'># Compute post-hoc statistics using the Games-Howell method</span>
 <span class='fu'>posthoc_anova</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Games-Howell"</span>)</div><div class='output co'>#&gt; Games-Howell test results (ANOVA post-hoc) 
 #&gt; 
-#&gt;   groups difference ci_lower ci_upper    t     df           p
-#&gt; 1    2-1     19.971    0.358   39.585 2.64 201.38   0.044 *  
-#&gt; 2    3-1     40.305   17.544   63.065 4.59 175.92  &lt;0.001 ***
-#&gt; 3    4-1     32.617   13.452   51.783 4.41 203.16  &lt;0.001 ***
-#&gt; 4    3-2     20.333   -6.203   46.870 1.98 229.94   0.197    
-#&gt; 5    4-2     12.646  -10.909   36.201 1.39 235.88   0.507    
-#&gt; 6    4-3     -7.687  -33.899   18.524 0.76 226.16   0.873    
+#&gt;   groups difference ci_lower ci_upper    t     df          p
+#&gt; 1    2-1     19.971    0.358   39.585 2.64 201.38  0.044 *  
+#&gt; 2    3-1     40.305   17.544   63.065 4.59 175.92 &lt;0.001 ***
+#&gt; 3    4-1     32.617   13.452   51.783 4.41 203.16 &lt;0.001 ***
+#&gt; 4    3-2     20.333   -6.203   46.870 1.98 229.94  0.197    
+#&gt; 5    4-2     12.646  -10.909   36.201 1.39 235.88  0.507    
+#&gt; 6    4-3     -7.687  -33.899   18.524 0.76 226.16  0.873    
 #&gt; 
 #&gt;   group   n    mean variance     sd cld spaced_cld
 #&gt; 1     1 220 102.645 3209.965 56.657   a         a_
@@ -253,13 +253,13 @@ on code of function <code>posthocTGH()</code> in package <span class="pkg">userf
 <span class='co'># Compute post-hoc statistics using the Tukey method</span>
 <span class='fu'>posthoc_anova</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Tukey"</span>)</div><div class='output co'>#&gt; Tukey HSD test results (ANOVA post-hoc) 
 #&gt; 
-#&gt;   groups difference ci_lower ci_upper    t     df           p
-#&gt; 1    2-1     19.971   -0.300   40.242 2.54 574.00   0.055 .  
-#&gt; 2    3-1     40.305   20.034   60.576 5.12 574.00  &lt;0.001 ***
-#&gt; 3    4-1     32.617   12.235   52.999 4.12 574.00  &lt;0.001 ***
-#&gt; 4    3-2     20.333   -2.727   43.394 2.27 574.00   0.106    
-#&gt; 5    4-2     12.646  -10.512   35.804 1.41 574.00   0.495    
-#&gt; 6    4-3     -7.687  -30.845   15.470 0.86 574.00   0.828    
+#&gt;   groups difference ci_lower ci_upper    t     df          p
+#&gt; 1    2-1     19.971   -0.300   40.242 2.54 574.00  0.055 .  
+#&gt; 2    3-1     40.305   20.034   60.576 5.12 574.00 &lt;0.001 ***
+#&gt; 3    4-1     32.617   12.235   52.999 4.12 574.00 &lt;0.001 ***
+#&gt; 4    3-2     20.333   -2.727   43.394 2.27 574.00  0.106    
+#&gt; 5    4-2     12.646  -10.512   35.804 1.41 574.00  0.495    
+#&gt; 6    4-3     -7.687  -30.845   15.470 0.86 574.00  0.828    
 #&gt; 
 #&gt;   group   n    mean variance     sd cld spaced_cld
 #&gt; 1     1 220 102.645 3209.965 56.657   a         a_
