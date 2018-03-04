@@ -4,18 +4,14 @@
 \alias{head_tail}
 \title{[!] Show several first and last rows of a data frame}
 \usage{
-head_tail(obj, n = 4, top = n, bottom = n, sep = "...", format = "f")
+head_tail(obj, n = 4, format = c("f", "g", "e"), sep = "...",
+  max_decimals = NULL, signif_digits = 3, tolerance = 2, top = n,
+  bottom = n)
 }
 \arguments{
 \item{obj}{A data frame.}
 
 \item{n}{(integer) Number of top and bottom rows to display.}
-
-\item{top}{(integer) Number of top rows to display.}
-
-\item{bottom}{(integer) Number of bottom rows to display.}
-
-\item{sep}{(character) Separator between displayed top and bottom lines.}
 
 \item{format}{equal to \code{"d"}  (for integers), \code{"f"},
     \code{"e"}, \code{"E"}, \code{"g"}, \code{"G"}, \code{"fg"} (for
@@ -34,6 +30,23 @@ head_tail(obj, n = 4, top = n, bottom = n, sep = "...", format = "f")
     more significant digits than \code{digits}.  Trailing zeros are
     \emph{dropped} in this format, unless \code{flag} contains
     \code{"#"}.}
+
+\item{sep}{(character) Separator between displayed top and bottom lines.}
+
+\item{max_decimals}{(integer, \code{NULL})
+Maximum number of decimal digits to bpint.
+If \code{NULL}, no restrictions applied.}
+
+\item{signif_digits}{(integer, \code{NULL})
+Number of significant digits used to determine appropriate rounding.
+If \code{NULL}, all digits are used to determine the appropriate
+rounding.}
+
+\item{tolerance}{(integer) For small datasets, number of rows to show in addition to \code{top} and \code{bottom} before the dataset is truncated.}
+
+\item{top}{(integer) Number of top rows to display.}
+
+\item{bottom}{(integer) Number of bottom rows to display.}
 }
 \value{
 A truncated data frame (which is intended to be printed) with all
@@ -43,7 +56,15 @@ A truncated data frame (which is intended to be printed) with all
 This function selects several top and bottom rows of a data frame for a preview.
 }
 \examples{
+library(biostat)
+
 data(swiss)
 head_tail(swiss)
+
+data(swiss)
+head_tail(iris, n = 2)
+head_tail(iris[1:6, ], n = 2, tolerance = 1)
+head_tail(iris[1:6, ], n = 2, tolerance = 2)
+
 }
 \keyword{utilities}
