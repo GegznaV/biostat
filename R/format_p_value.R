@@ -175,7 +175,7 @@ format_p <-
             "<0.01"
 
         } else {
-            paste0("  ", formatC(p_i, digits = digits_p, format = "f"))
+            paste0(" ", formatC(p_i, digits = digits_p, format = "f"))
         }
         # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
         p_i <- if (signif_stars == TRUE) {

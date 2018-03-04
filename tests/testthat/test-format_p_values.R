@@ -4,35 +4,35 @@ context("format_p_values")
 context("Function `format_p_values`")
 
 test_that("`format_p_values()` works with numbers", {
-    expect_equal(format_p_values(0.000005, digits_p = 5, signif_stars = FALSE), "< 0.00001")
-    expect_equal(format_p_values(0.005,    digits_p = 3, signif_stars = FALSE), "  0.005")
-    expect_equal(format_p_values(0.005,    digits_p = 2, signif_stars = FALSE), "< 0.01")
-    expect_equal(format_p_values(0.0005,   digits_p = 2, signif_stars = FALSE), "< 0.001")
-    expect_equal(format_p_values(0.052147, digits_p = 2, signif_stars = FALSE), "  0.05")
+    expect_equal(format_p_values(0.000005, digits_p = 5, signif_stars = FALSE), "<0.00001")
+    expect_equal(format_p_values(0.005,    digits_p = 3, signif_stars = FALSE), " 0.005")
+    expect_equal(format_p_values(0.005,    digits_p = 2, signif_stars = FALSE), "<0.01")
+    expect_equal(format_p_values(0.0005,   digits_p = 2, signif_stars = FALSE), "<0.001")
+    expect_equal(format_p_values(0.052147, digits_p = 2, signif_stars = FALSE), " 0.05")
 })
 test_that("`prettify_p_value()` works with characters", {
-    expect_equal(format_p_values("0.005",    digits_p = 2, signif_stars = FALSE), "< 0.01")
-    expect_equal(format_p_values("0.0005",   digits_p = 2, signif_stars = FALSE), "< 0.001")
-    expect_equal(format_p_values("0.052147", digits_p = 2, signif_stars = FALSE), "  0.05")
+    expect_equal(format_p_values("0.005",    digits_p = 2, signif_stars = FALSE), "<0.01")
+    expect_equal(format_p_values("0.0005",   digits_p = 2, signif_stars = FALSE), "<0.001")
+    expect_equal(format_p_values("0.052147", digits_p = 2, signif_stars = FALSE), " 0.05")
 })
 test_that("`prettify_p_value()` works with factors", {
-    expect_equal(format_p_values(factor("0.005"),    digits_p = 2, signif_stars = FALSE), "< 0.01")
-    expect_equal(format_p_values(factor("0.0005"),   digits_p = 2, signif_stars = FALSE), "< 0.001")
-    expect_equal(format_p_values(factor("0.052147"), digits_p = 2, signif_stars = FALSE), "  0.05")
+    expect_equal(format_p_values(factor("0.005"),    digits_p = 2, signif_stars = FALSE), "<0.01")
+    expect_equal(format_p_values(factor("0.0005"),   digits_p = 2, signif_stars = FALSE), "<0.001")
+    expect_equal(format_p_values(factor("0.052147"), digits_p = 2, signif_stars = FALSE), " 0.05")
 })
 
 test_that("`format_p_values(signif_stars = TRUE)`  works", {
-    expect_equal(format_p_values(0.005,    digits_p = 2, signif_stars = TRUE), "< 0.01 ** ")
-    expect_equal(format_p_values(0.0005,   digits_p = 2, signif_stars = TRUE), "< 0.001 ***")
-    expect_equal(format_p_values(0.052147, digits_p = 2, signif_stars = TRUE), "  0.05 .  ")
+    expect_equal(format_p_values(0.005,    digits_p = 2, signif_stars = TRUE), "<0.01 ** ")
+    expect_equal(format_p_values(0.0005,   digits_p = 2, signif_stars = TRUE), "<0.001 ***")
+    expect_equal(format_p_values(0.052147, digits_p = 2, signif_stars = TRUE), " 0.05 .  ")
 })
 test_that("`format_p_values(rm_zero = TRUE)`  works", {
-    expect_equal(format_p_values(0.052147, digits_p = 2, signif_stars = FALSE, rm_zero = TRUE), "  .05")
+    expect_equal(format_p_values(0.052147, digits_p = 2, signif_stars = FALSE, rm_zero = TRUE), " .05")
 })
 test_that("`format_p_values(digits_p = 3)` works with numbers", {
-    expect_equal(format_p_values(0.005,    digits_p = 3, signif_stars = FALSE), "  0.005")
-    expect_equal(format_p_values(0.0005,   digits_p = 3, signif_stars = FALSE), "< 0.001")
-    expect_equal(format_p_values(0.052147, digits_p = 3, signif_stars = FALSE), "  0.052")
+    expect_equal(format_p_values(0.005,    digits_p = 3, signif_stars = FALSE), " 0.005")
+    expect_equal(format_p_values(0.0005,   digits_p = 3, signif_stars = FALSE), "<0.001")
+    expect_equal(format_p_values(0.052147, digits_p = 3, signif_stars = FALSE), " 0.052")
 })
 
 test_that("input range of `prettify_p_value()`", {
