@@ -36,7 +36,7 @@ Package **_biostat_** – Routines for Basic (Bio)Statistics
 Package **_biostat_** is an *R* package that contains a collection of functions that either are intended to be used with R Commander plugin *RcmdrPlugin.biostat* or to do several common statistical routines (without writing to much code). The functions are created to complement other *R Commander* plugins that can be used to teach basic statistics in biostatistics and biometry lectures. 
  
 <font color="red">
-The package is still in its **early development stage** and some functions are for demonstration purposes only as they may change in the future.
+The package is still in its **early development stage** and some functions are for demonstration and test purposes only as they may change in the future.
 </font>
 
 Documentation and more information available at http://gegznav.github.io/biostat/

@@ -10,8 +10,9 @@ Description: A collection of functions that either are intended to be used with
 Version: 0.0.15
 Date: 2018-03-04
 Authors@R: c(
-    person("Vilmantas", "Gegna", role = c("aut","cre"),
-            email = "GegznaV@gmail.com")
+    person("Vilmantas", "Gegzna", role = c("aut","cre"),
+           comment = c(ORCID = "0000-0002-9500-5167"),
+           email = "GegznaV@gmail.com")
     )
 License: GPL (>= 3)
 Encoding: UTF-8

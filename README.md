@@ -10,7 +10,7 @@ version](https://img.shields.io/badge/GitHub-v0.0.15-brightgreen.svg)](https://g
 [![Travis-CI Build
 Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
-[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--03--04-yellowgreen.svg)](/commits/master)
+[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--03--13-yellowgreen.svg)](/commits/master)
 
 -----
 
@@ -26,8 +26,8 @@ other *R Commander* plugins that can be used to teach basic statistics
 in biostatistics and biometry lectures.
 
 <font color="red"> The package is still in its **early development
-stage** and some functions are for demonstration purposes only as they
-may change in the future. </font>
+stage** and some functions are for demonstration and test purposes only
+as they may change in the future. </font>
 
 Documentation and more information available at
 <http://gegznav.github.io/biostat/>
