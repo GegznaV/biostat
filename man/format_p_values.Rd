@@ -117,7 +117,7 @@ removed.}
 A character vector with formatted p values.
 }
 \description{
-Fuctions to fromat p values.
+Functions to fromat p values.
 }
 \details{
 \itemize{
