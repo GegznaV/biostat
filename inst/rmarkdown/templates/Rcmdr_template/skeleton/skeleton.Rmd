@@ -1,20 +1,12 @@
 ---
-title:    "Replace_with_Main_Title"
-subtitle: "Replace_with_Subtitle_Title"
+title:    "Replace_with_the_Main_Title"
+subtitle: "Replace_with_the_Subtitle"
 author:   "Your_Name"
 date:     "`r Sys.Date()`"
 ---
 
 ```{r setup, include=FALSE}
 # Code chunk called "setup" contains default options
-knitr::opts_chunk$set(
-    echo    = TRUE,   # (TRUE|FALSE) Show program code in the report.
-    prompt  = FALSE,  # (TRUE|FALSE) Show prompt symbol before R code.
-    comment = NA,     # (NA|"##") Comment symbol before results in the report.
-                      #           NA - do not show.
-    fig.height = 5,   # Default height of figures.
-    fig.width  = 7    # Default width of figures. 
-    )
 
 # Load packages
 library(Rcmdr)
@@ -22,5 +14,15 @@ library(car)
 library(RcmdrMisc)
 library(biostat)
 library(tidyverse)
+
+# Choose options
+knitr::opts_chunk$set(
+    echo    = TRUE,   # (TRUE|FALSE) Show program code in the report.
+    prompt  = FALSE,  # (TRUE|FALSE) Show prompt symbol before R code.
+    comment = NA,     # (NA|"##") Comment symbol before results in the report.
+                      #          NA - do not show.
+    fig.height = 5,   # Default height of figures.
+    fig.width  = 7    # Default width of figures. 
+    )
 ```
 
