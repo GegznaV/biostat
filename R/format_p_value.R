@@ -1,7 +1,10 @@
+# TODO:
+# 1. Include alpha paramerer to start marking significance.
+
 # ====================================================================
 #' [!!!] Format p-values
 #'
-#' Fuctions to fromat p values.
+#' Functions to fromat p values.
 #'
 #' @return A character vector with formatted p values.
 #'
@@ -72,8 +75,6 @@
 #' signif_stars_legend()
 #'
 
-# TO DO:
-# 1. Include alpha paramerer to start marking significance.
 format_p_values <- function(p,
                             digits_p = 3,
                             cols = NULL,
@@ -136,11 +137,13 @@ format_p_values.default <- function(p,
 #' format_p(.0002, signif_stars = FALSE)
 #' format_p(.0002, ss = c("*****" = 0.001))
 
-# [!!!] TO DO:
+# TODO [!!!]:
 # 1. Add parameter to emable p value correction
 #    from p = 1 into, e.g., p > 0.999;
 #
 # 2. merge parameters `ss` and `signif_stars`
+# 3. test: format_p(NaN) -- [OK]
+# 4. test: format_p(NA) -- this function fails with NA as input.
 
 format_p <-
     function(p_i,
@@ -159,7 +162,7 @@ format_p <-
         ""
     }
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    if (is.na(digits_p)) {
+    if (is.na(digits_p) || is.na(p_i)) {
         p_i <- as.character(p_i)
 
     } else {

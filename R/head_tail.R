@@ -120,7 +120,7 @@ n_decimals <- function(x) {
     if (!is.numeric(x))
         return(rep(NA, length(x)))
 
-    # `scipen = 999` prebents from convertion to scientific number format
+    # `scipen = 999` prevents from convertion to scientific number format
     withr::with_options(list(scipen = 999), {
         x[(x %% 1) == 0] <- ""
         as.character(x)

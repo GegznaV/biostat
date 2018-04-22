@@ -19,27 +19,26 @@ library(ggridges)
 hist(sort(rnorm(1e5)))
 ```
 
-```{r}
+```{r include=FALSE}
 Sitka
 ```
-
-```{r}
+```{r include=FALSE}
 Sitka89
 ```
-```{r}
+```{r include=FALSE}
 SP500
 ```
 
 
-```{r}
+```{r include=FALSE}
 Traffic %>% glimpse()
 ```
 
-```{r}
+```{r include=FALSE}
 glimpse(UScereal)
 ```
 
-```{r}
+```{r include=FALSE}
 psych::describe(UScereal)  %>% 
     pander::pander()
 ```
@@ -79,7 +78,7 @@ ggplot(anorexia2, aes(x = diff_wt, fill = Treat)) +
 ```
 ```{r}
 ggplot(anorexia2, aes(x = diff_wt, y = Treat, fill = Treat)) +
-    geom_density_ridges(alpha = 0.3, scale = 0.9, bw = 3)
+    geom_density_ridges(alpha = 0.3, scale = 0.9, bandwidth = 5)
 ```
 
 ```{r}
@@ -112,3 +111,40 @@ PMCMR::posthoc.kruskal.conover.test(diff_wt ~ Treat, data = anorexia2) %>%
     make_cld()
 ```
 
+
+    Bin        Freq   Cum_freq   Percent   Cum_percent
+------------ ------ ---------- --------- -------------
+ 4.3 -- 5.0      32         32    21.3 %        21.3 %
+ 5.0 -- 5.7      41         73    27.3 %        48.7 %
+ 5.7 -- 6.5      42        115    28.0 %        76.7 %
+ 6.5 -- 7.2      24        139    16.0 %        92.7 %
+ 7.2 -- 7.9      11        150     7.3 %       100.0 %
+
+Table: Frequency table
+
+
+|    Bin     | Freq | Cum_freq | Percent | Cum_percent |
+|:----------:|-----:|---------:|--------:|------------:|
+| 4.3 -- 5.0 |   32 |       32 |  21.3 % |      21.3 % |
+| 5.0 -- 5.7 |   41 |       73 |  27.3 % |      48.7 % |
+| 5.7 -- 6.5 |   42 |      115 |  28.0 % |      76.7 % |
+| 6.5 -- 7.2 |   24 |      139 |  16.0 % |      92.7 % |
+| 7.2 -- 7.9 |   11 |      150 |   7.3 % |     100.0 % |
+
+Table: Frequency table
+
+------------------------------------------------------
+    Bin        Freq   Cum_freq   Percent   Cum_percent
+------------ ------ ---------- --------- -------------
+ 4.3 -- 5.0      32         32    21.3 %        21.3 %
+
+ 5.0 -- 5.7      41         73    27.3 %        48.7 %
+
+ 5.7 -- 6.5      42        115    28.0 %        76.7 %
+
+ 6.5 -- 7.2      24        139    16.0 %        92.7 %
+
+ 7.2 -- 7.9      11        150     7.3 %       100.0 %
+------------------------------------------------------
+
+Table: Frequency table
