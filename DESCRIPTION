@@ -7,8 +7,8 @@ Description: A collection of functions that either are intended to be used with
              The functions are created to complement other R Commander plugins 
              that are used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.15
-Date: 2018-03-04
+Version: 0.0.15.9002
+Date: 2018-04-22
 Authors@R: c(
     person("Vilmantas", "Gegzna", role = c("aut","cre"),
            comment = c(ORCID = "0000-0002-9500-5167"),
