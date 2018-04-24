@@ -25,14 +25,14 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="Normality tests by groups — test_normality" />
 
 <meta property="og:description" content="Perform a test of normality for each group separately.
 The available tests: Shapiro-Wilk (default),
 Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -56,8 +56,12 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -90,6 +94,7 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Normality tests by groups</h1>
+    
     </div>
 
     
@@ -113,12 +118,12 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other.</p>
   <span class='st'>"f"</span>, <span class='st'>"g"</span>), <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'>attr</span>(<span class='no'>x</span>, <span class='st'>"ss"</span>))</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>y</th>
-      <td><p>(formula|numeric|character)
+      <td><p>(formula|numeric|character)<br />
          Either a formula, a numeric vector or a name of a column
             in <code>data</code>.</p><ul>
 <li><p>If <code>y</code> is a formula (e.g. <code>variable ~ factor</code>), left-hand
@@ -130,14 +135,14 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other.</p>
     </tr>
     <tr>
       <th>data</th>
-      <td><p>(data frame|<code>NULL</code>) 
+      <td><p>(data frame|<code>NULL</code>) <br />
 Either a data frame that contains the
 variables mentioned in <code>y</code> or <code>NULL</code> (if the variables
 are in the function's environment).</p></td>
     </tr>
     <tr>
       <th>test</th>
-      <td><p>(string | function) 
+      <td><p>(string | function) <br />
             Either a function that carries out a normality test or
             a string (case insensitive, maybe unambiguously abbreviated)
              with a name of a normality test. Possible names of tests:</p><ul>
@@ -151,7 +156,7 @@ are in the function's environment).</p></td>
     </tr>
     <tr>
       <th>p_adjust_method</th>
-      <td><p>(<code>NULL</code>|string) 
+      <td><p>(<code>NULL</code>|string) <br />
       A name of p value adjustment
 method for multiple comparisons. For available methods check
 <code><a href='http://www.rdocumentation.org/packages/stats/topics/p.adjust'>p.adjust.methods</a></code>.
@@ -165,7 +170,7 @@ If string (e.g., <code>"holm"</code>), an additional column
     </tr>
     <tr>
       <th>groups</th>
-      <td><p>(<code>NULL</code>|factor|character) 
+      <td><p>(<code>NULL</code>|factor|character) <br />
 An alternative way to provide groups.
 If <code>y</code> is a numeric vector, <code>groups</code> must be
 a factor (or <code>NULL</code>). If <code>y</code> is a sting,
@@ -189,18 +194,18 @@ a factor (or <code>NULL</code>). If <code>y</code> is a sting,
     </tr>
     <tr>
       <th>signif_stars</th>
-      <td><p>(logical) 
+      <td><p>(logical) <br />
 If <code>TRUE</code>, significance stars are printed.</p></td>
     </tr>
     <tr>
       <th>digits_stat</th>
-      <td><p>(integer)  
+      <td><p>(integer)  <br />
 Either a number of decimal places or number of
 significant digits to round test statistic to.</p></td>
     </tr>
     <tr>
       <th>format_stat</th>
-      <td><p>(character) 
+      <td><p>(character) <br />
  Number format "f", "g" or "auto" (default) for test
  statistic. More about number
 formats "f" and "g" you can find in documentation of
@@ -213,19 +218,19 @@ removed.</p></td>
     </tr>
     <tr>
       <th>legend</th>
-      <td><p>(logical) 
+      <td><p>(logical) <br />
 If <code>TRUE</code>, legend for significance stars
 is printed.</p></td>
     </tr>
     <tr>
       <th>show_col_method</th>
-      <td><p>(logical) 
+      <td><p>(logical) <br />
   If <code>FALSE</code> column "method" is not
 printed. Default is<code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>caption</th>
-      <td><p>(string|<code>NULL</code>|<code>NA</code>) 
+      <td><p>(string|<code>NULL</code>|<code>NA</code>) <br />
      A caption for the table with
 results of a normality test. If <code>NA</code> — a default caption
 is printed (default). If <code>NULL</code> – no caption is printed.</p></td>

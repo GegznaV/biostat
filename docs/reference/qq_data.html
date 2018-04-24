@@ -25,12 +25,12 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="[!] Compute data for a qq-plot — qq_data" />
 
 <meta property="og:description" content="Compute data necessary to plot a quantile comparison plot (qq-plot)." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -54,8 +54,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -88,6 +92,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>[!] Compute data for a qq-plot</h1>
+    
     </div>
 
     
@@ -105,12 +110,12 @@
 <span class='co'># S3 method for qqdata</span>
 <span class='fu'>plot</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>y</th>
-      <td><p>(formula|numeric|character)
+      <td><p>(formula|numeric|character)<br />
          Either a formula, a numeric vector or a name of a column
             in <code>data</code>.</p><ul>
 <li><p>If <code>y</code> is a formula (e.g. <code>variable ~ factor</code>), left-hand
@@ -122,7 +127,7 @@
     </tr>
     <tr>
       <th>data</th>
-      <td><p>(data frame|<code>NULL</code>) 
+      <td><p>(data frame|<code>NULL</code>) <br />
 Either a data frame that contains the
 variables mentioned in <code>y</code> or <code>NULL</code> (if the variables
 are in the function's environment).</p></td>
@@ -176,13 +181,8 @@ confidence envelope.</p></td>
           Otherwise <code>"any"</code> is selected automatically.</p></td>
     </tr>
     <tr>
-      <th>labels</th>
-      <td><p>vector of text strings to be used to identify points, defaults to
-    <code>names(x)</code> or observation numbers if <code>names(x)</code> is <code>NULL</code>.</p></td>
-    </tr>
-    <tr>
       <th>groups</th>
-      <td><p>(<code>NULL</code>|factor|character) 
+      <td><p>(<code>NULL</code>|factor|character) <br />
 An alternative way to provide groups.
 If <code>y</code> is a numeric vector, <code>groups</code> must be
 a factor (or <code>NULL</code>). If <code>y</code> is a sting,
@@ -272,7 +272,7 @@ a parmeter to be passed to
 #&gt; 4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
 #&gt; 5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
 #&gt; 6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
-<span class='fu'><a href='qq_plot.html'>qq_plot</a></span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_data-1.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'><a href='qq_plot.html'>qq_plot</a></span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 <span class='co'># Input as variable name + data:</span>
 
@@ -337,28 +337,28 @@ a parmeter to be passed to
 <span class='co'># Input as formula + data:</span>
 
 <span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'>plot</span>(<span class='no'>my_qq_df</span>)</div><div class='img'><img src='qq_data-2.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>my_qq_df</span>)</div><div class='img'><img src='qq_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>my_qq_df2</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"moment-normal"</span>)
-<span class='fu'>plot</span>(<span class='no'>my_qq_df2</span>)</div><div class='img'><img src='qq_data-3.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>my_qq_df2</span>)</div><div class='img'><img src='qq_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='no'>my_qq_df3</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"any"</span>)
-<span class='fu'>plot</span>(<span class='no'>my_qq_df3</span>)</div><div class='img'><img src='qq_data-4.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>my_qq_df3</span>)</div><div class='img'><img src='qq_data-4.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># The same x and y scale limits for all plots</span>
-<span class='fu'>plot</span>(<span class='no'>my_qq_df</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>)</div><div class='img'><img src='qq_data-5.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>my_qq_df</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>)</div><div class='img'><img src='qq_data-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Plot in color</span>
-<span class='fu'>plot</span>(<span class='no'>my_qq_df</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_data-6.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>my_qq_df</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_data-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Plot a qq-plot (with no grouping)</span>
 <span class='no'>qq_single</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(~<span class='no'>weight</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'>plot</span>(<span class='no'>qq_single</span>)</div><div class='img'><img src='qq_data-7.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+<span class='fu'>plot</span>(<span class='no'>qq_single</span>)</div><div class='img'><img src='qq_data-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='fu'>class</span>(<span class='no'>qq_single</span>)</div><div class='output co'>#&gt; [1] "qqdata"     "data.frame"</div><div class='input'>
 
 <span class='co'># More than one grouping variable</span>
 <span class='fu'>data</span>(<span class='no'>CO2</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"datasets"</span>)
 
  <span class='no'>qq_co2</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)
- <span class='fu'>plot</span>(<span class='no'>qq_co2</span>)</div><div class='img'><img src='qq_data-8.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+ <span class='fu'>plot</span>(<span class='no'>qq_co2</span>)</div><div class='img'><img src='qq_data-8.png' alt='' width='700' height='433' /></div><div class='input'>
  <span class='no'>qq_co2_B</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>, <span class='kw'>line</span> <span class='kw'>=</span> <span class='st'>"robust"</span>)
- <span class='fu'>plot</span>(<span class='no'>qq_co2_B</span>)</div><div class='img'><img src='qq_data-9.png' alt='' width='700' height='432.632880098887' /></div><div class='input'>
+ <span class='fu'>plot</span>(<span class='no'>qq_co2_B</span>)</div><div class='img'><img src='qq_data-9.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -25,13 +25,13 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="[!] Make a data frame with cld — make_cld_df" />
 
 <meta property="og:description" content="Compute a compact letter display (cld) of statistically significant
 differences in pairwise comparisons and output he results as a dataframe." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -55,8 +55,12 @@ differences in pairwise comparisons and output he results as a dataframe." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -89,6 +93,7 @@ differences in pairwise comparisons and output he results as a dataframe." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>[!] Make a data frame with cld</h1>
+    
     </div>
 
     
@@ -101,7 +106,7 @@ differences in pairwise comparisons and output he results as a dataframe.</p>
   <span class='kw'>remove.space</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>remove.equal</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>swap.colon</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>swap.vs</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>reversed</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>swap_compared_names</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -163,7 +168,7 @@ should be reversed. Defaults to FALSE.</p></td>
     </tr>
     <tr>
       <th>swap_compared_names</th>
-      <td><p>(logical)  If <code>TRUE</code>, group names are swapped
+      <td><p>(logical) <br /> If <code>TRUE</code>, group names are swapped
 from, e.g., "2-1" or "second-first" to "1-2" or "first-second". This leads to
 different order of cld letters and different order of compared groups (if
 without swapping the result is incorrect order of groups.)</p></td>

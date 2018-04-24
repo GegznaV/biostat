@@ -25,12 +25,12 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="[!] Compute Standardized Regression Coefficients — coef_standardized" />
 
 <meta property="og:description" content="Compute the standardized regression coefficients (beta) from an object of class lm)." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -54,8 +54,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -88,6 +92,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>[!] Compute Standardized Regression Coefficients</h1>
+    
     </div>
 
     
@@ -105,7 +110,7 @@
 <span class='co'># S3 method for lm_beta_summary</span>
 <span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -141,9 +146,9 @@ Default is 3.</p></td>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This function is inspired by function  <span class="pkg">QuantPsyc</span><code>::lm.beta()</code> written by Thomas D. Fletcher. 
-<code>coef_standardized()</code> provides standardized coefficients even when interaction members are present. This is achieved by computing whole model matrix (with all right-hand side members of formula used in call of <code>lm()</code>) and calculating standard deviations of each regressor (including interaction members) based on these columns. 
-<code>coef_standardized()</code> does not fail if intercept is not present.</p>
+    <p>This function is inspired by function  <span class="pkg">QuantPsyc</span><code>::lm.beta()</code> written by Thomas D. Fletcher. <br />
+<code>coef_standardized()</code> provides standardized coefficients even when interaction members are present. This is achieved by computing whole model matrix (with all right-hand side members of formula used in call of <code>lm()</code>) and calculating standard deviations of each regressor (including interaction members) based on these columns. <br />
+<code>coef_standardized()</code> does not fail if intercept is not present.<br /></p>
 <p>The remaining calculations are the same as in <span class="pkg">QuantPsyc</span><code>::lm.beta()</code>.</p>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>

@@ -25,13 +25,13 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="Format values of numeric columns in a dataframe. — format_numbers" />
 
 <meta property="og:description" content="Function formats numeric columns only.
 Other classes are left intact." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -55,8 +55,12 @@ Other classes are left intact." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -89,6 +93,7 @@ Other classes are left intact." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Format values of numeric columns in a dataframe.</h1>
+    
     </div>
 
     
@@ -98,7 +103,7 @@ Other classes are left intact.</p>
 
     <pre class="usage"><span class='fu'>format_numbers</span>(<span class='no'>data</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"f"</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>formatC</span>, <span class='no'>...</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -107,17 +112,17 @@ Other classes are left intact.</p>
     </tr>
     <tr>
       <th>digits</th>
-      <td><p>(numeric or <code>NA</code>) a desired number of digits after the decimal point (if <code>format = "f"</code>) or a number of significant digits (<code>format = "g"</code>, <code>= "e"</code> or <code>= "fg"</code>). 
-Either one integer (to set the same formatting for all columns) or a vector of inegers (to set formatting for each column separately).
+      <td><p>(numeric or <code>NA</code>) a desired number of digits after the decimal point (if <code>format = "f"</code>) or a number of significant digits (<code>format = "g"</code>, <code>= "e"</code> or <code>= "fg"</code>). <br />
+Either one integer (to set the same formatting for all columns) or a vector of inegers (to set formatting for each column separately).<br />
 Use <code>NA</code> to leave column unformatted.</p></td>
     </tr>
     <tr>
       <th>format</th>
       <td><p>(character) <code>"f"</code>, <code>"g"</code>, <code>"e"</code>, <code>"fg"</code>. Either one value or a vector of values for each column.
-Each value will be passed to <code>fun</code> separately.
-<code>"f"</code> gives numbers in the usual <code>xxx.xxx</code> format;
-<code>"e"</code> and <code>"E"</code> give <code>n.ddde+nn</code> or <code>n.dddE+nn</code> (scientific format);
-<code>"g"</code> and <code>"G"</code> put number into scientific format only if it saves space to do so.
+Each value will be passed to <code>fun</code> separately.<br />
+<code>"f"</code> gives numbers in the usual <code>xxx.xxx</code> format;<br />
+<code>"e"</code> and <code>"E"</code> give <code>n.ddde+nn</code> or <code>n.dddE+nn</code> (scientific format);<br />
+<code>"g"</code> and <code>"G"</code> put number into scientific format only if it saves space to do so.<br />
 <code>"fg"</code> uses fixed format as <code>"f"</code>, but digits as the minimum number of significant digits. This can lead to quite long result strings</p></td>
     </tr>
     <tr>

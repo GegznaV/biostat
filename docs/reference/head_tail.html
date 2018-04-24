@@ -25,12 +25,12 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="[!] Show several first and last rows of a data frame — head_tail" />
 
 <meta property="og:description" content="This function selects several top and bottom rows of a data frame for a preview." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -54,8 +54,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -88,6 +92,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>[!] Show several first and last rows of a data frame</h1>
+    
     </div>
 
     
@@ -98,7 +103,7 @@
   <span class='kw'>max_decimals</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>signif_digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>tolerance</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>top</span> <span class='kw'>=</span> <span class='no'>n</span>,
   <span class='kw'>bottom</span> <span class='kw'>=</span> <span class='no'>n</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>

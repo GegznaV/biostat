@@ -25,14 +25,14 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="[!] Post-hoc tests for ANOVA and Welch ANOVA — posthoc_anova" />
 
 <meta property="og:description" content="Games-Howell, Tukey HSD and other post-hoc tests for ANOVA and Welch ANOVA.
 Either Games-Howell test or Tukey honestly significant difference (HSD)
 post-hoc tests for one-way analysis of variance (ANOVA)." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -56,8 +56,12 @@ post-hoc tests for one-way analysis of variance (ANOVA)." />
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -90,6 +94,7 @@ post-hoc tests for one-way analysis of variance (ANOVA)." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>[!] Post-hoc tests for ANOVA and Welch ANOVA</h1>
+    
     </div>
 
     
@@ -121,34 +126,34 @@ post-hoc tests for one-way analysis of variance (ANOVA).</p>
 <span class='fu'>plot</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>zero_line_color</span> <span class='kw'>=</span> <span class='st'>"grey"</span>, <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>p_size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>p_color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>p_pos_adj</span> <span class='kw'>=</span> <span class='fl'>0.22</span>, <span class='kw'>flip_xy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>y</th>
-      <td><p>(numeric|formula) Either a numeric vector or formula.</p></td>
+      <td><p>(numeric|formula)<br /> Either a numeric vector or formula.</p></td>
     </tr>
     <tr>
       <th>group</th>
-      <td><p>(factor) a vector that either is a factor or can be converted into
+      <td><p>(factor)<br /> a vector that either is a factor or can be converted into
 one. If <code>y</code> is a formula, <code>group</code> is ignored.</p></td>
     </tr>
     <tr>
       <th>method</th>
-      <td><p>(<code>"games-howell"</code>|<code>"tukey"</code>) Name of post-hoc
+      <td><p>(<code>"games-howell"</code>|<code>"tukey"</code>)<br /> Name of post-hoc
 tests to conduct. Valid values are "tukey" and "games-howell".</p></td>
     </tr>
     <tr>
       <th>conf_level</th>
-      <td><p>(number) Confidence level (equals to <code>1 - alpha</code>, where alpha is significanve level). Number from 0 to 1. Default is 0.95.</p></td>
+      <td><p>(number)<br /> Confidence level (equals to <code>1 - alpha</code>, where alpha is significanve level). Number from 0 to 1. Default is 0.95.</p></td>
     </tr>
     <tr>
       <th>digits</th>
-      <td><p>(integer) The number of digits to round data related numbers to.</p></td>
+      <td><p>(integer)<br /> The number of digits to round data related numbers to.</p></td>
     </tr>
     <tr>
       <th>digits_p</th>
-      <td><p>(integer) The number of digits to round p values to. Must be 2, 3 or more.</p></td>
+      <td><p>(integer)<br /> The number of digits to round p values to. Must be 2, 3 or more.</p></td>
     </tr>
     <tr>
       <th>p_adjust</th>
@@ -156,14 +161,14 @@ tests to conduct. Valid values are "tukey" and "games-howell".</p></td>
     </tr>
     <tr>
       <th>format_pvalue</th>
-      <td><p>(does not work yet)  Whether to format the p values according to APA
+      <td><p>(does not work yet) <br /> Whether to format the p values according to APA
 standards (i.e. replace all values lower than .001 with '&lt;.001'). This only
 applies to the printing of the object, not to the way the p values are
 stored in the object.</p></td>
     </tr>
     <tr>
       <th>data</th>
-      <td><p>(data frame) a data frame with data to be used in combination with formula.</p></td>
+      <td><p>(data frame)<br /> a data frame with data to be used in combination with formula.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -171,7 +176,7 @@ stored in the object.</p></td>
     </tr>
     <tr>
       <th>sep</th>
-      <td><p>(character) A string with a symbol to separate group names if several grouping variables are used.</p></td>
+      <td><p>(character)<br /> A string with a symbol to separate group names if several grouping variables are used.</p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -287,8 +292,8 @@ on code of function <code>posthocTGH()</code> in package <span class="pkg">userf
 
     <h2>Author</h2>
     
-Gjalt-Jorn Peters (Open University of the Netherlands) 
-Jeff Bagget (University of Wisconsin - La Crosse) 
+Gjalt-Jorn Peters (Open University of the Netherlands) <br />
+Jeff Bagget (University of Wisconsin - La Crosse) <br />
 Vilmantas Gegzna
 
   </div>
