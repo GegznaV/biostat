@@ -25,12 +25,12 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
 <meta property="og:title" content="Basic nonparametric bootstrap confidence interval of mean — ci_mean_boot" />
 
 <meta property="og:description" content="A very fast implementation of the basic nonparametric bootstrap for obtaining confidence limits for the population mean without assuming normality." />
 <meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -54,8 +54,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">biostat | R package</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">biostat</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -88,6 +92,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Basic nonparametric bootstrap confidence interval of mean</h1>
+    
     </div>
 
     
@@ -97,7 +102,7 @@
     <pre class="usage"><span class='fu'>ci_mean_boot</span>(<span class='no'>y</span>, <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>repetitions</span> <span class='kw'>=</span> <span class='fl'>2000</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>resampled_means</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>return_df</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
