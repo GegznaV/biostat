@@ -10,18 +10,26 @@
 #'      \item \code{"missing"} - number of missing observations,,
 #'      \item \code{"mean"} - arithmetic mean,
 #'      \item \code{"sd"} - standard deviation,
-#'      \item \code{"var"} - variance,
+#'      \item \code{"variance"} - variance,
+#'      \item \code{"trimmed"} - trimmed mean,
 #'      \item \code{"min"} - minimum value,
 #'      \item \code{"Q1"} - 1-st quartile,
 #'      \item \code{"Md"} - median,
 #'      \item \code{"Q3"} - 3-rd quartile,
 #'      \item \code{"max"} - maximum value,
-#'      \item \code{"IQR"} - interquartile range,
 #'      \item \code{"mad"} - median absolute deviation from median (more details \link[stats]{mad}),
+#'      \item \code{"IQR"} - interquartile range,
+#'      \item \code{"range"} - range,
+#'      \item \code{"cv"} - coefficient of variation,
+#'      \item \code{"se"} - standard error of mean,
 #'      \item \code{"skewness"} - skewness,
 #'      \item \code{"kurtosis"} - excess kurtosis.
 #'  }
-#'
+#' @param na.rm (logical) Flag to remove missing values. Default is \code{TRUE}.
+#' @param type (integer: 1, 2, 3) The type of skewness and kurtosis estimate.
+#'             See \code{\link[psych]{describe}} and \code{\link[psych]{mardia}}
+#'             for details.
+#' @param trim The fraction (0 to 0.5) of observations to be trimmed from each end of sorted variable before the mean is computed. Values of trim outside that range are taken as the nearest endpoint.
 #'
 #' @return Data frame with summary satatistics.
 #' @export
@@ -44,23 +52,39 @@
 #'            stat = c("n", "mean", "sd")) %>%
 #'     print(digits = 1)
 #'
+
+# TODO:
+# 1. ...
+#
 do_summary <- function(
     y,
     data = NULL,
     stat = c("n",
              "missing",
              "mean",
+             "trimmed",
              "sd",
-             "var",
+             "variance",
              "min",
              "Q1",
-             "Md",
+             "median",
              "Q3",
              "max",
-             "IQR",
              "mad",
+             "IQR",
+             "range",
+             "cv",
+             "se",
              "skewness",
-             "kurtosis")) {
+             "kurtosis"),
+    trim = 0.1,
+    type = 3,
+    na.rm = TRUE) {
+
+    checkmate::assert_integerish(type, lower = 1, upper = 3  )
+    checkmate::assert_number(trim,     lower = 0, upper = 0.5)
+    checkmate::assert_logical(na.rm, any.missing = FALSE, len = 1)
+
 
     data_name <- substitute(data)
 
@@ -70,17 +94,23 @@ do_summary <- function(
     # Define functions with na.rm set to TRUE
           Q1 <- q1
           Q3 <- q3
-          sd <- purrr::partial(stats::sd,      na.rm = TRUE)
-         var <- purrr::partial(stats::var,     na.rm = TRUE)
-        mean <- purrr::partial(base::mean,     na.rm = TRUE)
-          Md <- purrr::partial(stats::median,  na.rm = TRUE)
-         max <- purrr::partial(base::max,      na.rm = TRUE)
-         min <- purrr::partial(base::min,      na.rm = TRUE)
-         IQR <- purrr::partial(stats::IQR,     na.rm = TRUE)
-         mad <- purrr::partial(stats::mad,     na.rm = TRUE)
-    skewness <- purrr::partial(psych::skew,    na.rm = TRUE)
-    kurtosis <- purrr::partial(psych::kurtosi, na.rm = TRUE)
+          sd <- purrr::partial(stats::sd,      na.rm = na.rm)
+    variance <- purrr::partial(stats::var,     na.rm = na.rm)
+        mean <- purrr::partial(base::mean,     na.rm = na.rm)
+     trimmed <- purrr::partial(base::mean,     na.rm = na.rm, trim = trim)
+      median <- purrr::partial(stats::median,  na.rm = na.rm)
+         mad <- purrr::partial(stats::mad,     na.rm = na.rm)
+         max <- purrr::partial(base::max,      na.rm = na.rm)
+         min <- purrr::partial(base::min,      na.rm = na.rm)
+         IQR <- purrr::partial(stats::IQR,     na.rm = na.rm)
+    skewness <- purrr::partial(psych::skew,    na.rm = na.rm, type = type)
+    kurtosis <- purrr::partial(psych::kurtosi, na.rm = na.rm, type = type)
 
+    cv <- function(x) sd(x)/mean(x)
+    se <- function(x) sd(x)/n_ok(x)
+    range <- function(x) {
+        diff(base::range(x,  na.rm = na.rm))
+    }
 
 
     # Extract numeric variables
@@ -127,7 +157,7 @@ do_summary <- function(
         # if (length(y_names) > 1) {
             lapply(y_names, calculate) %>%
                 setNames(y_names) %>%
-                dplyr::bind_rows(.id = "summary_of")
+                dplyr::bind_rows(.id = ".summary_of")
 
         # } else {
         #     calculate(y_names)
@@ -147,23 +177,29 @@ do_summary <- function(
 #'
 #' @param x object to print
 #' @param ... further arguments to methods.
+#' @param digits_sk Number of digits for skweness and kurtosis.
+#' @param digits_sk Number of digits for descriptive statistics.
 #' @inheritParams format_numbers
 #' @export
-print.num_summaries <- function(x, ..., digits = NA, format = "f") {
+print.num_summaries <- function(x, ..., digits = NA, format = "f", digits_sk = 2) {
     df <- format_numbers(
         data =  as.data.frame(x),
         digits = c(mean = digits,
-                   sd = digits,
-                   var = digits,
-                   min = digits,
-                   Q1 = digits,
-                   Md = digits,
-                   Q3 = digits,
-                   max = digits,
-                   mad = digits,
-                   IQR = digits,
-                   skewness = 2,
-                   kurtosis = 2),
+               trimmed  = digits,
+               sd       = digits,
+               variance = digits,
+               min      = digits,
+               Q1       = digits,
+               Md       = digits,
+               Q3       = digits,
+               max      = digits,
+               mad      = digits,
+               IQR      = digits,
+               range    = digits,
+               cv       = digits, # ??? kiti matavimo vienetai nei x
+               se       = digits, # ??? kiti matavimo vienetai nei x
+               skewness = digits_sk,
+               kurtosis = digits_sk),
         format = format
     )
     print(as.data.frame(df), ...)

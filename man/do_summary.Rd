@@ -5,10 +5,12 @@
 \alias{print.num_summaries}
 \title{Do numerical summaries by groups}
 \usage{
-do_summary(y, data = NULL, stat = c("n", "missing", "mean", "sd", "var",
-  "min", "Q1", "Md", "Q3", "max", "IQR", "mad", "skewness", "kurtosis"))
+do_summary(y, data = NULL, stat = c("n", "missing", "mean", "trimmed", "sd",
+  "variance", "min", "Q1", "median", "Q3", "max", "mad", "IQR", "range", "cv",
+  "se", "skewness", "kurtosis"), trim = 0.1, type = 3, na.rm = TRUE)
 
-\method{print}{num_summaries}(x, ..., digits = NA, format = "f")
+\method{print}{num_summaries}(x, ..., digits = NA, format = "f",
+  digits_sk = 2)
 }
 \arguments{
 \item{y}{formula with variable names to summarize. See more in examples.}
@@ -21,17 +23,29 @@ do_summary(y, data = NULL, stat = c("n", "missing", "mean", "sd", "var",
     \item \code{"missing"} - number of missing observations,,
     \item \code{"mean"} - arithmetic mean,
     \item \code{"sd"} - standard deviation,
-    \item \code{"var"} - variance,
+    \item \code{"variance"} - variance,
+    \item \code{"trimmed"} - trimmed mean,
     \item \code{"min"} - minimum value,
     \item \code{"Q1"} - 1-st quartile,
     \item \code{"Md"} - median,
     \item \code{"Q3"} - 3-rd quartile,
     \item \code{"max"} - maximum value,
-    \item \code{"IQR"} - interquartile range,
     \item \code{"mad"} - median absolute deviation from median (more details \link[stats]{mad}),
+    \item \code{"IQR"} - interquartile range,
+    \item \code{"range"} - range,
+    \item \code{"cv"} - coefficient of variation,
+    \item \code{"se"} - standard error of mean,
     \item \code{"skewness"} - skewness,
     \item \code{"kurtosis"} - excess kurtosis.
 }}
+
+\item{trim}{The fraction (0 to 0.5) of observations to be trimmed from each end of sorted variable before the mean is computed. Values of trim outside that range are taken as the nearest endpoint.}
+
+\item{type}{(integer: 1, 2, 3) The type of skewness and kurtosis estimate.
+See \code{\link[psych]{describe}} and \code{\link[psych]{mardia}}
+for details.}
+
+\item{na.rm}{(logical) Flag to remove missing values. Default is \code{TRUE}.}
 
 \item{x}{object to print}
 
@@ -47,6 +61,10 @@ Each value will be passed to \code{fun} separately.\cr
 \code{"e"} and \code{"E"} give \code{n.ddde+nn} or \code{n.dddE+nn} (scientific format);\cr
 \code{"g"} and \code{"G"} put number into scientific format only if it saves space to do so.\cr
 \code{"fg"} uses fixed format as \code{"f"}, but digits as the minimum number of significant digits. This can lead to quite long result strings}
+
+\item{digits_sk}{Number of digits for skweness and kurtosis.}
+
+\item{digits_sk}{Number of digits for descriptive statistics.}
 }
 \value{
 Data frame with summary satatistics.
