@@ -49,11 +49,11 @@ head_tail <- function(obj,
 
     checkmate::assert_data_frame(obj)
     checkmate::assert_integerish(n)
-    checkmate::assert_integerish(top, lower = 0)
-    checkmate::assert_integerish(bottom, lower = 0)
+    checkmate::assert_integerish(top,       lower = 0)
+    checkmate::assert_integerish(bottom,    lower = 0)
     checkmate::assert_integerish(tolerance, lower = 0)
     checkmate::assert_integerish(signif_digits, null.ok = TRUE)
-    checkmate::assert_integerish(max_decimals, null.ok = TRUE)
+    checkmate::assert_integerish(max_decimals,  null.ok = TRUE)
     checkmate::assert_character(format)
 
     format <- match.arg(format)
@@ -61,7 +61,7 @@ head_tail <- function(obj,
     obj <- as.data.frame(obj)
 
     # If data frame is small
-    nrows <- nrow(obj)
+    nrows    <- nrow(obj)
     small_df <- nrows <= top + bottom + tolerance
     if (small_df == TRUE) {
         top <- nrows
@@ -93,7 +93,6 @@ head_tail <- function(obj,
     rownames(df_h) <- rownames(obj_h)
 
     space <- rep(" ", ncol(obj_h))
-
 
     # Output
     if (small_df == FALSE) {
@@ -128,7 +127,7 @@ n_decimals <- function(x) {
     })
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Max num. of significan decimals in each column
+# Max num. of significant decimals in each column
 n_decimals_max <- function(obj) {
     sapply(obj, function(x) max(n_decimals(x)))
 }

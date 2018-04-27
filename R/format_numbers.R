@@ -15,6 +15,10 @@
 # TODO:
 # 1) add parameter `skip` - for columns to skip.
 # 2) add parameter `include` - for the only columns to format.
+# 3) check and warn if `skip`  and `include` contain at least one common column name.
+# 4) add value digits = "auto" to automatically choose number of digits to round to.
+# 5) check if negalive values of "digits" are accepted. (patikrinti, ar galima naudoti neigiamus skai2ius, ar su jais apvalina teisingai.)
+#
 
 
 

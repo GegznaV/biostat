@@ -16,6 +16,7 @@
 #'                   naprint p.adjust ptukey qtukey quantile
 #'                   symnum var sd as.formula model.matrix qt
 #'                   median setNames terms
+#'                   cor na.omit p.adjust.methods
 #' @importFrom utils capture.output combn head tail
 
 

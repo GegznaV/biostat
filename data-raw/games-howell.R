@@ -3,27 +3,28 @@ games.howell <- function(grp, obs) {
     combs <- combn(unique(grp), 2)
 
     # Statistics that will be used throughout the calculations:
-    # n = sample size of each group
+    # n      = sample size of each group
     # groups = number of groups in data
-    # Mean = means of each group sample
-    # std = variance of each group sample
-    n <- tapply(obs, grp, length)
+    # Mean   = means of each group sample
+    # std    = variance of each group sample
+    n      <- tapply(obs, grp, length)
     groups <- length(tapply(obs, grp, length))
-    Mean <- tapply(obs, grp, mean)
-    std <- tapply(obs, grp, var)
+    Mean   <- tapply(obs, grp, mean)
+    std    <- tapply(obs, grp, var)
 
     statistics <- lapply(1:ncol(combs), function(x) {
         mean.diff <- Mean[combs[2, x]] - Mean[combs[1, x]]
 
         #t-values
-        t <-
-            abs(Mean[combs[1, x]] - Mean[combs[2, x]]) / sqrt((std[combs[1, x]] / n[combs[1, x]]) + (std[combs[2, x]] / n[combs[2, x]]))
+        t <- abs(Mean[combs[1, x]] - Mean[combs[2, x]]) /
+            sqrt((std[combs[1, x]] / n[combs[1, x]]) +
+                     (std[combs[2, x]] / n[combs[2, x]]))
 
         # Degrees of Freedom
         df <-
-            (std[combs[1, x]] / n[combs[1, x]] + std[combs[2, x]] / n[combs[2, x]]) ^
-            2 / # Numerator Degrees of Freedom
-            ((std[combs[1, x]] / n[combs[1, x]]) ^ 2 / (n[combs[1, x]] - 1) + # Part 1 of Denominator Degrees of Freedom
+            (std[combs[1, x]] / n[combs[1, x]] + std[combs[2, x]] /
+                 n[combs[2, x]]) ^ 2 / # Numerator Degrees of Freedom
+            ((std[combs[1, x]] / n[combs[1, x]]) ^ 2 / (n[combs[1, x]] - 1) +    # Part 1 of Denominator Degrees of Freedom
                  (std[combs[2, x]] / n[combs[2, x]]) ^ 2 / (n[combs[2, x]] - 1)) # Part 2 of Denominator Degrees of Freedom
 
         #p-values

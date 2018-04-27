@@ -3,8 +3,8 @@
 #
 # [v] 1. Add parameters for xlab, ylab, legend_title = xlab.
 # [ ] 2. Review documentation.
-# [ ] 3. Allow formula of shape ~ y
-# [ ] 4. Allow formula of shape ~ y | group
+# [ ] 3. Allow formula of shape: ~ y
+# [ ] 4. Allow formula of shape: ~ y | group
 #
 # [ ] 5. Convert groups to factors, if not a factor, and warn about this action.
 

@@ -25,6 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Do numerical summaries by groups — do_summary" />
 
 <meta property="og:description" content="Do numerical summaries by groups with formaula interface. Missing values are automatically removed." />
@@ -56,7 +59,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.17</span>
       </span>
     </div>
 
@@ -81,6 +84,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -88,22 +92,27 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Do numerical summaries by groups</h1>
     
+    <div class="hidden name"><code>do_summary.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Do numerical summaries by groups with formaula interface. Missing values are automatically removed.</p>
     
+    </div>
 
-    <pre class="usage"><span class='fu'>do_summary</span>(<span class='no'>y</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"n"</span>, <span class='st'>"missing"</span>, <span class='st'>"mean"</span>, <span class='st'>"sd"</span>, <span class='st'>"var"</span>,
-  <span class='st'>"min"</span>, <span class='st'>"Q1"</span>, <span class='st'>"Md"</span>, <span class='st'>"Q3"</span>, <span class='st'>"max"</span>, <span class='st'>"IQR"</span>, <span class='st'>"mad"</span>, <span class='st'>"skewness"</span>, <span class='st'>"kurtosis"</span>))
+    <pre class="usage"><span class='fu'>do_summary</span>(<span class='no'>y</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"n"</span>, <span class='st'>"missing"</span>, <span class='st'>"mean"</span>, <span class='st'>"trimmed"</span>, <span class='st'>"sd"</span>,
+  <span class='st'>"variance"</span>, <span class='st'>"min"</span>, <span class='st'>"Q1"</span>, <span class='st'>"median"</span>, <span class='st'>"Q3"</span>, <span class='st'>"max"</span>, <span class='st'>"mad"</span>, <span class='st'>"IQR"</span>, <span class='st'>"range"</span>, <span class='st'>"cv"</span>,
+  <span class='st'>"se"</span>, <span class='st'>"skewness"</span>, <span class='st'>"kurtosis"</span>), <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>0.1</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># S3 method for num_summaries</span>
-<span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"f"</span>)</pre>
+<span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"f"</span>,
+  <span class='kw'>digits_sk</span> <span class='kw'>=</span> <span class='fl'>2</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -123,17 +132,35 @@
 <li><p><code>"missing"</code> - number of missing observations,,</p></li>
 <li><p><code>"mean"</code> - arithmetic mean,</p></li>
 <li><p><code>"sd"</code> - standard deviation,</p></li>
-<li><p><code>"var"</code> - variance,</p></li>
+<li><p><code>"variance"</code> - variance,</p></li>
+<li><p><code>"trimmed"</code> - trimmed mean,</p></li>
 <li><p><code>"min"</code> - minimum value,</p></li>
 <li><p><code>"Q1"</code> - 1-st quartile,</p></li>
 <li><p><code>"Md"</code> - median,</p></li>
 <li><p><code>"Q3"</code> - 3-rd quartile,</p></li>
 <li><p><code>"max"</code> - maximum value,</p></li>
-<li><p><code>"IQR"</code> - interquartile range,</p></li>
 <li><p><code>"mad"</code> - median absolute deviation from median (more details <a href='http://www.rdocumentation.org/packages/stats/topics/mad'>mad</a>),</p></li>
+<li><p><code>"IQR"</code> - interquartile range,</p></li>
+<li><p><code>"range"</code> - range,</p></li>
+<li><p><code>"cv"</code> - coefficient of variation,</p></li>
+<li><p><code>"se"</code> - standard error of mean,</p></li>
 <li><p><code>"skewness"</code> - skewness,</p></li>
 <li><p><code>"kurtosis"</code> - excess kurtosis.</p></li>
 </ul></td>
+    </tr>
+    <tr>
+      <th>trim</th>
+      <td><p>The fraction (0 to 0.5) of observations to be trimmed from each end of sorted variable before the mean is computed. Values of trim outside that range are taken as the nearest endpoint.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>(integer: 1, 2, 3) The type of skewness and kurtosis estimate.
+See <code><a href='http://www.rdocumentation.org/packages/psych/topics/describe'>describe</a></code> and <code><a href='http://www.rdocumentation.org/packages/psych/topics/skew'>mardia</a></code>
+for details.</p></td>
+    </tr>
+    <tr>
+      <th>na.rm</th>
+      <td><p>(logical) Flag to remove missing values. Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -158,6 +185,14 @@ Each value will be passed to <code>fun</code> separately.<br />
 <code>"g"</code> and <code>"G"</code> put number into scientific format only if it saves space to do so.<br />
 <code>"fg"</code> uses fixed format as <code>"f"</code>, but digits as the minimum number of significant digits. This can lead to quite long result strings</p></td>
     </tr>
+    <tr>
+      <th>digits_sk</th>
+      <td><p>Number of digits for skweness and kurtosis.</p></td>
+    </tr>
+    <tr>
+      <th>digits_sk</th>
+      <td><p>Number of digits for descriptive statistics.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -170,41 +205,41 @@ Each value will be passed to <code>fun</code> separately.<br />
 <span class='fu'>data</span>(<span class='no'>cabbages</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"MASS"</span>)
 
 <span class='fu'>do_summary</span>(~<span class='no'>VitC</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   summary_of  n missing  mean    sd    var   min    Q1    Md    Q3   max   IQR
-#&gt; 1       VitC 60       0 57.95 10.12 102.39 41.00 50.75 56.00 66.25 84.00 15.50
-#&gt;     mad skewness kurtosis
-#&gt; 1 10.38     0.32    -0.68</div><div class='input'>
+    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   .summary_of  n missing  mean trimmed    sd variance   min    Q1 median    Q3
+#&gt; 1        VitC 60       0 57.95   57.67 10.12   102.39 41.00 50.75     56 66.25
+#&gt;     max   mad   IQR range   cv   se skewness kurtosis
+#&gt; 1 84.00 10.38 15.50 43.00 0.17 1.31     0.32    -0.68</div><div class='input'>
 <span class='fu'>do_summary</span>(<span class='no'>VitC</span> ~ <span class='no'>Cult</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   summary_of Cult  n missing  mean   sd   var   min    Q1    Md    Q3   max
-#&gt; 1       VitC  c39 30       0 51.50 7.12 50.74 41.00 46.00 51.00 54.75 68.00
-#&gt; 2       VitC  c52 30       0 64.40 8.46 71.49 47.00 58.00 64.50 70.75 84.00
-#&gt;     IQR  mad skewness kurtosis
-#&gt; 1  8.75 5.93     0.58    -0.26
-#&gt; 2 12.75 9.64     0.12    -0.62</div><div class='input'>
+    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   .summary_of Cult  n missing  mean trimmed   sd variance   min    Q1 median
+#&gt; 1        VitC  c39 30       0 51.50   50.92 7.12    50.74 41.00 46.00   51.0
+#&gt; 2        VitC  c52 30       0 64.40   64.25 8.46    71.49 47.00 58.00   64.5
+#&gt;      Q3   max  mad   IQR range   cv   se skewness kurtosis
+#&gt; 1 54.75 68.00 5.93  8.75 27.00 0.14 1.30     0.58    -0.26
+#&gt; 2 70.75 84.00 9.64 12.75 37.00 0.13 1.54     0.12    -0.62</div><div class='input'>
 <span class='fu'>do_summary</span>(<span class='no'>VitC</span> ~ <span class='no'>Cult</span> + <span class='no'>Date</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>, <span class='kw'>stat</span> <span class='kw'>=</span> <span class='st'>"mean"</span>) <span class='kw'>%&gt;%</span>
-    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   summary_of Cult Date  mean
-#&gt; 1       VitC  c39  d16 50.30
-#&gt; 2       VitC  c39  d20 49.40
-#&gt; 3       VitC  c39  d21 54.80
-#&gt; 4       VitC  c52  d16 62.50
-#&gt; 5       VitC  c52  d20 58.90
-#&gt; 6       VitC  c52  d21 71.80</div><div class='input'>
+    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   .summary_of Cult Date  mean
+#&gt; 1        VitC  c39  d16 50.30
+#&gt; 2        VitC  c39  d20 49.40
+#&gt; 3        VitC  c39  d21 54.80
+#&gt; 4        VitC  c52  d16 62.50
+#&gt; 5        VitC  c52  d20 58.90
+#&gt; 6        VitC  c52  d21 71.80</div><div class='input'>
 <span class='fu'>do_summary</span>(<span class='no'>HeadWt</span> + <span class='no'>VitC</span> ~ <span class='no'>Cult</span> + <span class='no'>Date</span>,
            <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>,
            <span class='kw'>stat</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"n"</span>, <span class='st'>"mean"</span>, <span class='st'>"sd"</span>)) <span class='kw'>%&gt;%</span>
-    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;    summary_of Cult Date  n mean  sd
-#&gt; 1      HeadWt  c39  d16 10  3.2 1.0
-#&gt; 2      HeadWt  c39  d20 10  2.8 0.3
-#&gt; 3      HeadWt  c39  d21 10  2.7 1.0
-#&gt; 4      HeadWt  c52  d16 10  2.3 0.4
-#&gt; 5      HeadWt  c52  d20 10  3.1 0.8
-#&gt; 6      HeadWt  c52  d21 10  1.5 0.2
-#&gt; 7        VitC  c39  d16 10 50.3 4.3
-#&gt; 8        VitC  c39  d20 10 49.4 8.3
-#&gt; 9        VitC  c39  d21 10 54.8 7.6
-#&gt; 10       VitC  c52  d16 10 62.5 5.8
-#&gt; 11       VitC  c52  d20 10 58.9 7.7
-#&gt; 12       VitC  c52  d21 10 71.8 6.2</div><div class='input'>
+    <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='output co'>#&gt;    .summary_of Cult Date  n mean  sd
+#&gt; 1       HeadWt  c39  d16 10  3.2 1.0
+#&gt; 2       HeadWt  c39  d20 10  2.8 0.3
+#&gt; 3       HeadWt  c39  d21 10  2.7 1.0
+#&gt; 4       HeadWt  c52  d16 10  2.3 0.4
+#&gt; 5       HeadWt  c52  d20 10  3.1 0.8
+#&gt; 6       HeadWt  c52  d21 10  1.5 0.2
+#&gt; 7         VitC  c39  d16 10 50.3 4.3
+#&gt; 8         VitC  c39  d20 10 49.4 8.3
+#&gt; 9         VitC  c39  d21 10 54.8 7.6
+#&gt; 10        VitC  c52  d16 10 62.5 5.8
+#&gt; 11        VitC  c52  d20 10 58.9 7.7
+#&gt; 12        VitC  c52  d21 10 71.8 6.2</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -231,6 +266,8 @@ Each value will be passed to <code>fun</code> separately.<br />
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>
