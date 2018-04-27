@@ -25,6 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Compute a slope and an intercept for a reference line in a qq-plot — qq_line_coeffs" />
 
 <meta property="og:description" content="Compute a slope and an intercept for a reference line ("qq-line")
@@ -58,7 +61,7 @@ distribution." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.17</span>
       </span>
     </div>
 
@@ -83,6 +86,7 @@ distribution." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -90,18 +94,21 @@ distribution." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Compute a slope and an intercept for a reference line in a qq-plot</h1>
     
+    <div class="hidden name"><code>qq_line_coeffs.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Compute a slope and an intercept for a reference line ("qq-line")
 in a quantile comparison plot given a vector of data an a theoretical
 distribution.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>qq_line_coeffs</span>(<span class='no'>y</span>, <span class='kw'>datax</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='no'>qnorm</span>, <span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>0.25</span>,
   <span class='fl'>0.75</span>), <span class='kw'>qtype</span> <span class='kw'>=</span> <span class='fl'>7</span>, <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='no'>...</span>)</pre>
@@ -186,6 +193,8 @@ But instead of plotting a reference line, it returns its coefficients.</p>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>

@@ -6,11 +6,11 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/biostat)](https://cran.r-project.org/package=biostat)
 [![GitHub
-version](https://img.shields.io/badge/GitHub-v0.0.15-brightgreen.svg)](https://github.com/GegznaV/biostat)
+version](https://img.shields.io/badge/GitHub-v0.0.17-brightgreen.svg)](https://github.com/GegznaV/biostat)
 [![Travis-CI Build
 Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
-[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--03--13-yellowgreen.svg)](/commits/master)
+[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--04--27-yellowgreen.svg)](/commits/master)
 
 -----
 

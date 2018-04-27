@@ -107,7 +107,7 @@ do_summary <- function(
     kurtosis <- purrr::partial(psych::kurtosi, na.rm = na.rm, type = type)
 
     cv <- function(x) sd(x)/mean(x)
-    se <- function(x) sd(x)/n_ok(x)
+    se <- function(x) sd(x)/sqrt(n_ok(x))
     range <- function(x) {
         diff(base::range(x,  na.rm = na.rm))
     }

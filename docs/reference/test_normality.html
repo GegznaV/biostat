@@ -25,6 +25,9 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
+
+
+
 <meta property="og:title" content="Normality tests by groups — test_normality" />
 
 <meta property="og:description" content="Perform a test of normality for each group separately.
@@ -58,7 +61,7 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.16</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.17</span>
       </span>
     </div>
 
@@ -83,6 +86,7 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -90,18 +94,21 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Normality tests by groups</h1>
     
+    <div class="hidden name"><code>test_normality.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Perform a test of normality for each group separately.
 The available tests: Shapiro-Wilk (default),
 Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other.</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>test_normality</span>(<span class='no'>y</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>test</span> <span class='kw'>=</span> <span class='st'>"Shapiro-Wilk"</span>,
   <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
@@ -251,14 +258,14 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
     
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <ul>
+    <div class='dont-index'><ul>
 <li><p><code><a href='http://www.rdocumentation.org/packages/stats/topics/shapiro.test'>shapiro.test</a></code> in package <span class="pkg">stats</span>;</p></li>
 <li><p><code><a href='http://www.rdocumentation.org/packages/nortest/topics/lillie.test'>lillie.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
 <li><p><code><a href='http://www.rdocumentation.org/packages/nortest/topics/pearson.test'>pearson.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
 <li><p><code><a href='http://www.rdocumentation.org/packages/nortest/topics/ad.test'>ad.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
 <li><p><code><a href='http://www.rdocumentation.org/packages/nortest/topics/cvm.test'>cvm.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
 <li><p><code><a href='http://www.rdocumentation.org/packages/nortest/topics/sf.test'>sf.test</a></code> in package <span class="pkg">nortest</span>.</p></li>
-</ul>
+</ul></div>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -439,6 +446,8 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 
       </footer>
    </div>
+
+  
 
   </body>
 </html>
