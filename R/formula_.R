@@ -1,40 +1,39 @@
-# Based on:
-# <environment: namespace:mosaicCore>
-# [!!!]
+# Based on code from package "mosaicCore"
 formula_parts <- function(formula) {
     # op <- formula[[1]]
-
     condition <- NULL
-    if (length(formula) == 2) {
-        lhs <- NULL
-        rhs <- formula[[2]]
-
-    } else if (length(formula) == 3) {
-        lhs <- formula[[2]]
-        rhs <- formula[[3]]
-
-    } else {
-        stop("Invalid formula type.")
-    }
+    switch(as.character(length(formula)),
+           "2" = {
+               lhs <- NULL
+               rhs <- formula[[2]]
+           },
+           "3" = {
+               lhs <- formula[[2]]
+               rhs <- formula[[3]]
+           },
+           stop("Invalid type of formula.")
+    )
 
     if (inherits(rhs, "call") && rhs[[1]] == "|") {
-        condition <- rhs[[3]]
-        rhs <- rhs[[2]]
+        condition <- rhs[[3]] # The order of these two rows
+        rhs       <- rhs[[2]] # must not be changed.
     }
 
-    as_expressions <- list(
-        #op = op,
-        lhs = lhs,
-        rhs = rhs,
-        condition = condition)
+    # Formula parts as expressions
+    as_expressions <-
+        list("lhs" = lhs,
+             "rhs" = rhs,
+             "condition" = condition)
 
     # Output  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    structure(as_expressions, class = "parsedFormula")
+    structure(as_expressions, class = "parsed_formula")
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# keep_all_vars - (logigal) If all variables (even hose not in formula)
-#                 should be included in output data.
+# keep_all_vars - (logigal) If all variables (even those not in formula)
+#                 should be included in the output data.
 parse_formula <- function(formula, data = NULL, keep_all_vars = FALSE) {
     envir <- rlang::f_env(formula)
 
@@ -59,7 +58,6 @@ parse_formula <- function(formula, data = NULL, keep_all_vars = FALSE) {
            stop("Incorrect formula.")
     )
     cond_vars <- names_by_part$condition
-
 
     all_names_in_formula <- Reduce(c, names_by_part)
     new_data <- data.frame(
