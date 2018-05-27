@@ -58,7 +58,7 @@
 #'
 
 # TODO:
-# 1. ...
+# 1. First argument should be a data frame
 #
 do_summary <- function(
     y,
@@ -182,7 +182,7 @@ do_summary <- function(
 #' @param x object to print
 #' @param ... further arguments to methods.
 #' @param digits_sk Number of digits for skweness and kurtosis.
-#' @param digits_sk Number of digits for descriptive statistics.
+#' @param digits Number of digits for descriptive statistics.
 #' @inheritParams format_numbers
 #' @export
 print.num_summaries <- function(x, ..., digits = NA, format = "f", digits_sk = 2) {

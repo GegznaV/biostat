@@ -20,3 +20,6 @@ do_corr(x, y = NULL, method = c("spearman", "kendall", "pearson")[1],
 \description{
 do_corr
 }
+\examples{
+do_corr()
+}

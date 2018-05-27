@@ -6,16 +6,20 @@
 #' do_corr
 #'
 #' @export
-do_corr <- function(x,
-                    y = NULL,
-                    method = c("spearman", "kendall", "pearson")[1],
-                    use = "complete.cases", # [!!!] in the future allow pairwise complete cases
-                    conf = 0.95,
-                    R    = 999,
-                    sim  = "balanced",
-                    ci_type = c("bca"),
-                    p_adjust_method = p.adjust.methods[1])
+#' @examples
+#' do_corr()
+do_corr <- function(
+    x,
+    y = NULL,
+    method = c("spearman", "kendall", "pearson")[1],
+    use = "complete.cases", # [!!!] in the future allow pairwise complete cases
+    conf = 0.95,
+    R    = 999,
+    sim  = "balanced",
+    ci_type = c("bca"),
+    p_adjust_method = p.adjust.methods[1])
 {
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ci_type         = match.arg(ci_type)
     p_adjust_method = match.arg(p_adjust_method)
@@ -116,7 +120,8 @@ print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = p05,
 #' @rdname do_corr
 #' @export
 
-# TODO: Padaryti, kad aprašyme `caption` rašytų visą pagrindinę informaciją apie analizė (pvz., R = ..., method = "holm", type = "BCA", ...)
+# TODO: Padaryti, kad aprašyme `caption` rašytų visą pagrindinę informaciją
+# apie analizę (pvz., R = ..., method = "holm", type = "BCA", ...)
 pander.do_corr <- function(x, ...,
                            caption = "The results of correlation analysis",
                            digits = 2, digits_p = 3, ss = p05,
@@ -134,8 +139,8 @@ pander.do_corr <- function(x, ...,
         biostat::format_numbers(c(cor      = digits,
                                   ci_lower = digits,
                                   ci_upper = digits,
-                                  ci_low = digits,
-                                  ci_upp = digits
+                                  ci_low   = digits,
+                                  ci_upp   = digits
                                   ))
 
     NextMethod("pander", x, caption = caption, ...)

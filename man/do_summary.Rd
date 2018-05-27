@@ -51,9 +51,7 @@ for details.}
 
 \item{...}{further arguments to methods.}
 
-\item{digits}{(numeric or \code{NA}) a desired number of digits after the decimal point (if \code{format = "f"}) or a number of significant digits (\code{format = "g"}, \code{= "e"} or \code{= "fg"}). \cr
-Either one integer (to set the same formatting for all columns) or a vector of inegers (to set formatting for each column separately).\cr
-Use \code{NA} to leave column unformatted.}
+\item{digits}{Number of digits for descriptive statistics.}
 
 \item{format}{(character) \code{"f"}, \code{"g"}, \code{"e"}, \code{"fg"}. Either one value or a vector of values for each column.
 Each value will be passed to \code{fun} separately.\cr
@@ -63,8 +61,6 @@ Each value will be passed to \code{fun} separately.\cr
 \code{"fg"} uses fixed format as \code{"f"}, but digits as the minimum number of significant digits. This can lead to quite long result strings}
 
 \item{digits_sk}{Number of digits for skweness and kurtosis.}
-
-\item{digits_sk}{Number of digits for descriptive statistics.}
 }
 \value{
 Data frame with summary satatistics.
