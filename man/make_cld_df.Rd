@@ -10,12 +10,37 @@ make_cld_df(formula = NULL, data = NULL, comparison = NULL,
   swap.vs = FALSE, reversed = FALSE, swap_compared_names = FALSE, ...)
 }
 \arguments{
-\item{formula}{The formula used to make the test (lm, aov, glm, etc.).  Like
-y ~ x.}
+\item{formula}{A formula indicating the variable holding p-values and
+the variable holding the comparisons. 
+e.g. P.adj ~ Comparison.}
 
-\item{data}{Data used to make the test.}
+\item{data}{The data frame to use.}
 
-\item{threshold}{Second (reference) argument to "compare".}
+\item{comparison}{A vector of text describing comparisons, 
+with each element in a form similar to
+"Treat.A - Treat.B = 0".  Spaces and "=" and "0"
+are removed by default}
+
+\item{p.value}{A vector of p-values corresponding to the comparisons
+in the \code{comparison} argument}
+
+\item{threshold}{The alpha value.  That is, the p-value below which the
+comparison will be considered significant}
+
+\item{print.comp}{If \code{TRUE}, prints out a data frame of the
+modified text of the comparisons.  Useful for debugging}
+
+\item{remove.space}{If \code{TRUE}, removes spaces from the text of the
+comparisons}
+
+\item{remove.equal}{If \code{TRUE}, removes "=" from the text of the
+comparisons}
+
+\item{swap.colon}{If \code{TRUE}, swaps ":" with "-" in the text of the
+comparisons}
+
+\item{swap.vs}{If \code{TRUE}, swaps "vs" with "-" in the text of the
+comparisons}
 
 \item{reversed}{A logical value indicating whether the order of the letters
 should be reversed. Defaults to FALSE.}
@@ -25,7 +50,8 @@ from, e.g., "2-1" or "second-first" to "1-2" or "first-second". This leads to
 different order of cld letters and different order of compared groups (if
 without swapping the result is incorrect order of groups.)}
 
-\item{...}{Extra arguments passed to multcompLetters.}
+\item{...}{Additional arguments passed to
+\code{multcompLetters}}
 }
 \description{
 Compute a compact letter display (cld) of statistically significant

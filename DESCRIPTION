@@ -14,7 +14,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-9500-5167"),
            email = "GegznaV@gmail.com")
     )
-License: GPL (>= 3)
+License: GPL-3
 Encoding: UTF-8
 URL: https://gegznav.github.io/biostat/
 BugReports: https://github.com/GegznaV/biostat/issues
@@ -47,7 +47,9 @@ Imports:
     withr,
     SuppDists,
     styler,
-    boot
+    boot,
+    htmlwidgets,
+    shinyjs
 RoxygenNote: 6.0.1
 Suggests:
     covr,

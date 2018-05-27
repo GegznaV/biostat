@@ -39,7 +39,8 @@ Contents of the field \code{names}: \itemize{
     \item \code{all_names} - all names (and expressions) in the formula;
     \item \code{y}, \code{x} - names for "x" and "y" variables (except condition variables);
     \item \code{lhs}, \code{rhs} - names in left-hand and right-hand side of formula (except condition variables);
-    \item \code{condition} - names of condition variables and expressions.
+    \item \code{condition} - names of condition variables and expressions;
+    \item \code{gr} - if condition exists, \code{gr} is the same as condition, otherwise it is the same as \code{x}.
 }
 }
 \description{

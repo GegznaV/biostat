@@ -10,3 +10,4 @@ codecov.yml
 README.Rmd
 _pkgdown.yaml
 ^docs*
+^LICENSE\.md$
