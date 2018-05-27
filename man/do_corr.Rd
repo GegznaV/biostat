@@ -8,18 +8,23 @@
 \usage{
 do_corr(x, y = NULL, method = c("spearman", "kendall", "pearson")[1],
   use = "complete.cases", conf = 0.95, R = 999, sim = "balanced",
-  ci_type = c("bca"), p_adjust_method = p.adjust.methods[1])
+  ci_type = c("bca"), p_adjust_method = p.adjust.methods[1], ss = p05plus)
 
-\method{print}{do_corr}(x, ..., digits = 2, digits_p = 3, ss = p05,
-  p_col = "p.adj", p_col_rm = "p")
+\method{print}{do_corr}(x, ..., digits = 2, digits_p = 3, ss = attr(x,
+  "ss"), p_col = c("p", "p.adj"))
 
 \method{pander}{do_corr}(x, ...,
   caption = "The results of correlation analysis", digits = 2,
-  digits_p = 3, ss = p05, p_col = "p.adj", p_col_rm = "p")
+  digits_p = 3, ss = attr(x, "ss"), p_col = c("p", "p.adj"))
 }
 \description{
 do_corr
 }
 \examples{
-do_corr()
+data(iris)
+ans <- do_corr(iris[,-5])
+ans
+
+library(pander)
+pander(ans)
 }

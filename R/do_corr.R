@@ -7,7 +7,12 @@
 #'
 #' @export
 #' @examples
-#' do_corr()
+#' data(iris)
+#' ans <- do_corr(iris[,-5])
+#' ans
+#'
+#' library(pander)
+#' pander(ans)
 do_corr <- function(
     x,
     y = NULL,
@@ -17,7 +22,8 @@ do_corr <- function(
     R    = 999,
     sim  = "balanced",
     ci_type = c("bca"),
-    p_adjust_method = p.adjust.methods[1])
+    p_adjust_method = p.adjust.methods[1],
+    ss = p05plus)
 {
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,16 +96,19 @@ do_corr <- function(
               conf = conf,
               ci_type = ci_type,
               sim = sim,
-              R = R)
+              R = R,
+              ss = ss)
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #' @rdname do_corr
 #' @export
-print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = p05,
-                          p_col = "p.adj", p_col_rm = "p") {
+print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = attr(x, "ss"),
+                          p_col = c("p", "p.adj")
+                          # , p_col_rm = NULL
+                          ) {
 
-    x[[p_col_rm]] <- NULL
+    # x[[p_col_rm]] <- NULL
 
     x <- x %>%
         biostat::format_p_values(cols = p_col,
@@ -124,11 +133,12 @@ print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = p05,
 # apie analizę (pvz., R = ..., method = "holm", type = "BCA", ...)
 pander.do_corr <- function(x, ...,
                            caption = "The results of correlation analysis",
-                           digits = 2, digits_p = 3, ss = p05,
-                           p_col = "p.adj", p_col_rm = "p") {
+                           digits = 2, digits_p = 3, ss = attr(x, "ss"),
+                           p_col = c("p", "p.adj")
+                           # , p_col_rm = "p"
+                           ) {
 
-    x[[p_col_rm]] <- NULL
-
+    # x[[p_col_rm]] <- NULL
     x <- x %>%
         biostat::format_p_values(cols = p_col,
                                  digits_p = digits_p, ss = ss) %>%
