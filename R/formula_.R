@@ -1,36 +1,3 @@
-# Based on code from package "mosaicCore"
-formula_parts <- function(formula) {
-    # op <- formula[[1]]
-    condition <- NULL
-    switch(as.character(length(formula)),
-           "2" = {
-               lhs <- NULL
-               rhs <- formula[[2]]
-           },
-           "3" = {
-               lhs <- formula[[2]]
-               rhs <- formula[[3]]
-           },
-           stop("Invalid type of formula.")
-    )
-
-    if (inherits(rhs, "call") && rhs[[1]] == "|") {
-        condition <- rhs[[3]] # The order of these two rows
-        rhs       <- rhs[[2]] # must not be changed.
-    }
-
-    # Formula parts as expressions
-    as_expressions <-
-        list("lhs" = lhs,
-             "rhs" = rhs,
-             "condition" = condition)
-
-    # Output  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    structure(as_expressions, class = "parsed_formula")
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-}
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # keep_all_vars - (logigal) If all variables (even those not in formula)
 #                 should be included in the output data.
@@ -108,6 +75,40 @@ formula_part_names <- function(obj, data) {
     fml_vars  <- attr(fml_terms, "variables")
     sapply(fml_vars, expr2chr)[-1L]
 }
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Based on code from package "mosaicCore"
+formula_parts <- function(formula) {
+    # op <- formula[[1]]
+    condition <- NULL
+    switch(as.character(length(formula)),
+           "2" = {
+               lhs <- NULL
+               rhs <- formula[[2]]
+           },
+           "3" = {
+               lhs <- formula[[2]]
+               rhs <- formula[[3]]
+           },
+           stop("Invalid type of formula.")
+    )
+
+    if (inherits(rhs, "call") && rhs[[1]] == "|") {
+        condition <- rhs[[3]] # The order of these two rows
+        rhs       <- rhs[[2]] # must not be changed.
+    }
+
+    # Formula parts as expressions
+    as_expressions <-
+        list("lhs" = lhs,
+             "rhs" = rhs,
+             "condition" = condition)
+
+    # Output  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    structure(as_expressions, class = "parsed_formula")
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Helpers
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 extract_expr_as_chr <- function(formula, data) {
     Reduce(c, formula_part_names(formula, data = data))
