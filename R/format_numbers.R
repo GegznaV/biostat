@@ -1,3 +1,12 @@
+# TODO:
+# 1) add parameter `skip` - for columns to skip.
+# 2) add parameter `include` - for the only columns to format.
+# 3) check and warn if `skip`  and `include` contain at least one common column name.
+# 4) add value digits = "auto" to automatically choose number of digits to round to.
+# 5) check if negalive values of "digits" are accepted. (patikrinti, ar galima naudoti neigiamus skaičius, ar su jais apvalina teisingai.)
+#
+
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Format Numbers in Each Column of a Dataframe
 #
@@ -12,13 +21,7 @@
 # ... - to be passed to `fun`
 # fun - formatting function to be applied. Default is `formatC`
 #
-# TODO:
-# 1) add parameter `skip` - for columns to skip.
-# 2) add parameter `include` - for the only columns to format.
-# 3) check and warn if `skip`  and `include` contain at least one common column name.
-# 4) add value digits = "auto" to automatically choose number of digits to round to.
-# 5) check if negalive values of "digits" are accepted. (patikrinti, ar galima naudoti neigiamus skai2ius, ar su jais apvalina teisingai.)
-#
+
 
 
 

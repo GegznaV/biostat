@@ -1,3 +1,7 @@
+# TODO
+# 1. possibly change function name
+# 2. code review is needed.
+
 #' Do numerical summaries by groups
 #'
 #' Do numerical summaries by groups with formaula interface. Missing values are automatically removed.

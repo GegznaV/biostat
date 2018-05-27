@@ -8,17 +8,17 @@ biostat & RcmdrPlugin.biostat
 ============================================================================= 
 
 1. Functions to tidy data (from package `tidyr`):
-    - gather;
-    - spread;
-    - unite;
-    - separate;
+    - gather;  OK
+    - spread;   .
+    - unite;    .
+    - separate; .
     
 2. Functions to manipulate data (from package `dplyr`):
-    - filter;
-    - arrange;
-    - select;
-    - mutate; ?
-    - rename;
+    - filter;   OK
+    - arrange;  +/-
+    - select;   +/-
+    - mutate;   OK
+    - rename;   OK
     - group_by; ?
     
 3. Normality test by group;  OK

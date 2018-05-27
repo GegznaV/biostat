@@ -1,3 +1,8 @@
+# TODO:
+# 1. Show both p and p adjusted values.
+# 2. rename parameter "R"
+# 3. Review the function
+
 #' do_corr
 #'
 #' @export

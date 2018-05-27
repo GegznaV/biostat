@@ -1,4 +1,8 @@
-
+# TODO:
+#
+# 1 [!!!]
+#
+#
 #' Frequency table for continuous data
 #'
 #' @param y (numeric) A numeric vector with data.

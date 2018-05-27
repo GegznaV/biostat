@@ -1,0 +1,115 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(fig.width = 5, 
+                      fig.height = 3)
+library(car)
+library(BioStat)
+```
+
+```{r}
+Input =("
+Location Turbidity
+ a        1.0
+ a        1.2
+ a        1.1
+ a        1.1
+ a        2.4
+ a        2.2
+ a        2.6
+ a        4.1
+ a        5.0
+ a       10.0
+ b        4.0
+ b        4.1
+ b        4.2
+ b        4.1
+ b        5.1
+ b        4.5
+ b        5.0
+ b       15.2
+ b       10.0
+ b       20.0
+ c        1.1
+ c        1.1
+ c        1.2
+ c        1.6
+ c        2.2
+ c        3.0
+ c        4.0
+ c       10.5
+")
+
+
+Data = read.table(textConnection(Input), header = TRUE)
+```
+
+```{r}
+gg_boxplot_plus(Turbidity ~ Location, data = Data)
+```
+
+```{r}
+ggplot(Data, aes(Turbidity)) +
+    geom_histogram(bins = 10, color = "black", aes(y = ..density..)) +
+    stat_normal_density(color = "red", lwd = 1)
+```
+
+
+```{r}
+model = lm(Turbidity ~ Location,
+           data = Data)
+```
+
+```{r}
+
+Anova(model, type = "II")
+```
+
+```{r}
+x = (residuals(model))
+
+library(rcompanion)
+
+plotNormalHistogram(x)
+
+qq_plot(residuals(model))
+```
+
+```{r}
+plot(model)
+```
+
+```{r}
+library(rcompanion)
+
+Data$Turbidity_tuk =
+    transformTukey(Data$Turbidity,
+                   plotit = FALSE)
+```
+
+```{r}
+Turbidity = c(1.0, 1.2, 1.1, 1.1, 2.4, 2.2, 2.6, 4.1, 5.0, 10.0, 4.0, 4.1, 4.2, 4.1, 5.1, 4.5, 5.0, 15.2, 10.0, 20.0, 1.1, 1.1, 1.2, 1.6, 2.2, 3.0, 4.0, 10.5)
+
+
+library(rcompanion)
+
+plotNormalHistogram(Turbidity)
+```
+
+```{r}
+library(MASS)
+
+Box = boxcox(Turbidity ~ 1,              # Transform Turbidity as a single vector
+             lambda = seq(-6,6,0.1)      # Try values -6 to 6 by 0.1
+             )
+
+data.frame(Box)
+```
+
+```{r}
+quine
+```
+
