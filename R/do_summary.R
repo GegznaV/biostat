@@ -1,3 +1,7 @@
+# TODO
+# 1. possibly change function name
+# 2. code review is needed.
+
 #' Do numerical summaries by groups
 #'
 #' Do numerical summaries by groups with formaula interface. Missing values are automatically removed.
@@ -54,7 +58,7 @@
 #'
 
 # TODO:
-# 1. ...
+# 1. First argument should be a data frame
 #
 do_summary <- function(
     y,
@@ -178,7 +182,7 @@ do_summary <- function(
 #' @param x object to print
 #' @param ... further arguments to methods.
 #' @param digits_sk Number of digits for skweness and kurtosis.
-#' @param digits_sk Number of digits for descriptive statistics.
+#' @param digits Number of digits for descriptive statistics.
 #' @inheritParams format_numbers
 #' @export
 print.num_summaries <- function(x, ..., digits = NA, format = "f", digits_sk = 2) {
@@ -190,7 +194,7 @@ print.num_summaries <- function(x, ..., digits = NA, format = "f", digits_sk = 2
                variance = digits,
                min      = digits,
                Q1       = digits,
-               Md       = digits,
+               median   = digits,
                Q3       = digits,
                max      = digits,
                mad      = digits,

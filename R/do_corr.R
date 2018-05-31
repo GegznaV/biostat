@@ -1,16 +1,31 @@
+# TODO:
+# 1. Show both p and p adjusted values.
+# 2. rename parameter "R"
+# 3. Review the function
+
 #' do_corr
 #'
 #' @export
-do_corr <- function(x,
-                    y = NULL,
-                    method = c("spearman", "kendall", "pearson")[1],
-                    use = "complete.cases", # [!!!] in the future allow pairwise complete cases
-                    conf = 0.95,
-                    R    = 999,
-                    sim  = "balanced",
-                    ci_type = c("bca"),
-                    p_adjust_method = p.adjust.methods[1])
+#' @examples
+#' data(iris)
+#' ans <- do_corr(iris[,-5])
+#' ans
+#'
+#' library(pander)
+#' pander(ans)
+do_corr <- function(
+    x,
+    y = NULL,
+    method = c("spearman", "kendall", "pearson")[1],
+    use = "complete.cases", # [!!!] in the future allow pairwise complete cases
+    conf = 0.95,
+    R    = 999,
+    sim  = "balanced",
+    ci_type = c("bca"),
+    p_adjust_method = p.adjust.methods[1],
+    ss = p05plus)
 {
+
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ci_type         = match.arg(ci_type)
     p_adjust_method = match.arg(p_adjust_method)
@@ -81,16 +96,19 @@ do_corr <- function(x,
               conf = conf,
               ci_type = ci_type,
               sim = sim,
-              R = R)
+              R = R,
+              ss = ss)
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #' @rdname do_corr
 #' @export
-print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = p05,
-                          p_col = "p.adj", p_col_rm = "p") {
+print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = attr(x, "ss"),
+                          p_col = c("p", "p.adj")
+                          # , p_col_rm = NULL
+                          ) {
 
-    x[[p_col_rm]] <- NULL
+    # x[[p_col_rm]] <- NULL
 
     x <- x %>%
         biostat::format_p_values(cols = p_col,
@@ -111,14 +129,16 @@ print.do_corr <- function(x, ..., digits = 2, digits_p = 3, ss = p05,
 #' @rdname do_corr
 #' @export
 
-# TODO: Padaryti, kad aprašyme `caption` rašytų visą pagrindinę informaciją apie analizė (pvz., R = ..., method = "holm", type = "BCA", ...)
+# TODO: Padaryti, kad aprašyme `caption` rašytų visą pagrindinę informaciją
+# apie analizę (pvz., R = ..., method = "holm", type = "BCA", ...)
 pander.do_corr <- function(x, ...,
                            caption = "The results of correlation analysis",
-                           digits = 2, digits_p = 3, ss = p05,
-                           p_col = "p.adj", p_col_rm = "p") {
+                           digits = 2, digits_p = 3, ss = attr(x, "ss"),
+                           p_col = c("p", "p.adj")
+                           # , p_col_rm = "p"
+                           ) {
 
-    x[[p_col_rm]] <- NULL
-
+    # x[[p_col_rm]] <- NULL
     x <- x %>%
         biostat::format_p_values(cols = p_col,
                                  digits_p = digits_p, ss = ss) %>%
@@ -129,8 +149,8 @@ pander.do_corr <- function(x, ...,
         biostat::format_numbers(c(cor      = digits,
                                   ci_lower = digits,
                                   ci_upper = digits,
-                                  ci_low = digits,
-                                  ci_upp = digits
+                                  ci_low   = digits,
+                                  ci_upp   = digits
                                   ))
 
     NextMethod("pander", x, caption = caption, ...)

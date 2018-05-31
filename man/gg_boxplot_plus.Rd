@@ -6,11 +6,12 @@
 \usage{
 gg_boxplot_plus(formula, data = NULL, cld = NULL, xlab = NULL,
   ylab = NULL, legend_title = NULL, sort_groups = c("no", "yes",
-  "ascending", "descending"), sort_fun = median, add_points = TRUE,
-  notch = FALSE, varwidth = FALSE, add_mean_ci = TRUE,
-  conf_level = 0.95, ci_boot_reps = 999, cld_color = "black",
-  cld_y_adj = 0, cld_y_mult = 0.06, ci_x_adj = -0.3, points_x_adj = 0.3,
-  ...)
+  "ascending", "descending", TRUE, FALSE), sort_fun = median,
+  add_points = TRUE, notch = FALSE, varwidth = FALSE,
+  add_mean_ci = TRUE, conf_level = 0.95, ci_boot_reps = 999,
+  cld_color = "black", cld_y_adj = 0, cld_y_mult = 0.06,
+  ci_x_adj = -0.3, points_x_adj = 0.3, gr_sep = "|", x_rotate = c(0, 30,
+  60, 90), ...)
 }
 \arguments{
 \item{formula}{a formula with two variable names to analyze. First one is numeric, second one is a factor, e.g. \code{y ~ group}.}
@@ -59,6 +60,10 @@ square-roots of the number of observations in the groups.}
 
 \item{points_x_adj}{(numeric) \cr x position correction factor (additive) for jittered points.}
 
+\item{gr_sep}{(character)  \cr Separator used if move than one grouping variabe is chosen. Default is \code{"|"}.}
+
+\item{x_rotate}{(character|numeric)  \cr An angle to rotete x axis tick labels. Supported values are 0, 30, 60, and 90. If theme is added, this parameter has no effect.}
+
 \item{...}{arguments to \code{sort_fun}.}
 }
 \value{
@@ -76,8 +81,12 @@ added to modify the plot.
 \examples{
 library(biostat)
 
-# Example 1
+# Example 1a
+gg_boxplot_plus(~decrease, OrchardSprays)
+
+# Example 1b
 gg_boxplot_plus(decrease ~ treatment, OrchardSprays)
+gg_boxplot_plus(~decrease | treatment, OrchardSprays)
 
 
 # Example 2
@@ -125,6 +134,10 @@ gg_boxplot_plus(decrease ~ treatment, data = OrchardSprays,
                 cld = cld_result2,
                 sort_groups = "ascending",
                 sort_fun = IQR)
+
+# Example 5
+
+gg_boxplot_plus(~weight | Diet + Chick, data = ChickWeight)
 
 }
 \references{

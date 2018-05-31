@@ -3,10 +3,11 @@
 #
 # [v] 1. Add parameters for xlab, ylab, legend_title = xlab.
 # [ ] 2. Review documentation.
-# [ ] 3. Allow formula of shape: ~ y
-# [ ] 4. Allow formula of shape: ~ y | group
+# [V] 3. Allow formula of shape: ~ y
+# [V] 4. Allow formula of shape: ~ y | group
 #
-# [ ] 5. Convert groups to factors, if not a factor, and warn about this action.
+# [V] 5. Convert groups to factors, if not a factor,
+# [-]    and warn about this action.
 
 #
 # ============================================================================
@@ -46,6 +47,9 @@
 #' @param ... arguments to \code{sort_fun}.
 #' @param xlab (character)  \cr Title for the x-axis.
 #' @param ylab (character)  \cr Title the y-axis.
+#' @param gr_sep (character)  \cr Separator used if move than one grouping variabe is chosen. Default is \code{"|"}.
+#' @param x_rotate (character|numeric)  \cr An angle to rotete x axis tick labels. Supported values are 0, 30, 60, and 90. If theme is added, this parameter has no effect.
+#'
 #' @param legend_title (character)  \cr Title for the legend.
 #' @param varwidth (logical) \cr
 #'        If \code{FALSE} (default) make a standard box plot.
@@ -69,8 +73,12 @@
 #' @examples
 #' library(biostat)
 #'
-#' # Example 1
+#' # Example 1a
+#' gg_boxplot_plus(~decrease, OrchardSprays)
+#'
+#' # Example 1b
 #' gg_boxplot_plus(decrease ~ treatment, OrchardSprays)
+#' gg_boxplot_plus(~decrease | treatment, OrchardSprays)
 #'
 #'
 #' # Example 2
@@ -119,6 +127,10 @@
 #'                 sort_groups = "ascending",
 #'                 sort_fun = IQR)
 #'
+#' # Example 5
+#'
+#' gg_boxplot_plus(~weight | Diet + Chick, data = ChickWeight)
+#'
 gg_boxplot_plus <- function(
     formula,
     data = NULL,
@@ -128,7 +140,7 @@ gg_boxplot_plus <- function(
     ylab = NULL,
     legend_title = NULL,
 
-    sort_groups = c("no", "yes", "ascending", "descending"),
+    sort_groups = c("no", "yes", "ascending", "descending", TRUE, FALSE),
     sort_fun = median,
 
     add_points = TRUE,
@@ -147,6 +159,10 @@ gg_boxplot_plus <- function(
     ci_x_adj = -0.3,
     points_x_adj =  0.3,
 
+    gr_sep  = "|",
+
+    x_rotate = c(0, 30, 60, 90),
+
     ...
 
 ) {
@@ -156,35 +172,42 @@ gg_boxplot_plus <- function(
     if (!is.null(cld)) {
         checkmate::assert_class(cld, "cld_object")
     }
-
-    # if (is.null(data)) {
-    #     data <- rlang::f_env(formula)
-    # }
-    #
-    # gr_name <- all.vars(formula[[3]])
-    #    y_name <- all.vars(formula[[2]])
-    #
-    # DATA <- dplyr::select(data,
-    #                       y = !!rlang::sym(y_name),
-    #                       group = !! rlang::sym(gr_name))
-    #
-    # DATA <- dplyr::mutate(DATA, group = factor(group))
-
-    obj <- parse_formula(formula, data, keep_all_vars = TRUE)
-    y_name <- obj$names$y
-    gr_name <- obj$names$x
-
-    DATA <- dplyr::select(obj$data,
-                          .y = !! rlang::sym(y_name),
-                          .group = !! rlang::sym(gr_name),
-                          dplyr::everything())
-
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    obj     <- parse_formula(formula, data, keep_all_vars = TRUE)
+    y_name  <- obj$names$y
+    gr_name <- obj$names$gr
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    if (is.null(gr_name)) {
+        gr_lab <- if (is.null(xlab)) " " else xlab
+        DATA <- obj$data %>%
+            dplyr::mutate(.y     = !! rlang::sym(y_name),
+                          .group = factor(gr_lab))
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    } else if (length(gr_name) == 1) {
+        DATA <- dplyr::mutate(obj$data,
+                              .y     = !! rlang::sym(y_name),
+                              .group = factor(!! rlang::sym(gr_name)))
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    } else {
+        DATA <- dplyr::mutate(obj$data,
+                              .y     = !! rlang::sym(y_name),
+                              .group = interaction(!!! rlang::syms(gr_name),
+                                                   sep  = gr_sep,
+                                                   drop = TRUE,
+                                                   lex.order = TRUE)
+                              , .group = factor(.group, levels = sort(levels(.group)))
+                              )
+    }
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    DATA <- dplyr::select(DATA, .y, .group, dplyr::everything())
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    sort_groups <- as.character(sort_groups)
     desc <- switch(match.arg(sort_groups),
-           "TRUE" = ,
-           "yes" = ,
-           "ascending" = FALSE,
-           "descending" = TRUE,
-           NULL)
+                   "TRUE"       = ,
+                   "yes"        = ,
+                   "ascending"  = FALSE,
+                   "descending" = TRUE,
+                   NULL)
 
     if (!is.null(desc)) {
         DATA <- dplyr::mutate(
@@ -194,25 +217,19 @@ gg_boxplot_plus <- function(
                                           fun = sort_fun,
                                           ...,
                                           .desc = desc))
-        # [!!!] Suggestion:
-        #
-        # y_name <- "weight"
-        # y_sym <- rlang::sym(y_name)
-        # gr <- "feed"
-        #
-        # mutate_at(chickwts, gr,
-        #  .funs = forcats::fct_reorder,
-        #   x = !! y_sym,
-        #   fun = median,
-        #   ...,
-        #   .desc = desc)
     }
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Plot
 
-    p <- ggplot(DATA, aes(x = .group, y = .y, fill = .group)) +
-        geom_boxplot(width = .2, notch = notch, varwidth = varwidth)
+    p <-
+        if (is.null(gr_name)) {
+            ggplot(DATA, aes(x = .group, y = .y))
+        } else {
+            ggplot(DATA, aes(x = .group, y = .y, fill = .group))
+        }
+
+    p <- p + geom_boxplot(width = .2, notch = notch, varwidth = varwidth)
 
     # p <- ggplot(DATA, aes(x = .group, y = .y, fill = .group)) +
     #     geom_violin(aes(color = .group), fill = NA, width = .6, lwd = 1) +
@@ -222,48 +239,43 @@ gg_boxplot_plus <- function(
         p <- p +
             geom_jitter(
                 aes(x = as.numeric(.group) + points_x_adj),
-                alpha = 0.3,
-                width = .08,
-                shape = 21)
+                alpha =  0.3,
+                width =   .08,
+                shape = 21    )
     }
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Add mean CI ------------------------------------------------------------
     if (add_mean_ci) {
-        # mean_ci <- dplyr::do(dplyr::group_by(DATA, .group),
-        #                      ci_mean_boot(.$.y, repetitions = ci_boot_reps,
-        #                                    conf_level = conf_level))
-        #
-        # p <- p +
-        #     geom_errorbar(data = mean_ci,
-        #                   aes(x = as.numeric(.group) + ci_x_adj,
-        #                       ymin = lower,
-        #                       ymax = upper,
-        #                       color = .group),
-        #                   inherit.aes = FALSE,
-        #                   width = 0.1) +
-        #
-        #     geom_point(data = mean_ci, shape = 21, color = "black",
-        #                aes(x = as.numeric(.group) + ci_x_adj,
-        #                    y = mean,
-        #                    fill = .group),
-        #                inherit.aes = FALSE)
+        if (is.null(gr_name)) {
+            p <- p +
+                stat_summary(
+                    aes(x     = as.numeric(.group) + ci_x_adj),
+                    geom      = "errorbar",
+                    fun.data  = mean_cl_boot,
+                    fun.args  = list(conf.int = conf_level,
+                                     B = ci_boot_reps),
+                    width = 0.1) +
 
-        p <- p +
-            stat_summary(aes(x = as.numeric(.group) + ci_x_adj,
-                             color = .group),
-                         geom = "errorbar",
-                         fun.data = mean_cl_boot,
-                         fun.args = list(
-                             conf.int = conf_level,
-                             B = ci_boot_reps),
-                         width = 0.1) +
+                stat_summary(aes(x = as.numeric(.group) + ci_x_adj),
+                             geom  = "point",
+                             fun.y = mean)
+        } else {
+            p <- p +
+                stat_summary(
+                    aes(x     = as.numeric(.group) + ci_x_adj,
+                        color = .group),
+                    geom      = "errorbar",
+                    fun.data  = mean_cl_boot,
+                    fun.args  = list(conf.int = conf_level,
+                                     B = ci_boot_reps),
+                    width = 0.1) +
 
-            stat_summary(aes(x = as.numeric(.group) + ci_x_adj,
-                             color = .group),
-                         geom = "point",
-                         fun.y = mean)
-
+                stat_summary(aes(x = as.numeric(.group) + ci_x_adj,
+                                 color = .group),
+                             geom  = "point",
+                             fun.y = mean)
+        }
     }
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -279,7 +291,7 @@ gg_boxplot_plus <- function(
                              group = factor(group, levels = levels(DATA$.group)))
 
         p <- p +
-            geom_text(data = cld,
+            geom_text(data  = cld,
                       color = cld_color,
                       aes(x = group, label = cld, y = cld_y_pos),
                       fontface = "bold",
@@ -288,12 +300,33 @@ gg_boxplot_plus <- function(
 
     # Add labels -------------------------------------------------------------
     if (is.null(ylab))                 ylab <- y_name
-    if (is.null(xlab))                 xlab <- gr_name
-    if (is.null(legend_title)) legend_title <- gr_name
+    if (is.null(xlab))                 xlab <- paste(gr_name, collapse = gr_sep)
+    if (is.null(legend_title)) legend_title <- paste(gr_name, collapse = gr_sep)
 
     p <- p +
         labs(x = xlab, y = ylab, fill = legend_title, color = legend_title) +
         theme_bw()
+
+    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    # Rotate x axis tick labels
+
+    switch(as.character(x_rotate)[1],
+           "30" = {
+               p <- p + theme(axis.text.x = element_text(angle = 30,
+                                                         hjust = 1,
+                                                         vjust = 1))
+           },
+           "60" = {
+               p <- p + theme(axis.text.x = element_text(angle = 60,
+                                                         hjust = .8,
+                                                         vjust = .9))
+           },
+           "90" = {
+               p <- p + theme(axis.text.x = element_text(angle = 90,
+                                                         hjust = 1,
+                                                         vjust = .5))
+           })
+
 
     # Output -----------------------------------------------------------------
     p

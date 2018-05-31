@@ -10,8 +10,8 @@ plot(Volume ~ Height,  data = trees,
      main = 'Black Cherry Tree Volume Relationship',
      xlab = 'Height',
      ylab = 'Volume',
-     pch = 16,
-     col = 'blue'
+     pch  = 16,
+     col  = 'blue'
 )
 
 
@@ -19,16 +19,16 @@ plot(Volume ~ Height, data = trees,
      main = 'Black Cherry Tree Volume Relationship',
      xlab = 'Girth',
      ylab = 'Volume',
-     pch = 16,
-     col = 'blue')
+     pch  = 16,
+     col  = 'blue')
 
 # foo = function(parameter1, parameter2, ... parametern) {
 #     bar = * do something to data passed as parameters * return(bar)
 # }
 
-sample_mean = function(data, indices) {
+sample_mean <- function(data, indices) {
     sample = data[indices,]
-    bar = mean(sample)
+    bar    = mean(sample)
     return(bar)
 }
 

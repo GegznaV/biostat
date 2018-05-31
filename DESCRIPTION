@@ -7,14 +7,14 @@ Description: A collection of functions that either are intended to be used with
              The functions are created to complement other R Commander plugins 
              that are used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.17
-Date: 2018-04-27
+Version: 0.0.18
+Date: 2018-05-31
 Authors@R: c(
     person("Vilmantas", "Gegzna", role = c("aut","cre"),
            comment = c(ORCID = "0000-0002-9500-5167"),
            email = "GegznaV@gmail.com")
     )
-License: GPL (>= 3)
+License: GPL-3
 Encoding: UTF-8
 URL: https://gegznav.github.io/biostat/
 BugReports: https://github.com/GegznaV/biostat/issues
@@ -25,29 +25,31 @@ Depends:
     magrittr,
     ggplot2
 Imports:
-    methods,
-    checkmate,
-    glue,
-    rlang,
-    pander,
-    readr,
-    stringr,
-    forcats,
-    dplyr,
-    tidyr,
+    boot,
     broom,
-    tibble,
-    purrr,
-    stats,
-    nortest,
+    checkmate,
+    dplyr,
     fitdistrplus,
+    forcats,
+    glue,
+    htmlwidgets,
     MASS,
+    methods,
     multcompView,
+    nortest,
+    pander,
     psych,
-    withr,
-    SuppDists,
+    purrr,
+    readr,
+    rlang,
+    shinyjs,
+    stats,
+    stringr,
     styler,
-    boot
+    SuppDists,
+    tibble,
+    tidyr,
+    withr
 RoxygenNote: 6.0.1
 Suggests:
     covr,
