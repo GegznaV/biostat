@@ -194,7 +194,7 @@ print.num_summaries <- function(x, ..., digits = NA, format = "f", digits_sk = 2
                variance = digits,
                min      = digits,
                Q1       = digits,
-               Md       = digits,
+               median   = digits,
                Q3       = digits,
                max      = digits,
                mad      = digits,
