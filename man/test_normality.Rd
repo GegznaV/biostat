@@ -7,17 +7,18 @@
 \title{Normality tests by groups}
 \usage{
 test_normality(y, data = NULL, test = "Shapiro-Wilk",
-  p_adjust_method = NULL, ..., groups = NULL, ss = signif_syms)
+  p_adjust_method = NULL, ..., groups = NULL, ss = signif_syms,
+  hide_error_msg = FALSE)
 
 \method{print}{test_normality}(x, ..., digits_p = 3,
   signif_stars = !is.null(ss), digits_stat = 3, format_stat = c("auto",
   "f", "g"), rm_zero = FALSE, legend = TRUE, show_col_method = FALSE,
-  ss = attr(x, "ss"))
+  hide_error_msg = attr(x, "hide_error_msg"), ss = attr(x, "ss"))
 
 \method{pander}{test_normality}(x, caption = NA, ..., digits_p = 3,
   signif_stars = !is.null(ss), digits_stat = 3, format_stat = c("auto",
   "f", "g"), rm_zero = FALSE, legend = TRUE, show_col_method = FALSE,
-  ss = attr(x, "ss"))
+  hide_error_msg = attr(x, "hide_error_msg"), ss = attr(x, "ss"))
 }
 \arguments{
 \item{y}{(formula|numeric|character)\cr
@@ -64,6 +65,12 @@ If \code{y} is a numeric vector, \code{groups} must be
 a factor (or \code{NULL}). If \code{y} is a sting,
 \code{groups} must also be a string (or \code{NULL}).}
 
+\item{hide_error_msg}{(logical) \cr
+If \code{FALSE} column "error_msg" is not printed.
+If \code{TRUE} the column is printed if error occurs
+in calcultations.
+Default is \code{FALSE}.}
+
 \item{x}{\code{normality_test} object.}
 
 \item{digits_p}{(numeric) Number of significant digits to round a p value to.
@@ -98,7 +105,7 @@ is printed.}
 
 \item{show_col_method}{(logical) \cr
   If \code{FALSE} column "method" is not
-printed. Default is\code{FALSE}.}
+printed. Default is \code{FALSE}.}
 
 \item{caption}{(string|\code{NULL}|\code{NA}) \cr
      A caption for the table with
