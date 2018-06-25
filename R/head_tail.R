@@ -37,14 +37,14 @@
 #' head_tail(iris[1:6, ], n = 2, tolerance = 2)
 #'
 head_tail <- function(obj,
-                      n = 4,
-                      format = c("f", "g", "e"),
-                      sep = "...",
-                      max_decimals = NULL,
+                      n             = 4,
+                      format        = c("f", "g", "e"),
+                      sep           = "...",
+                      max_decimals  = NULL,
                       signif_digits = 3,
-                      tolerance = 2,
-                      top = n,
-                      bottom = n
+                      tolerance     = 2,
+                      top           = n,
+                      bottom        = n
                       ) {
 
     checkmate::assert_data_frame(obj)
@@ -115,6 +115,7 @@ head_tail <- function(obj,
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Number of decimals without tailing zeros
+# x - a vector
 n_decimals <- function(x) {
     if (!is.numeric(x))
         return(rep(NA, length(x)))
@@ -122,17 +123,45 @@ n_decimals <- function(x) {
     # `scipen = 999` prevents from convertion to scientific number format
     withr::with_options(list(scipen = 999), {
         x[(x %% 1) == 0] <- ""
-        as.character(x)
+        # as.character(x)
         nchar(sub('(^.+\\.)(.*)(0*$)', '\\2', as.character(x)))
     })
 }
+# ## Not prepared function:
+#
+# # Number of decimals without tailing zeros
+# n_decimals_2 <- function(x) {
+#     if (!is.numeric(x))
+#         return(rep(NA, length(x)))
+#
+#     # `scipen = 999` prevents from convertion to scientific number format
+#     withr::with_options(list(scipen = 999), {
+#         without_decimals <- (x %% 1) == 0
+#
+#         if (without_decimals) {
+#             num <- ""
+#         } else {
+#             nchar(sub('(^.+\\.)(.*)(0*$)', '\\2', as.character(num)))
+#
+#
+#             nchar(sub('-?(^.+\\.)(.*)(0*$)', '\\2', as.character(num)))
+#         }
+#
+#     })
+# }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Max num. of significant decimals in each column
 n_decimals_max <- function(obj) {
     sapply(obj, function(x) max(n_decimals(x)))
 }
+
+signif_needed <- function(x) {
+    n_decimals_max(DF)
+
+}
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Round numeric columns
+# Round numeric columns in a data frame
 round_numbers <- function(data,
                           digits = 3,
                           fun = round,
@@ -145,14 +174,34 @@ round_numbers <- function(data,
         adjust_vector_length(digits, data)
     }
 
-
     # Apply the formatting
     for (i in seq_along(data)) {
         if (!is.numeric(data[[i]])) next
         if (is.na(digits[i]))       next
-        data[[i]] <-
-            fun(data[[i]], digits = digits[i], ...)
+        data[[i]] <- fun(data[[i]], digits = digits[i], ...)
     }
     # Output:
     data
+}
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+#' Min for numeric vectors or NA othervise
+#'
+#'
+#'
+#' @param x a vector
+#' @param na.rm logical passed to min
+#'
+#' @return Return minimum value if \code{x} is numeric and \code{NA} oterwise.
+#' @export
+#' @keywords internal
+#'
+min_numeric <- function(x, na.rm = TRUE) {
+    if (is.numeric(x)) {
+        min(x, na.rm = na.rm)
+    } else {
+        NA
     }
+}

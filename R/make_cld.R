@@ -114,11 +114,12 @@ make_cld <- function(obj, ..., alpha = 0.05) {
 #' @export
 make_cld.pairwise.htest <- function(obj, ..., alpha = 0.05) {
 
-    m1 <- obj$p.value
-    df <- pval_matrix_to_df(m1)
-    res <- make_cld_df(comparison = paste0(df$gr1, " - ", df$gr2),
-                       p.value    = df$p_values,
-                       threshold  = alpha,
+    m1  <- obj$p.value
+    df  <- pval_matrix_to_df(m1)
+    res <- make_cld_df(comparison   = paste0(df$gr1, " - ", df$gr2),
+                       p.value      = df$p_values,
+                       threshold    = alpha,
+                       remove.space = TRUE,
                        ...)
     res
 }
