@@ -11,3 +11,5 @@ README.Rmd
 _pkgdown.yaml
 ^docs*
 ^LICENSE\.md$
+^_pkgdown\.yml$
+^docs$

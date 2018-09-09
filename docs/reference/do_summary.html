@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,17 +21,22 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  <script src="../extra.js"></script>
 <meta property="og:title" content="Do numerical summaries by groups — do_summary" />
 
 <meta property="og:description" content="Do numerical summaries by groups with formaula interface. Missing values are automatically removed." />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -43,13 +48,12 @@
 <![endif]-->
 
 
-  	<link rel="icon" href="../favicon.png" />
-</head>
+  </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -59,30 +63,25 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.17</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.18.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Functions</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/GegznaV/biostat">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -172,9 +171,7 @@ for details.</p></td>
     </tr>
     <tr>
       <th>digits</th>
-      <td><p>(numeric or <code>NA</code>) a desired number of digits after the decimal point (if <code>format = "f"</code>) or a number of significant digits (<code>format = "g"</code>, <code>= "e"</code> or <code>= "fg"</code>). <br />
-Either one integer (to set the same formatting for all columns) or a vector of inegers (to set formatting for each column separately).<br />
-Use <code>NA</code> to leave column unformatted.</p></td>
+      <td><p>Number of digits for descriptive statistics.</p></td>
     </tr>
     <tr>
       <th>format</th>
@@ -189,10 +186,6 @@ Each value will be passed to <code>fun</code> separately.<br />
       <th>digits_sk</th>
       <td><p>Number of digits for skweness and kurtosis.</p></td>
     </tr>
-    <tr>
-      <th>digits_sk</th>
-      <td><p>Number of digits for descriptive statistics.</p></td>
-    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -206,13 +199,13 @@ Each value will be passed to <code>fun</code> separately.<br />
 
 <span class='fu'>do_summary</span>(~<span class='no'>VitC</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   .summary_of  n missing  mean trimmed    sd variance   min    Q1 median    Q3
-#&gt; 1        VitC 60       0 57.95   57.67 10.12   102.39 41.00 50.75     56 66.25
+#&gt; 1        VitC 60       0 57.95   57.67 10.12   102.39 41.00 50.75  56.00 66.25
 #&gt;     max   mad   IQR range   cv   se skewness kurtosis
 #&gt; 1 84.00 10.38 15.50 43.00 0.17 1.31     0.32    -0.68</div><div class='input'>
 <span class='fu'>do_summary</span>(<span class='no'>VitC</span> ~ <span class='no'>Cult</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>cabbages</span>) <span class='kw'>%&gt;%</span>
     <span class='fu'>print</span>(<span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;   .summary_of Cult  n missing  mean trimmed   sd variance   min    Q1 median
-#&gt; 1        VitC  c39 30       0 51.50   50.92 7.12    50.74 41.00 46.00   51.0
-#&gt; 2        VitC  c52 30       0 64.40   64.25 8.46    71.49 47.00 58.00   64.5
+#&gt; 1        VitC  c39 30       0 51.50   50.92 7.12    50.74 41.00 46.00  51.00
+#&gt; 2        VitC  c52 30       0 64.40   64.25 8.46    71.49 47.00 58.00  64.50
 #&gt;      Q3   max  mad   IQR range   cv   se skewness kurtosis
 #&gt; 1 54.75 68.00 5.93  8.75 27.00 0.14 1.30     0.58    -0.26
 #&gt; 2 70.75 84.00 9.64 12.75 37.00 0.13 1.54     0.12    -0.62</div><div class='input'>

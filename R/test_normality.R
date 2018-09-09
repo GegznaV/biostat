@@ -7,7 +7,7 @@
 #
 
 # DONE:
-#
+# 1. Order of arguments changed. Now first is `data`
 # 2. [+] Prevent from failing if one of the groups do not meet function requirements.
 #
 # An example of failing:

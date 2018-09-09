@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/sandstone/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -21,17 +21,22 @@
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  <script src="../extra.js"></script>
 <meta property="og:title" content="do_corr — do_corr" />
 
 <meta property="og:description" content="do_corr" />
 <meta name="twitter:card" content="summary" />
+
 
 
 <!-- mathjax -->
@@ -43,13 +48,12 @@
 <![endif]-->
 
 
-  	<link rel="icon" href="../favicon.png" />
-</head>
+  </head>
 
   <body>
     <div class="container template-reference-topic">
       <header>
-      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -59,30 +63,25 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.17</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.18.9000</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="../index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Functions</a>
+  <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/GegznaV/biostat">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -108,23 +107,79 @@
 
     <pre class="usage"><span class='fu'>do_corr</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"spearman"</span>, <span class='st'>"kendall"</span>, <span class='st'>"pearson"</span>)[<span class='fl'>1</span>],
   <span class='kw'>use</span> <span class='kw'>=</span> <span class='st'>"complete.cases"</span>, <span class='kw'>conf</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>R</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='kw'>sim</span> <span class='kw'>=</span> <span class='st'>"balanced"</span>,
-  <span class='kw'>ci_type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"bca"</span>), <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='no'>p.adjust.methods</span>[<span class='fl'>1</span>])
+  <span class='kw'>ci_type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"bca"</span>), <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='no'>p.adjust.methods</span>[<span class='fl'>1</span>], <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05plus</span>)
 
 <span class='co'># S3 method for do_corr</span>
-<span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05</span>,
-  <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='st'>"p.adj"</span>, <span class='kw'>p_col_rm</span> <span class='kw'>=</span> <span class='st'>"p"</span>)
+<span class='fu'>print</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'>attr</span>(<span class='no'>x</span>,
+  <span class='st'>"ss"</span>), <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"p"</span>, <span class='st'>"p.adj"</span>))
 
 <span class='co'># S3 method for do_corr</span>
 <span class='fu'>pander</span>(<span class='no'>x</span>, <span class='no'>...</span>,
   <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"The results of correlation analysis"</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05</span>, <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='st'>"p.adj"</span>, <span class='kw'>p_col_rm</span> <span class='kw'>=</span> <span class='st'>"p"</span>)</pre>
+  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'>attr</span>(<span class='no'>x</span>, <span class='st'>"ss"</span>), <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"p"</span>, <span class='st'>"p.adj"</span>))</pre>
         
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'>data</span>(<span class='no'>iris</span>)
+<span class='no'>ans</span> <span class='kw'>&lt;-</span> <span class='fu'>do_corr</span>(<span class='no'>iris</span>[,-<span class='fl'>5</span>])
+<span class='no'>ans</span></div><div class='output co'>#&gt;                     variables   cor ci_low ci_upp          p      p.adj   n
+#&gt; 1  Sepal.Length - Sepal.Width -0.17  -0.31  -0.02  0.041 *    0.041 *   150
+#&gt; 2 Sepal.Length - Petal.Length  0.88   0.84   0.91 &lt;0.001 *** &lt;0.001 *** 150
+#&gt; 3  Sepal.Length - Petal.Width  0.83   0.78   0.87 &lt;0.001 *** &lt;0.001 *** 150
+#&gt; 4  Sepal.Width - Petal.Length -0.31  -0.45  -0.14 &lt;0.001 *** &lt;0.001 *** 150
+#&gt; 5   Sepal.Width - Petal.Width -0.29  -0.44  -0.13 &lt;0.001 *** &lt;0.001 *** 150
+#&gt; 6  Petal.Length - Petal.Width  0.94   0.92   0.95 &lt;0.001 *** &lt;0.001 *** 150
+#&gt;     method
+#&gt; 1 spearman
+#&gt; 2 spearman
+#&gt; 3 spearman
+#&gt; 4 spearman
+#&gt; 5 spearman
+#&gt; 6 spearman</div><div class='input'>
+<span class='fu'>library</span>(<span class='no'>pander</span>)
+<span class='fu'><a href='http://www.rdocumentation.org/packages/pander/topics/pander'>pander</a></span>(<span class='no'>ans</span>)</div><div class='output co'>#&gt; 
+#&gt; --------------------------------------------------------------------
+#&gt;           variables             cor    ci_low   ci_upp       p      
+#&gt; ----------------------------- ------- -------- -------- ------------
+#&gt;  Sepal.Length - Sepal.Width    -0.17   -0.31    -0.02     0.041 *   
+#&gt; 
+#&gt;  Sepal.Length - Petal.Length   0.88     0.84     0.91    &lt;0.001 *** 
+#&gt; 
+#&gt;  Sepal.Length - Petal.Width    0.83     0.78     0.87    &lt;0.001 *** 
+#&gt; 
+#&gt;  Sepal.Width - Petal.Length    -0.31   -0.45    -0.14    &lt;0.001 *** 
+#&gt; 
+#&gt;   Sepal.Width - Petal.Width    -0.29   -0.44    -0.13    &lt;0.001 *** 
+#&gt; 
+#&gt;  Petal.Length - Petal.Width    0.94     0.92     0.95    &lt;0.001 *** 
+#&gt; --------------------------------------------------------------------
+#&gt; 
+#&gt; Table: The results of correlation analysis (continued below)
+#&gt; 
+#&gt;  
+#&gt; -----------------------------
+#&gt;    p.adj       n     method  
+#&gt; ------------ ----- ----------
+#&gt;   0.041 *     150   spearman 
+#&gt; 
+#&gt;  &lt;0.001 ***   150   spearman 
+#&gt; 
+#&gt;  &lt;0.001 ***   150   spearman 
+#&gt; 
+#&gt;  &lt;0.001 ***   150   spearman 
+#&gt; 
+#&gt;  &lt;0.001 ***   150   spearman 
+#&gt; 
+#&gt;  &lt;0.001 ***   150   spearman 
+#&gt; -----------------------------
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-                </ul>
+            
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
