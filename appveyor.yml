@@ -1,6 +1,6 @@
 # DO NOT CHANGE the "init" and "install" sections below
 
-version: 0.0.18.{build}-{branch}
+version: 0.0.19.{build}-{branch}
 
 build:
   verbosity: minimal
