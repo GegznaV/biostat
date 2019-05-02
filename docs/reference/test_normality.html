@@ -69,7 +69,7 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.18.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
       </span>
     </div>
 
@@ -119,15 +119,17 @@ Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other.</p>
 
 <span class='co'># S3 method for test_normality</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> !<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>ss</span>), <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>format_stat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"auto"</span>,
-  <span class='st'>"f"</span>, <span class='st'>"g"</span>), <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"hide_error_msg"</span>), <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>))
+  <span class='kw'>signif_stars</span> <span class='kw'>=</span> !<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>ss</span>), <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>format_stat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"auto"</span>, <span class='st'>"f"</span>, <span class='st'>"g"</span>), <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"hide_error_msg"</span>),
+  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>))
 
 <span class='co'># S3 method for test_normality</span>
 <span class='fu'>pander</span>(<span class='no'>x</span>, <span class='kw'>caption</span> <span class='kw'>=</span> <span class='fl'>NA</span>, <span class='no'>...</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> !<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>ss</span>), <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>format_stat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"auto"</span>,
-  <span class='st'>"f"</span>, <span class='st'>"g"</span>), <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"hide_error_msg"</span>), <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>))</pre>
+  <span class='kw'>signif_stars</span> <span class='kw'>=</span> !<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/NULL'>is.null</a></span>(<span class='no'>ss</span>), <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>format_stat</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"auto"</span>, <span class='st'>"f"</span>, <span class='st'>"g"</span>), <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"hide_error_msg"</span>),
+  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

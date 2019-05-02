@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.18.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
       </span>
     </div>
 
@@ -111,11 +111,12 @@
 
     <pre class="usage"><span class='fu'>do_corr</span>(<span class='no'>x</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"spearman"</span>, <span class='st'>"kendall"</span>, <span class='st'>"pearson"</span>)[<span class='fl'>1</span>],
   <span class='kw'>use</span> <span class='kw'>=</span> <span class='st'>"complete.cases"</span>, <span class='kw'>conf</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>R</span> <span class='kw'>=</span> <span class='fl'>999</span>, <span class='kw'>sim</span> <span class='kw'>=</span> <span class='st'>"balanced"</span>,
-  <span class='kw'>ci_type</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"bca"</span>), <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='no'>p.adjust.methods</span>[<span class='fl'>1</span>], <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05plus</span>)
+  <span class='kw'>ci_type</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"bca"</span>), <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='no'>p.adjust.methods</span>[<span class='fl'>1</span>],
+  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>p05plus</span>)
 
 <span class='co'># S3 method for do_corr</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>,
-  <span class='st'>"ss"</span>), <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"p"</span>, <span class='st'>"p.adj"</span>))
+<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/attr'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>), <span class='kw'>p_col</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"p"</span>, <span class='st'>"p.adj"</span>))
 
 <span class='co'># S3 method for do_corr</span>
 <span class='fu'>pander</span>(<span class='no'>x</span>, <span class='no'>...</span>,

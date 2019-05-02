@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.18.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
       </span>
     </div>
 
@@ -122,9 +122,9 @@
   <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
 
 <span class='co'># S3 method for data.frame</span>
-<span class='fu'>format_p_values</span>(<span class='no'>data</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>,
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+<span class='fu'>format_p_values</span>(<span class='no'>data</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
 
 <span class='fu'>add_signif_stars</span>(<span class='no'>p</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
 
@@ -161,8 +161,8 @@
 
 <span class='fu'>rm_zero</span>(<span class='no'>str</span>, <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>)
 
-<span class='fu'>format_as_p_columns</span>(<span class='no'>data</span>, <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"p.value"</span>, <span class='st'>"p.adjust"</span>), <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>format_as_p_columns</span>(<span class='no'>data</span>, <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"p.value"</span>, <span class='st'>"p.adjust"</span>),
+  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">

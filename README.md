@@ -8,13 +8,14 @@
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/biostat)](https://cran.r-project.org/package=biostat)
 [![GitHub
-version](https://img.shields.io/badge/GitHub-v0.0.18.9000-brightgreen.svg)](https://github.com/GegznaV/biostat)
+version](https://img.shields.io/badge/GitHub-v0.0.19-brightgreen.svg)](https://github.com/GegznaV/biostat)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/GegznaV/biostat?branch=master&svg=true)](https://ci.appveyor.com/project/GegznaV/biostat)
 [![Travis-CI Build
 Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
-[![Updated-on](https://img.shields.io/badge/Updated%20on-2018--04--27-yellowgreen.svg)](/commits/master)
+[![Updated-on](https://img.shields.io/badge/Updated%20on-2019--05--02-yellowgreen.svg)](/commits/master)
+
 <!-- badges: end -->
 
 -----

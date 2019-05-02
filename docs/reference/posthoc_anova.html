@@ -69,7 +69,7 @@ post-hoc tests for one-way analysis of variance (ANOVA)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.18.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
       </span>
     </div>
 
@@ -118,23 +118,25 @@ post-hoc tests for one-way analysis of variance (ANOVA).</p>
   <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for formula</span>
-<span class='fu'>posthoc_anova</span>(<span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Games-Howell"</span>,
-  <span class='st'>"Tukey"</span>), <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>,
-  <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" | "</span>)
+<span class='fu'>posthoc_anova</span>(<span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>), <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>, <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" | "</span>)
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>posthoc_anova</span>(<span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Games-Howell"</span>,
-  <span class='st'>"Tukey"</span>), <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+<span class='fu'>posthoc_anova</span>(<span class='no'>y</span>, <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>), <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>, <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for posthoc_anova</span>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/print'>print</a></span>(<span class='no'>x</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='no'>x</span>$<span class='no'>input</span>$<span class='no'>digits</span>,
   <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='no'>x</span>$<span class='no'>input</span>$<span class='no'>digits_p</span>, <span class='kw'>digits_param</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='no'>...</span>)
 
 <span class='co'># S3 method for posthoc_anova</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>zero_line_color</span> <span class='kw'>=</span> <span class='st'>"grey"</span>, <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>p_size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>p_color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>p_pos_adj</span> <span class='kw'>=</span> <span class='fl'>0.22</span>, <span class='kw'>flip_xy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'><a href='https://www.rdocumentation.org/packages/graphics/topics/plot'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>zero_line_color</span> <span class='kw'>=</span> <span class='st'>"grey"</span>,
+  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>p_size</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>p_color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>p_pos_adj</span> <span class='kw'>=</span> <span class='fl'>0.22</span>,
+  <span class='kw'>flip_xy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
