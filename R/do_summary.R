@@ -96,17 +96,17 @@ do_summary <- function(
         data <- model.frame(y, rlang::f_env(y))
     }
     # Define functions with na.rm set to TRUE
-          Q1 <- q1
-          Q3 <- q3
-          sd <- purrr::partial(stats::sd,      na.rm = na.rm)
+    Q1 <- q1
+    Q3 <- q3
+    sd <- purrr::partial(stats::sd,      na.rm = na.rm)
     variance <- purrr::partial(stats::var,     na.rm = na.rm)
-        mean <- purrr::partial(base::mean,     na.rm = na.rm)
-     trimmed <- purrr::partial(base::mean,     na.rm = na.rm, trim = trim)
-      median <- purrr::partial(stats::median,  na.rm = na.rm)
-         mad <- purrr::partial(stats::mad,     na.rm = na.rm)
-         max <- purrr::partial(base::max,      na.rm = na.rm)
-         min <- purrr::partial(base::min,      na.rm = na.rm)
-         IQR <- purrr::partial(stats::IQR,     na.rm = na.rm)
+    mean <- purrr::partial(base::mean,     na.rm = na.rm)
+    trimmed <- purrr::partial(base::mean,     na.rm = na.rm, trim = trim)
+    median <- purrr::partial(stats::median,  na.rm = na.rm)
+    mad <- purrr::partial(stats::mad,     na.rm = na.rm)
+    max <- purrr::partial(base::max,      na.rm = na.rm)
+    min <- purrr::partial(base::min,      na.rm = na.rm)
+    IQR <- purrr::partial(stats::IQR,     na.rm = na.rm)
     skewness <- purrr::partial(psych::skew,    na.rm = na.rm, type = type)
     kurtosis <- purrr::partial(psych::kurtosi, na.rm = na.rm, type = type)
 
@@ -151,17 +151,19 @@ do_summary <- function(
 
         data %>%
             dplyr::group_by(!!! groups) %>%
-            dplyr::summarise_at(dplyr::vars(!!! num_x),
-                                dplyr::funs(!!! stat_)) %>%
+            dplyr::summarise_at(
+                dplyr::vars(!!! num_x),
+                dplyr::funs(!!! stat_)
+            ) %>%
             dplyr::ungroup()
     }
 
     # Do the calculations
     (
         # if (length(y_names) > 1) {
-            lapply(y_names, calculate) %>%
-                setNames(y_names) %>%
-                dplyr::bind_rows(.id = ".summary_of")
+        lapply(y_names, calculate) %>%
+            setNames(y_names) %>%
+            dplyr::bind_rows(.id = ".summary_of")
 
         # } else {
         #     calculate(y_names)
@@ -189,21 +191,21 @@ print.num_summaries <- function(x, ..., digits = NA, format = "f", digits_sk = 2
     df <- format_numbers(
         data =  as.data.frame(x),
         digits = c(mean = digits,
-               trimmed  = digits,
-               sd       = digits,
-               variance = digits,
-               min      = digits,
-               Q1       = digits,
-               median   = digits,
-               Q3       = digits,
-               max      = digits,
-               mad      = digits,
-               IQR      = digits,
-               range    = digits,
-               cv       = digits, # ??? kiti matavimo vienetai nei x
-               se       = digits, # ??? kiti matavimo vienetai nei x
-               skewness = digits_sk,
-               kurtosis = digits_sk),
+                   trimmed  = digits,
+                   sd       = digits,
+                   variance = digits,
+                   min      = digits,
+                   Q1       = digits,
+                   median   = digits,
+                   Q3       = digits,
+                   max      = digits,
+                   mad      = digits,
+                   IQR      = digits,
+                   range    = digits,
+                   cv       = digits, # ??? kiti matavimo vienetai nei x
+                   se       = digits, # ??? kiti matavimo vienetai nei x
+                   skewness = digits_sk,
+                   kurtosis = digits_sk),
         format = format
     )
     print(as.data.frame(df), ...)
