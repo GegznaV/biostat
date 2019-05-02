@@ -182,12 +182,12 @@ gg_boxplot_plus <- function(
         DATA <- obj$data %>%
             dplyr::mutate(.y     = !! rlang::sym(y_name),
                           .group = factor(gr_lab))
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     } else if (length(gr_name) == 1) {
         DATA <- dplyr::mutate(obj$data,
                               .y     = !! rlang::sym(y_name),
                               .group = factor(!! rlang::sym(gr_name)))
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     } else {
         DATA <- dplyr::mutate(obj$data,
                               .y     = !! rlang::sym(y_name),
@@ -196,7 +196,7 @@ gg_boxplot_plus <- function(
                                                    drop = TRUE,
                                                    lex.order = TRUE)
                               , .group = factor(.group, levels = sort(levels(.group)))
-                              )
+        )
     }
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     DATA <- dplyr::select(DATA, .y, .group, dplyr::everything())
@@ -212,11 +212,12 @@ gg_boxplot_plus <- function(
     if (!is.null(desc)) {
         DATA <- dplyr::mutate(
             DATA,
-            .group = forcats::fct_reorder(.group,
-                                          .y,
-                                          fun = sort_fun,
-                                          ...,
-                                          .desc = desc))
+            .group = forcats::fct_reorder(
+                .group,
+                .y,
+                .fun = sort_fun,
+                ...,
+                .desc = desc))
     }
 
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
