@@ -13,3 +13,4 @@ _pkgdown.yaml
 ^LICENSE\.md$
 ^_pkgdown\.yml$
 ^docs$
+^appveyor\.yml$
