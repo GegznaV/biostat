@@ -4,6 +4,7 @@ context("Function `qq_plot()`")
 
 test_that("`qq_plot()` works", {
     data("iris", package = "datasets")
+
     gg1 <- qq_plot(Sepal.Length ~ Species, data = iris)
     gg2 <- qq_plot("Sepal.Length", groups = "Species", data = iris)
     gg3 <- qq_plot("Sepal.Length", groups = "Species", data = iris, use_colors = TRUE)
