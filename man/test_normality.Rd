@@ -11,14 +11,16 @@ test_normality(y, data = NULL, test = "Shapiro-Wilk",
   hide_error_msg = FALSE)
 
 \method{print}{test_normality}(x, ..., digits_p = 3,
-  signif_stars = !is.null(ss), digits_stat = 3, format_stat = c("auto",
-  "f", "g"), rm_zero = FALSE, legend = TRUE, show_col_method = FALSE,
-  hide_error_msg = attr(x, "hide_error_msg"), ss = attr(x, "ss"))
+  signif_stars = !is.null(ss), digits_stat = 3,
+  format_stat = c("auto", "f", "g"), rm_zero = FALSE, legend = TRUE,
+  show_col_method = FALSE, hide_error_msg = attr(x, "hide_error_msg"),
+  ss = attr(x, "ss"))
 
 \method{pander}{test_normality}(x, caption = NA, ..., digits_p = 3,
-  signif_stars = !is.null(ss), digits_stat = 3, format_stat = c("auto",
-  "f", "g"), rm_zero = FALSE, legend = TRUE, show_col_method = FALSE,
-  hide_error_msg = attr(x, "hide_error_msg"), ss = attr(x, "ss"))
+  signif_stars = !is.null(ss), digits_stat = 3,
+  format_stat = c("auto", "f", "g"), rm_zero = FALSE, legend = TRUE,
+  show_col_method = FALSE, hide_error_msg = attr(x, "hide_error_msg"),
+  ss = attr(x, "ss"))
 }
 \arguments{
 \item{y}{(formula|numeric|character)\cr

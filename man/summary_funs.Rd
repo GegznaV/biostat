@@ -6,9 +6,6 @@
 \alias{q3}
 \alias{n_missing}
 \alias{n_ok}
-\alias{q3}
-\alias{n_missing}
-\alias{n_ok}
 \alias{n_nonmissing}
 \alias{iqv}
 \alias{iqv.default}

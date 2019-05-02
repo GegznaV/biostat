@@ -6,10 +6,10 @@
 \alias{plot.qqdata}
 \title{[!] Compute data for a qq-plot}
 \usage{
-qq_data(y, data = NULL, distribution = "norm", ..., line = c("quartiles",
-  "robust", "int=0,slope=1", "0,1", "none"), envelope = 0.95,
-  method = c("mle-normal", "trimmed-normal", "moment-normal", "any"),
-  labels = NULL, groups = NULL, sep = " | ")
+qq_data(y, data = NULL, distribution = "norm", ...,
+  line = c("quartiles", "robust", "int=0,slope=1", "0,1", "none"),
+  envelope = 0.95, method = c("mle-normal", "trimmed-normal",
+  "moment-normal", "any"), labels = NULL, groups = NULL, sep = " | ")
 
 \method{coef}{qqdata}(object, ...)
 

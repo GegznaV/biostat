@@ -4,7 +4,8 @@
 \alias{objects_of_class}
 \title{List objects of a certain class.}
 \usage{
-objects_of_class(class = NULL, all.names = FALSE, envir = parent.frame())
+objects_of_class(class = NULL, all.names = FALSE,
+  envir = parent.frame())
 }
 \arguments{
 \item{class}{(character) The name of class.}
