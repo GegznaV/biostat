@@ -13,8 +13,9 @@ test_that("ci_mean_boot works", {
     expect_error(ci_mean_boot(c(1:30, NA, NA, NA), na.rm = FALSE))
 
     set.seed(999555)
-    expect_equivalent(round(ci_mean_boot(c(1:30, NA, NA, NA), na.rm = TRUE), 2),
-                      c(15.5, 12.4, 18.6, 0.95, 2000))
+    expect_equivalent(
+        round(ci_mean_boot(c(1:30, NA, NA, NA), na.rm = TRUE), 2),
+        c(15.5, 12.4, 18.6, 0.95, 2000))
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     set.seed(999555)
