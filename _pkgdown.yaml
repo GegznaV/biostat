@@ -3,6 +3,15 @@ favicon: "favicon.png"
 template:
   params:
     bootswatch: sandstone
+  path: pkgdown/templates
+  assets: pkgdown/assets
+  default_assets: false
+
+development:
+  mode: unreleased
+  destination: devel
+  version_label: default
+  version_tooltip: "Github version"
 
 navbar:
   title: "biostat | R package"

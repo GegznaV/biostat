@@ -1,8 +1,62 @@
 #  test_normality() =========================================================
-# To do:
+# TODO:
 # 1. Use "parse_formula" for formula interface.
 # 2. Enable formaula of form: y1 + y2 + y3 ~ group
 # 3. Enable formaula of form: ~ y1 + y2 + y3 | group
+#
+#
+
+# DONE:
+# 1. Order of arguments changed. Now first is `data`
+# 2. [+] Prevent from failing if one of the groups do not meet function requirements.
+#
+# An example of failing:
+#
+# DATA_1 <- structure(list(
+# A = structure(c(2L, 1L, 1L, 1L, 1L, 1L, 1L,
+#                 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 1L,
+#                 1L, 2L, 2L, NA, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 1L, 2L, 2L,
+#                 2L, 2L, 2L, 2L, 2L, 1L, NA, 2L, 2L, 1L, 1L, 2L, 2L, 1L, 1L, 1L,
+#                 1L, 2L, 2L, NA, 2L, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 1L,
+#                 1L, 1L, 2L, 2L, 1L, 2L, 2L, NA, 1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L,
+#                 2L, 2L, 1L), .Label = c("(-)", "(+)"), class = "factor"),
+# B = structure(c(2L, 2L, 2L, 2L, 1L, 1L, 1L, 3L, 1L,
+#                 3L, 1L, 1L, 2L, 3L, 3L, 1L, 2L, 2L, 3L, 3L, 3L, 2L, 1L, 2L,
+#                 3L, 3L, 3L, 1L, 2L, 1L, 3L, 2L, 2L, 3L, 2L, 2L, 1L, 1L, 1L,
+#                 3L, 2L, 1L, 1L, 1L, 3L, NA, 2L, 2L, 3L, 2L, 3L, 1L, 2L, 1L,
+#                 1L, 1L, 2L, 2L, NA, 2L, 1L, 1L, 1L, 1L, 2L, NA, 2L, 1L, 2L,
+#                 1L, 1L, 1L, 1L, 2L, 1L, 1L, 1L, 1L, 2L, 2L, 1L, 1L, 1L, 1L,
+#                 1L, 2L, 1L, 1L, 1L, NA), .Label = c("A", "B",
+#                                                     "C"), class = c("ordered", "factor")),
+# Y = c(1.41011635102669,
+#       2.67996596035883, 2.93082281827539, 3.47057470748745, 3.93013356916371,
+#       4.46463889802315, 4.16879679954147, 0.877400732688826, 2.18144836901425,
+#       0.43029448325718, 4.62383351283921, 3.81767823167015, 1.12524434294819,
+#       0.668998063328768, 0.632398055004286, 5.67433575537348, 2.61454048710063,
+#       3.02047582397111, 0.836036933062681, 1.02234637748381, 0.612431298292482,
+#       2.41600148898046, 6.25820428291974, 2.72896425226281, 1.04713994687296,
+#       1.02055325724726, 0.871851076216876, 2.29227854194425, 2.53371799679094,
+#       2.54263453547687, 0.915853083472324, 2.72562238958133, 1.26251201645741,
+#       0.639371807195731, 2.21473393518887, 1.05972500710731, 3.0949115598333,
+#       3.45374832012055, 4.46001217389848, 1.84533320388126, 2.50946203663001,
+#       2.94273769714618, 5.56578156481604, 2.58221811243787, 0.903003765776914,
+#       0.61814786719151, 2.01169911590801, 2.48549359503437, 0.707356744235952,
+#       1.30002021889422, 0.567361588379272, 5.00332592197709, 5.1262908784939,
+#       4.11646207529042, 5.9301390273134, 5.05449658118008, 1.3153282491963,
+#       1.62271144298906, 2.99666457392001, 0.975593543621166, 2.4374333607522,
+#       2.72788236111502, 5.03425628052577, 3.8940899952299, 1.80900903415956,
+#       0.815976697401983, 1.58629992809868, 2.06685279835032, 2.33730373263884,
+#       3.51154948522958, 5.5969942369269, 2.05741437514989, 2.22454410505537,
+#       1.57830558076523, 3.03264625533027, 7.87293092517559, 3.96414306364804,
+#       2.50924620116726, 1.40667280365032, 1.01336405963084, 4.00607224407719,
+#       4.1102592110769, 3.71846260372488, 5.73830971585118, 3.86107565341245,
+#       3.20207416723376, 4.1743749518175, 2.9932090278708, 4.68758885818583,
+#       5.08063093725737)), class = c("tbl_df", "tbl", "data.frame"
+#       ), row.names = c(NA, -90L))
+#
+#
+# biostat::test_normality(Y ~ A + B, data = DATA_1)
+# # debugonce(biostat:::test_)
 
 
 # ============================================================================
@@ -65,7 +119,12 @@
 #'
 #' @param show_col_method (logical) \cr
 #'                     If \code{FALSE} column "method" is not
-#'                   printed. Default is\code{FALSE}.
+#'                   printed. Default is \code{FALSE}.
+#' @param hide_error_msg (logical) \cr
+#'                     If \code{FALSE} column "error_msg" is not printed.
+#'                     If \code{TRUE} the column is printed if error occurs
+#'                     in calcultations.
+#'                     Default is \code{FALSE}.
 #'
 #' @param caption (string|\code{NULL}|\code{NA}) \cr
 #'                     A caption for the table with
@@ -166,7 +225,8 @@ test_normality <- function(y,
                            p_adjust_method = NULL,
                            ...,
                            groups = NULL,
-                           ss = signif_syms
+                           ss = signif_syms,
+                           hide_error_msg = FALSE
 ) {
 
     # Choose the test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -217,24 +277,42 @@ test_normality <- function(y,
              "\n or a name of a test (a string of length 1).")
     }
 
+    use_test_mod <- function(...) {
+        safe_rez <- purrr::safely(use_test, otherwise = NULL)(...)
+
+        if (is.null(safe_rez$error)) {
+            out <- safe_rez$result
+            out$error_msg <- NA_character_
+        } else {
+            out <- structure(
+                data.frame(method = as.character(safe_rez$error),
+                           stringsAsFactors = FALSE),
+                class = "htest")
+        }
+        out
+    }
+
     # Output
     test_(y,
           data = data,
           p_adjust_method = p_adjust_method,
           ...,
           groups = groups,
-          test = use_test,
+          test = use_test_mod,
+          hide_error_msg = hide_error_msg,
           ss = ss)
 }
 
-# test_()===================================================================
+
+# test_() =====================================================================
 test_ <- function(y,
                   data = NULL,
                   p_adjust_method = NULL,
                   ...,
                   groups = NULL,
                   test = stats::shapiro.test,
-                  ss = NULL)
+                  ss = NULL,
+                  hide_error_msg = FALSE)
     # na.rm = getOption("na.rm", FALSE)
 {
     # Make formula according to input type
@@ -269,13 +347,17 @@ test_ <- function(y,
         # The main test
         rez <-
             data %>%
-            dplyr::group_by(!!!gr_vars)  %>%
-            dplyr::do(test(.[[1]], ...) %>%
-                          broom::tidy()
-            ) %>%
-            dplyr::ungroup()  %>%
-            dplyr::select(method, dplyr::everything())  %>%
+            dplyr::group_by(!!!gr_vars)                %>%
+            dplyr::do(broom::tidy(test(.[[1]], ...)))  %>%
+            dplyr::ungroup()                           %>%
+            dplyr::select(method, dplyr::everything()) %>%
             as.data.frame()
+
+        # Add error message corrently
+        err <- stringr::str_detect(rez$method, "([Ee]rror)|([Ww]arning)")
+        rez$error_msg[err] <- rez$method[err]
+        rez$method[err]    <- unique(rez$method[!err])
+
 
         # If adjusted p value is needed
         if (!is.null(p_adjust_method)) {
@@ -284,8 +366,9 @@ test_ <- function(y,
 
         rez <- structure(rez,
                          class = c("test_normality", "data.frame"),
-                         test = levels(rez$method),
+                         test  = as.character(unique(rez$method)),
                          p_adjust_method = p_adjust_method,
+                         hide_error_msg = hide_error_msg,
                          ss = ss)
 
         return(rez)
@@ -309,6 +392,7 @@ print.test_normality <- function(x,
                                  rm_zero = FALSE,
                                  legend = TRUE,
                                  show_col_method = FALSE,
+                                 hide_error_msg  = attr(x, "hide_error_msg"),
                                  ss = attr(x, "ss")
 ) {
     format_stat <- match.arg(format_stat)
@@ -321,8 +405,11 @@ print.test_normality <- function(x,
                        signif_stars_col_name = " ",
                        rm_zero = rm_zero,
                        show_col_method = show_col_method,
-                       ss = ss
+                       ss = ss,
+                       hide_error_msg = isTRUE(hide_error_msg)
     )
+
+
 
     # Print the name of the method
     cat("\n", "The results of", which_test(x), "\n\n")
@@ -356,6 +443,7 @@ pander.test_normality <- function(x,
                                   rm_zero = FALSE,
                                   legend = TRUE,
                                   show_col_method = FALSE,
+                                  hide_error_msg  = attr(x, "hide_error_msg"),
                                   ss = attr(x, "ss")
 ) {
 
@@ -369,7 +457,8 @@ pander.test_normality <- function(x,
                        signif_as_separate_column = FALSE,
                        rm_zero = rm_zero,
                        show_col_method = show_col_method,
-                       ss = ss
+                       ss = ss,
+                       hide_error_msg = hide_error_msg
     )
 
     # String for p adjust. method:
@@ -405,5 +494,6 @@ pander.test_normality <- function(x,
 
 # helpers --------------------------------------------------------------------
 which_test <- function(x) {
+    # as.character(unique(x$method))
     attr(x, "test")
 }

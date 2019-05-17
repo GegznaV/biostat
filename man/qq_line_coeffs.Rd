@@ -4,8 +4,8 @@
 \alias{qq_line_coeffs}
 \title{Compute a slope and an intercept for a reference line in a qq-plot}
 \usage{
-qq_line_coeffs(y, datax = FALSE, distribution = qnorm, probs = c(0.25,
-  0.75), qtype = 7, na.rm = TRUE, ...)
+qq_line_coeffs(y, datax = FALSE, distribution = qnorm,
+  probs = c(0.25, 0.75), qtype = 7, na.rm = TRUE, ...)
 }
 \arguments{
 \item{y}{(numeric) A numeric vector.}

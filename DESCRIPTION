@@ -7,8 +7,8 @@ Description: A collection of functions that either are intended to be used with
              The functions are created to complement other R Commander plugins 
              that are used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.18
-Date: 2018-05-31
+Version: 0.0.19
+Date: 2019-05-02
 Authors@R: c(
     person("Vilmantas", "Gegzna", role = c("aut","cre"),
            comment = c(ORCID = "0000-0002-9500-5167"),
@@ -28,7 +28,7 @@ Imports:
     boot,
     broom,
     checkmate,
-    dplyr,
+    dplyr (>= 0.8.0),
     fitdistrplus,
     forcats,
     glue,
@@ -50,7 +50,7 @@ Imports:
     tibble,
     tidyr,
     withr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 Suggests:
     covr,
     testthat,

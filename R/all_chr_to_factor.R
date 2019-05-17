@@ -42,9 +42,10 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # v0.3.1:
 all_chr_to_factor <- function(data) {
-    dplyr::mutate_if(data,
-                     is.character,
-                     dplyr::funs(forcats::fct_inorder(.)))
+    dplyr::mutate_if(
+        data,
+        is.character,
+        list(~forcats::fct_inorder(.)))
 }
 
 # =============================================================================
@@ -81,5 +82,5 @@ all_chr_to_factor <- function(data) {
 # stat_all_chr_to_factor <- function(data) {
 #     dplyr::mutate_if(data,
 #                      is.character,
-#                      dplyr::funs(forcats::fct_inorder(.)))
+#                      list(~forcats::fct_inorder(.)))
 # }

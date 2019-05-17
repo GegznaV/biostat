@@ -152,9 +152,11 @@ format_p <-
              rm_zero = FALSE,
              add_p = FALSE,
              rm_spaces = FALSE,
-             ss = signif_syms
-    ) {
+             ss = signif_syms    ) {
 
+        # if (is.na(p_i)) {
+        #     return(as.character(p_i))
+        # }
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     s_i <- if (signif_stars == TRUE) {
         biostat::get_signif_stars(p_i, ss = ss)

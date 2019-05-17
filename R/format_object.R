@@ -14,6 +14,7 @@ format_object.test_normality <- function(x,
                                          rm_zero = FALSE,
                                          show_col_method = FALSE,
                                          ss = ss,
+                                         hide_error_msg = FALSE,
                                          ...
 ) {
     # Should column "method" be removed?
@@ -63,7 +64,7 @@ format_object.test_normality <- function(x,
 
 
             all_stat_values_lt <- function(x_c) {
-                all(x$statistic < x_c)
+                all(na.omit(x$statistic < x_c))
             }
 
             if (all_stat_values_lt(1)) {
@@ -83,13 +84,30 @@ format_object.test_normality <- function(x,
                 format_stat <- "g"
             }
         }
-        x$statistic %<>%
-            formatC(format = format_stat, digits = digits_stat)
+        # "!is.na(...)" is used to fornat "NA" values consistently
+        # (as "<NA>" and not "NA") in all columns
+        x$statistic[!is.na(x$statistic)] <-
+            formatC(x$statistic[!is.na(x$statistic)],
+                    format = format_stat,
+                    digits = digits_stat)
     }
 
     if (rm_zero == TRUE) {
         x$statistic %<>% biostat::rm_zero()
     }
+
+
+    if (is.null(x$error_msg) | hide_error_msg) {
+        x$error_msg <- NULL
+    }
+
+    if (!all(is.na(x$error_msg))) {
+        # Make `error_msg` the last column
+        x <- dplyr::select(x, -error_msg, dplyr::everything(), error_msg)
+    } else {
+        x$error_msg <- NULL
+    }
+
     # Output:
     structure(x, ss = ss)
 }

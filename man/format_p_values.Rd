@@ -38,9 +38,9 @@ format_p_values(p, digits_p = 3, cols = NULL, ..., alpha = 0.05,
 format_p(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE,
   add_p = FALSE, rm_spaces = FALSE, ss = signif_syms)
 
-\method{format_p_values}{data.frame}(data, digits_p = 3, cols = NULL, ...,
-  ss = signif_syms, signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE,
-  rm_spaces = FALSE)
+\method{format_p_values}{data.frame}(data, digits_p = 3, cols = NULL,
+  ..., ss = signif_syms, signif_stars = TRUE, rm_zero = FALSE,
+  add_p = FALSE, rm_spaces = FALSE)
 
 add_signif_stars(p, ss = signif_syms)
 
@@ -77,8 +77,8 @@ signif_stars_legend(ss = signif_syms, decreasing = FALSE,
 
 rm_zero(str, dec = ".")
 
-format_as_p_columns(data, colnames = c("p.value", "p.adjust"), digits_p = 3,
-  rm_zero = FALSE, signif_stars = FALSE, ...)
+format_as_p_columns(data, colnames = c("p.value", "p.adjust"),
+  digits_p = 3, rm_zero = FALSE, signif_stars = FALSE, ...)
 }
 \arguments{
 \item{p}{A (vector of) p-value(s). Numeric or coercible to numeric.}
