@@ -23,7 +23,6 @@ set.seed(123456)
 [![Travis-CI Build Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
 [![Updated-on](https://img.shields.io/badge/Updated%20on-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
-
 [![R build status](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 <!-- badges: end -->
 
