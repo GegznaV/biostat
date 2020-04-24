@@ -5,13 +5,17 @@
 \alias{print.num_summaries}
 \title{Do numerical summaries by groups}
 \usage{
-do_summary(y, data = NULL, stat = c("n", "missing", "mean", "trimmed",
-  "sd", "variance", "min", "Q1", "median", "Q3", "max", "mad", "IQR",
-  "range", "cv", "se", "skewness", "kurtosis"), trim = 0.1, type = 3,
-  na.rm = TRUE)
+do_summary(
+  y,
+  data = NULL,
+  stat = c("n", "missing", "mean", "trimmed", "sd", "variance", "min", "Q1", "median",
+    "Q3", "max", "mad", "IQR", "range", "cv", "se", "skewness", "kurtosis"),
+  trim = 0.1,
+  type = 3,
+  na.rm = TRUE
+)
 
-\method{print}{num_summaries}(x, ..., digits = NA, format = "f",
-  digits_sk = 2)
+\method{print}{num_summaries}(x, ..., digits = NA, format = "f", digits_sk = 2)
 }
 \arguments{
 \item{y}{formula with variable names to summarize. See more in examples.}

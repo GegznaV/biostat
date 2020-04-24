@@ -4,11 +4,20 @@
 \alias{qq_plot}
 \title{[!] A QQ-plot for multiple groups}
 \usage{
-qq_plot(y, data = NULL, distribution = "norm", ...,
+qq_plot(
+  y,
+  data = NULL,
+  distribution = "norm",
+  ...,
   line = c("quartiles", "robust", "int=0,slope=1", "0,1", "none"),
-  envelope = 0.95, method = c("mle-normal", "trimmed-normal",
-  "moment-normal", "any"), labels = NULL, groups = NULL,
-  use_colors = FALSE, scales = "free", sep = " | ")
+  envelope = 0.95,
+  method = c("mle-normal", "trimmed-normal", "moment-normal", "any"),
+  labels = NULL,
+  groups = NULL,
+  use_colors = FALSE,
+  scales = "free",
+  sep = " | "
+)
 }
 \arguments{
 \item{y}{(formula|numeric|character)

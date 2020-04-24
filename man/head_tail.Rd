@@ -4,9 +4,17 @@
 \alias{head_tail}
 \title{[!] Show several first and last rows of a data frame}
 \usage{
-head_tail(obj, n = 4, format = c("f", "g", "e"), sep = "...",
-  max_decimals = NULL, signif_digits = 3, tolerance = 2, top = n,
-  bottom = n)
+head_tail(
+  obj,
+  n = 4,
+  format = c("f", "g", "e"),
+  sep = "...",
+  max_decimals = NULL,
+  signif_digits = 3,
+  tolerance = 2,
+  top = n,
+  bottom = n
+)
 }
 \arguments{
 \item{obj}{A data frame.}
@@ -21,12 +29,15 @@ head_tail(obj, n = 4, format = c("f", "g", "e"), sep = "...",
     \code{"f"} gives numbers in the usual
     \code{xxx.xxx} format;  \code{"e"} and \code{"E"} give \code{n.ddde+nn} or
     \code{n.dddE+nn} (scientific format); \code{"g"} and \code{"G"} put
-    \code{x[i]} into scientific format only if it saves space to do so.
+    \code{x[i]} into scientific format only if it saves space to do so
+    \emph{and} drop trailing zeros and decimal point - unless \code{flag}
+    contains \code{"#"} which keeps trailing zeros for the \code{"g", "G"}
+    formats.
 
-    \code{"fg"} uses fixed format as \code{"f"}, but \code{digits} as
-    the minimum number of \emph{significant} digits.  This can lead
-    to quite long result strings, see examples below.  Note that unlike
-    \code{\link{signif}} this prints large numbers with
+    \code{"fg"} (our own hybrid format) uses fixed format as \code{"f"},
+    but \code{digits} as the minimum number of \emph{significant} digits.
+    This can lead to quite long result strings, see examples below.  Note
+    that unlike \code{\link[base]{signif}} this prints large numbers with
     more significant digits than \code{digits}.  Trailing zeros are
     \emph{dropped} in this format, unless \code{flag} contains
     \code{"#"}.}

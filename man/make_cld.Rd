@@ -18,8 +18,7 @@ make_cld(obj, ..., alpha = 0.05)
 
 \method{make_cld}{posthocTGH}(obj, ..., alpha = obj$intermediate$alpha)
 
-\method{make_cld}{posthoc_anova}(obj, ..., alpha = 1 -
-  obj$input$conf_level)
+\method{make_cld}{posthoc_anova}(obj, ..., alpha = 1 - obj$input$conf_level)
 
 \method{make_cld}{PMCMR}(obj, ..., alpha = 0.05)
 
@@ -27,8 +26,7 @@ make_cld(obj, ..., alpha = 0.05)
 
 \method{make_cld}{matrix}(obj, ..., alpha = 0.05)
 
-\method{make_cld}{data.frame}(obj, ..., formula = p.adjust ~ Comparison,
-  alpha = 0.05)
+\method{make_cld}{data.frame}(obj, ..., formula = p.adjust ~ Comparison, alpha = 0.05)
 
 \method{make_cld}{pairwise_pval_df}(obj, ..., alpha = 0.05)
 }

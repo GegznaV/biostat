@@ -4,14 +4,30 @@
 \alias{gg_boxplot_plus}
 \title{[!] A boxplot with additional components}
 \usage{
-gg_boxplot_plus(formula, data = NULL, cld = NULL, xlab = NULL,
-  ylab = NULL, legend_title = NULL, sort_groups = c("no", "yes",
-  "ascending", "descending", TRUE, FALSE), sort_fun = median,
-  add_points = TRUE, notch = FALSE, varwidth = FALSE,
-  add_mean_ci = TRUE, conf_level = 0.95, ci_boot_reps = 999,
-  cld_color = "black", cld_y_adj = 0, cld_y_mult = 0.06,
-  ci_x_adj = -0.3, points_x_adj = 0.3, gr_sep = "|",
-  x_rotate = c(0, 30, 60, 90), ...)
+gg_boxplot_plus(
+  formula,
+  data = NULL,
+  cld = NULL,
+  xlab = NULL,
+  ylab = NULL,
+  legend_title = NULL,
+  sort_groups = c("no", "yes", "ascending", "descending", TRUE, FALSE),
+  sort_fun = median,
+  add_points = TRUE,
+  notch = FALSE,
+  varwidth = FALSE,
+  add_mean_ci = TRUE,
+  conf_level = 0.95,
+  ci_boot_reps = 999,
+  cld_color = "black",
+  cld_y_adj = 0,
+  cld_y_mult = 0.06,
+  ci_x_adj = -0.3,
+  points_x_adj = 0.3,
+  gr_sep = "|",
+  x_rotate = c(0, 30, 60, 90),
+  ...
+)
 }
 \arguments{
 \item{formula}{a formula with two variable names to analyze. First one is numeric, second one is a factor, e.g. \code{y ~ group}.}

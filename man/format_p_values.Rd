@@ -25,22 +25,78 @@
 \alias{rm_zero}
 \alias{format_as_p_columns}
 \title{[!!!] Format p-values}
-\format{An object of class \code{numeric} of length 1.}
+\format{
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 1.
+
+An object of class \code{numeric} of length 2.
+
+An object of class \code{numeric} of length 3.
+
+An object of class \code{numeric} of length 4.
+
+An object of class \code{numeric} of length 4.
+
+An object of class \code{numeric} of length 4.
+}
 \usage{
-format_p_values(p, digits_p = 3, cols = NULL, ..., alpha = 0.05,
-  signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE,
-  rm_spaces = FALSE, ss = signif_syms)
+format_p_values(
+  p,
+  digits_p = 3,
+  cols = NULL,
+  ...,
+  alpha = 0.05,
+  signif_stars = TRUE,
+  rm_zero = FALSE,
+  add_p = FALSE,
+  rm_spaces = FALSE,
+  ss = signif_syms
+)
 
-\method{format_p_values}{default}(p, digits_p = 3, cols = NULL, ...,
-  signif_stars = TRUE, rm_zero = FALSE, add_p = FALSE,
-  rm_spaces = FALSE, ss = signif_syms)
+\method{format_p_values}{default}(
+  p,
+  digits_p = 3,
+  cols = NULL,
+  ...,
+  signif_stars = TRUE,
+  rm_zero = FALSE,
+  add_p = FALSE,
+  rm_spaces = FALSE,
+  ss = signif_syms
+)
 
-format_p(p_i, digits_p = 3, signif_stars = TRUE, rm_zero = FALSE,
-  add_p = FALSE, rm_spaces = FALSE, ss = signif_syms)
+format_p(
+  p_i,
+  digits_p = 3,
+  signif_stars = TRUE,
+  rm_zero = FALSE,
+  add_p = FALSE,
+  rm_spaces = FALSE,
+  ss = signif_syms
+)
 
-\method{format_p_values}{data.frame}(data, digits_p = 3, cols = NULL,
-  ..., ss = signif_syms, signif_stars = TRUE, rm_zero = FALSE,
-  add_p = FALSE, rm_spaces = FALSE)
+\method{format_p_values}{data.frame}(
+  data,
+  digits_p = 3,
+  cols = NULL,
+  ...,
+  ss = signif_syms,
+  signif_stars = TRUE,
+  rm_zero = FALSE,
+  add_p = FALSE,
+  rm_spaces = FALSE
+)
 
 add_signif_stars(p, ss = signif_syms)
 
@@ -72,13 +128,22 @@ p05plus
 
 signif_stars_legend_2(ss = signif_syms)
 
-signif_stars_legend(ss = signif_syms, decreasing = FALSE,
-  collapse = c("  \\n", ", ", "; "))
+signif_stars_legend(
+  ss = signif_syms,
+  decreasing = FALSE,
+  collapse = c("  \\n", ", ", "; ")
+)
 
 rm_zero(str, dec = ".")
 
-format_as_p_columns(data, colnames = c("p.value", "p.adjust"),
-  digits_p = 3, rm_zero = FALSE, signif_stars = FALSE, ...)
+format_as_p_columns(
+  data,
+  colnames = c("p.value", "p.adjust"),
+  digits_p = 3,
+  rm_zero = FALSE,
+  signif_stars = FALSE,
+  ...
+)
 }
 \arguments{
 \item{p}{A (vector of) p-value(s). Numeric or coercible to numeric.}

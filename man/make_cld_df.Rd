@@ -4,11 +4,21 @@
 \alias{make_cld_df}
 \title{[!] Make a data frame with cld}
 \usage{
-make_cld_df(formula = NULL, data = NULL, comparison = NULL,
-  p.value = NULL, threshold = 0.05, print.comp = FALSE,
-  remove.space = TRUE, remove.equal = TRUE, swap.colon = TRUE,
-  swap.vs = FALSE, reversed = FALSE, swap_compared_names = FALSE,
-  ...)
+make_cld_df(
+  formula = NULL,
+  data = NULL,
+  comparison = NULL,
+  p.value = NULL,
+  threshold = 0.05,
+  print.comp = FALSE,
+  remove.space = TRUE,
+  remove.equal = TRUE,
+  swap.colon = TRUE,
+  swap.vs = FALSE,
+  reversed = FALSE,
+  swap_compared_names = FALSE,
+  ...
+)
 }
 \arguments{
 \item{formula}{A formula indicating the variable holding p-values and

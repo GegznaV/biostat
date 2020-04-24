@@ -4,8 +4,14 @@
 \alias{ci_mean_boot}
 \title{Basic nonparametric bootstrap confidence interval of mean}
 \usage{
-ci_mean_boot(y, conf_level = 0.95, repetitions = 2000, na.rm = TRUE,
-  resampled_means = FALSE, return_df = TRUE)
+ci_mean_boot(
+  y,
+  conf_level = 0.95,
+  repetitions = 2000,
+  na.rm = TRUE,
+  resampled_means = FALSE,
+  return_df = TRUE
+)
 }
 \arguments{
 \item{y}{(numeric) A numeric vector from which \code{NA}s will be removed automatically.}
