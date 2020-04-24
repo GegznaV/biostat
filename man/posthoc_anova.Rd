@@ -8,26 +8,64 @@
 \alias{plot.posthoc_anova}
 \title{[!] Post-hoc tests for ANOVA and Welch ANOVA}
 \usage{
-posthoc_anova(y, group = NULL, method = c("Games-Howell", "Tukey"),
-  conf_level = 0.95, digits = 3, digits_p = 3, p_adjust = "none",
-  format_pvalue = TRUE, data = NULL, ...)
+posthoc_anova(
+  y,
+  group = NULL,
+  method = c("Games-Howell", "Tukey"),
+  conf_level = 0.95,
+  digits = 3,
+  digits_p = 3,
+  p_adjust = "none",
+  format_pvalue = TRUE,
+  data = NULL,
+  ...
+)
 
-\method{posthoc_anova}{formula}(y, group = NULL,
-  method = c("Games-Howell", "Tukey"), conf_level = 0.95, digits = 3,
-  digits_p = 3, p_adjust = "none", format_pvalue = TRUE,
-  data = NULL, ..., sep = " | ")
+\method{posthoc_anova}{formula}(
+  y,
+  group = NULL,
+  method = c("Games-Howell", "Tukey"),
+  conf_level = 0.95,
+  digits = 3,
+  digits_p = 3,
+  p_adjust = "none",
+  format_pvalue = TRUE,
+  data = NULL,
+  ...,
+  sep = " | "
+)
 
-\method{posthoc_anova}{default}(y, group = NULL,
-  method = c("Games-Howell", "Tukey"), conf_level = 0.95, digits = 3,
-  digits_p = 3, p_adjust = "none", format_pvalue = TRUE,
-  data = NULL, ...)
+\method{posthoc_anova}{default}(
+  y,
+  group = NULL,
+  method = c("Games-Howell", "Tukey"),
+  conf_level = 0.95,
+  digits = 3,
+  digits_p = 3,
+  p_adjust = "none",
+  format_pvalue = TRUE,
+  data = NULL,
+  ...
+)
 
-\method{print}{posthoc_anova}(x, digits = x$input$digits,
-  digits_p = x$input$digits_p, digits_param = 2, ...)
+\method{print}{posthoc_anova}(
+  x,
+  digits = x$input$digits,
+  digits_p = x$input$digits_p,
+  digits_param = 2,
+  ...
+)
 
-\method{plot}{posthoc_anova}(x, ..., zero_line_color = "grey",
-  add_p = TRUE, p_size = 1, p_color = "blue", p_pos_adj = 0.22,
-  flip_xy = TRUE)
+\method{plot}{posthoc_anova}(
+  x,
+  ...,
+  zero_line_color = "grey",
+  add_p = TRUE,
+  p_size = 1,
+  p_color = "blue",
+  p_pos_adj = 0.22,
+  flip_xy = TRUE
+)
 }
 \arguments{
 \item{y}{(numeric|formula)\cr Either a numeric vector or formula.}

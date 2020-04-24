@@ -6,17 +6,37 @@
 \alias{pander.do_corr}
 \title{do_corr}
 \usage{
-do_corr(x, y = NULL, method = c("spearman", "kendall", "pearson")[1],
-  use = "complete.cases", conf = 0.95, R = 999, sim = "balanced",
-  ci_type = c("bca"), p_adjust_method = p.adjust.methods[1],
-  ss = p05plus)
+do_corr(
+  x,
+  y = NULL,
+  method = c("spearman", "kendall", "pearson")[1],
+  use = "complete.cases",
+  conf = 0.95,
+  R = 999,
+  sim = "balanced",
+  ci_type = c("bca"),
+  p_adjust_method = p.adjust.methods[1],
+  ss = p05plus
+)
 
-\method{print}{do_corr}(x, ..., digits = 2, digits_p = 3,
-  ss = attr(x, "ss"), p_col = c("p", "p.adj"))
+\method{print}{do_corr}(
+  x,
+  ...,
+  digits = 2,
+  digits_p = 3,
+  ss = attr(x, "ss"),
+  p_col = c("p", "p.adj")
+)
 
-\method{pander}{do_corr}(x, ...,
-  caption = "The results of correlation analysis", digits = 2,
-  digits_p = 3, ss = attr(x, "ss"), p_col = c("p", "p.adj"))
+\method{pander}{do_corr}(
+  x,
+  ...,
+  caption = "The results of correlation analysis",
+  digits = 2,
+  digits_p = 3,
+  ss = attr(x, "ss"),
+  p_col = c("p", "p.adj")
+)
 }
 \description{
 do_corr

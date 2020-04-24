@@ -5,12 +5,24 @@
 \alias{pander.bs_freq_table_cont}
 \title{Frequency table for continuous data}
 \usage{
-bs_freq_table_cont(y, nbins = NULL, bin_width = NULL, xmin = NULL,
-  xmax = NULL, max_bin_decimals = 2, percent_decimals = 1,
-  right = TRUE)
+bs_freq_table_cont(
+  y,
+  nbins = NULL,
+  bin_width = NULL,
+  xmin = NULL,
+  xmax = NULL,
+  max_bin_decimals = 2,
+  percent_decimals = 1,
+  right = TRUE
+)
 
-\method{pander}{bs_freq_table_cont}(x, ..., caption = "Frequency table",
-  justify = c("crrrr"), style = "simple")
+\method{pander}{bs_freq_table_cont}(
+  x,
+  ...,
+  caption = "Frequency table",
+  justify = c("crrrr"),
+  style = "simple"
+)
 }
 \arguments{
 \item{y}{(numeric) A numeric vector with data.}

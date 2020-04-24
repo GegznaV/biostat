@@ -3,7 +3,6 @@
 \docType{package}
 \name{biostat}
 \alias{biostat}
-\alias{biostat-package}
 \title{A Collection of Functions for Biostatistics and Biometry Lectures}
 \description{
 The package contains a collection of functions dedicated for
