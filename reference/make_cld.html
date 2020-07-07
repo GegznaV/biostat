@@ -121,31 +121,31 @@
 (e.g., ANOVA post-hoc tests, Kruskal-Wallis post-hoc tests and other).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='fl'>0.05</span>)
 
 <span class='co'># S3 method for pairwise.htest</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='fl'>0.05</span>)
 
 <span class='co'># S3 method for posthocTGH</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='no'>obj</span>$<span class='no'>intermediate</span>$<span class='no'>alpha</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='kw'>obj</span><span class='op'>$</span><span class='kw'>intermediate</span><span class='op'>$</span><span class='kw'>alpha</span>)
 
 <span class='co'># S3 method for posthoc_anova</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>1</span> - <span class='no'>obj</span>$<span class='no'>input</span>$<span class='no'>conf_level</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='fl'>1</span> <span class='op'>-</span> <span class='kw'>obj</span><span class='op'>$</span><span class='kw'>input</span><span class='op'>$</span><span class='kw'>conf_level</span>)
 
 <span class='co'># S3 method for PMCMR</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='fl'>0.05</span>)
 
 <span class='co'># S3 method for formula</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, data = <span class='kw'>NULL</span>, alpha = <span class='fl'>0.05</span>)
 
 <span class='co'># S3 method for matrix</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='fl'>0.05</span>)
 
 <span class='co'># S3 method for data.frame</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>formula</span> <span class='kw'>=</span> <span class='no'>p.adjust</span> ~ <span class='no'>Comparison</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, formula = <span class='kw'>p.adjust</span> <span class='op'>~</span> <span class='kw'>Comparison</span>, alpha = <span class='fl'>0.05</span>)
 
 <span class='co'># S3 method for pairwise_pval_df</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj</span>, <span class='no'>...</span>, <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj</span>, <span class='kw'>...</span>, alpha = <span class='fl'>0.05</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,12 +185,12 @@ used in combination with <code>data</code>.</p></td>
     <p>(A data frame with) compact letter display.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
 
 <span class='co'># Example 1: class `pairwise.htest`</span>
 
-<span class='no'>obj1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/pairwise.wilcox.test.html'>pairwise.wilcox.test</a></span>(<span class='no'>chickwts</span>$<span class='no'>weight</span>, <span class='no'>chickwts</span>$<span class='no'>feed</span>, <span class='kw'>exact</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'>make_cld</span>(<span class='no'>obj1</span>)</div><div class='output co'>#&gt;       group cld spaced_cld
+<span class='kw'>obj1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/pairwise.wilcox.test.html'>pairwise.wilcox.test</a></span>(<span class='kw'>chickwts</span><span class='op'>$</span><span class='kw'>weight</span>, <span class='kw'>chickwts</span><span class='op'>$</span><span class='kw'>feed</span>, exact = <span class='fl'>FALSE</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj1</span>)</div><div class='output co'>#&gt;       group cld spaced_cld
 #&gt; 1    casein   a        a__
 #&gt; 2 horsebean   b        _b_
 #&gt; 3   linseed  bc        _bc
@@ -200,8 +200,8 @@ used in combination with <code>data</code>.</p></td>
 
 <span class='co'># Example 2: class `pairwise.htest`</span>
 
-<span class='no'>obj2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='no'>OrchardSprays</span>, <span class='fu'><a href='https://rdrr.io/r/stats/pairwise.t.test.html'>pairwise.t.test</a></span>(<span class='no'>decrease</span>, <span class='no'>treatment</span>))
-<span class='fu'>make_cld</span>(<span class='no'>obj2</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='kw'>obj2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span>(<span class='kw'>OrchardSprays</span>, <span class='fu'><a href='https://rdrr.io/r/stats/pairwise.t.test.html'>pairwise.t.test</a></span>(<span class='kw'>decrease</span>, <span class='kw'>treatment</span>))
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj2</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1     A   a        a__
 #&gt; 2     B   a        a__
 #&gt; 3     C   a        a__
@@ -214,10 +214,10 @@ used in combination with <code>data</code>.</p></td>
 <span class='co'># Example 3: class `pairwise.htest`</span>
 
 <span class='co'># \donttest{</span>
-<span class='no'>smokers</span>  <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>83</span>, <span class='fl'>90</span>, <span class='fl'>129</span>, <span class='fl'>70</span>)
-<span class='no'>patients</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>86</span>, <span class='fl'>93</span>, <span class='fl'>136</span>, <span class='fl'>82</span>)
-<span class='no'>obj3</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/pairwise.prop.test.html'>pairwise.prop.test</a></span>(<span class='no'>smokers</span>, <span class='no'>patients</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Chi-squared approximation may be incorrect</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Chi-squared approximation may be incorrect</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Chi-squared approximation may be incorrect</span></div><div class='input'>
-<span class='fu'>make_cld</span>(<span class='no'>obj3</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='kw'>smokers</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>83</span>, <span class='fl'>90</span>, <span class='fl'>129</span>, <span class='fl'>70</span>)
+<span class='kw'>patients</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>86</span>, <span class='fl'>93</span>, <span class='fl'>136</span>, <span class='fl'>82</span>)
+<span class='kw'>obj3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/pairwise.prop.test.html'>pairwise.prop.test</a></span>(<span class='kw'>smokers</span>, <span class='kw'>patients</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Chi-squared approximation may be incorrect</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Chi-squared approximation may be incorrect</span></div><div class='output co'>#&gt; <span class='warning'>Warning: Chi-squared approximation may be incorrect</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj3</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1     1   a          a
 #&gt; 2     2   a          a
 #&gt; 3     3   a          a
@@ -226,8 +226,8 @@ used in combination with <code>data</code>.</p></td>
 <span class='co'># Example 4: class `PMCMR`</span>
 
 <span class='co'># \donttest{</span>
-<span class='no'>obj4</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>PMCMR</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/PMCMR/man/posthoc.kruskal.conover.html'>posthoc.kruskal.conover.test</a></span>(<span class='no'>count</span> ~ <span class='no'>spray</span>,
-                                            <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>InsectSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Ties are present. Quantiles were corrected for ties.</span></div><div class='input'><span class='fu'>make_cld</span>(<span class='no'>obj4</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='kw'>obj4</span> <span class='op'>&lt;-</span> <span class='kw'>PMCMR</span>::<span class='fu'><a href='https://rdrr.io/pkg/PMCMR/man/posthoc.kruskal.conover.html'>posthoc.kruskal.conover.test</a></span>(<span class='kw'>count</span> <span class='op'>~</span> <span class='kw'>spray</span>,
+                                            data = <span class='kw'>InsectSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Ties are present. Quantiles were corrected for ties.</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj4</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1     A   a        a__
 #&gt; 2     B   a        a__
 #&gt; 3     C   b        _b_
@@ -238,10 +238,10 @@ used in combination with <code>data</code>.</p></td>
 
 <span class='co'># Example 5: class `posthocTGH`</span>
 
-<span class='no'>obj5</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='posthoc_anova.html'>posthoc_anova</a></span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>,
-                      <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
-                      <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Games-Howell"</span>)
-<span class='fu'>make_cld</span>(<span class='no'>obj5</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='kw'>obj5</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>,
+                      data = <span class='kw'>ChickWeight</span>,
+                      method = <span class='st'>"Games-Howell"</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj5</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1     1   a         a_
 #&gt; 2     2   b         _b
 #&gt; 3     3   b         _b
@@ -249,10 +249,10 @@ used in combination with <code>data</code>.</p></td>
 
 <span class='co'># Example 6: class `posthoc_anova`</span>
 
-<span class='no'>obj6</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='posthoc_anova.html'>posthoc_anova</a></span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>,
-                     <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
-                     <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Games-Howell"</span>)
-<span class='fu'>make_cld</span>(<span class='no'>obj6</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='kw'>obj6</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>,
+                     data = <span class='kw'>ChickWeight</span>,
+                     method = <span class='st'>"Games-Howell"</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj6</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1     1   a         a_
 #&gt; 2     2   b         _b
 #&gt; 3     3   b         _b
@@ -260,13 +260,16 @@ used in combination with <code>data</code>.</p></td>
 
 <span class='co'># Example 7: class `formula`</span>
 
-<span class='no'>my_dataframe</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>data.table</span><span class='kw ns'>::</span><span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span>(
+<span class='kw'>my_dataframe</span> <span class='op'>&lt;-</span> <span class='kw'>data.table</span>::<span class='fu'><a href='https://Rdatatable.gitlab.io/data.table/reference/fread.html'>fread</a></span>(
     <span class='st'>'Comparison     p.value p.adjust
     "EE - GB = 0"        1 1.000000
     "EE - CY = 0" 0.001093 0.003279
-    "GB - CY = 0" 0.005477 0.008216'</span>)
+    "GB - CY = 0" 0.005477 0.008216'</span>
+    "EE - GB = 0"        1 1.000000
+    "EE - CY = 0" 0.001093 0.003279
+    "GB - CY = 0" 0.005477 0.008216')
 
-<span class='fu'>make_cld</span>(<span class='no'>p.adjust</span> ~ <span class='no'>Comparison</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>my_dataframe</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>p.adjust</span> <span class='op'>~</span> <span class='kw'>Comparison</span>, data = <span class='kw'>my_dataframe</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1    EE   a         a_
 #&gt; 2    GB   a         a_
 #&gt; 3   GB0  ab         ab
@@ -277,24 +280,23 @@ used in combination with <code>data</code>.</p></td>
 <span class='co'># (for symetric matrices of p values)</span>
 
 <span class='co'># Create matrix</span>
-<span class='no'>m</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.00</span>, <span class='fl'>0.22</span>, <span class='fl'>0.05</span>, <span class='fl'>0.00</span>,
+<span class='kw'>m</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1.00</span>, <span class='fl'>0.22</span>, <span class='fl'>0.05</span>, <span class='fl'>0.00</span>,
        <span class='fl'>0.22</span>, <span class='fl'>1.00</span>, <span class='fl'>0.17</span>, <span class='fl'>0.01</span>,
        <span class='fl'>0.05</span>, <span class='fl'>0.17</span>, <span class='fl'>1.00</span>, <span class='fl'>0.22</span>,
        <span class='fl'>0.00</span>, <span class='fl'>0.01</span>, <span class='fl'>0.22</span>, <span class='fl'>1.00</span>)
-<span class='no'>obj8</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='no'>m</span>, <span class='kw'>nrow</span> <span class='kw'>=</span> <span class='fl'>4</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='no'>obj8</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='no'>obj8</span>) <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"P"</span>, <span class='st'>"O"</span>, <span class='st'>"I"</span>, <span class='st'>"U"</span>)
-<span class='no'>obj8</span></div><div class='output co'>#&gt;      P    O    I    U
+<span class='kw'>obj8</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='kw'>m</span>, nrow = <span class='fl'>4</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span>(<span class='kw'>obj8</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>colnames</a></span>(<span class='kw'>obj8</span>) <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"P"</span>, <span class='st'>"O"</span>, <span class='st'>"I"</span>, <span class='st'>"U"</span>)
+<span class='kw'>obj8</span></div><div class='output co'>#&gt;      P    O    I    U
 #&gt; P 1.00 0.22 0.05 0.00
 #&gt; O 0.22 1.00 0.17 0.01
 #&gt; I 0.05 0.17 1.00 0.22
 #&gt; U 0.00 0.01 0.22 1.00</div><div class='input'>
 <span class='co'># Make cld</span>
-<span class='fu'>make_cld</span>(<span class='no'>obj8</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>obj8</span>)</div><div class='output co'>#&gt;   group cld spaced_cld
 #&gt; 1     P   a         a_
 #&gt; 2     O   a         a_
 #&gt; 3     I  ab         ab
 #&gt; 4     U   b         _b</div><div class='input'>
-
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

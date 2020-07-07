@@ -119,29 +119,29 @@
     <p>A boxplot (in the style of Tukey) with additional components: mean and its confidence intervals as well as jittered points.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>gg_boxplot_plus</span>(
-  <span class='no'>formula</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>cld</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ylab</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>legend_title</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"no"</span>, <span class='st'>"yes"</span>, <span class='st'>"ascending"</span>, <span class='st'>"descending"</span>, <span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>),
-  <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>median</span>,
-  <span class='kw'>add_points</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>notch</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>varwidth</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_mean_ci</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>ci_boot_reps</span> <span class='kw'>=</span> <span class='fl'>999</span>,
-  <span class='kw'>cld_color</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
-  <span class='kw'>cld_y_adj</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>cld_y_mult</span> <span class='kw'>=</span> <span class='fl'>0.06</span>,
-  <span class='kw'>ci_x_adj</span> <span class='kw'>=</span> -<span class='fl'>0.3</span>,
-  <span class='kw'>points_x_adj</span> <span class='kw'>=</span> <span class='fl'>0.3</span>,
-  <span class='kw'>gr_sep</span> <span class='kw'>=</span> <span class='st'>"|"</span>,
-  <span class='kw'>x_rotate</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>30</span>, <span class='fl'>60</span>, <span class='fl'>90</span>),
-  <span class='no'>...</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(
+  <span class='kw'>formula</span>,
+  data = <span class='kw'>NULL</span>,
+  cld = <span class='kw'>NULL</span>,
+  xlab = <span class='kw'>NULL</span>,
+  ylab = <span class='kw'>NULL</span>,
+  legend_title = <span class='kw'>NULL</span>,
+  sort_groups = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"no"</span>, <span class='st'>"yes"</span>, <span class='st'>"ascending"</span>, <span class='st'>"descending"</span>, <span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>),
+  sort_fun = <span class='kw'>median</span>,
+  add_points = <span class='fl'>TRUE</span>,
+  notch = <span class='fl'>FALSE</span>,
+  varwidth = <span class='fl'>FALSE</span>,
+  add_mean_ci = <span class='fl'>TRUE</span>,
+  conf_level = <span class='fl'>0.95</span>,
+  ci_boot_reps = <span class='fl'>999</span>,
+  cld_color = <span class='st'>"black"</span>,
+  cld_y_adj = <span class='fl'>0</span>,
+  cld_y_mult = <span class='fl'>0.06</span>,
+  ci_x_adj = <span class='op'>-</span><span class='fl'>0.3</span>,
+  points_x_adj = <span class='fl'>0.3</span>,
+  gr_sep = <span class='st'>"|"</span>,
+  x_rotate = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>30</span>, <span class='fl'>60</span>, <span class='fl'>90</span>),
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -233,7 +233,7 @@ square-roots of the number of observations in the groups.</p></td>
     </tr>
     <tr>
       <th>gr_sep</th>
-      <td><p>(character)  <br /> Separator used if move than one grouping variabe is chosen. Default is <code><a href='https://rdrr.io/r/base/Logic.html'>"|"</a></code>.</p></td>
+      <td><p>(character)  <br /> Separator used if move than one grouping variabe is chosen. Default is <code>"|"</code>.</p></td>
     </tr>
     <tr>
       <th>x_rotate</th>
@@ -261,56 +261,55 @@ added to modify the plot.</p>
     <div class='dont-index'><p><a href='https://en.wikipedia.org/wiki/Box_plot'>https://en.wikipedia.org/wiki/Box_plot</a></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
 
 <span class='co'># Example 1a</span>
-<span class='fu'>gg_boxplot_plus</span>(~<span class='no'>decrease</span>, <span class='no'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='op'>~</span><span class='kw'>decrease</span>, <span class='kw'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Example 1b</span>
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>gg_boxplot_plus</span>(~<span class='no'>decrease</span> <span class='kw'>|</span> <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>decrease</span> <span class='op'>~</span> <span class='kw'>treatment</span>, <span class='kw'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='op'>~</span><span class='kw'>decrease</span> <span class='op'>|</span> <span class='kw'>treatment</span>, <span class='kw'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-3.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Example 2</span>
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>,
-                <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>decrease</span> <span class='op'>~</span> <span class='kw'>treatment</span>, <span class='kw'>OrchardSprays</span>,
+                sort_groups = <span class='st'>"descending"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-4.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Example 3a</span>
 
-<span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='posthoc_anova.html'>posthoc_anova</a></span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>)
-<span class='no'>cld_result</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='make_cld.html'>make_cld</a></span>(<span class='no'>res</span>)
+<span class='kw'>res</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>, data = <span class='kw'>ChickWeight</span>)
+<span class='kw'>cld_result</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>res</span>)
 
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
-                <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>, data = <span class='kw'>ChickWeight</span>,
+                cld = <span class='kw'>cld_result</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Example 3b</span>
 
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
-                <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result</span>,
-                <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>,
-                <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>mean</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-6.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>, data = <span class='kw'>ChickWeight</span>,
+                cld = <span class='kw'>cld_result</span>,
+                sort_groups = <span class='st'>"descending"</span>,
+                sort_fun = <span class='kw'>mean</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Example 3c: do simple transformations</span>
 
-<span class='fu'>gg_boxplot_plus</span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>weight</span>) ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
-                <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>,
-                <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>mean</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='kw'>weight</span>) <span class='op'>~</span> <span class='kw'>Diet</span>, data = <span class='kw'>ChickWeight</span>,
+                sort_groups = <span class='st'>"descending"</span>,
+                sort_fun = <span class='kw'>mean</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-7.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Example 3d: facetting</span>
 
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>weight</span> ~ <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='no'>Time</span>), <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>) +
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='kw'>Time</span>), data = <span class='kw'>ChickWeight</span>) <span class='op'>+</span>
     <span class='fu'>facet_wrap</span>(<span class='st'>"Diet"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-8.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Example 4</span>
 
-<span class='no'>res2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='posthoc_anova.html'>posthoc_anova</a></span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>OrchardSprays</span>)
-<span class='no'>cld_result2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='make_cld.html'>make_cld</a></span>(<span class='no'>res2</span>)
+<span class='kw'>res2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(<span class='kw'>decrease</span> <span class='op'>~</span> <span class='kw'>treatment</span>, data = <span class='kw'>OrchardSprays</span>)
+<span class='kw'>cld_result2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/make_cld.html'>make_cld</a></span>(<span class='kw'>res2</span>)
 
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>OrchardSprays</span>,
-                <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result2</span>,
-                <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>,
-                <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>mean</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-9.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>OrchardSprays</span>,
-                <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result2</span>,
-                <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"ascending"</span>,
-                <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>IQR</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-10.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>decrease</span> <span class='op'>~</span> <span class='kw'>treatment</span>, data = <span class='kw'>OrchardSprays</span>,
+                cld = <span class='kw'>cld_result2</span>,
+                sort_groups = <span class='st'>"descending"</span>,
+                sort_fun = <span class='kw'>mean</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-9.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='kw'>decrease</span> <span class='op'>~</span> <span class='kw'>treatment</span>, data = <span class='kw'>OrchardSprays</span>,
+                cld = <span class='kw'>cld_result2</span>,
+                sort_groups = <span class='st'>"ascending"</span>,
+                sort_fun = <span class='kw'>IQR</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-10.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Example 5</span>
 
-<span class='fu'>gg_boxplot_plus</span>(~<span class='no'>weight</span> <span class='kw'>|</span> <span class='no'>Diet</span> + <span class='no'>Chick</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-11.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/gg_boxplot_plus.html'>gg_boxplot_plus</a></span>(<span class='op'>~</span><span class='kw'>weight</span> <span class='op'>|</span> <span class='kw'>Diet</span> <span class='op'>+</span> <span class='kw'>Chick</span>, data = <span class='kw'>ChickWeight</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-11.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -119,24 +119,24 @@
     <p>Compute data necessary to plot a quantile comparison plot (qq-plot).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>qq_data</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='st'>"norm"</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>line</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"quartiles"</span>, <span class='st'>"robust"</span>, <span class='st'>"int=0,slope=1"</span>, <span class='st'>"0,1"</span>, <span class='st'>"none"</span>),
-  <span class='kw'>envelope</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mle-normal"</span>, <span class='st'>"trimmed-normal"</span>, <span class='st'>"moment-normal"</span>, <span class='st'>"any"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" | "</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(
+  <span class='kw'>y</span>,
+  data = <span class='kw'>NULL</span>,
+  distribution = <span class='st'>"norm"</span>,
+  <span class='kw'>...</span>,
+  line = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"quartiles"</span>, <span class='st'>"robust"</span>, <span class='st'>"int=0,slope=1"</span>, <span class='st'>"0,1"</span>, <span class='st'>"none"</span>),
+  envelope = <span class='fl'>0.95</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mle-normal"</span>, <span class='st'>"trimmed-normal"</span>, <span class='st'>"moment-normal"</span>, <span class='st'>"any"</span>),
+  labels = <span class='kw'>NULL</span>,
+  groups = <span class='kw'>NULL</span>,
+  sep = <span class='st'>" | "</span>
 )
 
 <span class='co'># S3 method for qqdata</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)
+<span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)
 
 <span class='co'># S3 method for qqdata</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>x</span>, <span class='kw'>...</span>, use_colors = <span class='fl'>FALSE</span>, scales = <span class='st'>"free"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -266,125 +266,124 @@ a parmeter to be passed to
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>chickwts</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"datasets"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>chickwts</span>, package = <span class='st'>"datasets"</span>)
 
 <span class='co'># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 <span class='co'># Input as formula + data:</span>
 
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(~<span class='no'>weight</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;            x   y labels     ref_y ref_ci_upper ref_ci_lower
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='op'>~</span><span class='kw'>weight</span>, data = <span class='kw'>chickwts</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;            x   y labels     ref_y ref_ci_upper ref_ci_lower
 #&gt; 7   70.98569 108      7  47.42369     135.0090    -40.16157
 #&gt; 8  103.86168 124      8  84.83439     143.0135     26.65531
 #&gt; 3  121.05847 136      3 104.40320     153.1069     55.69954
 #&gt; 10 133.26529 140     10 118.29376     161.8545     74.73305
 #&gt; 14 142.93372 141     14 129.29579     169.5062     89.08535
-#&gt; 9  151.04785 143      9 138.52913     176.3377    100.72059</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;            intercept    slope refline_type plot_envelope conf
+#&gt; 9  151.04785 143      9 138.52913     176.3377    100.72059</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;            intercept    slope refline_type plot_envelope conf
 #&gt; qq_refline -33.35333 1.137934    quartiles          TRUE 0.95</div><div class='input'>
 <span class='co'># Column ".group" is added if applied by group:</span>
 
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;   .group        x   y labels    ref_y ref_ci_upper ref_ci_lower
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>feed</span>, data = <span class='kw'>chickwts</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;   .group        x   y labels    ref_y ref_ci_upper ref_ci_lower
 #&gt; 1 casein 216.7557 216     68 203.9755     291.9501     116.0009
 #&gt; 2 casein 252.6175 222     69 244.2674     307.2708     181.2639
 #&gt; 3 casein 273.4770 260     63 267.7038     323.2246     212.1830
 #&gt; 4 casein 289.7446 283     70 285.9810     337.9149     234.0472
 #&gt; 5 casein 303.9262 318     65 301.9146     351.9821     251.8470
-#&gt; 6 casein 317.1284 332     71 316.7477     365.9956     267.4998</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;      .group intercept     slope refline_type plot_envelope conf
-#&gt; 1    casein -39.55714 1.1235348    quartiles          TRUE 0.95
-#&gt; 2 horsebean  29.42192 0.7940267    quartiles          TRUE 0.95
-#&gt; 3   linseed -40.70818 1.1820946    quartiles          TRUE 0.95
-#&gt; 4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
-#&gt; 5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
-#&gt; 6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
-<span class='fu'><a href='qq_plot.html'>qq_plot</a></span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
+#&gt; 6 casein 317.1284 332     71 316.7477     365.9956     267.4998</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;                   .group intercept     slope refline_type plot_envelope conf
+#&gt; qq_refline...1    casein -39.55714 1.1235348    quartiles          TRUE 0.95
+#&gt; qq_refline...2 horsebean  29.42192 0.7940267    quartiles          TRUE 0.95
+#&gt; qq_refline...3   linseed -40.70818 1.1820946    quartiles          TRUE 0.95
+#&gt; qq_refline...4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
+#&gt; qq_refline...5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
+#&gt; qq_refline...6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>feed</span>, data = <span class='kw'>chickwts</span>)</div><div class='img'><img src='qq_data-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 <span class='co'># Input as variable name + data:</span>
 
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='st'>"weight"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;            x   y labels     ref_y ref_ci_upper ref_ci_lower
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='st'>"weight"</span>, data = <span class='kw'>chickwts</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;            x   y labels     ref_y ref_ci_upper ref_ci_lower
 #&gt; 7   70.98569 108      7  47.42369     135.0090    -40.16157
 #&gt; 8  103.86168 124      8  84.83439     143.0135     26.65531
 #&gt; 3  121.05847 136      3 104.40320     153.1069     55.69954
 #&gt; 10 133.26529 140     10 118.29376     161.8545     74.73305
 #&gt; 14 142.93372 141     14 129.29579     169.5062     89.08535
-#&gt; 9  151.04785 143      9 138.52913     176.3377    100.72059</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;            intercept    slope refline_type plot_envelope conf
+#&gt; 9  151.04785 143      9 138.52913     176.3377    100.72059</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;            intercept    slope refline_type plot_envelope conf
 #&gt; qq_refline -33.35333 1.137934    quartiles          TRUE 0.95</div><div class='input'>
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='st'>"weight"</span>,<span class='kw'>groups</span> <span class='kw'>=</span> <span class='st'>"feed"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;   .group        x   y labels    ref_y ref_ci_upper ref_ci_lower
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='st'>"weight"</span>,groups = <span class='st'>"feed"</span>, data = <span class='kw'>chickwts</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;   .group        x   y labels    ref_y ref_ci_upper ref_ci_lower
 #&gt; 1 casein 216.7557 216     68 203.9755     291.9501     116.0009
 #&gt; 2 casein 252.6175 222     69 244.2674     307.2708     181.2639
 #&gt; 3 casein 273.4770 260     63 267.7038     323.2246     212.1830
 #&gt; 4 casein 289.7446 283     70 285.9810     337.9149     234.0472
 #&gt; 5 casein 303.9262 318     65 301.9146     351.9821     251.8470
-#&gt; 6 casein 317.1284 332     71 316.7477     365.9956     267.4998</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;      .group intercept     slope refline_type plot_envelope conf
-#&gt; 1    casein -39.55714 1.1235348    quartiles          TRUE 0.95
-#&gt; 2 horsebean  29.42192 0.7940267    quartiles          TRUE 0.95
-#&gt; 3   linseed -40.70818 1.1820946    quartiles          TRUE 0.95
-#&gt; 4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
-#&gt; 5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
-#&gt; 6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
+#&gt; 6 casein 317.1284 332     71 316.7477     365.9956     267.4998</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;                   .group intercept     slope refline_type plot_envelope conf
+#&gt; qq_refline...1    casein -39.55714 1.1235348    quartiles          TRUE 0.95
+#&gt; qq_refline...2 horsebean  29.42192 0.7940267    quartiles          TRUE 0.95
+#&gt; qq_refline...3   linseed -40.70818 1.1820946    quartiles          TRUE 0.95
+#&gt; qq_refline...4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
+#&gt; qq_refline...5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
+#&gt; qq_refline...6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
 <span class='co'># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 <span class='co'># Input as vector</span>
 
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>chickwts</span>$<span class='no'>weight</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;            x   y labels     ref_y ref_ci_upper ref_ci_lower
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>chickwts</span><span class='op'>$</span><span class='kw'>weight</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;            x   y labels     ref_y ref_ci_upper ref_ci_lower
 #&gt; 7   70.98569 108      7  47.42369     135.0090    -40.16157
 #&gt; 8  103.86168 124      8  84.83439     143.0135     26.65531
 #&gt; 3  121.05847 136      3 104.40320     153.1069     55.69954
 #&gt; 10 133.26529 140     10 118.29376     161.8545     74.73305
 #&gt; 14 142.93372 141     14 129.29579     169.5062     89.08535
-#&gt; 9  151.04785 143      9 138.52913     176.3377    100.72059</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;            intercept    slope refline_type plot_envelope conf
+#&gt; 9  151.04785 143      9 138.52913     176.3377    100.72059</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;            intercept    slope refline_type plot_envelope conf
 #&gt; qq_refline -33.35333 1.137934    quartiles          TRUE 0.95</div><div class='input'>
 <span class='co'># ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span>
 <span class='co'># Input as vector, several groups.</span>
 <span class='co'># Column ".group" is added</span>
 
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>chickwts</span>$<span class='no'>weight</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>chickwts</span>$<span class='no'>feed</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;   .group        x   y labels    ref_y ref_ci_upper ref_ci_lower
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>chickwts</span><span class='op'>$</span><span class='kw'>weight</span>, groups = <span class='kw'>chickwts</span><span class='op'>$</span><span class='kw'>feed</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;   .group        x   y labels    ref_y ref_ci_upper ref_ci_lower
 #&gt; 1 casein 216.7557 216     68 203.9755     291.9501     116.0009
 #&gt; 2 casein 252.6175 222     69 244.2674     307.2708     181.2639
 #&gt; 3 casein 273.4770 260     63 267.7038     323.2246     212.1830
 #&gt; 4 casein 289.7446 283     70 285.9810     337.9149     234.0472
 #&gt; 5 casein 303.9262 318     65 301.9146     351.9821     251.8470
-#&gt; 6 casein 317.1284 332     71 316.7477     365.9956     267.4998</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='no'>my_qq_df</span>)</div><div class='output co'>#&gt;      .group intercept     slope refline_type plot_envelope conf
-#&gt; 1    casein -39.55714 1.1235348    quartiles          TRUE 0.95
-#&gt; 2 horsebean  29.42192 0.7940267    quartiles          TRUE 0.95
-#&gt; 3   linseed -40.70818 1.1820946    quartiles          TRUE 0.95
-#&gt; 4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
-#&gt; 5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
-#&gt; 6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
+#&gt; 6 casein 317.1284 332     71 316.7477     365.9956     267.4998</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='output co'>#&gt;                   .group intercept     slope refline_type plot_envelope conf
+#&gt; qq_refline...1    casein -39.55714 1.1235348    quartiles          TRUE 0.95
+#&gt; qq_refline...2 horsebean  29.42192 0.7940267    quartiles          TRUE 0.95
+#&gt; qq_refline...3   linseed -40.70818 1.1820946    quartiles          TRUE 0.95
+#&gt; qq_refline...4  meatmeal  50.88326 0.8445614    quartiles          TRUE 0.95
+#&gt; qq_refline...5   soybean  16.85751 0.8989116    quartiles          TRUE 0.95
+#&gt; qq_refline...6 sunflower 183.09510 0.4359916    quartiles          TRUE 0.95</div><div class='input'>
 
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>chickwts</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"datasets"</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>chickwts</span>, package = <span class='st'>"datasets"</span>)
 
 <span class='co'># Input as formula + data:</span>
 
-<span class='no'>my_qq_df</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>my_qq_df</span>)</div><div class='img'><img src='qq_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>my_qq_df2</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"moment-normal"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>my_qq_df2</span>)</div><div class='img'><img src='qq_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='no'>my_qq_df3</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"any"</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>my_qq_df3</span>)</div><div class='img'><img src='qq_data-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>my_qq_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>feed</span>, data = <span class='kw'>chickwts</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>my_qq_df</span>)</div><div class='img'><img src='qq_data-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>my_qq_df2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>feed</span>, data = <span class='kw'>chickwts</span>, method = <span class='st'>"moment-normal"</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>my_qq_df2</span>)</div><div class='img'><img src='qq_data-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='kw'>my_qq_df3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>feed</span>, data = <span class='kw'>chickwts</span>, method = <span class='st'>"any"</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>my_qq_df3</span>)</div><div class='img'><img src='qq_data-4.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># The same x and y scale limits for all plots</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>my_qq_df</span>, <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"fixed"</span>)</div><div class='img'><img src='qq_data-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>my_qq_df</span>, scales = <span class='st'>"fixed"</span>)</div><div class='img'><img src='qq_data-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Plot in color</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>my_qq_df</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_data-6.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>my_qq_df</span>, use_colors = <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_data-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Plot a qq-plot (with no grouping)</span>
-<span class='no'>qq_single</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(~<span class='no'>weight</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>qq_single</span>)</div><div class='img'><img src='qq_data-7.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>qq_single</span>)</div><div class='output co'>#&gt; [1] "qqdata"     "data.frame"</div><div class='input'>
+<span class='kw'>qq_single</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='op'>~</span><span class='kw'>weight</span>, data = <span class='kw'>chickwts</span>)
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>qq_single</span>)</div><div class='img'><img src='qq_data-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='kw'>qq_single</span>)</div><div class='output co'>#&gt; [1] "qqdata"     "data.frame"</div><div class='input'>
 
 <span class='co'># More than one grouping variable</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>CO2</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"datasets"</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>CO2</span>, package = <span class='st'>"datasets"</span>)
 
- <span class='no'>qq_co2</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)
- <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>qq_co2</span>)</div><div class='img'><img src='qq_data-8.png' alt='' width='700' height='433' /></div><div class='input'>
- <span class='no'>qq_co2_B</span> <span class='kw'>&lt;-</span> <span class='fu'>qq_data</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>, <span class='kw'>line</span> <span class='kw'>=</span> <span class='st'>"robust"</span>)
- <span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(<span class='no'>qq_co2_B</span>)</div><div class='img'><img src='qq_data-9.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+ <span class='kw'>qq_co2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>uptake</span> <span class='op'>~</span> <span class='kw'>Type</span> <span class='op'>+</span> <span class='kw'>Treatment</span>, data = <span class='kw'>CO2</span>)
+ <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>qq_co2</span>)</div><div class='img'><img src='qq_data-8.png' alt='' width='700' height='433' /></div><div class='input'>
+ <span class='kw'>qq_co2_B</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_data.html'>qq_data</a></span>(<span class='kw'>uptake</span> <span class='op'>~</span> <span class='kw'>Type</span> <span class='op'>+</span> <span class='kw'>Treatment</span>, data = <span class='kw'>CO2</span>, line = <span class='st'>"robust"</span>)
+ <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>qq_co2_B</span>)</div><div class='img'><img src='qq_data-9.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

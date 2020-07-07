@@ -119,13 +119,13 @@
     <p>A very fast implementation of the basic nonparametric bootstrap for obtaining confidence limits for the population mean without assuming normality.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>ci_mean_boot</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>repetitions</span> <span class='kw'>=</span> <span class='fl'>2000</span>,
-  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>resampled_means</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>return_df</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/ci_mean_boot.html'>ci_mean_boot</a></span>(
+  <span class='kw'>y</span>,
+  conf_level = <span class='fl'>0.95</span>,
+  repetitions = <span class='fl'>2000</span>,
+  na.rm = <span class='fl'>TRUE</span>,
+  resampled_means = <span class='fl'>FALSE</span>,
+  return_df = <span class='fl'>TRUE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -166,13 +166,12 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>111555</span>)
-<span class='fu'>ci_mean_boot</span>(<span class='fl'>1</span>:<span class='fl'>60</span>)</div><div class='output co'>#&gt;   mean    lower    upper conf_level repetitions
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/ci_mean_boot.html'>ci_mean_boot</a></span>(<span class='fl'>1</span><span class='op'>:</span><span class='fl'>60</span>)</div><div class='output co'>#&gt;   mean    lower    upper conf_level repetitions
 #&gt; 1 30.5 26.01625 34.66667       0.95        2000</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>999555</span>)
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>35</span>, <span class='fl'>10</span>, <span class='fl'>5</span>)
-<span class='fu'>ci_mean_boot</span>(<span class='no'>y</span>)</div><div class='output co'>#&gt;       mean   lower    upper conf_level repetitions
-#&gt; 1 10.40422 8.87088 11.84408       0.95        2000</div><div class='input'>
-</div></pre>
+<span class='kw'>y</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>35</span>, <span class='fl'>10</span>, <span class='fl'>5</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/ci_mean_boot.html'>ci_mean_boot</a></span>(<span class='kw'>y</span>)</div><div class='output co'>#&gt;       mean   lower    upper conf_level repetitions
+#&gt; 1 10.40422 8.87088 11.84408       0.95        2000</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

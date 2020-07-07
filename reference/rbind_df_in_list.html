@@ -119,7 +119,7 @@
     <p>Row-bind data frames which are inside a list and keep the names of the list fields</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rbind_df_in_list</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/rbind_df_in_list.html'>rbind_df_in_list</a></span>(<span class='kw'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,24 +137,25 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Data:</span>
 
-<span class='no'>data</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
-    <span class='kw'>A</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span>(<span class='kw'>text</span> <span class='kw'>=</span>
+<span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(
+    A = <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span>(text =
 <span class='st'>"           intercept    slope      type conf
-qq_refline -39.55714 1.123535 quartiles 0.95"</span>),
+qq_refline -39.55714 1.123535 quartiles 0.95"</span>
+qq_refline -39.55714 1.123535 quartiles 0.95"),
 
-    <span class='kw'>B</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span>(<span class='kw'>text</span> <span class='kw'>=</span>
+    B = <span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.table</a></span>(text =
 <span class='st'>"           intercept     slope      type conf
-qq_refline  29.42192 0.7940267 quartiles 0.95"</span>)
+qq_refline  29.42192 0.7940267 quartiles 0.95"</span>
+qq_refline  29.42192 0.7940267 quartiles 0.95")
 )
 
 
-<span class='fu'>rbind_df_in_list</span>(<span class='no'>data</span>)</div><div class='output co'>#&gt;   .group intercept     slope      type conf
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/rbind_df_in_list.html'>rbind_df_in_list</a></span>(<span class='kw'>data</span>)</div><div class='output co'>#&gt;   .group intercept     slope      type conf
 #&gt; 1      A -39.55714 1.1235350 quartiles 0.95
 #&gt; 2      B  29.42192 0.7940267 quartiles 0.95</div><div class='input'>
-# .group intercept     slope      type
-# 1      A -39.55714 1.1235350 quartiles
-# 2      B  29.42192 0.7940267 quartiles
-
+<span class='co'># .group intercept     slope      type</span>
+<span class='co'># 1      A -39.55714 1.1235350 quartiles</span>
+<span class='co'># 2      B  29.42192 0.7940267 quartiles</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

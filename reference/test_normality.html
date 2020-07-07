@@ -123,46 +123,46 @@ The available tests: Shapiro-Wilk (default),
 Lilliefors (Kolmogorov-Smirnov), Anderson-Darling and other.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>test_normality</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>test</span> <span class='kw'>=</span> <span class='st'>"Shapiro-Wilk"</span>,
-  <span class='kw'>p_adjust_method</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>,
-  <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/test_normality.html'>test_normality</a></span>(
+  <span class='kw'>y</span>,
+  data = <span class='kw'>NULL</span>,
+  test = <span class='st'>"Shapiro-Wilk"</span>,
+  p_adjust_method = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>,
+  groups = <span class='kw'>NULL</span>,
+  ss = <span class='kw'>signif_syms</span>,
+  hide_error_msg = <span class='fl'>FALSE</span>
 )
 
 <span class='co'># S3 method for test_normality</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(
-  <span class='no'>x</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> !<span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>ss</span>),
-  <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>format_stat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"auto"</span>, <span class='st'>"f"</span>, <span class='st'>"g"</span>),
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"hide_error_msg"</span>),
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>)
+  <span class='kw'>x</span>,
+  <span class='kw'>...</span>,
+  digits_p = <span class='fl'>3</span>,
+  signif_stars = <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw'>ss</span>),
+  digits_stat = <span class='fl'>3</span>,
+  format_stat = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"auto"</span>, <span class='st'>"f"</span>, <span class='st'>"g"</span>),
+  rm_zero = <span class='fl'>FALSE</span>,
+  legend = <span class='fl'>TRUE</span>,
+  show_col_method = <span class='fl'>FALSE</span>,
+  hide_error_msg = <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='kw'>x</span>, <span class='st'>"hide_error_msg"</span>),
+  ss = <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='kw'>x</span>, <span class='st'>"ss"</span>)
 )
 
 <span class='co'># S3 method for test_normality</span>
-<span class='fu'>pander</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> !<span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='no'>ss</span>),
-  <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>format_stat</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"auto"</span>, <span class='st'>"f"</span>, <span class='st'>"g"</span>),
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>show_col_method</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>hide_error_msg</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"hide_error_msg"</span>),
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='no'>x</span>, <span class='st'>"ss"</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(
+  <span class='kw'>x</span>,
+  caption = <span class='fl'>NA</span>,
+  <span class='kw'>...</span>,
+  digits_p = <span class='fl'>3</span>,
+  signif_stars = <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NULL.html'>is.null</a></span>(<span class='kw'>ss</span>),
+  digits_stat = <span class='fl'>3</span>,
+  format_stat = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"auto"</span>, <span class='st'>"f"</span>, <span class='st'>"g"</span>),
+  rm_zero = <span class='fl'>FALSE</span>,
+  legend = <span class='fl'>TRUE</span>,
+  show_col_method = <span class='fl'>FALSE</span>,
+  hide_error_msg = <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='kw'>x</span>, <span class='st'>"hide_error_msg"</span>),
+  ss = <span class='fu'><a href='https://rdrr.io/r/base/attr.html'>attr</a></span>(<span class='kw'>x</span>, <span class='st'>"ss"</span>)
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -317,12 +317,12 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>pander</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>CO2</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rapporter.github.io/pander'>pander</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>CO2</span>)
 
 <span class='co'># For whole dataset</span>
-<span class='fu'>test_normality</span>(~<span class='no'>uptake</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/test_normality.html'>test_normality</a></span>(<span class='op'>~</span><span class='kw'>uptake</span>, data = <span class='kw'>CO2</span>)</div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;   statistic p.value    
@@ -330,7 +330,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; 
 #&gt; *** - p &lt; 0.001, ** - p &lt; 0.01, * - p &lt; 0.05, . - p &lt; 0.1</div><div class='input'>
 <span class='co'># For each subgroup</span>
-<span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/test_normality.html'>test_normality</a></span>(<span class='kw'>uptake</span> <span class='op'>~</span> <span class='kw'>Treatment</span>, data = <span class='kw'>CO2</span>)</div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;    Treatment statistic p.value    
@@ -339,9 +339,9 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; 
 #&gt; *** - p &lt; 0.001, ** - p &lt; 0.01, * - p &lt; 0.05, . - p &lt; 0.1</div><div class='input'>
 <span class='co'># For each subgroup by several factor variables</span>
-<span class='no'>rez</span> <span class='kw'>&lt;-</span> <span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>,
-                      <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)
-<span class='no'>rez</span></div><div class='output co'>#&gt; 
+<span class='kw'>rez</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/test_normality.html'>test_normality</a></span>(<span class='kw'>uptake</span> <span class='op'>~</span> <span class='kw'>Type</span> <span class='op'>+</span> <span class='kw'>Treatment</span>,
+                      data = <span class='kw'>CO2</span>)
+<span class='kw'>rez</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -352,7 +352,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; 
 #&gt; *** - p &lt; 0.001, ** - p &lt; 0.01, * - p &lt; 0.05, . - p &lt; 0.1</div><div class='input'>
 <span class='co'># Modify printed output</span>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>rez</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>rez</span>, rm_zero = <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -362,7 +362,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; 4 Mississippi    chilled      .948    .315    
 #&gt; 
 #&gt; *** - p &lt; 0.001, ** - p &lt; 0.01, * - p &lt; 0.05, . - p &lt; 0.1</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='kw'>rez</span>, digits_p = <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
 #&gt;  The results of Shapiro-Wilk normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -374,10 +374,10 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; *** - p &lt; 0.001, ** - p &lt; 0.01, * - p &lt; 0.05, . - p &lt; 0.1</div><div class='input'>
 
 <span class='co'># Choose another test of normality</span>
-<span class='no'>rez2</span> <span class='kw'>&lt;-</span> <span class='fu'>test_normality</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>,
-                      <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>,
-                      <span class='kw'>test</span> <span class='kw'>=</span> <span class='st'>"chi-sq"</span>)
-<span class='no'>rez2</span></div><div class='output co'>#&gt; 
+<span class='kw'>rez2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/test_normality.html'>test_normality</a></span>(<span class='kw'>uptake</span> <span class='op'>~</span> <span class='kw'>Type</span> <span class='op'>+</span> <span class='kw'>Treatment</span>,
+                      data = <span class='kw'>CO2</span>,
+                      test = <span class='st'>"chi-sq"</span>)
+<span class='kw'>rez2</span></div><div class='output co'>#&gt; 
 #&gt;  The results of Pearson chi-square normality test 
 #&gt; 
 #&gt;          Type  Treatment statistic p.value    
@@ -389,7 +389,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; *** - p &lt; 0.001, ** - p &lt; 0.01, * - p &lt; 0.05, . - p &lt; 0.1</div><div class='input'>
 
 <span class='co'># Print as a 'pandoc' table (for R Markdown reports)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='no'>rez</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='kw'>rez</span>)</div><div class='output co'>#&gt; 
 #&gt; -------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value  
 #&gt; ------------- ------------ ----------- ----------
@@ -408,7 +408,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; ** - p &lt; 0.01  
 #&gt; * - p &lt; 0.05  
 #&gt; . - p &lt; 0.1</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_stat</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='kw'>rez</span>, digits_stat = <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
 #&gt; -------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value  
 #&gt; ------------- ------------ ----------- ----------
@@ -427,7 +427,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; ** - p &lt; 0.01  
 #&gt; * - p &lt; 0.05  
 #&gt; . - p &lt; 0.1</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='kw'>rez</span>, digits_p = <span class='fl'>2</span>)</div><div class='output co'>#&gt; 
 #&gt; -------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value  
 #&gt; ------------- ------------ ----------- ----------
@@ -446,7 +446,7 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; ** - p &lt; 0.01  
 #&gt; * - p &lt; 0.05  
 #&gt; . - p &lt; 0.1</div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='no'>rez</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; 
+<span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>(<span class='kw'>rez</span>, digits_p = <span class='fl'>4</span>, signif_stars = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; 
 #&gt; ------------------------------------------------
 #&gt;     Type       Treatment    statistic   p.value 
 #&gt; ------------- ------------ ----------- ---------
@@ -462,14 +462,13 @@ is printed (default). If <code>NULL</code> – no caption is printed.</p></td>
 #&gt; Table: The results of Shapiro-Wilk normality test.
 #&gt; </div><div class='input'>
 
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># View unformatted results in a separate window</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>rez</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='kw'>rez</span>)
 }
 
 <span class='co'># Show object's class</span>
-<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='no'>rez</span>)</div><div class='output co'>#&gt; [1] "test_normality" "data.frame"    </div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/class.html'>class</a></span>(<span class='kw'>rez</span>)</div><div class='output co'>#&gt; [1] "test_normality" "data.frame"    </div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

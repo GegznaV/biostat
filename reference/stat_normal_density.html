@@ -123,16 +123,16 @@ May be used to visually compare between empirical and theoretical normal
 distributions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>stat_normal_density</span>(
-  <span class='kw'>mapping</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>geom</span> <span class='kw'>=</span> <span class='st'>"line"</span>,
-  <span class='kw'>position</span> <span class='kw'>=</span> <span class='st'>"identity"</span>,
-  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>inherit.aes</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>trim</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='no'>...</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/stat_normal_density.html'>stat_normal_density</a></span>(
+  mapping = <span class='kw'>NULL</span>,
+  data = <span class='kw'>NULL</span>,
+  geom = <span class='st'>"line"</span>,
+  position = <span class='st'>"identity"</span>,
+  na.rm = <span class='fl'>FALSE</span>,
+  show.legend = <span class='fl'>NA</span>,
+  inherit.aes = <span class='fl'>TRUE</span>,
+  trim = <span class='fl'>0</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -218,14 +218,13 @@ to the paired geom/stat.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>ggplot2</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
 
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>mpg</span>)) + <span class='fu'>stat_normal_density</span>()</div><div class='img'><img src='stat_normal_density-1.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='no'>mtcars</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='no'>mpg</span>)) +
-     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>stat_density</a></span>(<span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.8</span>) +
-     <span class='fu'>stat_normal_density</span>(<span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"red"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1</span>)</div><div class='img'><img src='stat_normal_density-2.png' alt='' width='700' height='433' /></div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='kw'>mtcars</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>mpg</span>)) <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/stat_normal_density.html'>stat_normal_density</a></span>()</div><div class='img'><img src='stat_normal_density-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span>(<span class='kw'>mtcars</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span>(<span class='kw'>mpg</span>)) <span class='op'>+</span>
+     <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_density.html'>stat_density</a></span>(alpha = <span class='fl'>0.8</span>) <span class='op'>+</span>
+     <span class='fu'><a href='https://rdrr.io/pkg/biostat/man/stat_normal_density.html'>stat_normal_density</a></span>(color = <span class='st'>"red"</span>, size = <span class='fl'>1</span>)</div><div class='img'><img src='stat_normal_density-2.png' alt='' width='700' height='433' /></div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

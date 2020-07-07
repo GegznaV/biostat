@@ -123,67 +123,67 @@ Either Games-Howell test or Tukey honestly significant difference (HSD)
 post-hoc tests for one-way analysis of variance (ANOVA).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>posthoc_anova</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>),
-  <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>,
-  <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(
+  <span class='kw'>y</span>,
+  group = <span class='kw'>NULL</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>),
+  conf_level = <span class='fl'>0.95</span>,
+  digits = <span class='fl'>3</span>,
+  digits_p = <span class='fl'>3</span>,
+  p_adjust = <span class='st'>"none"</span>,
+  format_pvalue = <span class='fl'>TRUE</span>,
+  data = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S3 method for formula</span>
-<span class='fu'>posthoc_anova</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>),
-  <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>,
-  <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" | "</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(
+  <span class='kw'>y</span>,
+  group = <span class='kw'>NULL</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>),
+  conf_level = <span class='fl'>0.95</span>,
+  digits = <span class='fl'>3</span>,
+  digits_p = <span class='fl'>3</span>,
+  p_adjust = <span class='st'>"none"</span>,
+  format_pvalue = <span class='fl'>TRUE</span>,
+  data = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>,
+  sep = <span class='st'>" | "</span>
 )
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>posthoc_anova</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>group</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>),
-  <span class='kw'>conf_level</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>p_adjust</span> <span class='kw'>=</span> <span class='st'>"none"</span>,
-  <span class='kw'>format_pvalue</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(
+  <span class='kw'>y</span>,
+  group = <span class='kw'>NULL</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Games-Howell"</span>, <span class='st'>"Tukey"</span>),
+  conf_level = <span class='fl'>0.95</span>,
+  digits = <span class='fl'>3</span>,
+  digits_p = <span class='fl'>3</span>,
+  p_adjust = <span class='st'>"none"</span>,
+  format_pvalue = <span class='fl'>TRUE</span>,
+  data = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S3 method for posthoc_anova</span>
 <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(
-  <span class='no'>x</span>,
-  <span class='kw'>digits</span> <span class='kw'>=</span> <span class='no'>x</span>$<span class='no'>input</span>$<span class='no'>digits</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='no'>x</span>$<span class='no'>input</span>$<span class='no'>digits_p</span>,
-  <span class='kw'>digits_param</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='no'>...</span>
+  <span class='kw'>x</span>,
+  digits = <span class='kw'>x</span><span class='op'>$</span><span class='kw'>input</span><span class='op'>$</span><span class='kw'>digits</span>,
+  digits_p = <span class='kw'>x</span><span class='op'>$</span><span class='kw'>input</span><span class='op'>$</span><span class='kw'>digits_p</span>,
+  digits_param = <span class='fl'>2</span>,
+  <span class='kw'>...</span>
 )
 
 <span class='co'># S3 method for posthoc_anova</span>
-<span class='fu'><a href='https://rdrr.io/r/graphics/plot.html'>plot</a></span>(
-  <span class='no'>x</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>zero_line_color</span> <span class='kw'>=</span> <span class='st'>"grey"</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>p_size</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>p_color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>,
-  <span class='kw'>p_pos_adj</span> <span class='kw'>=</span> <span class='fl'>0.22</span>,
-  <span class='kw'>flip_xy</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(
+  <span class='kw'>x</span>,
+  <span class='kw'>...</span>,
+  zero_line_color = <span class='st'>"grey"</span>,
+  add_p = <span class='fl'>TRUE</span>,
+  p_size = <span class='fl'>1</span>,
+  p_color = <span class='st'>"blue"</span>,
+  p_pos_adj = <span class='fl'>0.22</span>,
+  flip_xy = <span class='fl'>TRUE</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -293,12 +293,17 @@ on code of function <code>posthocTGH()</code> in package <span class="pkg">userf
 <li><p><a href='https://stats.stackexchange.com/questions/83941/games-howell-post-hoc-test-in-r'>https://stats.stackexchange.com/questions/83941/games-howell-post-hoc-test-in-r</a></p></li>
 </ul>
 </div>
+    <h2 class="hasAnchor" id="author"><a class="anchor" href="#author"></a>Author</h2>
+
+    <p>Gjalt-Jorn Peters (Open University of the Netherlands) <br />
+Jeff Bagget (University of Wisconsin - La Crosse) <br />
+Vilmantas Gegzna</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
 
 <span class='co'># Compute post-hoc statistics using the Games-Howell method</span>
-<span class='fu'>posthoc_anova</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Games-Howell"</span>)</div><div class='output co'>#&gt; Games-Howell test results (ANOVA post-hoc) 
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>, data = <span class='kw'>ChickWeight</span>, method = <span class='st'>"Games-Howell"</span>)</div><div class='output co'>#&gt; Games-Howell test results (ANOVA post-hoc) 
 #&gt; 
 #&gt;   groups difference ci_lower ci_upper    t     df          p
 #&gt; 1    2-1     19.971    0.358   39.585 2.64 201.38  0.044 *  
@@ -314,7 +319,7 @@ on code of function <code>posthocTGH()</code> in package <span class="pkg">userf
 #&gt; 3     3 120 142.950 7489.476 86.542   b         _b
 #&gt; 4     4 118 135.263 4737.392 68.829   b         _b</div><div class='input'>
 <span class='co'># Compute post-hoc statistics using the Tukey method</span>
-<span class='fu'>posthoc_anova</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"Tukey"</span>)</div><div class='output co'>#&gt; Tukey HSD test results (ANOVA post-hoc) 
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/posthoc_anova.html'>posthoc_anova</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>Diet</span>, data = <span class='kw'>ChickWeight</span>, method = <span class='st'>"Tukey"</span>)</div><div class='output co'>#&gt; Tukey HSD test results (ANOVA post-hoc) 
 #&gt; 
 #&gt;   groups difference ci_lower ci_upper    t     df          p
 #&gt; 1    2-1     19.971   -0.300   40.242 2.54 574.00  0.055 .  
@@ -329,7 +334,6 @@ on code of function <code>posthocTGH()</code> in package <span class="pkg">userf
 #&gt; 2     2 120 122.617 5127.633 71.607  ab         ab
 #&gt; 3     3 120 142.950 7489.476 86.542   b         _b
 #&gt; 4     4 118 135.263 4737.392 68.829   b         _b</div><div class='input'>
-
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

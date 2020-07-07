@@ -121,7 +121,7 @@ divide by scale." />
 divide by <code>scale</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>scale_vector</span>(<span class='no'>y</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='no'>mean</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='no'>sd</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/scale_vector.html'>scale_vector</a></span>(<span class='kw'>y</span>, center = <span class='kw'>mean</span>, scale = <span class='kw'>sd</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -148,13 +148,12 @@ divide by <code>scale</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='no'>y</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10</span>
-<span class='fu'>scale_vector</span>(<span class='no'>y</span>)</div><div class='output co'>#&gt;  [1] -1.4863011 -1.1560120 -0.8257228 -0.4954337 -0.1651446  0.1651446
+<span class='kw'>y</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>10</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/scale_vector.html'>scale_vector</a></span>(<span class='kw'>y</span>)</div><div class='output co'>#&gt;  [1] -1.4863011 -1.1560120 -0.8257228 -0.4954337 -0.1651446  0.1651446
 #&gt;  [7]  0.4954337  0.8257228  1.1560120  1.4863011</div><div class='input'>
-<span class='fu'>scale_vector</span>(<span class='no'>y</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='no'>median</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='no'>IQR</span>)</div><div class='output co'>#&gt;  [1] -1.0000000 -0.7777778 -0.5555556 -0.3333333 -0.1111111  0.1111111
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/scale_vector.html'>scale_vector</a></span>(<span class='kw'>y</span>, center = <span class='kw'>median</span>, scale = <span class='kw'>IQR</span>)</div><div class='output co'>#&gt;  [1] -1.0000000 -0.7777778 -0.5555556 -0.3333333 -0.1111111  0.1111111
 #&gt;  [7]  0.3333333  0.5555556  0.7777778  1.0000000</div><div class='input'>
-<span class='fu'>scale_vector</span>(<span class='no'>y</span>, <span class='kw'>center</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>scale</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt;  [1] -4.5 -4.0 -3.5 -3.0 -2.5 -2.0 -1.5 -1.0 -0.5  0.0</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/scale_vector.html'>scale_vector</a></span>(<span class='kw'>y</span>, center = <span class='fl'>10</span>, scale = <span class='fl'>2</span>)</div><div class='output co'>#&gt;  [1] -4.5 -4.0 -3.5 -3.0 -2.5 -2.0 -1.5 -1.0 -0.5  0.0</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -121,19 +121,19 @@ using ggplot2 graphics." />
 using <span class="pkg">ggplot2</span> graphics.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>qq_plot</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>data</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='st'>"norm"</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>line</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"quartiles"</span>, <span class='st'>"robust"</span>, <span class='st'>"int=0,slope=1"</span>, <span class='st'>"0,1"</span>, <span class='st'>"none"</span>),
-  <span class='kw'>envelope</span> <span class='kw'>=</span> <span class='fl'>0.95</span>,
-  <span class='kw'>method</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mle-normal"</span>, <span class='st'>"trimmed-normal"</span>, <span class='st'>"moment-normal"</span>, <span class='st'>"any"</span>),
-  <span class='kw'>labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>groups</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>scales</span> <span class='kw'>=</span> <span class='st'>"free"</span>,
-  <span class='kw'>sep</span> <span class='kw'>=</span> <span class='st'>" | "</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(
+  <span class='kw'>y</span>,
+  data = <span class='kw'>NULL</span>,
+  distribution = <span class='st'>"norm"</span>,
+  <span class='kw'>...</span>,
+  line = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"quartiles"</span>, <span class='st'>"robust"</span>, <span class='st'>"int=0,slope=1"</span>, <span class='st'>"0,1"</span>, <span class='st'>"none"</span>),
+  envelope = <span class='fl'>0.95</span>,
+  method = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"mle-normal"</span>, <span class='st'>"trimmed-normal"</span>, <span class='st'>"moment-normal"</span>, <span class='st'>"any"</span>),
+  labels = <span class='kw'>NULL</span>,
+  groups = <span class='kw'>NULL</span>,
+  use_colors = <span class='fl'>FALSE</span>,
+  scales = <span class='st'>"free"</span>,
+  sep = <span class='st'>" | "</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -223,7 +223,7 @@ a parmeter to be passed to
       <th>sep</th>
       <td><p>(character)
 Group name separator if more than one grouping variable is used.
-default is <code><a href='https://rdrr.io/r/base/Logic.html'>"|"</a></code>.</p></td>
+default is <code>"|"</code>.</p></td>
     </tr>
     </table>
 
@@ -240,27 +240,27 @@ default is <code><a href='https://rdrr.io/r/base/Logic.html'>"|"</a></code>.</p>
          <code><a href='https://rdrr.io/r/stats/qqnorm.html'>qqplot</a></code> from <span class="pkg">stats</span> package.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>iris</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>iris</span>)
 
 <span class='co'># Formula (no groups):</span>
-<span class='fu'>qq_plot</span>(~<span class='no'>Sepal.Length</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>qq_plot</span>(<span class='st'>"Sepal.Length"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='op'>~</span><span class='kw'>Sepal.Length</span>, data = <span class='kw'>iris</span>)</div><div class='img'><img src='qq_plot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='st'>"Sepal.Length"</span>, data = <span class='kw'>iris</span>)</div><div class='img'><img src='qq_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Formula (several groups):</span>
-<span class='fu'>qq_plot</span>(<span class='no'>Sepal.Length</span> ~ <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>qq_plot</span>(<span class='no'>Sepal.Length</span> ~ <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>envelope</span> <span class='kw'>=</span> <span class='fl'>0.90</span>)</div><div class='img'><img src='qq_plot-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>Sepal.Length</span> <span class='op'>~</span> <span class='kw'>Species</span>, data = <span class='kw'>iris</span>)</div><div class='img'><img src='qq_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>Sepal.Length</span> <span class='op'>~</span> <span class='kw'>Species</span>, data = <span class='kw'>iris</span>, envelope = <span class='fl'>0.90</span>)</div><div class='img'><img src='qq_plot-4.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Formula (several groups in colors):</span>
-<span class='fu'>qq_plot</span>(<span class='no'>Sepal.Length</span> ~ <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_plot-5.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>Sepal.Length</span> <span class='op'>~</span> <span class='kw'>Species</span>, data = <span class='kw'>iris</span>, use_colors = <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_plot-5.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Vectors (several groups):</span>
-<span class='fu'>qq_plot</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>iris</span>$<span class='no'>Species</span>)</div><div class='img'><img src='qq_plot-6.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Sepal.Length</span>, groups = <span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Species</span>)</div><div class='img'><img src='qq_plot-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># For one group:</span>
-<span class='fu'>qq_plot</span>(<span class='st'>"Sepal.Length"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-7.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>qq_plot</span>(~<span class='no'>Sepal.Length</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-8.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>qq_plot</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>)</div><div class='img'><img src='qq_plot-9.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='st'>"Sepal.Length"</span>, data = <span class='kw'>iris</span>)</div><div class='img'><img src='qq_plot-7.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='op'>~</span><span class='kw'>Sepal.Length</span>, data = <span class='kw'>iris</span>)</div><div class='img'><img src='qq_plot-8.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Sepal.Length</span>)</div><div class='img'><img src='qq_plot-9.png' alt='' width='700' height='433' /></div><div class='input'>
 
 <span class='co'># Other examples</span>
-<span class='fu'>qq_plot</span>(~<span class='no'>weight</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_plot-10.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>qq_plot</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_plot-11.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>qq_plot</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='img'><img src='qq_plot-12.png' alt='' width='700' height='433' /></div></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='op'>~</span><span class='kw'>weight</span>, data = <span class='kw'>chickwts</span>)</div><div class='img'><img src='qq_plot-10.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>weight</span> <span class='op'>~</span> <span class='kw'>feed</span>, data = <span class='kw'>chickwts</span>)</div><div class='img'><img src='qq_plot-11.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_plot.html'>qq_plot</a></span>(<span class='kw'>uptake</span> <span class='op'>~</span> <span class='kw'>Type</span> <span class='op'>+</span> <span class='kw'>Treatment</span>, data = <span class='kw'>CO2</span>)</div><div class='img'><img src='qq_plot-12.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

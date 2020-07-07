@@ -119,24 +119,24 @@
     <p>Frequency table for continuous data</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bs_freq_table_cont</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>nbins</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>bin_width</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>xmax</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>max_bin_decimals</span> <span class='kw'>=</span> <span class='fl'>2</span>,
-  <span class='kw'>percent_decimals</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>right</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/bs_freq_table_cont.html'>bs_freq_table_cont</a></span>(
+  <span class='kw'>y</span>,
+  nbins = <span class='kw'>NULL</span>,
+  bin_width = <span class='kw'>NULL</span>,
+  xmin = <span class='kw'>NULL</span>,
+  xmax = <span class='kw'>NULL</span>,
+  max_bin_decimals = <span class='fl'>2</span>,
+  percent_decimals = <span class='fl'>1</span>,
+  right = <span class='fl'>TRUE</span>
 )
 
 <span class='co'># S3 method for bs_freq_table_cont</span>
 <span class='fu'>pander</span>(
-  <span class='no'>x</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>caption</span> <span class='kw'>=</span> <span class='st'>"Frequency table"</span>,
-  <span class='kw'>justify</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"crrrr"</span>),
-  <span class='kw'>style</span> <span class='kw'>=</span> <span class='st'>"simple"</span>
+  <span class='kw'>x</span>,
+  <span class='kw'>...</span>,
+  caption = <span class='st'>"Frequency table"</span>,
+  justify = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"crrrr"</span>),
+  style = <span class='st'>"simple"</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -202,18 +202,18 @@ on the right and open on the left (default) or vice versa.</p></td>
     <p>Object of classes <code>bs_freq_table_cont</code>, <code>data.frame</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>pander</span>)
-<span class='fu'>bs_freq_table_cont</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>, <span class='kw'>nbins</span> <span class='kw'>=</span> <span class='fl'>5</span>)</div><div class='output co'>#&gt;          Bin Freq Cum_freq Percent Cum_percent
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://rapporter.github.io/pander'>pander</a></span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/bs_freq_table_cont.html'>bs_freq_table_cont</a></span>(<span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Sepal.Length</span>, nbins = <span class='fl'>5</span>)</div><div class='output co'>#&gt;          Bin Freq Cum_freq Percent Cum_percent
 #&gt; 1 4.3 -- 5.0   32       32  21.3 %      21.3 %
 #&gt; 2 5.0 -- 5.7   41       73  27.3 %      48.7 %
 #&gt; 3 5.7 -- 6.5   42      115  28.0 %      76.7 %
 #&gt; 4 6.5 -- 7.2   24      139  16.0 %      92.7 %
-#&gt; 5 7.2 -- 7.9   11      150   7.3 %     100.0 %</div><div class='input'><span class='fu'>bs_freq_table_cont</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>, <span class='kw'>bin_width</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>xmin</span> <span class='kw'>=</span> <span class='fl'>4</span>)</div><div class='output co'>#&gt;      Bin Freq Cum_freq Percent Cum_percent
+#&gt; 5 7.2 -- 7.9   11      150   7.3 %     100.0 %</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/bs_freq_table_cont.html'>bs_freq_table_cont</a></span>(<span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Sepal.Length</span>, bin_width = <span class='fl'>1</span>, xmin = <span class='fl'>4</span>)</div><div class='output co'>#&gt;      Bin Freq Cum_freq Percent Cum_percent
 #&gt; 1 4 -- 5   32       32  21.3 %      21.3 %
 #&gt; 2 5 -- 6   57       89  38.0 %      59.3 %
 #&gt; 3 6 -- 7   49      138  32.7 %      92.0 %
-#&gt; 4 7 -- 8   12      150   8.0 %     100.0 %</div><div class='input'><span class='fu'>bs_freq_table_cont</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>, <span class='kw'>nbins</span> <span class='kw'>=</span> <span class='fl'>5</span>) <span class='kw'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>()</div><div class='output co'>#&gt; 
+#&gt; 4 7 -- 8   12      150   8.0 %     100.0 %</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/bs_freq_table_cont.html'>bs_freq_table_cont</a></span>(<span class='kw'>iris</span><span class='op'>$</span><span class='kw'>Sepal.Length</span>, nbins = <span class='fl'>5</span>) <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/pander/man/pander.html'>pander</a></span>()</div><div class='output co'>#&gt; 
 #&gt; 
 #&gt;     Bin        Freq   Cum_freq   Percent   Cum_percent
 #&gt; ------------ ------ ---------- --------- -------------

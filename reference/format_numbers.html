@@ -121,7 +121,7 @@ Other classes are left intact." />
 Other classes are left intact.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>format_numbers</span>(<span class='no'>data</span>, <span class='kw'>digits</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>format</span> <span class='kw'>=</span> <span class='st'>"f"</span>, <span class='kw'>fun</span> <span class='kw'>=</span> <span class='no'>formatC</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_numbers.html'>format_numbers</a></span>(<span class='kw'>data</span>, digits = <span class='fl'>3</span>, format = <span class='st'>"f"</span>, fun = <span class='kw'>formatC</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,11 +158,11 @@ Default is <code><a href='https://rdrr.io/r/base/formatc.html'>formatC</a></code
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
-<span class='no'>DATA</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>iris</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
+<span class='kw'>DATA</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='kw'>iris</span>)
 
 <span class='co'># The same rounding for each column</span>
-<span class='fu'>format_numbers</span>(<span class='no'>DATA</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_numbers.html'>format_numbers</a></span>(<span class='kw'>DATA</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 #&gt; 1         5.10        3.50         1.40        0.20  setosa
 #&gt; 2         4.90        3.00         1.40        0.20  setosa
 #&gt; 3         4.70        3.20         1.30        0.20  setosa
@@ -170,7 +170,7 @@ Default is <code><a href='https://rdrr.io/r/base/formatc.html'>formatC</a></code
 #&gt; 5         5.00        3.60         1.40        0.20  setosa
 #&gt; 6         5.40        3.90         1.70        0.40  setosa</div><div class='input'>
 <span class='co'># Different rounding for different columns</span>
-<span class='fu'>format_numbers</span>(<span class='no'>DATA</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>3</span>,<span class='fl'>NA</span>))</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_numbers.html'>format_numbers</a></span>(<span class='kw'>DATA</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2</span>,<span class='fl'>2</span>,<span class='fl'>3</span>,<span class='fl'>3</span>,<span class='fl'>NA</span>))</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 #&gt; 1         5.10        3.50        1.400       0.200  setosa
 #&gt; 2         4.90        3.00        1.400       0.200  setosa
 #&gt; 3         4.70        3.20        1.300       0.200  setosa
@@ -178,7 +178,7 @@ Default is <code><a href='https://rdrr.io/r/base/formatc.html'>formatC</a></code
 #&gt; 5         5.00        3.60        1.400       0.200  setosa
 #&gt; 6         5.40        3.90        1.700       0.400  setosa</div><div class='input'>
 <span class='co'># Use `NA` to leave a column unformatted</span>
-<span class='fu'>format_numbers</span>(<span class='no'>DATA</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>NA</span>,<span class='fl'>3</span>,<span class='fl'>NA</span>,<span class='fl'>NA</span>))</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_numbers.html'>format_numbers</a></span>(<span class='kw'>DATA</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>4</span>,<span class='fl'>NA</span>,<span class='fl'>3</span>,<span class='fl'>NA</span>,<span class='fl'>NA</span>))</div><div class='output co'>#&gt;   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
 #&gt; 1       5.1000         3.5        1.400         0.2  setosa
 #&gt; 2       4.9000         3.0        1.400         0.2  setosa
 #&gt; 3       4.7000         3.2        1.300         0.2  setosa

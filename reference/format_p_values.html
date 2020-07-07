@@ -119,100 +119,100 @@
     <p>Functions to fromat p values.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>format_p_values</span>(
-  <span class='no'>p</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fl'>0.05</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(
+  <span class='kw'>p</span>,
+  digits_p = <span class='fl'>3</span>,
+  cols = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>,
+  alpha = <span class='fl'>0.05</span>,
+  signif_stars = <span class='fl'>TRUE</span>,
+  rm_zero = <span class='fl'>FALSE</span>,
+  add_p = <span class='fl'>FALSE</span>,
+  rm_spaces = <span class='fl'>FALSE</span>,
+  ss = <span class='kw'>signif_syms</span>
 )
 
 <span class='co'># S3 method for default</span>
-<span class='fu'>format_p_values</span>(
-  <span class='no'>p</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(
+  <span class='kw'>p</span>,
+  digits_p = <span class='fl'>3</span>,
+  cols = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>,
+  signif_stars = <span class='fl'>TRUE</span>,
+  rm_zero = <span class='fl'>FALSE</span>,
+  add_p = <span class='fl'>FALSE</span>,
+  rm_spaces = <span class='fl'>FALSE</span>,
+  ss = <span class='kw'>signif_syms</span>
 )
 
-<span class='fu'>format_p</span>(
-  <span class='no'>p_i</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p</a></span>(
+  <span class='kw'>p_i</span>,
+  digits_p = <span class='fl'>3</span>,
+  signif_stars = <span class='fl'>TRUE</span>,
+  rm_zero = <span class='fl'>FALSE</span>,
+  add_p = <span class='fl'>FALSE</span>,
+  rm_spaces = <span class='fl'>FALSE</span>,
+  ss = <span class='kw'>signif_syms</span>
 )
 
 <span class='co'># S3 method for data.frame</span>
-<span class='fu'>format_p_values</span>(
-  <span class='no'>data</span>,
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='no'>...</span>,
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>add_p</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>rm_spaces</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(
+  <span class='kw'>data</span>,
+  digits_p = <span class='fl'>3</span>,
+  cols = <span class='kw'>NULL</span>,
+  <span class='kw'>...</span>,
+  ss = <span class='kw'>signif_syms</span>,
+  signif_stars = <span class='fl'>TRUE</span>,
+  rm_zero = <span class='fl'>FALSE</span>,
+  add_p = <span class='fl'>FALSE</span>,
+  rm_spaces = <span class='fl'>FALSE</span>
 )
 
-<span class='fu'>add_signif_stars</span>(<span class='no'>p</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>add_signif_stars</a></span>(<span class='kw'>p</span>, ss = <span class='kw'>signif_syms</span>)
 
-<span class='fu'>get_signif_stars</span>(<span class='no'>p</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>get_signif_stars</a></span>(<span class='kw'>p</span>, ss = <span class='kw'>signif_syms</span>)
 
-<span class='no'>signif_syms_05s</span>
+<span class='kw'>signif_syms_05s</span>
 
-<span class='no'>p05</span>
+<span class='kw'>p05</span>
 
-<span class='no'>signif_syms_01s</span>
+<span class='kw'>signif_syms_01s</span>
 
-<span class='no'>p01</span>
+<span class='kw'>p01</span>
 
-<span class='no'>signif_syms_001s</span>
+<span class='kw'>signif_syms_001s</span>
 
-<span class='no'>p001</span>
+<span class='kw'>p001</span>
 
-<span class='no'>signif_syms_001</span>
+<span class='kw'>signif_syms_001</span>
 
-<span class='no'>signif_syms_01</span>
+<span class='kw'>signif_syms_01</span>
 
-<span class='no'>signif_syms_05</span>
+<span class='kw'>signif_syms_05</span>
 
-<span class='no'>signif_syms</span>
+<span class='kw'>signif_syms</span>
 
-<span class='no'>p05_01_001</span>
+<span class='kw'>p05_01_001</span>
 
-<span class='no'>p05plus</span>
+<span class='kw'>p05plus</span>
 
-<span class='fu'>signif_stars_legend_2</span>(<span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>signif_stars_legend_2</a></span>(ss = <span class='kw'>signif_syms</span>)
 
-<span class='fu'>signif_stars_legend</span>(
-  <span class='kw'>ss</span> <span class='kw'>=</span> <span class='no'>signif_syms</span>,
-  <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>collapse</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"  \n"</span>, <span class='st'>", "</span>, <span class='st'>"; "</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>signif_stars_legend</a></span>(
+  ss = <span class='kw'>signif_syms</span>,
+  decreasing = <span class='fl'>FALSE</span>,
+  collapse = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"  \n"</span>, <span class='st'>", "</span>, <span class='st'>"; "</span>)
 )
 
-<span class='fu'>rm_zero</span>(<span class='no'>str</span>, <span class='kw'>dec</span> <span class='kw'>=</span> <span class='st'>"."</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>rm_zero</a></span>(<span class='kw'>str</span>, dec = <span class='st'>"."</span>)
 
-<span class='fu'>format_as_p_columns</span>(
-  <span class='no'>data</span>,
-  <span class='kw'>colnames</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"p.value"</span>, <span class='st'>"p.adjust"</span>),
-  <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='no'>...</span>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_as_p_columns</a></span>(
+  <span class='kw'>data</span>,
+  colnames = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"p.value"</span>, <span class='st'>"p.adjust"</span>),
+  digits_p = <span class='fl'>3</span>,
+  rm_zero = <span class='fl'>FALSE</span>,
+  signif_stars = <span class='fl'>FALSE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -305,28 +305,27 @@ removed.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://gegznav.github.io/biostat'>biostat</a></span>)
 
 <span class='co'># Prettify p-values</span>
 
-<span class='fu'>format_p_values</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'>
-<span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] " 0.005 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] " 0.005"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] " .005 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "&lt;0.01 ** "</div><div class='input'><span class='fu'>format_p_values</span>(<span class='fl'>0.005</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>rm_zero</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt;.01"</div><div class='input'>
-<span class='fu'>format_p_values</span>(<span class='fl'>0.00022</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='st'>"0.00022"</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p_values</span>(<span class='st'>"0.052"</span>)</div><div class='output co'>#&gt; [1] " 0.052 .  "</div><div class='input'>
-<span class='fu'>format_p_values</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.005</span>, <span class='fl'>0.0005</span>, <span class='fl'>0.052147</span>))</div><div class='output co'>#&gt; [1] " 0.005 ** " "&lt;0.001 ***" " 0.052 .  "</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] " 0.005 ** "</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.005</span>, signif_stars = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] " 0.005"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.005</span>, rm_zero = <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] " .005 ** "</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.005</span>, digits_p = <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] "&lt;0.01 ** "</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.005</span>, digits_p = <span class='fl'>2</span>, rm_zero = <span class='fl'>TRUE</span>, signif_stars = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt;.01"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fl'>0.00022</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='st'>"0.00022"</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='st'>"0.052"</span>)</div><div class='output co'>#&gt; [1] " 0.052 .  "</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p_values</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.005</span>, <span class='fl'>0.0005</span>, <span class='fl'>0.052147</span>))</div><div class='output co'>#&gt; [1] " 0.005 ** " "&lt;0.001 ***" " 0.052 .  "</div><div class='input'>
 
-<span class='fu'>get_signif_stars</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "**"
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>get_signif_stars</a></span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "**"
 #&gt; attr(,"legend")
-#&gt; [1] "0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "0.005 **"</div><div class='input'>
-<span class='fu'>get_signif_stars</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "***"
+#&gt; [1] "0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>add_signif_stars</a></span>(<span class='fl'>0.005</span>)</div><div class='output co'>#&gt; [1] "0.005 **"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>get_signif_stars</a></span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "***"
 #&gt; attr(,"legend")
-#&gt; [1] "0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "5e-04 ***"</div><div class='input'>
-<span class='fu'>get_signif_stars</span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "."
+#&gt; [1] "0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>add_signif_stars</a></span>(<span class='fl'>0.0005</span>)</div><div class='output co'>#&gt; [1] "5e-04 ***"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>get_signif_stars</a></span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "."
 #&gt; attr(,"legend")
-#&gt; [1] "0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"</div><div class='input'><span class='fu'>add_signif_stars</span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "0.052147 ."</div><div class='input'>
-<span class='fu'>signif_stars_legend</span>()</div><div class='output co'>#&gt; [1] "*** - p &lt; 0.001  \n** - p &lt; 0.01  \n* - p &lt; 0.05  \n. - p &lt; 0.1"</div><div class='input'>
+#&gt; [1] "0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>add_signif_stars</a></span>(<span class='fl'>0.052147</span>)</div><div class='output co'>#&gt; [1] "0.052147 ."</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>signif_stars_legend</a></span>()</div><div class='output co'>#&gt; [1] "*** - p &lt; 0.001  \n** - p &lt; 0.01  \n* - p &lt; 0.05  \n. - p &lt; 0.1"</div><div class='input'>
 
-<span class='fu'>format_p</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.02</span>, <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] " 0.02 *  "</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>, <span class='kw'>signif_stars</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001"</div><div class='input'><span class='fu'>format_p</span>(<span class='fl'>.0002</span>, <span class='kw'>ss</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"*****"</span> <span class='kw'>=</span> <span class='fl'>0.001</span>))</div><div class='output co'>#&gt; [1] "&lt;0.001 *****"</div><div class='input'><span class='fu'>rm_zero</span>(<span class='fl'>0.020</span>)</div><div class='output co'>#&gt; [1] ".02"</div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p</a></span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p</a></span>(<span class='fl'>.02</span>, digits_p = <span class='fl'>2</span>)</div><div class='output co'>#&gt; [1] " 0.02 *  "</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p</a></span>(<span class='fl'>.0002</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001 ***"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p</a></span>(<span class='fl'>.0002</span>, signif_stars = <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "&lt;0.001"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>format_p</a></span>(<span class='fl'>.0002</span>, ss = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"*****"</span> = <span class='fl'>0.001</span>))</div><div class='output co'>#&gt; [1] "&lt;0.001 *****"</div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/format_p_values.html'>rm_zero</a></span>(<span class='fl'>0.020</span>)</div><div class='output co'>#&gt; [1] ".02"</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

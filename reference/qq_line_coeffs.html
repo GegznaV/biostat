@@ -123,14 +123,14 @@ in a quantile comparison plot given a vector of data an a theoretical
 distribution.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>qq_line_coeffs</span>(
-  <span class='no'>y</span>,
-  <span class='kw'>datax</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>distribution</span> <span class='kw'>=</span> <span class='no'>qnorm</span>,
-  <span class='kw'>probs</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.75</span>),
-  <span class='kw'>qtype</span> <span class='kw'>=</span> <span class='fl'>7</span>,
-  <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='no'>...</span>
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_line_coeffs.html'>qq_line_coeffs</a></span>(
+  <span class='kw'>y</span>,
+  datax = <span class='fl'>FALSE</span>,
+  distribution = <span class='kw'>qnorm</span>,
+  probs = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.75</span>),
+  qtype = <span class='fl'>7</span>,
+  na.rm = <span class='fl'>TRUE</span>,
+  <span class='kw'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -179,11 +179,10 @@ But instead of plotting a reference line, it returns its coefficients.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>254</span>)
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>50</span>)
+<span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span>(<span class='fl'>50</span>)
 
-<span class='fu'>qq_line_coeffs</span>(<span class='no'>x</span>)</div><div class='output co'>#&gt; intercept     slope 
-#&gt; 0.1078016 0.8185576 </div><div class='input'>
-</div></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/biostat/man/qq_line_coeffs.html'>qq_line_coeffs</a></span>(<span class='kw'>x</span>)</div><div class='output co'>#&gt; intercept     slope 
+#&gt; 0.1078016 0.8185576 </div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
