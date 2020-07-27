@@ -53,8 +53,7 @@
 #' # Example 4: class `PMCMR`
 #'
 #' \donttest{
-#' obj4 <- PMCMR::posthoc.kruskal.conover.test(count ~ spray,
-#'                                             data = InsectSprays)
+#' obj4 <- PMCMR::posthoc.kruskal.conover.test(count ~ spray, data = InsectSprays)
 #' make_cld(obj4)
 #' }
 #'
