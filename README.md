@@ -10,7 +10,7 @@
 <!-- [![Travis-CI](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat) -->
 
 [![GitHub
-version](https://img.shields.io/badge/GitHub-v0.0.19-brightgreen.svg)](https://github.com/GegznaV/biostat)
+version](https://img.shields.io/badge/GitHub-v0.0.19.9000-brightgreen.svg)](https://github.com/GegznaV/biostat)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/biostat)](https://CRAN.R-project.org/package=biostat)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
