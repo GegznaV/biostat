@@ -215,6 +215,7 @@ format_p_values.data.frame <- function(p,
                                        rm_zero = FALSE,
                                        add_p = FALSE,
                                        rm_spaces = FALSE) {
+  data <- p
   data_colnames <- names(data)
 
   if (is.null(cols)) {
