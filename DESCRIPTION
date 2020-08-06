@@ -16,7 +16,9 @@ Authors@R: c(
     )
 License: GPL-3
 Encoding: UTF-8
-URL: https://gegznav.github.io/biostat/
+URL: 
+    https://gegznav.github.io/biostat/,
+    https://github.com/gegznav/biostat/
 BugReports: https://github.com/GegznaV/biostat/issues
 LazyData: true
 ByteCompile: TRUE
@@ -50,12 +52,12 @@ Imports:
     tibble,
     tidyr,
     withr
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Suggests:
     covr,
-    testthat,
-    QuantPsyc,
-    PMCMR,
+    data.table,
     Hmisc,
+    PMCMR,
+    QuantPsyc,
     rcompanion,
-    data.table
+    testthat
