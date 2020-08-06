@@ -2,7 +2,7 @@
 % Please edit documentation in R/gg_boxplot_plus.R
 \name{gg_boxplot_plus}
 \alias{gg_boxplot_plus}
-\title{[!] A boxplot with additional components}
+\title{\strong{\link{!!}} A boxplot with additional components}
 \usage{
 gg_boxplot_plus(
   formula,
@@ -102,12 +102,13 @@ gg_boxplot_plus(~decrease, OrchardSprays)
 
 # Example 1b
 gg_boxplot_plus(decrease ~ treatment, OrchardSprays)
-gg_boxplot_plus(~decrease | treatment, OrchardSprays)
+gg_boxplot_plus(~ decrease | treatment, OrchardSprays)
 
 
 # Example 2
 gg_boxplot_plus(decrease ~ treatment, OrchardSprays,
-                sort_groups = "descending")
+  sort_groups = "descending"
+)
 
 
 # Example 3a
@@ -115,46 +116,55 @@ gg_boxplot_plus(decrease ~ treatment, OrchardSprays,
 res <- posthoc_anova(weight ~ Diet, data = ChickWeight)
 cld_result <- make_cld(res)
 
-gg_boxplot_plus(weight ~ Diet, data = ChickWeight,
-                cld = cld_result)
+gg_boxplot_plus(weight ~ Diet,
+  data = ChickWeight,
+  cld = cld_result
+)
 
 # Example 3b
 
-gg_boxplot_plus(weight ~ Diet, data = ChickWeight,
-                cld = cld_result,
-                sort_groups = "descending",
-                sort_fun = mean)
+gg_boxplot_plus(weight ~ Diet,
+  data = ChickWeight,
+  cld = cld_result,
+  sort_groups = "descending",
+  sort_fun = mean
+)
 
 # Example 3c: do simple transformations
 
-gg_boxplot_plus(log(weight) ~ Diet, data = ChickWeight,
-                sort_groups = "descending",
-                sort_fun = mean)
+gg_boxplot_plus(log(weight) ~ Diet,
+  data = ChickWeight,
+  sort_groups = "descending",
+  sort_fun = mean
+)
 
 # Example 3d: facetting
 
 gg_boxplot_plus(weight ~ as.factor(Time), data = ChickWeight) +
-    facet_wrap("Diet")
+  facet_wrap("Diet")
 
 # Example 4
 
 res2 <- posthoc_anova(decrease ~ treatment, data = OrchardSprays)
 cld_result2 <- make_cld(res2)
 
-gg_boxplot_plus(decrease ~ treatment, data = OrchardSprays,
-                cld = cld_result2,
-                sort_groups = "descending",
-                sort_fun = mean)
+gg_boxplot_plus(decrease ~ treatment,
+  data = OrchardSprays,
+  cld = cld_result2,
+  sort_groups = "descending",
+  sort_fun = mean
+)
 
-gg_boxplot_plus(decrease ~ treatment, data = OrchardSprays,
-                cld = cld_result2,
-                sort_groups = "ascending",
-                sort_fun = IQR)
+gg_boxplot_plus(decrease ~ treatment,
+  data = OrchardSprays,
+  cld = cld_result2,
+  sort_groups = "ascending",
+  sort_fun = IQR
+)
 
 # Example 5
 
-gg_boxplot_plus(~weight | Diet + Chick, data = ChickWeight)
-
+gg_boxplot_plus(~ weight | Diet + Chick, data = ChickWeight)
 }
 \references{
 Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) \emph{Graphical Methods for Data Analysis.} Wadsworth & Brooks/Cole.

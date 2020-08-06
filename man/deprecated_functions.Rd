@@ -3,7 +3,7 @@
 \name{deprecated_functions}
 \alias{deprecated_functions}
 \alias{standardized_coef}
-\title{Deprecated functions in `biostat` package}
+\title{Deprecated functions in \code{biostat} package}
 \usage{
 standardized_coef(obj)
 }
@@ -12,5 +12,5 @@ standardized_coef(obj)
 }
 \description{
 Depreceted functions. They exist for compatibility with
-             previous versions.
+previous versions.
 }

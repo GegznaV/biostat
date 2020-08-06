@@ -162,7 +162,7 @@ cohens_d.default <- function(x,
             ci <- .nctCI(d / sqrt(nx * ny / (nx + ny)),
                          df = DF,
                          conf = conf.level)
-            # [!!!] Why `res` is repeated 2 times in a row. First result is overwritten
+            # **[!!!]** Why `res` is repeated 2 times in a row. First result is overwritten
             res <- matrix(c(
                 d = d,
                 lwr.ci = ci[1] / sqrt(nx * ny / (nx + ny)),

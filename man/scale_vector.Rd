@@ -24,11 +24,10 @@ divide by \code{scale}.
 }
 \examples{
 
-y = 1:10
+y <- 1:10
 scale_vector(y)
 
 scale_vector(y, center = median, scale = IQR)
 
 scale_vector(y, center = 10, scale = 2)
-
 }

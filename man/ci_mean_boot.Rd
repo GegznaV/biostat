@@ -33,7 +33,7 @@ An object (data frame or matrix) with a point estimate and confidence interval o
 A very fast implementation of the basic nonparametric bootstrap for obtaining confidence limits for the population mean without assuming normality.
 }
 \details{
-The function is based on code of function \code{\link[Hmisc]{smean.cl.boot}()} from package \pkg{Hmisc}.
+The function is based on code of function \code{\link[Hmisc:smean.sd]{Hmisc::smean.cl.boot()}} from package \pkg{Hmisc}.
 }
 \examples{
 set.seed(111555)
@@ -42,5 +42,4 @@ ci_mean_boot(1:60)
 set.seed(999555)
 y <- rnorm(35, 10, 5)
 ci_mean_boot(y)
-
 }

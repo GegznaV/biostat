@@ -2,7 +2,7 @@
 #'
 #' @param x A vector
 #'
-#' @return Vector of logical values indicating \code{TRUE} for values which are unique.
+#' @return Vector of logical values indicating `TRUE` for values which are unique.
 #' @export
 #'
 #' @keywords utilities
@@ -19,11 +19,11 @@
 #'
 #' data.frame(x = x, is_unique = rez)
 is_unique <- function(x) {
-    !x %in% x[duplicated(x)]
+  !x %in% x[duplicated(x)]
 }
 
 #' @rdname is_unique
 #' @export
 is_not_inique <- function(x) {
-    x %in% x[duplicated(x)]
+  x %in% x[duplicated(x)]
 }

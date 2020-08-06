@@ -24,30 +24,30 @@ do_summary(
 
 \item{stat}{(character) Descriptive statistics to compute. Currently supported statistics:
 \itemize{
-    \item \code{"n"} - number of non-missing observations,
-    \item \code{"missing"} - number of missing observations,,
-    \item \code{"mean"} - arithmetic mean,
-    \item \code{"sd"} - standard deviation,
-    \item \code{"variance"} - variance,
-    \item \code{"trimmed"} - trimmed mean,
-    \item \code{"min"} - minimum value,
-    \item \code{"Q1"} - 1-st quartile,
-    \item \code{"Md"} - median,
-    \item \code{"Q3"} - 3-rd quartile,
-    \item \code{"max"} - maximum value,
-    \item \code{"mad"} - median absolute deviation from median (more details \link[stats]{mad}),
-    \item \code{"IQR"} - interquartile range,
-    \item \code{"range"} - range,
-    \item \code{"cv"} - coefficient of variation,
-    \item \code{"se"} - standard error of mean,
-    \item \code{"skewness"} - skewness,
-    \item \code{"kurtosis"} - excess kurtosis.
+\item \code{"n"} - number of non-missing observations,
+\item \code{"missing"} - number of missing observations,,
+\item \code{"mean"} - arithmetic mean,
+\item \code{"sd"} - standard deviation,
+\item \code{"variance"} - variance,
+\item \code{"trimmed"} - trimmed mean,
+\item \code{"min"} - minimum value,
+\item \code{"Q1"} - 1-st quartile,
+\item \code{"Md"} - median,
+\item \code{"Q3"} - 3-rd quartile,
+\item \code{"max"} - maximum value,
+\item \code{"mad"} - median absolute deviation from median (more details \link[stats:mad]{mad}),
+\item \code{"IQR"} - interquartile range,
+\item \code{"range"} - range,
+\item \code{"cv"} - coefficient of variation,
+\item \code{"se"} - standard error of mean,
+\item \code{"skewness"} - skewness,
+\item \code{"kurtosis"} - excess kurtosis.
 }}
 
 \item{trim}{The fraction (0 to 0.5) of observations to be trimmed from each end of sorted variable before the mean is computed. Values of trim outside that range are taken as the nearest endpoint.}
 
 \item{type}{(integer: 1, 2, 3) The type of skewness and kurtosis estimate.
-See \code{\link[psych]{describe}} and \code{\link[psych]{mardia}}
+See \code{\link[psych:describe]{psych::describe()}} and \code{\link[psych:skew]{psych::mardia()}}
 for details.}
 
 \item{na.rm}{(logical) Flag to remove missing values. Default is \code{TRUE}.}
@@ -78,17 +78,22 @@ library(biostat)
 data(cabbages, package = "MASS")
 
 do_summary(~VitC, data = cabbages) \%>\%
-    print(digits = 2)
+  print(digits = 2)
 
 do_summary(VitC ~ Cult, data = cabbages) \%>\%
-    print(digits = 2)
+  print(digits = 2)
 
 do_summary(VitC ~ Cult + Date, data = cabbages, stat = "mean") \%>\%
-    print(digits = 2)
+  print(digits = 2)
 
 do_summary(HeadWt + VitC ~ Cult + Date,
-           data = cabbages,
-           stat = c("n", "mean", "sd")) \%>\%
-    print(digits = 1)
+  data = cabbages,
+  stat = c("n", "mean", "sd")
+) \%>\%
+  print(digits = 1)
 
+
+# TODO:
+# 1. First argument should be a data frame
+#
 }

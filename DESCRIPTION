@@ -7,8 +7,8 @@ Description: A collection of functions that either are intended to be used with
              The functions are created to complement other R Commander plugins 
              that are used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.19
-Date: 2019-05-02
+Version: 0.0.20
+Date: 2020-08-06
 Authors@R: c(
     person("Vilmantas", "Gegzna", role = c("aut","cre"),
            comment = c(ORCID = "0000-0002-9500-5167"),
@@ -16,14 +16,16 @@ Authors@R: c(
     )
 License: GPL-3
 Encoding: UTF-8
-URL: https://gegznav.github.io/biostat/
+URL: 
+    https://gegznav.github.io/biostat/,
+    https://github.com/gegznav/biostat/
 BugReports: https://github.com/GegznaV/biostat/issues
 LazyData: true
 ByteCompile: TRUE
 Depends:
     R (>= 3.3),
     magrittr,
-    ggplot2
+    ggplot2 (>= 3.0.0)
 Imports:
     boot,
     broom,
@@ -50,12 +52,14 @@ Imports:
     tibble,
     tidyr,
     withr
-RoxygenNote: 7.1.0
 Suggests:
     covr,
-    testthat,
-    QuantPsyc,
-    PMCMR,
+    data.table,
     Hmisc,
+    PMCMR,
+    QuantPsyc,
     rcompanion,
-    data.table
+    scales,
+    testthat
+RoxygenNote: 7.1.1
+Roxygen: list(markdown = TRUE)

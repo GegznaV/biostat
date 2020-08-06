@@ -5,7 +5,7 @@
 \alias{print.lm_beta}
 \alias{summary.lm_beta}
 \alias{print.lm_beta_summary}
-\title{[!] Compute Standardized Regression Coefficients}
+\title{\strong{\link{!!}} Compute Standardized Regression Coefficients}
 \usage{
 coef_standardized(obj)
 
@@ -38,11 +38,11 @@ Object of class \code{lm_beta} which is a list with 2 named fields:
 Compute the standardized regression coefficients (beta) from an object of class \code{lm}).
 }
 \details{
-This function is inspired by function  \pkg{QuantPsyc}\code{::lm.beta()} written by Thomas D. Fletcher. \cr
+This function is inspired by function  \pkg{QuantPsyc}\verb{::lm.beta()} written by Thomas D. Fletcher. \cr
 \code{coef_standardized()} provides standardized coefficients even when interaction members are present. This is achieved by computing whole model matrix (with all right-hand side members of formula used in call of \code{lm()}) and calculating standard deviations of each regressor (including interaction members) based on these columns. \cr
 \code{coef_standardized()} does not fail if intercept is not present.\cr
 
-The remaining calculations are the same as in \pkg{QuantPsyc}\code{::lm.beta()}.
+The remaining calculations are the same as in \pkg{QuantPsyc}\verb{::lm.beta()}.
 }
 \examples{
 
@@ -53,21 +53,21 @@ names(us)
 lm1 <- lm(CONT ~ INTG + DMNR + log(DILG), data = us)
 coef_standardized(lm1)
 
-lm2 <- lm(CONT ~ INTG + DMNR*DILG, data = us)
+lm2 <- lm(CONT ~ INTG + DMNR * DILG, data = us)
 coef_standardized(lm2)
 
 summary(coef_standardized(lm2))
 
 
 # Do not include intercept
-lm3 <- lm(CONT ~ 0 + INTG , data = us)
+lm3 <- lm(CONT ~ 0 + INTG, data = us)
 coef_standardized(lm3)
 summary(coef_standardized(lm3))
 }
 \seealso{
 \itemize{
-    \item \code{\link[stats]{lm}} in package \pkg{stats}.
-    \item \code{\link[QuantPsyc]{lm.beta}} in package \pkg{QuantPsyc}.
+\item \code{\link[stats:lm]{stats::lm()}} in package \pkg{stats}.
+\item \code{\link[QuantPsyc:lm.beta]{QuantPsyc::lm.beta()}} in package \pkg{QuantPsyc}.
 }
 }
 \author{

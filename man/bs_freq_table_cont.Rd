@@ -64,4 +64,7 @@ library(pander)
 bs_freq_table_cont(iris$Sepal.Length, nbins = 5)
 bs_freq_table_cont(iris$Sepal.Length, bin_width = 1, xmin = 4)
 bs_freq_table_cont(iris$Sepal.Length, nbins = 5) \%>\% pander()
+
+# [!!!BLOGAI]:
+# bs_freq_table_cont(iris$Sepal.Length, bin_width = 5, xmax = 10)
 }

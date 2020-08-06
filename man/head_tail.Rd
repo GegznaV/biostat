@@ -2,7 +2,7 @@
 % Please edit documentation in R/head_tail.R
 \name{head_tail}
 \alias{head_tail}
-\title{[!] Show several first and last rows of a data frame}
+\title{\strong{\link{!!}} Show several first and last rows of a data frame}
 \usage{
 head_tail(
   obj,
@@ -61,7 +61,7 @@ rounding.}
 }
 \value{
 A truncated data frame (which is intended to be printed) with all
-        variables converted to strings.
+variables converted to strings.
 }
 \description{
 This function selects several top and bottom rows of a data frame for a preview.
@@ -76,6 +76,5 @@ data(swiss)
 head_tail(iris, n = 2)
 head_tail(iris[1:6, ], n = 2, tolerance = 1)
 head_tail(iris[1:6, ], n = 2, tolerance = 2)
-
 }
 \keyword{utilities}

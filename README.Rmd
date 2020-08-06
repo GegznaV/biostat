@@ -16,14 +16,14 @@ set.seed(123456)
 
 ***
 <!-- badges: start -->
-[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/biostat)](https://cran.r-project.org/package=biostat)
+<!-- [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/GegznaV/biostat?branch=master&svg=true)](https://ci.appveyor.com/project/GegznaV/biostat) -->
+<!-- [![Travis-CI](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat) -->
 [![GitHub version](https://img.shields.io/badge/GitHub-v`r packageVersion("biostat")`-brightgreen.svg)](https://github.com/GegznaV/biostat)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/GegznaV/biostat?branch=master&svg=true)](https://ci.appveyor.com/project/GegznaV/biostat)
-[![Travis-CI Build Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
+[![CRAN status](https://www.r-pkg.org/badges/version/biostat)](https://CRAN.R-project.org/package=biostat)
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![R-CMD-check](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
 [![Updated-on](https://img.shields.io/badge/Updated%20on-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
-[![R build status](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 <!-- badges: end -->
 
 ***
@@ -33,7 +33,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/GegznaV/biostat/maste
 ```
 
 
-Package **_biostat_** – Routines for Basic (Bio)Statistics
+Package **_biostat_**: Routines for Basic (Bio)Statistics
 ==============================================================================
 
 Package **_biostat_** is an *R* package that contains a collection of functions that either are intended to be used with R Commander plugin *RcmdrPlugin.biostat* or to do several common statistical routines (without writing to much code). The functions are created to complement other *R Commander* plugins that can be used to teach basic statistics in biostatistics and biometry lectures. 
@@ -42,7 +42,7 @@ Package **_biostat_** is an *R* package that contains a collection of functions 
 The package is still in its **early development stage** and some functions are for demonstration and test purposes only as they may change in the future.
 </font>
 
-Documentation and more information available at http://gegznav.github.io/biostat/
+Documentation and more information available at [gegznav.github.io/biostat](https://gegznav.github.io/biostat).
 
 
 <!-- ## Install package -->
@@ -55,37 +55,17 @@ Documentation and more information available at http://gegznav.github.io/biostat
 To install a developement version of the package from *GitHub*:
 
 ```{r Install package, eval=FALSE}
-if (!"devtools" %in% installed.packages()) 
-    install.packages("devtools")
-
-devtools::install_github("GegznaV/biostat")
+if (!require("remotes"))  install.packages("remotes")
+remotes::install_github("GegznaV/biostat")
 ```
 
 <!-- *** -->
 
 ## Related packages
 
-<!-- Other related packages are *R Commander* (*Rcmdr*) plugins: -->
 
-a. **RcmdrPlugin.biostat** -- an *R Commander* plugin for **biostat** package ([homepage](https://gegznav.github.io/RcmdrPlugin.biostat/))
+a. **RcmdrPlugin.biostat** -- an *R Commander* plugin  ([homepage](https://gegznav.github.io/RcmdrPlugin.biostat/)).
 
-<!-- b. **RcmdrPlugin.EZR.2** -- an *R Commander* plugin for the most common statistical analyses (the same as *RcmdrPlugin.EZR*, except that *RcmdrPlugin.EZR.2* does not modify original *Rcmdr* menu so dramatically); -->
-<!-- c. **RcmdrPlugin.KMggplot2** -- an *R Commander* plugin for *ggplot2* graphics. -->
-
-
-<!-- To install these packages, use the following code: -->
-
-
-<!-- ```{r Install other packages, eval=FALSE} -->
-<!-- # RcmdrPlugin.biostat -->
-<!-- devtools::install_github("GegznaV/RcmdrPlugin.biostat") -->
-
-<!-- # RcmdrPlugin.EZR.2 -->
-<!-- devtools::install_github("GegznaV/RcmdrPlugin.EZR@unmodified_Rcmdr_menu") -->
-
-<!-- # RcmdrPlugin.KMggplot2 -->
-<!-- install.packages("RcmdrPlugin.KMggplot2") -->
-<!-- ``` -->
 
 <!--  <p align="right"> </p>     -->
 

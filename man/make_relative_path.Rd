@@ -2,7 +2,7 @@
 % Please edit documentation in R/paths.R
 \name{make_relative_path}
 \alias{make_relative_path}
-\title{[!!!]}
+\title{\strong{\link{!!!}}}
 \usage{
 make_relative_path(path, wd = getwd(), warn = TRUE)
 }
@@ -17,7 +17,7 @@ make_relative_path(path, wd = getwd(), warn = TRUE)
 string
 }
 \description{
-[!!!]
+\strong{\link{!!!}}
 }
 \examples{
 # No examples yet

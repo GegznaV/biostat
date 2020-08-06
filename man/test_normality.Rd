@@ -48,13 +48,13 @@ test_normality(
 }
 \arguments{
 \item{y}{(formula|numeric|character)\cr
-         Either a formula, a numeric vector or a name of a column
-            in \code{data}. \itemize{
-    \item If \code{y} is a formula (e.g. \code{variable ~ factor}), left-hand
-    side provides the name of a variable to be tested. In the right-hand side
-    there are names of factor variables to be used to create subsets.
-    If the left-hand side is empty (e.g. \code{~ factor}), right-hand
-                                    side is treated as variable name to test.
+Either a formula, a numeric vector or a name of a column
+in \code{data}. \itemize{
+\item If \code{y} is a formula (e.g. \code{variable ~ factor}), left-hand
+side provides the name of a variable to be tested. In the right-hand side
+there are names of factor variables to be used to create subsets.
+If the left-hand side is empty (e.g. \code{~ factor}), right-hand
+side is treated as variable name to test.
 }}
 
 \item{data}{(data frame|\code{NULL}) \cr
@@ -63,22 +63,22 @@ variables mentioned in \code{y} or \code{NULL} (if the variables
 are in the function's environment).}
 
 \item{test}{(string | function) \cr
-            Either a function that carries out a normality test or
-            a string (case insensitive, maybe unambiguously abbreviated)
-             with a name of a normality test. Possible names of tests:
-            \itemize{
-    \item{"SW", "Shapiro-Wilk" — for Shapiro-Wilk test;}
-    \item{"Lilliefors" — for Kolmogorov-Smirnov test with Lilliefor's correction;}
-    \item{"AD", "Anderson-Darling" — for Anderson-Darling test;}
-    \item{"CVM", "CM", "Cramer-von Mises" — for Cramer-von Mises test;}
-    \item{"SF", "Shapiro-Francia" — for Shapiro-Francia test;}
-    \item{"Chi-squared","Pearsons" — for Pearson's chi-squared test of normality.}
+Either a function that carries out a normality test or
+a string (case insensitive, maybe unambiguously abbreviated)
+with a name of a normality test. Possible names of tests:
+\itemize{
+\item{"SW", "Shapiro-Wilk" — for Shapiro-Wilk test;}
+\item{"Lilliefors" — for Kolmogorov-Smirnov test with Lilliefor's correction;}
+\item{"AD", "Anderson-Darling" — for Anderson-Darling test;}
+\item{"CVM", "CM", "Cramer-von Mises" — for Cramer-von Mises test;}
+\item{"SF", "Shapiro-Francia" — for Shapiro-Francia test;}
+\item{"Chi-squared","Pearsons" — for Pearson's chi-squared test of normality.}
 }}
 
 \item{p_adjust_method}{(\code{NULL}|string) \cr
-      A name of p value adjustment
+A name of p value adjustment
 method for multiple comparisons. For available methods check
-\code{\link[stats]{p.adjust.methods}}.
+\code{\link[stats:p.adjust]{stats::p.adjust.methods()}}.
 If \code{NULL}, no adjusted p value is calculated (default).
 If string (e.g., \code{"holm"}), an additional column
 \code{p.adjust} is calculated.}
@@ -91,6 +91,8 @@ If \code{y} is a numeric vector, \code{groups} must be
 a factor (or \code{NULL}). If \code{y} is a sting,
 \code{groups} must also be a string (or \code{NULL}).}
 
+\item{ss}{\verb{# FIXME:} \emph{not documented}}
+
 \item{hide_error_msg}{(logical) \cr
 If \code{FALSE} column "error_msg" is not printed.
 If \code{TRUE} the column is printed if error occurs
@@ -100,12 +102,12 @@ Default is \code{FALSE}.}
 \item{x}{\code{normality_test} object.}
 
 \item{digits_p}{(numeric) Number of significant digits to round a p value to.
-                  No less than 2. \itemize{
+No less than 2. \itemize{
 \item if \code{digits_p = 2}: \enumerate{
-      \item values below 0.001 are printed as \code{"<0.001"};
-      \item values between 0.001 and 0.01 as \code{"<0.01"};
-      \item all other values are rounded to two decimal places.
-      }
+\item values below 0.001 are printed as \code{"<0.001"};
+\item values between 0.001 and 0.01 as \code{"<0.01"};
+\item all other values are rounded to two decimal places.
+}
 \item if \code{digits_p = 3}, only formatting \code{"<0.01"} is skipped.
 }}
 
@@ -117,10 +119,10 @@ Either a number of decimal places or number of
 significant digits to round test statistic to.}
 
 \item{format_stat}{(character) \cr
- Number format "f", "g" or "auto" (default) for test
- statistic. More about number
+Number format "f", "g" or "auto" (default) for test
+statistic. More about number
 formats "f" and "g" you can find in documentation of
-function \code{\link[base]{formatC}} section \code{format}.}
+function \code{\link[base:formatc]{base::formatC()}} section \code{format}.}
 
 \item{rm_zero}{(logical) Flag if leading zero before the point should be
 removed.}
@@ -130,21 +132,21 @@ If \code{TRUE}, legend for significance stars
 is printed.}
 
 \item{show_col_method}{(logical) \cr
-  If \code{FALSE} column "method" is not
+If \code{FALSE} column "method" is not
 printed. Default is \code{FALSE}.}
 
 \item{caption}{(string|\code{NULL}|\code{NA}) \cr
-     A caption for the table with
+A caption for the table with
 results of a normality test. If \code{NA} — a default caption
 is printed (default). If \code{NULL} – no caption is printed.}
 }
 \value{
 \itemize{
-      \item Function \code{test_normality} returns a data frame with
-            normality test results for each group.
-      \item \code{print} and \code{pander} methods format and print the
-      results. By default, methods \code{print.test_normality} and
-      \code{pander.test_normality} do not print column called "method".
+\item Function \code{test_normality} returns a data frame with
+normality test results for each group.
+\item \code{print} and \code{pander} methods format and print the
+results. By default, methods \code{print.test_normality} and
+\code{pander.test_normality} do not print column called "method".
 }
 }
 \description{
@@ -202,11 +204,11 @@ class(rez)
 }
 \seealso{
 \itemize{
-  \item \code{\link[stats]{shapiro.test}} in package \pkg{stats};
-  \item \code{\link[nortest]{lillie.test}} in package \pkg{nortest};
-  \item \code{\link[nortest]{pearson.test}} in package \pkg{nortest};
-  \item \code{\link[nortest]{ad.test}} in package \pkg{nortest};
-  \item \code{\link[nortest]{cvm.test}} in package \pkg{nortest};
-  \item \code{\link[nortest]{sf.test}} in package \pkg{nortest}.
+\item \code{\link[stats:shapiro.test]{stats::shapiro.test()}} in package \pkg{stats};
+\item \code{\link[nortest:lillie.test]{nortest::lillie.test()}} in package \pkg{nortest};
+\item \code{\link[nortest:pearson.test]{nortest::pearson.test()}} in package \pkg{nortest};
+\item \code{\link[nortest:ad.test]{nortest::ad.test()}} in package \pkg{nortest};
+\item \code{\link[nortest:cvm.test]{nortest::cvm.test()}} in package \pkg{nortest};
+\item \code{\link[nortest:sf.test]{nortest::sf.test()}} in package \pkg{nortest}.
 }
 }

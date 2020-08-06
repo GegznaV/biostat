@@ -6,7 +6,7 @@
 \alias{posthoc_anova.default}
 \alias{print.posthoc_anova}
 \alias{plot.posthoc_anova}
-\title{[!] Post-hoc tests for ANOVA and Welch ANOVA}
+\title{\strong{\link{!!}} Post-hoc tests for ANOVA and Welch ANOVA}
 \usage{
 posthoc_anova(
   y,
@@ -82,7 +82,7 @@ tests to conduct. Valid values are "tukey" and "games-howell".}
 
 \item{digits_p}{(integer)\cr The number of digits to round p values to. Must be 2, 3 or more.}
 
-\item{p_adjust}{Any valid \code{\link[stats]{p.adjust}} method.}
+\item{p_adjust}{Any valid \code{\link[stats:p.adjust]{stats::p.adjust()}} method.}
 
 \item{format_pvalue}{(does not work yet) \cr Whether to format the p values according to APA
 standards (i.e. replace all values lower than .001 with '<.001'). This only
@@ -136,15 +136,13 @@ posthoc_anova(weight ~ Diet, data = ChickWeight, method = "Games-Howell")
 
 # Compute post-hoc statistics using the Tukey method
 posthoc_anova(weight ~ Diet, data = ChickWeight, method = "Tukey")
-
-
 }
 \seealso{
 \itemize{
-  \item{\url{http://www.gcf.dkf.unibe.ch/BCB/files/BCB_10Jan12_Alexander.pdf}}
-  \item{\url{https://rpubs.com/aaronsc32/games-howell-test}}
-  \item{\url{http://aoki2.si.gunma-u.ac.jp/R/src/tukey.R}}
-  \item{\url{https://stats.stackexchange.com/questions/83941/games-howell-post-hoc-test-in-r}}
+\item{\url{http://www.gcf.dkf.unibe.ch/BCB/files/BCB_10Jan12_Alexander.pdf}}
+\item{\url{https://rpubs.com/aaronsc32/games-howell-test}}
+\item{\url{http://aoki2.si.gunma-u.ac.jp/R/src/tukey.R}}
+\item{\url{https://stats.stackexchange.com/questions/83941/games-howell-post-hoc-test-in-r}}
 
 }
 }

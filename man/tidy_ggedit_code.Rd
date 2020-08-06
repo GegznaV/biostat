@@ -7,9 +7,9 @@
 tidy_ggedit_code(x, ...)
 }
 \arguments{
-\item{x}{A `ggedit` object.}
+\item{x}{A \code{ggedit} object.}
 
-\item{...}{Other parameters to \code{\link[styler]{style_text}()}.}
+\item{...}{Other parameters to \code{\link[styler:style_text]{styler::style_text()}}.}
 }
 \value{
 String.

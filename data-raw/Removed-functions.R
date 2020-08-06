@@ -9,17 +9,18 @@ posthoc_anova_tukey <- function(y,
                                 data = NULL,
                                 ...,
                                 sep = " | ") {
-    posthoc_anova(y = y,
-                  x = x,
-                  method = "tukey",
-                  conf_level = conf_level,
-                  digits = digits,
-                  p.adjust = p.adjust,
-                  format_pvalue = format_pvalue,
-                  data = data,
-                  ...,
-                  sep = " | ")
-
+  posthoc_anova(
+    y = y,
+    x = x,
+    method = "tukey",
+    conf_level = conf_level,
+    digits = digits,
+    p.adjust = p.adjust,
+    format_pvalue = format_pvalue,
+    data = data,
+    ...,
+    sep = " | "
+  )
 }
 
 #' @rdname posthoc_anova
@@ -33,15 +34,16 @@ posthoc_anova_games_howell <- function(y,
                                        data = NULL,
                                        ...,
                                        sep = " | ") {
-    posthoc_anova(y = y,
-                  x = x,
-                  method = "games-howell",
-                  conf_level = conf_level,
-                  digits = digits,
-                  p.adjust = p.adjust,
-                  format_pvalue = format_pvalue,
-                  data = data,
-                  ...,
-                  sep = " | ")
-
+  posthoc_anova(
+    y = y,
+    x = x,
+    method = "games-howell",
+    conf_level = conf_level,
+    digits = digits,
+    p.adjust = p.adjust,
+    format_pvalue = format_pvalue,
+    data = data,
+    ...,
+    sep = " | "
+  )
 }
