@@ -42,6 +42,8 @@
   <script src="../extra.js"></script>
 
 <meta property="og:title" content="<strong>!!</strong> A QQ-plot for multiple groups — qq_plot" />
+<meta property="og:description" content="Make a quantile comparison plot (qq-plot) for each subset of groups separately
+using ggplot2 graphics." />
 
 
 
@@ -73,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.20</span>
       </span>
     </div>
 
@@ -132,6 +134,8 @@
     </div>
 
     <div class="ref-description">
+    <p>Make a quantile comparison plot (qq-plot) for each subset of groups separately
+using <span class="pkg">ggplot2</span> graphics.</p>
     </div>
 
     <pre class="usage"><span class='fu'>qq_plot</span>(
@@ -175,11 +179,9 @@ In <code>print</code> method, further parameters to function <code>print</code>.
       <th>line</th>
       <td><p>(string) A parameter, that controls how reference line is drawn.
 Options:</p><ul>
-<li><p><code>"0,1"</code> or <code>"int=0,slope=1"</code> to plot a line
-with intercept = 0 and slope = 1;</p></li>
+<li><p><code>"0,1"</code> or <code>"int=0,slope=1"</code> to plot a line with intercept = 0 and slope = 1;</p></li>
 <li><p><code>"quartiles"</code> to pass a line through the quartile-pairs;</p></li>
-<li><p><code>"robust"</code> for a robust-regression line;
-the latter uses the <code>rlm</code> function from the <span class="pkg">MASS</span> package;</p></li>
+<li><p><code>"robust"</code> for a robust-regression line; the latter uses the <code>rlm</code> function from the <span class="pkg">MASS</span> package;</p></li>
 <li><p>option <code>"none"</code> is not implemented yet.</p></li>
 </ul></td>
     </tr>
@@ -194,24 +196,82 @@ confidence envelope.</p></td>
 <code>"any"</code>). A method, that controls how estimates of
 parameters for <code>distribution</code> are computed.
 Options:</p><ul>
-</ul>
-
-<p>groups(<code>NULL</code>|factor|character) <br />
+<li><p><code>"mle-normal"</code> (default) all data values are used to
+estimate parameters of theoretical normal distribution using
+method of maximum likelihood;</p></li>
+<li><p><code>"trimmed-normal"</code> 10\<!-- % of the most extreme -->
+data values are trimmed before parameters of theoretical normal
+distribution are estimated using method of moments;</p></li>
+<li><p><code>"moment-normal"</code> all data values are used to estimate
+parameters of theoretical normal distribution using method of moments;</p></li>
+<li><p><code>"any"</code> either parameters are provided manually by user
+or default parameters are used (if any).</p><pre>    Options `"mle-normal"`, `"trimmed-normal"` and
+    `"moment-normal"` are applicable only if
+    `distribution = "norm"`.
+    Otherwise `"any"` is selected automatically.
+</pre></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>groups</th>
+      <td><p>(<code>NULL</code>|factor|character) <br />
 An alternative way to provide groups.
 If <code>y</code> is a numeric vector, <code>groups</code> must be
 a factor (or <code>NULL</code>). If <code>y</code> is a sting,
-<code>groups</code> must also be a string (or <code>NULL</code>).</p>
-<p>use_colors(logical) use colors for multiple groups</p>
-<p>scales("free"|"free_x"|"free_y"|"fixed")
+<code>groups</code> must also be a string (or <code>NULL</code>).</p></td>
+    </tr>
+    <tr>
+      <th>use_colors</th>
+      <td><p>(logical) use colors for multiple groups</p></td>
+    </tr>
+    <tr>
+      <th>scales</th>
+      <td><p>("free"|"free_x"|"free_y"|"fixed")
 a parmeter to be passed to
-<code><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>ggplot2::facet_wrap()</a></code>.</p>
-<p>sep(character)
+<code><a href='https://ggplot2.tidyverse.org/reference/facet_wrap.html'>ggplot2::facet_wrap()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>sep</th>
+      <td><p>(character)
 Group name separator if more than one grouping variable is used.
 default is <code><a href='https://rdrr.io/r/base/Logic.html'>"|"</a></code>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>A <code>ggplot2</code> object</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Function <code>qq_plot</code> is inspired by <code>qqPlot()</code> in package <span class="pkg">car</span>
+(writen by J. Fox).</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code>car::qqPlot()</code> from <span class="pkg">car</span> package,
+<code><a href='https://rdrr.io/r/stats/qqnorm.html'>stats::qqplot()</a></code> from <span class="pkg">stats</span> package.</p></div>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>iris</span>)
+
+<span class='co'># Formula (no groups):</span>
+<span class='fu'>qq_plot</span>(~<span class='no'>Sepal.Length</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-1.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>qq_plot</span>(<span class='st'>"Sepal.Length"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-2.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='co'># Formula (several groups):</span>
+<span class='fu'>qq_plot</span>(<span class='no'>Sepal.Length</span> ~ <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-3.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>qq_plot</span>(<span class='no'>Sepal.Length</span> ~ <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>envelope</span> <span class='kw'>=</span> <span class='fl'>0.90</span>)</div><div class='img'><img src='qq_plot-4.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='co'># Formula (several groups in colors):</span>
+<span class='fu'>qq_plot</span>(<span class='no'>Sepal.Length</span> ~ <span class='no'>Species</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>, <span class='kw'>use_colors</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='img'><img src='qq_plot-5.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='co'># Vectors (several groups):</span>
+<span class='fu'>qq_plot</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>, <span class='kw'>groups</span> <span class='kw'>=</span> <span class='no'>iris</span>$<span class='no'>Species</span>)</div><div class='img'><img src='qq_plot-6.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='co'># For one group:</span>
+<span class='fu'>qq_plot</span>(<span class='st'>"Sepal.Length"</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-7.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>qq_plot</span>(~<span class='no'>Sepal.Length</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>iris</span>)</div><div class='img'><img src='qq_plot-8.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>qq_plot</span>(<span class='no'>iris</span>$<span class='no'>Sepal.Length</span>)</div><div class='img'><img src='qq_plot-9.png' alt='' width='466' height='288' /></div><div class='input'>
+
+<span class='co'># Other examples</span>
+<span class='fu'>qq_plot</span>(~<span class='no'>weight</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_plot-10.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>qq_plot</span>(<span class='no'>weight</span> ~ <span class='no'>feed</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>chickwts</span>)</div><div class='img'><img src='qq_plot-11.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>qq_plot</span>(<span class='no'>uptake</span> ~ <span class='no'>Type</span> + <span class='no'>Treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>CO2</span>)</div><div class='img'><img src='qq_plot-12.png' alt='' width='466' height='288' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

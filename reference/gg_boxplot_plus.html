@@ -74,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.20</span>
       </span>
     </div>
 
@@ -281,14 +281,14 @@ added to modify the plot.</p>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>biostat</span>)
 
 <span class='co'># Example 1a</span>
-<span class='fu'>gg_boxplot_plus</span>(~<span class='no'>decrease</span>, <span class='no'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-1.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>gg_boxplot_plus</span>(~<span class='no'>decrease</span>, <span class='no'>OrchardSprays</span>)</div><div class='img'><img src='gg_boxplot_plus-1.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='co'># Example 1b</span>
-<span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-2.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>gg_boxplot_plus</span>(~ <span class='no'>decrease</span> <span class='kw'>|</span> <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-3.png' alt='' width='466' height='288' /></div><div class='input'>
+<span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>)</div><div class='img'><img src='gg_boxplot_plus-2.png' alt='' width='466' height='288' /></div><div class='input'><span class='fu'>gg_boxplot_plus</span>(~ <span class='no'>decrease</span> <span class='kw'>|</span> <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>)</div><div class='img'><img src='gg_boxplot_plus-3.png' alt='' width='466' height='288' /></div><div class='input'>
 
 <span class='co'># Example 2</span>
 <span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='no'>OrchardSprays</span>,
   <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>
-)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-4.png' alt='' width='466' height='288' /></div><div class='input'>
+)</div><div class='img'><img src='gg_boxplot_plus-4.png' alt='' width='466' height='288' /></div><div class='input'>
 
 <span class='co'># Example 3a</span>
 
@@ -298,7 +298,7 @@ added to modify the plot.</p>
 <span class='fu'>gg_boxplot_plus</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>,
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
   <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result</span>
-)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-5.png' alt='' width='466' height='288' /></div><div class='input'>
+)</div><div class='img'><img src='gg_boxplot_plus-5.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='co'># Example 3b</span>
 
 <span class='fu'>gg_boxplot_plus</span>(<span class='no'>weight</span> ~ <span class='no'>Diet</span>,
@@ -306,18 +306,18 @@ added to modify the plot.</p>
   <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result</span>,
   <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>,
   <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>mean</span>
-)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-6.png' alt='' width='466' height='288' /></div><div class='input'>
+)</div><div class='img'><img src='gg_boxplot_plus-6.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='co'># Example 3c: do simple transformations</span>
 
 <span class='fu'>gg_boxplot_plus</span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>weight</span>) ~ <span class='no'>Diet</span>,
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>,
   <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>,
   <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>mean</span>
-)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-7.png' alt='' width='466' height='288' /></div><div class='input'>
+)</div><div class='img'><img src='gg_boxplot_plus-7.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='co'># Example 3d: facetting</span>
 
 <span class='fu'>gg_boxplot_plus</span>(<span class='no'>weight</span> ~ <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span>(<span class='no'>Time</span>), <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>) +
-  <span class='fu'>facet_wrap</span>(<span class='st'>"Diet"</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-8.png' alt='' width='466' height='288' /></div><div class='input'>
+  <span class='fu'>facet_wrap</span>(<span class='st'>"Diet"</span>)</div><div class='img'><img src='gg_boxplot_plus-8.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='co'># Example 4</span>
 
 <span class='no'>res2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='posthoc_anova.html'>posthoc_anova</a></span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>OrchardSprays</span>)
@@ -328,16 +328,16 @@ added to modify the plot.</p>
   <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result2</span>,
   <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"descending"</span>,
   <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>mean</span>
-)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-9.png' alt='' width='466' height='288' /></div><div class='input'>
+)</div><div class='img'><img src='gg_boxplot_plus-9.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='fu'>gg_boxplot_plus</span>(<span class='no'>decrease</span> ~ <span class='no'>treatment</span>,
   <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>OrchardSprays</span>,
   <span class='kw'>cld</span> <span class='kw'>=</span> <span class='no'>cld_result2</span>,
   <span class='kw'>sort_groups</span> <span class='kw'>=</span> <span class='st'>"ascending"</span>,
   <span class='kw'>sort_fun</span> <span class='kw'>=</span> <span class='no'>IQR</span>
-)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-10.png' alt='' width='466' height='288' /></div><div class='input'>
+)</div><div class='img'><img src='gg_boxplot_plus-10.png' alt='' width='466' height='288' /></div><div class='input'>
 <span class='co'># Example 5</span>
 
-<span class='fu'>gg_boxplot_plus</span>(~ <span class='no'>weight</span> <span class='kw'>|</span> <span class='no'>Diet</span> + <span class='no'>Chick</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: `fun.y` is deprecated. Use `fun` instead.</span></div><div class='img'><img src='gg_boxplot_plus-11.png' alt='' width='466' height='288' /></div></pre>
+<span class='fu'>gg_boxplot_plus</span>(~ <span class='no'>weight</span> <span class='kw'>|</span> <span class='no'>Diet</span> + <span class='no'>Chick</span>, <span class='kw'>data</span> <span class='kw'>=</span> <span class='no'>ChickWeight</span>)</div><div class='img'><img src='gg_boxplot_plus-11.png' alt='' width='466' height='288' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

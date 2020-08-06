@@ -42,7 +42,8 @@
   <script src="../extra.js"></script>
 
 <meta property="og:title" content="<strong>!!!</strong> Format p-values — format_p_values" />
-<meta property="og:description" content="Functions to fromat p values." />
+<meta property="og:description" content="Functions to fromat p values.
+NOTE: concider using scales::pvalue() instead." />
 
 
 
@@ -74,7 +75,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biostat</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.19</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.20</span>
       </span>
     </div>
 
@@ -133,7 +134,8 @@
     </div>
 
     <div class="ref-description">
-    <p>Functions to fromat p values.</p>
+    <p>Functions to fromat p values.
+<strong>NOTE:</strong> concider using <code><a href='https://scales.r-lib.org//reference/label_pvalue.html'>scales::pvalue()</a></code> instead.</p>
     </div>
 
     <pre class="usage"><span class='fu'>format_p_values</span>(
@@ -174,7 +176,7 @@
 
 <span class='co'># S3 method for data.frame</span>
 <span class='fu'>format_p_values</span>(
-  <span class='no'>data</span>,
+  <span class='no'>p</span>,
   <span class='kw'>digits_p</span> <span class='kw'>=</span> <span class='fl'>3</span>,
   <span class='kw'>cols</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='no'>...</span>,
@@ -237,7 +239,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>p</th>
-      <td><p>A (vector of) p-value(s). Numeric or coercible to numeric.</p></td>
+      <td><p>A (vector of) p-value(s). Numeric or coercible to numeric.
+Or a <code>data.frame</code>.</p></td>
     </tr>
     <tr>
       <th>digits_p</th>
@@ -250,6 +253,10 @@ No less than 2.</p><ul>
 </ol></li>
 <li><p>if <code>digits_p = 3</code>, only formatting <code>"&lt;0.01"</code> is skipped.</p></li>
 </ul></td>
+    </tr>
+    <tr>
+      <th>cols, alpha, ss, decreasing, collapse, dec</th>
+      <td><p><code># FIXME:</code> <em>not documented</em></p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -272,22 +279,6 @@ removed.</p></td>
     <tr>
       <th>rm_spaces</th>
       <td><p>(logical) Flag if all spaces should be removed.</p></td>
-    </tr>
-    <tr>
-      <th>p_i</th>
-      <td><p>(numeric) A single p value.</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>A dataset.</p></td>
-    </tr>
-    <tr>
-      <th>str</th>
-      <td><p>A string or convertible to string</p></td>
-    </tr>
-    <tr>
-      <th>colnames</th>
-      <td><p>(character) vector with column names to be formatted as p values.</p></td>
     </tr>
     </table>
 
