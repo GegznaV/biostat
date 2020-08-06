@@ -226,81 +226,85 @@ test_normality <- function(y,
                            ...,
                            groups = NULL,
                            ss = signif_syms,
-                           hide_error_msg = FALSE
-) {
+                           hide_error_msg = FALSE) {
 
-    # Choose the test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    if (is.function(test)) {
-        use_test <- test
+  # Choose the test ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  if (is.function(test)) {
+    use_test <- test
+  } else if (checkmate::test_character(test, len = 1)) {
+    # Possible choices
+    available_tests <- c(
+      "SW", "Shapiro-Wilk",
+      "Lilliefors",
+      "AD", "Anderson-Darling",
+      "CVM", "CM", "Cramer-von Mises",
+      "SF", "Shapiro-Francia",
+      "Chi-squared", "Pearsons"
+    )
 
-    } else if (checkmate::test_character(test, len = 1)) {
-        # Possible choices
-        available_tests = c(
-            "SW", "Shapiro-Wilk",
-            "Lilliefors",
-            "AD", "Anderson-Darling",
-            "CVM", "CM", "Cramer-von Mises",
-            "SF", "Shapiro-Francia",
-            "Chi-squared", "Pearsons"
-        )
+    test <- match.arg(tolower(test), tolower(available_tests))
 
-        test <- match.arg(tolower(test), tolower(available_tests))
+    use_test <- switch(
+      test,
+      "sw" = ,
+      "shapiro.test" = ,
+      "shapiro-wilk" = stats::shapiro.test,
 
-        use_test <- switch(test,
-                           "sw" = ,
-                           "shapiro.test" = ,
-                           "shapiro-wilk" = stats::shapiro.test,
+      "lillie.test" = ,
+      "lilliefors" = nortest::lillie.test,
 
-                           "lillie.test" = ,
-                           "lilliefors"  = nortest::lillie.test,
+      "ad" = ,
+      "ad.test" = ,
+      "anderson-darling" = nortest::ad.test,
 
-                           "ad" = ,
-                           "ad.test" = ,
-                           "anderson-darling" = nortest::ad.test,
+      "cvm" = ,
+      "cm" = ,
+      "cvm.test" = ,
+      "cramer-von mises" = nortest::cvm.test,
 
-                           "cvm" = ,
-                           "cm"  = ,
-                           "cvm.test" = ,
-                           "cramer-von mises" = nortest::cvm.test,
+      "sf" = ,
+      "sf.test" = ,
+      "shapiro-francia" = nortest::sf.test,
 
-                           "sf" = ,
-                           "sf.test" = ,
-                           "shapiro-francia"  = nortest::sf.test,
+      "chi-squared" = ,
+      "pearson.test" = ,
+      "pearsons" = nortest::pearson.test
+    )
+  } else {
+    stop(
+      "\n`test` must be either a function",
+      "\n or a name of a test (a string of length 1)."
+    )
+  }
 
-                           "chi-squared"  = ,
-                           "pearson.test" = ,
-                           "pearsons"     = nortest::pearson.test
-        )
+  use_test_mod <- function(...) {
+    safe_rez <- purrr::safely(use_test, otherwise = NULL)(...)
 
+    if (is.null(safe_rez$error)) {
+      out <- safe_rez$result
+      out$error_msg <- NA_character_
     } else {
-        stop("\n`test` must be either a function",
-             "\n or a name of a test (a string of length 1).")
+      out <- structure(
+        data.frame(
+          method = as.character(safe_rez$error),
+          stringsAsFactors = FALSE
+        ),
+        class = "htest"
+      )
     }
+    out
+  }
 
-    use_test_mod <- function(...) {
-        safe_rez <- purrr::safely(use_test, otherwise = NULL)(...)
-
-        if (is.null(safe_rez$error)) {
-            out <- safe_rez$result
-            out$error_msg <- NA_character_
-        } else {
-            out <- structure(
-                data.frame(method = as.character(safe_rez$error),
-                           stringsAsFactors = FALSE),
-                class = "htest")
-        }
-        out
-    }
-
-    # Output
-    test_(y,
-          data = data,
-          p_adjust_method = p_adjust_method,
-          ...,
-          groups = groups,
-          test = use_test_mod,
-          hide_error_msg = hide_error_msg,
-          ss = ss)
+  # Output
+  test_(y,
+    data = data,
+    p_adjust_method = p_adjust_method,
+    ...,
+    groups = groups,
+    test = use_test_mod,
+    hide_error_msg = hide_error_msg,
+    ss = ss
+  )
 }
 
 
@@ -313,70 +317,70 @@ test_ <- function(y,
                   test = stats::shapiro.test,
                   ss = NULL,
                   hide_error_msg = FALSE)
-    # na.rm = getOption("na.rm", FALSE)
+# na.rm = getOption("na.rm", FALSE)
 {
-    # Make formula according to input type
-    if (is.numeric(y)) {
-        if (!is.null(groups)) {
-            data <- data.frame(y = y, groups = groups)
-            y <- y ~ groups
-        } else {
-            data <- data.frame(y = y)
-            y <- ~ y
-        }
-    }
-
-    if (is.null(data)) {
-        data <- rlang::f_env(y)
-    }
-
-    if (rlang::is_formula(y)) {
-        # Select necessary variables only
-        data <- stats::model.frame(y, data = data)
-
-        # To indicate, that there is no grouping the first column constant
-        # if (ncol(data) == 1)
-        #     data[["Groups"]] <- "<all values>"
-
-        var_names <- names(data)
-        gr_vars <- rlang::syms(var_names[-1])
-
-        if (!is.numeric(data[[1]]))
-            stop_glue("Variable `{var_names[1]}` must be numeric.")
-
-        # The main test
-        rez <-
-            data %>%
-            dplyr::group_by(!!!gr_vars)                %>%
-            dplyr::do(broom::tidy(test(.[[1]], ...)))  %>%
-            dplyr::ungroup()                           %>%
-            dplyr::select(method, dplyr::everything()) %>%
-            as.data.frame()
-
-        # Add error message corrently
-        err <- stringr::str_detect(rez$method, "([Ee]rror)|([Ww]arning)")
-        rez$error_msg[err] <- rez$method[err]
-        rez$method[err]    <- unique(rez$method[!err])
-
-
-        # If adjusted p value is needed
-        if (!is.null(p_adjust_method)) {
-            rez$p.adjust <- p.adjust(rez$p.value, method = p_adjust_method)
-        }
-
-        rez <- structure(rez,
-                         class = c("test_normality", "data.frame"),
-                         test  = as.character(unique(rez$method)),
-                         p_adjust_method = p_adjust_method,
-                         hide_error_msg = hide_error_msg,
-                         ss = ss)
-
-        return(rez)
-
+  # Make formula according to input type
+  if (is.numeric(y)) {
+    if (!is.null(groups)) {
+      data <- data.frame(y = y, groups = groups)
+      y <- y ~ groups
     } else {
-        stop("Incorrect input")
+      data <- data.frame(y = y)
+      y <- ~y
+    }
+  }
+
+  if (is.null(data)) {
+    data <- rlang::f_env(y)
+  }
+
+  if (rlang::is_formula(y)) {
+    # Select necessary variables only
+    data <- stats::model.frame(y, data = data)
+
+    # To indicate, that there is no grouping the first column constant
+    # if (ncol(data) == 1)
+    #     data[["Groups"]] <- "<all values>"
+
+    var_names <- names(data)
+    gr_vars <- rlang::syms(var_names[-1])
+
+    if (!is.numeric(data[[1]])) {
+      stop_glue("Variable `{var_names[1]}` must be numeric.")
     }
 
+    # The main test
+    rez <-
+      data %>%
+      dplyr::group_by(!!!gr_vars) %>%
+      dplyr::do(broom::tidy(test(.[[1]], ...))) %>%
+      dplyr::ungroup() %>%
+      dplyr::select(method, dplyr::everything()) %>%
+      as.data.frame()
+
+    # Add error message corrently
+    err <- stringr::str_detect(rez$method, "([Ee]rror)|([Ww]arning)")
+    rez$error_msg[err] <- rez$method[err]
+    rez$method[err] <- unique(rez$method[!err])
+
+
+    # If adjusted p value is needed
+    if (!is.null(p_adjust_method)) {
+      rez$p.adjust <- p.adjust(rez$p.value, method = p_adjust_method)
+    }
+
+    rez <- structure(rez,
+      class = c("test_normality", "data.frame"),
+      test = as.character(unique(rez$method)),
+      p_adjust_method = p_adjust_method,
+      hide_error_msg = hide_error_msg,
+      ss = ss
+    )
+
+    return(rez)
+  } else {
+    stop("Incorrect input")
+  }
 }
 
 
@@ -388,52 +392,60 @@ print.test_normality <- function(x,
                                  digits_p = 3,
                                  signif_stars = !is.null(ss),
                                  digits_stat = 3,
-                                 format_stat = c("auto","f", "g"),
+                                 format_stat = c("auto", "f", "g"),
                                  rm_zero = FALSE,
                                  legend = TRUE,
                                  show_col_method = FALSE,
-                                 hide_error_msg  = attr(x, "hide_error_msg"),
-                                 ss = attr(x, "ss")
-) {
-    format_stat <- match.arg(format_stat)
-    x <- format_object(x,
-                       digits_p = digits_p,
-                       digits_stat = digits_stat,
-                       format_stat = format_stat,
-                       signif_stars = signif_stars,
-                       signif_as_separate_column = TRUE,
-                       signif_stars_col_name = " ",
-                       rm_zero = rm_zero,
-                       show_col_method = show_col_method,
-                       ss = ss,
-                       hide_error_msg = isTRUE(hide_error_msg)
+                                 hide_error_msg = attr(x, "hide_error_msg"),
+                                 ss = attr(x, "ss")) {
+  format_stat <- match.arg(format_stat)
+  x <- format_object(
+    x,
+    digits_p = digits_p,
+    digits_stat = digits_stat,
+    format_stat = format_stat,
+    signif_stars = signif_stars,
+    signif_as_separate_column = TRUE,
+    signif_stars_col_name = " ",
+    rm_zero = rm_zero,
+    show_col_method = show_col_method,
+    ss = ss,
+    hide_error_msg = isTRUE(hide_error_msg)
+  )
+
+
+
+  # Print the name of the method
+  cat("\n", "The results of", which_test(x), "\n\n")
+
+  # Print main results
+  NextMethod(print, x)
+
+  # Print signif. stars legend
+  if (legend == TRUE && signif_stars == TRUE) {
+    cat(paste0(
+      "\n",
+      # "Legend for p-values:  \n",
+      signif_stars_legend(ss = ss, collapse = ", "), "\n"
+    ))
+  }
+
+  # Print p adjust. method:
+  p_adjust_method <- attr(x, "p_adjust_method")
+  if (!is.null(p_adjust_method) && nrow(x) > 1) {
+    cat(
+      "The method for p-value adjustment:",
+      first_capital(p_adjust_method),
+      "\n"
     )
-
-
-
-    # Print the name of the method
-    cat("\n", "The results of", which_test(x), "\n\n")
-
-    # Print main results
-    NextMethod(print, x)
-
-    # Print signif. stars legend
-    if (legend == TRUE && signif_stars == TRUE)
-        cat(paste0("\n",
-            # "Legend for p-values:  \n",
-            signif_stars_legend(ss = ss, collapse = ", "), "\n"))
-
-    # Print p adjust. method:
-    p_adjust_method <- attr(x, "p_adjust_method")
-    if (!is.null(p_adjust_method) && nrow(x) > 1)
-        cat("The method for p-value adjustment:",
-            first_capital(p_adjust_method),
-            "\n")
+  }
 }
+
 # pander()  ----------------------------------------------------------------
 #' @export
 #' @rdname test_normality
-pander.test_normality <- function(x,
+pander.test_normality <- function(
+                                  x,
                                   caption = NA,
                                   ...,
                                   digits_p = 3,
@@ -443,57 +455,60 @@ pander.test_normality <- function(x,
                                   rm_zero = FALSE,
                                   legend = TRUE,
                                   show_col_method = FALSE,
-                                  hide_error_msg  = attr(x, "hide_error_msg"),
-                                  ss = attr(x, "ss")
-) {
+                                  hide_error_msg = attr(x, "hide_error_msg"),
+                                  ss = attr(x, "ss")) {
+  format_stat <- match.arg(format_stat)
 
-    format_stat <- match.arg(format_stat)
+  x <- format_object(
+    x,
+    digits_p = digits_p,
+    digits_stat = digits_stat,
+    format_stat = format_stat,
+    signif_stars = signif_stars,
+    signif_as_separate_column = FALSE,
+    rm_zero = rm_zero,
+    show_col_method = show_col_method,
+    ss = ss,
+    hide_error_msg = hide_error_msg
+  )
 
-    x <- format_object(x,
-                       digits_p = digits_p,
-                       digits_stat = digits_stat,
-                       format_stat = format_stat,
-                       signif_stars = signif_stars,
-                       signif_as_separate_column = FALSE,
-                       rm_zero = rm_zero,
-                       show_col_method = show_col_method,
-                       ss = ss,
-                       hide_error_msg = hide_error_msg
-    )
+  # String for p adjust. method:
+  p_adjust_method <- attr(x, "p_adjust_method")
+  adj_sting <-
+    if (!is.null(p_adjust_method) & nrow(x) > 1) {
+      paste0(
+        " The method for p-value adjustment: ",
+        first_capital(p_adjust_method), "."
+      )
+    } else {
+      ""
+    }
 
-    # String for p adjust. method:
-    p_adjust_method <- attr(x, "p_adjust_method")
-    adj_sting <-
-        if (!is.null(p_adjust_method) & nrow(x) > 1) {
-            paste0(" The method for p-value adjustment: ",
-                   first_capital(p_adjust_method), ".")
-        } else {
-            ""
-        }
+  # Add caption
+  caption <-
+    if (is.null(caption)) {
+      NULL
+    } else if (is.na(caption)) {
+      glue::glue("The results of {which_test(x)}.{adj_sting}")
+    } else {
+      caption
+    }
 
-    # Add caption
-    caption <-
-        if (is.null(caption)) {
-            NULL
-        } else if (is.na(caption)) {
-            glue::glue('The results of {which_test(x)}.{adj_sting}')
-        } else {
-            caption
-        }
+  # Print table of results
+  NextMethod("pander", x, caption = caption, ...)
 
-    # Print table of results
-    NextMethod("pander", x, caption = caption, ...)
-
-    # Print legend
-    if (legend == TRUE && signif_stars == TRUE)
-        # cat("Legend for p-values:  \n`", signif_stars_legend(ss = ss), "`  \n")
-        cat(paste0(
-            # "\nLegend for p-values:  \n",
-            signif_stars_legend(ss = ss), "\n"))
+  # Print legend
+  if (legend == TRUE && signif_stars == TRUE) {
+    # cat("Legend for p-values:  \n`", signif_stars_legend(ss = ss), "`  \n")
+    cat(paste0(
+      # "\nLegend for p-values:  \n",
+      signif_stars_legend(ss = ss), "\n"
+    ))
+  }
 }
 
 # helpers --------------------------------------------------------------------
 which_test <- function(x) {
-    # as.character(unique(x$method))
-    attr(x, "test")
+  # as.character(unique(x$method))
+  attr(x, "test")
 }
