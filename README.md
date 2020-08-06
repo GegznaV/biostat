@@ -14,9 +14,9 @@ status](https://www.r-pkg.org/badges/version/biostat)](https://CRAN.R-project.or
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![GitHub
 version](https://img.shields.io/badge/GitHub-v0.0.19-brightgreen.svg)](https://github.com/GegznaV/biostat)
+[![R-CMD-check](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
 [![Updated-on](https://img.shields.io/badge/Updated%20on-2020--08--06-yellowgreen.svg)](/commits/master)
-[![R-CMD-check](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 <!-- badges: end -->
 
 -----
