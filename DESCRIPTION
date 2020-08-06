@@ -61,3 +61,4 @@ Suggests:
     QuantPsyc,
     rcompanion,
     testthat
+Roxygen: list(markdown = TRUE)
