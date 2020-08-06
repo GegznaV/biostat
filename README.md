@@ -52,7 +52,8 @@ Documentation and more information available at
 To install a developement version of the package from *GitHub*:
 
 ``` r
-if (!require("remotes"))  install.packages("remotes")
+Sys.setenv(R_REMOTES_NO_ERRORS_FROM_WARNINGS = "true")
+if (!require("remotes")) install.packages("remotes")
 remotes::install_github("GegznaV/biostat")
 ```
 
