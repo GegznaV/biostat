@@ -29,7 +29,7 @@ set.seed(123456)
 ***
 
 ```{r logo, fig.align='center', out.height='30%', out.width='30%', echo=FALSE}
-knitr::include_graphics("https://raw.githubusercontent.com/GegznaV/biostat/master/docs/logo.png")
+knitr::include_graphics("https://raw.githubusercontent.com/GegznaV/biostat/master/pkgdown/logo.png")
 ```
 
 

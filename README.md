@@ -21,7 +21,7 @@ status](https://www.r-pkg.org/badges/version/biostat)](https://CRAN.R-project.or
 
 -----
 
-<img src="https://raw.githubusercontent.com/GegznaV/biostat/master/docs/logo.png" width="30%" height="30%" style="display: block; margin: auto;" />
+<img src="https://raw.githubusercontent.com/GegznaV/biostat/master/pkgdown/logo.png" width="30%" height="30%" style="display: block; margin: auto;" />
 
 # Package ***biostat***: Routines for Basic (Bio)Statistics
 
