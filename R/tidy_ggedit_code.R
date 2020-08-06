@@ -7,26 +7,26 @@
 #' @return String.
 #' @export
 tidy_ggedit_code <- function(x, ...) {
-    if (!inherits(x, "ggedit")) stop("Not ggedit object")
+  if (!inherits(x, "ggedit")) stop("Not ggedit object")
 
-    field_names <- grep("Calls", names(x), value = TRUE)
+  field_names <- grep("Calls", names(x), value = TRUE)
 
-    calls <- sapply(field_names, function(y) {
-        sapply(x[[y]], function(obj) {
-            paste0(obj, collapse = " + \n")
-        })
+  calls <- sapply(field_names, function(y) {
+    sapply(x[[y]], function(obj) {
+      paste0(obj, collapse = " + \n")
     })
+  })
 
-    if (is.null(dim(calls))) {
-        nm <- names(calls)
-        calls = matrix(calls, nrow = 1)
-        rownames(calls) <- unique(gsub("^[^.]*.", "", nm))
-    }
+  if (is.null(dim(calls))) {
+    nm <- names(calls)
+    calls <- matrix(calls, nrow = 1)
+    rownames(calls) <- unique(gsub("^[^.]*.", "", nm))
+  }
 
-    out <- apply(calls, 1, function(obj) {
-        paste(obj[!obj %in% c("list()", "")], collapse = " + \n")
-    })
+  out <- apply(calls, 1, function(obj) {
+    paste(obj[!obj %in% c("list()", "")], collapse = " + \n")
+  })
 
-    out <- styler::style_text(out, ...)
-    out
+  out <- styler::style_text(out, ...)
+  out
 }

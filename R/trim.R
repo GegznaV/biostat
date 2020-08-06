@@ -21,12 +21,11 @@
 #'
 #' trim(1:10, trim = 0.4)
 #' # [1] 3 4 5 6 7 8
-#'
-trim <- function(y, trim = 0.1, na.rm = FALSE, ...){
-   if (!is.vector(y))  stop("`y` must be a vector.")
-   if (!is.numeric(y)) stop("`y` must be a numeric vector.")
-    checkmate::assert_number(trim, lower = 0, upper = 1)
-    p <- stats::quantile(y, probs = c(trim/2, 1 - trim/2), na.rm = na.rm, ...)
-    # y[y > p[1] & y < p[2]]
-    y[dplyr::between(y, p[1], p[2])]
+trim <- function(y, trim = 0.1, na.rm = FALSE, ...) {
+  if (!is.vector(y)) stop("`y` must be a vector.")
+  if (!is.numeric(y)) stop("`y` must be a numeric vector.")
+  checkmate::assert_number(trim, lower = 0, upper = 1)
+  p <- stats::quantile(y, probs = c(trim / 2, 1 - trim / 2), na.rm = na.rm, ...)
+  # y[y > p[1] & y < p[2]]
+  y[dplyr::between(y, p[1], p[2])]
 }

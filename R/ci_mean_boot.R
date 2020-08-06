@@ -24,60 +24,62 @@
 #' set.seed(999555)
 #' y <- rnorm(35, 10, 5)
 #' ci_mean_boot(y)
-#'
 ci_mean_boot <- function(y,
                          conf_level = 0.95,
                          repetitions = 2000,
                          na.rm = TRUE,
                          resampled_means = FALSE,
                          return_df = TRUE) {
-    checkmate::assert_numeric(y, all.missing = FALSE)
-    checkmate::assert_number(conf_level, lower = 0, upper = 1)
-    checkmate::assert_number(repetitions, lower = 1 )
+  checkmate::assert_numeric(y, all.missing = FALSE)
+  checkmate::assert_number(conf_level, lower = 0, upper = 1)
+  checkmate::assert_number(repetitions, lower = 1)
 
-    if (na.rm) {
-        y <- y[!is.na(y)]
-    }
+  if (na.rm) {
+    y <- y[!is.na(y)]
+  }
 
-    n <- length(y)
-    mean_bar <- mean(y)
+  n <- length(y)
+  mean_bar <- mean(y)
 
-    if (n < 2L) {
-        # If too few data points are present
-        ci_of_mean <- c(lower = NA, upper = NA)
-        repetitions <- NA
+  if (n < 2L) {
+    # If too few data points are present
+    ci_of_mean <- c(lower = NA, upper = NA)
+    repetitions <- NA
+  } else {
+    # If CI can be calculated
+    all_means <-
+      unlist(lapply(
+        seq_len(repetitions),
+        FUN = function(i, y, n_) {
+          sum(y[sample.int(n_, n_, TRUE, NULL)])
+        },
+        y = y,
+        n_ = n
+      )) / n
 
-    } else {
-        # If CI can be calculated
-        all_means <-
-            unlist(lapply(
-                seq_len(repetitions),
-                FUN = function(i, y, n_) {
-                    sum(y[sample.int(n_, n_, TRUE, NULL)])
-                },
-                y = y,
-                n_ = n
-            )) / n
+    probs <- c((1 - conf_level) / 2, (1 + conf_level) / 2)
+    ci_of_mean <- quantile(all_means, probs)
+    names(ci_of_mean) <- NULL
+  }
 
-        probs <- c((1 - conf_level) / 2, (1 + conf_level) / 2)
-        ci_of_mean <- quantile(all_means, probs)
-        names(ci_of_mean) <- NULL
+  # Prepare output
+  res <- matrix(c(mean_bar, ci_of_mean, conf_level, repetitions),
+    nrow = 1,
+    byrow = TRUE,
+    dimnames = list(
+      NULL,
+      c("mean", "lower", "upper", "conf_level", "repetitions")
+    )
+  )
 
-    }
+  if (return_df == TRUE) {
+    res <- as.data.frame(res)
+  }
 
-    # Prepare output
-    res <- matrix(c(mean_bar, ci_of_mean, conf_level, repetitions),
-                  nrow = 1,
-                  byrow = TRUE,
-                  dimnames = list(NULL,
-                                  c("mean", "lower", "upper", "conf_level", "repetitions")))
+  if (resampled_means == TRUE) {
+    attr(res, "resampled_means") <- all_means
+  }
 
-    if (return_df == TRUE)
-        res <- as.data.frame(res)
-
-    if (resampled_means == TRUE)
-        attr(res, "resampled_means") <- all_means
-
-    # Output
-    res
+  # Output
+  res
 }

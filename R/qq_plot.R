@@ -68,39 +68,38 @@
 #' qq_plot(weight ~ feed, data = chickwts)
 #'
 #' qq_plot(uptake ~ Type + Treatment, data = CO2)
-
 qq_plot <- function(
-    y,
-    data = NULL,
-    distribution = "norm",
+                    y,
+                    data = NULL,
+                    distribution = "norm",
+                    ...,
+                    line = c("quartiles", "robust", "int=0,slope=1", "0,1", "none"),
+                    envelope = 0.95,
+                    method = c("mle-normal", "trimmed-normal", "moment-normal", "any"),
+                    labels = NULL,
+                    groups = NULL,
+                    use_colors = FALSE,
+                    scales = "free",
+                    sep = " | ") {
+  qqdata <- qq_data(
+    y = y,
+    distribution = distribution,
+    data = data,
     ...,
-    line = c("quartiles", "robust", "int=0,slope=1", "0,1", "none"),
-    envelope = 0.95,
-    method = c("mle-normal", "trimmed-normal", "moment-normal", "any"),
-    labels = NULL,
-    groups = NULL,
-    use_colors = FALSE,
-    scales = "free",
-    sep = " | ")
-{
+    envelope = envelope,
+    line = line,
+    labels = labels,
+    groups = groups,
+    method = method,
+    sep = sep
+  )
 
-    qqdata <-  qq_data(y = y,
-                       distribution = distribution,
-                       data = data,
-                       ...,
-                       envelope = envelope,
-                       line = line,
-                       labels = labels,
-                       groups = groups,
-                       method = method,
-                       sep = sep)
-
-    plot(qqdata,
-         use_colors = use_colors,
-         scales = scales,
-         envelope = envelope,
-         line = line,
-         ...)
-
+  plot(qqdata,
+    use_colors = use_colors,
+    scales = scales,
+    envelope = envelope,
+    line = line,
+    ...
+  )
 }
 # =============================================================================

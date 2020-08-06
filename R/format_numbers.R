@@ -3,7 +3,7 @@
 # 2) add parameter `include` - for the only columns to format.
 # 3) check and warn if `skip`  and `include` contain at least one common column name.
 # 4) add value digits = "auto" to automatically choose number of digits to round to.
-# 5) check if negalive values of "digits" are accepted. (patikrinti, ar galima naudoti neigiamus skaičius, ar su jais apvalina teisingai.)
+# 5) check if negalive values of "digits" are accepted. (patikrinti, ar galima naudoti neigiamus skaicius, ar su jais apvalina teisingai.)
 #
 
 
@@ -58,39 +58,36 @@
 #' format_numbers(DATA, 2)
 #'
 #' # Different rounding for different columns
-#' format_numbers(DATA, c(2,2,3,3,NA))
+#' format_numbers(DATA, c(2, 2, 3, 3, NA))
 #'
 #' # Use `NA` to leave a column unformatted
-#' format_numbers(DATA, c(4,NA,3,NA,NA))
+#' format_numbers(DATA, c(4, NA, 3, NA, NA))
 format_numbers <- function(data,
                            digits = 3,
                            format = "f",
                            fun = formatC,
-                           ...)
-{
-    # Apply the recycling of values
-    digits <- if (is_named(digits)) {
-        adjust_named_vector(digits, data)
-    } else {
-        adjust_vector_length(digits, data)
-    }
+                           ...) {
+  # Apply the recycling of values
+  digits <- if (is_named(digits)) {
+    adjust_named_vector(digits, data)
+  } else {
+    adjust_vector_length(digits, data)
+  }
 
-    format <- if (is_named(format)) {
-        adjust_named_vector(format, data)
-    } else {
-        adjust_vector_length(format, data)
-    }
+  format <- if (is_named(format)) {
+    adjust_named_vector(format, data)
+  } else {
+    adjust_vector_length(format, data)
+  }
 
 
-    # Apply the formatting
-    for (i in seq_along(data)) {
-        if (!is.numeric(data[[i]])) next
-        if (is.na(digits[i]))       next
-        data[[i]] <-
-            fun(data[[i]], digits = digits[i], format = format[i], ...)
-    }
-    # Output:
-    data
+  # Apply the formatting
+  for (i in seq_along(data)) {
+    if (!is.numeric(data[[i]])) next
+    if (is.na(digits[i])) next
+    data[[i]] <-
+      fun(data[[i]], digits = digits[i], format = format[i], ...)
+  }
+  # Output:
+  data
 }
-
-

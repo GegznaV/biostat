@@ -40,48 +40,47 @@
 #' lm1 <- lm(CONT ~ INTG + DMNR + log(DILG), data = us)
 #' coef_standardized(lm1)
 #'
-#' lm2 <- lm(CONT ~ INTG + DMNR*DILG, data = us)
+#' lm2 <- lm(CONT ~ INTG + DMNR * DILG, data = us)
 #' coef_standardized(lm2)
 #'
 #' summary(coef_standardized(lm2))
 #'
 #'
 #' # Do not include intercept
-#' lm3 <- lm(CONT ~ 0 + INTG , data = us)
+#' lm3 <- lm(CONT ~ 0 + INTG, data = us)
 #' coef_standardized(lm3)
 #' summary(coef_standardized(lm3))
-
 coef_standardized <- function(obj) {
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    checkmate::assert_class(obj, "lm")
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    COEFS <- summary(obj)$coef
-    ind_a <- which(rownames(COEFS) == "(Intercept)")
-    if (length(ind_a) == 0) {
-        # If intercept is not present
-        a <- 0
-        b <- COEFS[ , 1]
-        b_names <- rownames(COEFS)
-
-    } else {
-        # If intercept is present
-        a <- COEFS["(Intercept)", 1]
-        b <- COEFS[-1, 1]
-        b_names <- rownames(summary(obj)$coef)[-1]
-        b_names <- rownames(COEFS)[-1]
-    }
-    # Extracts all members of right-hand side of formulae:
-    data_ <- model.matrix(as.formula(obj$call$formula), data = obj$model)
-    # Make correct order of columns:
-    data_ <- as.data.frame(data_)[, b_names, drop = FALSE]
-    # Do the standardization:
-      sx_ <- sapply(data_, sd)
-      sy_ <- sapply(obj$model[1], sd)
-    beta  <- b * sx_ / sy_
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    structure(list(a = a, b = b, beta = beta),
-              class = c("lm_beta","list"))
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  checkmate::assert_class(obj, "lm")
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  COEFS <- summary(obj)$coef
+  ind_a <- which(rownames(COEFS) == "(Intercept)")
+  if (length(ind_a) == 0) {
+    # If intercept is not present
+    a <- 0
+    b <- COEFS[, 1]
+    b_names <- rownames(COEFS)
+  } else {
+    # If intercept is present
+    a <- COEFS["(Intercept)", 1]
+    b <- COEFS[-1, 1]
+    b_names <- rownames(summary(obj)$coef)[-1]
+    b_names <- rownames(COEFS)[-1]
+  }
+  # Extracts all members of right-hand side of formulae:
+  data_ <- model.matrix(as.formula(obj$call$formula), data = obj$model)
+  # Make correct order of columns:
+  data_ <- as.data.frame(data_)[, b_names, drop = FALSE]
+  # Do the standardization:
+  sx_ <- sapply(data_, sd)
+  sy_ <- sapply(obj$model[1], sd)
+  beta <- b * sx_ / sy_
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  structure(list(a = a, b = b, beta = beta),
+    class = c("lm_beta", "list")
+  )
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
 
 #' @name deprecated_functions
@@ -91,8 +90,8 @@ coef_standardized <- function(obj) {
 #' @param obj \code{lm} object.
 #' @export
 standardized_coef <- function(obj) {
-    .Deprecated("coef_standardized")
-    coef_standardized(obj)
+  .Deprecated("coef_standardized")
+  coef_standardized(obj)
 }
 
 #' @rdname coef_standardized
@@ -106,9 +105,9 @@ standardized_coef <- function(obj) {
 #' @export
 
 print.lm_beta <- function(x, ..., digits = 3) {
-    cat("Standardized Regression Coefficients:\n")
+  cat("Standardized Regression Coefficients:\n")
 
-    print(unclass(round(x$beta,  digits = digits)), ...)
+  print(unclass(round(x$beta, digits = digits)), ...)
 }
 
 
@@ -116,29 +115,30 @@ print.lm_beta <- function(x, ..., digits = 3) {
 #' @rdname coef_standardized
 #' @export
 summary.lm_beta <- function(object, ..., digits = 3) {
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    b    <- rm_names(object$b)
-    beta <- rm_names(object$beta)
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  b <- rm_names(object$b)
+  beta <- rm_names(object$beta)
 
-    rez <- data.frame(
-        regressor = c("(Intercept)", names(object$beta)),
-            coeff = c(object$a, b),
-        standardized_coeff = c(NA, beta),
-        influence_rank = c(NA, rank(-abs(beta)))
-    )
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    structure(rez,
-              class = c("lm_beta_summary","data.frame"))
-    # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  rez <- data.frame(
+    regressor = c("(Intercept)", names(object$beta)),
+    coeff = c(object$a, b),
+    standardized_coeff = c(NA, beta),
+    influence_rank = c(NA, rank(-abs(beta)))
+  )
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  structure(rez,
+    class = c("lm_beta_summary", "data.frame")
+  )
+  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname coef_standardized
 #' @export
 print.lm_beta_summary <- function(x, ..., digits = 3) {
-    cat("Summary of Standardized Regression Coefficients:\n")
-    x$standardized_coeff <- round(x$standardized_coeff,  digits = digits)
-    print(data.frame(x))
+  cat("Summary of Standardized Regression Coefficients:\n")
+  x$standardized_coeff <- round(x$standardized_coeff, digits = digits)
+  print(data.frame(x))
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -35,97 +35,95 @@
 #' head_tail(iris, n = 2)
 #' head_tail(iris[1:6, ], n = 2, tolerance = 1)
 #' head_tail(iris[1:6, ], n = 2, tolerance = 2)
-#'
 head_tail <- function(obj,
-                      n             = 4,
-                      format        = c("f", "g", "e"),
-                      sep           = "...",
-                      max_decimals  = NULL,
+                      n = 4,
+                      format = c("f", "g", "e"),
+                      sep = "...",
+                      max_decimals = NULL,
                       signif_digits = 3,
-                      tolerance     = 2,
-                      top           = n,
-                      bottom        = n
-                      ) {
+                      tolerance = 2,
+                      top = n,
+                      bottom = n) {
+  checkmate::assert_data_frame(obj)
+  checkmate::assert_integerish(n)
+  checkmate::assert_integerish(top, lower = 0)
+  checkmate::assert_integerish(bottom, lower = 0)
+  checkmate::assert_integerish(tolerance, lower = 0)
+  checkmate::assert_integerish(signif_digits, null.ok = TRUE)
+  checkmate::assert_integerish(max_decimals, null.ok = TRUE)
+  checkmate::assert_character(format)
 
-    checkmate::assert_data_frame(obj)
-    checkmate::assert_integerish(n)
-    checkmate::assert_integerish(top,       lower = 0)
-    checkmate::assert_integerish(bottom,    lower = 0)
-    checkmate::assert_integerish(tolerance, lower = 0)
-    checkmate::assert_integerish(signif_digits, null.ok = TRUE)
-    checkmate::assert_integerish(max_decimals,  null.ok = TRUE)
-    checkmate::assert_character(format)
+  format <- match.arg(format)
 
-    format <- match.arg(format)
+  obj <- as.data.frame(obj)
 
-    obj <- as.data.frame(obj)
+  # If data frame is small
+  nrows <- nrow(obj)
+  small_df <- nrows <= top + bottom + tolerance
+  if (small_df == TRUE) {
+    top <- nrows
+    bottom <- 0
+  }
 
-    # If data frame is small
-    nrows    <- nrow(obj)
-    small_df <- nrows <= top + bottom + tolerance
-    if (small_df == TRUE) {
-        top <- nrows
-        bottom <- 0
-    }
-
-    obj_h <- head(obj, top)
-    obj_t <- tail(obj, bottom)
+  obj_h <- head(obj, top)
+  obj_t <- tail(obj, bottom)
 
 
-    if (is.null(signif_digits)) {
-        obj_ht <- rbind(obj_h, obj_t)
+  if (is.null(signif_digits)) {
+    obj_ht <- rbind(obj_h, obj_t)
+  } else {
+    obj_ht <-
+      rbind(
+        round_numbers(obj_h, fun = signif, digits = signif_digits),
+        round_numbers(obj_t, fun = signif, digits = signif_digits)
+      )
+  }
 
-    } else {
-        obj_ht <-
-            rbind(round_numbers(obj_h, fun = signif, digits = signif_digits),
-                  round_numbers(obj_t, fun = signif, digits = signif_digits))
-    }
+  decim <- n_decimals_max(obj_ht)
 
-    decim <- n_decimals_max(obj_ht)
+  if (!is.null(max_decimals)) {
+    decim[decim > max_decimals] <- max_decimals
+  }
 
-    if (!is.null(max_decimals)) {
-        decim[decim > max_decimals] <- max_decimals
-    }
+  # Process "head" rows
+  obj_h <- format_numbers(obj_h, digits = decim, format = format)
+  df_h <- dplyr::mutate_all(obj_h, as.character)
+  rownames(df_h) <- rownames(obj_h)
 
-    # Process "head" rows
-    obj_h <- format_numbers(obj_h, digits = decim, format = format)
-    df_h  <- dplyr::mutate_all(obj_h, as.character)
-    rownames(df_h) <- rownames(obj_h)
+  space <- rep(" ", ncol(obj_h))
 
-    space <- rep(" ", ncol(obj_h))
+  # Output
+  if (small_df == FALSE) {
+    # For refular (big enough) DFs
 
-    # Output
-    if (small_df == FALSE) {
-        # For refular (big enough) DFs
+    # Process "tail" rows
+    obj_t <- format_numbers(obj_t, digits = decim, format = format)
+    df_t <- dplyr::mutate_all(obj_t, as.character)
+    rownames(df_t) <- rownames(obj_t)
 
-        # Process "tail" rows
-        obj_t <- format_numbers(obj_t, digits = decim, format = format)
-        df_t  <- dplyr::mutate_all(obj_t, as.character)
-        rownames(df_t) <- rownames(obj_t)
+    dots <- rep(sep, ncol(obj_h))
 
-        dots  <- rep(sep, ncol(obj_h))
-
-        eval_glue("rbind(df_h, `{sep}` = dots, df_t, `  ` = space)")
-    } else {
-        # For very small DFs
-        eval_glue("rbind(df_h, `  ` = space)")
-    }
-
+    eval_glue("rbind(df_h, `{sep}` = dots, df_t, `  ` = space)")
+  } else {
+    # For very small DFs
+    eval_glue("rbind(df_h, `  ` = space)")
+  }
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Number of decimals without tailing zeros
 # x - a vector
 n_decimals <- function(x) {
-    if (!is.numeric(x))
-        return(rep(NA, length(x)))
+  if (!is.numeric(x)) {
+    return(rep(NA, length(x)))
+  }
 
-    # `scipen = 999` prevents from convertion to scientific number format
-    withr::with_options(list(scipen = 999), {
-        x[(x %% 1) == 0] <- ""
-        # as.character(x)
-        nchar(sub('(^.+\\.)(.*)(0*$)', '\\2', as.character(x)))
-    })
+  # `scipen = 999` prevents from convertion to scientific number format
+  withr::with_options(list(scipen = 999), {
+    x[(x %% 1) == 0] <- ""
+    # as.character(x)
+    nchar(sub("(^.+\\.)(.*)(0*$)", "\\2", as.character(x)))
+  })
 }
 # ## Not prepared function:
 #
@@ -152,12 +150,11 @@ n_decimals <- function(x) {
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Max num. of significant decimals in each column
 n_decimals_max <- function(obj) {
-    sapply(obj, function(x) max(n_decimals(x)))
+  sapply(obj, function(x) max(n_decimals(x)))
 }
 
 signif_needed <- function(x) {
-    n_decimals_max(DF)
-
+  n_decimals_max(DF)
 }
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -167,21 +164,21 @@ round_numbers <- function(data,
                           fun = round,
                           ...) {
 
-    # Apply the recycling of values
-    digits <- if (is_named(digits)) {
-        adjust_named_vector(digits, data)
-    } else {
-        adjust_vector_length(digits, data)
-    }
+  # Apply the recycling of values
+  digits <- if (is_named(digits)) {
+    adjust_named_vector(digits, data)
+  } else {
+    adjust_vector_length(digits, data)
+  }
 
-    # Apply the formatting
-    for (i in seq_along(data)) {
-        if (!is.numeric(data[[i]])) next
-        if (is.na(digits[i]))       next
-        data[[i]] <- fun(data[[i]], digits = digits[i], ...)
-    }
-    # Output:
-    data
+  # Apply the formatting
+  for (i in seq_along(data)) {
+    if (!is.numeric(data[[i]])) next
+    if (is.na(digits[i])) next
+    data[[i]] <- fun(data[[i]], digits = digits[i], ...)
+  }
+  # Output:
+  data
 }
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -199,9 +196,9 @@ round_numbers <- function(data,
 #' @keywords internal
 #'
 min_numeric <- function(x, na.rm = TRUE) {
-    if (is.numeric(x)) {
-        min(x, na.rm = na.rm)
-    } else {
-        NA
-    }
+  if (is.numeric(x)) {
+    min(x, na.rm = na.rm)
+  } else {
+    NA
+  }
 }

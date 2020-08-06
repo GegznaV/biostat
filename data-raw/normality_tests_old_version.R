@@ -13,9 +13,8 @@
 #' library(biostat)
 #' data(CO2)
 #' shapiro.test(uptake ~ Type + Treatment, data = CO2)
-#'
 shapiro.test <- function(x, ..., data = NULL, groups = NULL) {
-    test_(x, ..., data = data, groups = groups, FUN = stats::shapiro.test)
+  test_(x, ..., data = data, groups = groups, FUN = stats::shapiro.test)
 }
 
 # =============================================================================
@@ -23,7 +22,7 @@ shapiro.test <- function(x, ..., data = NULL, groups = NULL) {
 #' Lilliefors (Kolmogorov-Smirnov) test for normality with formula interface
 #'
 #'
-#'Performs the Lilliefors (Kolmogorov-Smirnov) test for the
+#' Performs the Lilliefors (Kolmogorov-Smirnov) test for the
 #' composite hypothesis of normality, see e.g. Thode
 #'  (2002, Sec. 5.1.1).
 #'
@@ -37,15 +36,14 @@ shapiro.test <- function(x, ..., data = NULL, groups = NULL) {
 #' library(biostat)
 #' data(CO2)
 #' lillie.test(uptake ~ Type + Treatment, data = CO2)
-#'
 lillie.test <- function(x, ..., data = NULL, groups = NULL) {
-    test_(x, ..., data = data, groups = groups, FUN = nortest::lillie.test)
+  test_(x, ..., data = data, groups = groups, FUN = nortest::lillie.test)
 }
 
 # =============================================================================
 #' Anderson-Darling test for normality with formula interface
 #'
-#'Performs the Anderson-Darling test for the composite
+#' Performs the Anderson-Darling test for the composite
 #' hypothesis of normality, see e.g. Thode (2002, Sec. 5.1.4).
 #' More information in: \code{\link[nortest]{ad.test}}.
 #'
@@ -59,16 +57,15 @@ lillie.test <- function(x, ..., data = NULL, groups = NULL) {
 #' library(biostat)
 #' data(CO2)
 #' ad.test(uptake ~ Type + Treatment, data = CO2)
-#'
 ad.test <- function(x, ..., data = NULL, groups = NULL) {
-    test_(x, ..., data = data, groups = groups, FUN = nortest::ad.test)
+  test_(x, ..., data = data, groups = groups, FUN = nortest::ad.test)
 }
 
 # =============================================================================
 #' Cramer-von Mises test for normality with formula interface
 #'
-#'Performs the Cramer-von Mises test for the composite
-#'hypothesis of normality, see e.g. Thode (2002, Sec. 5.1.3).
+#' Performs the Cramer-von Mises test for the composite
+#' hypothesis of normality, see e.g. Thode (2002, Sec. 5.1.3).
 #' More information in: \code{\link[nortest]{cvm.test}}.
 #'
 #' @inheritParams nortest::cvm.test
@@ -81,9 +78,8 @@ ad.test <- function(x, ..., data = NULL, groups = NULL) {
 #' library(biostat)
 #' data(CO2)
 #' cvm.test(uptake ~ Type + Treatment, data = CO2)
-#'
 cvm.test <- function(x, ..., data = NULL, groups = NULL) {
-    test_(x, ..., data = data, groups = groups, FUN = nortest::cvm.test)
+  test_(x, ..., data = data, groups = groups, FUN = nortest::cvm.test)
 }
 
 # =============================================================================
@@ -103,9 +99,8 @@ cvm.test <- function(x, ..., data = NULL, groups = NULL) {
 #' library(biostat)
 #' data(CO2)
 #' sf.test(uptake ~ Type + Treatment, data = CO2)
-#'
 sf.test <- function(x, ..., data = NULL, groups = NULL) {
-    test_(x, ..., data = data, groups = groups, FUN = nortest::sf.test)
+  test_(x, ..., data = data, groups = groups, FUN = nortest::sf.test)
 }
 # =============================================================================
 #' Pearson chi-square test for normality with formula interface
@@ -125,18 +120,17 @@ sf.test <- function(x, ..., data = NULL, groups = NULL) {
 #' library(biostat)
 #' data(CO2)
 #' pearson.test(uptake ~ Type + Treatment, data = CO2)
-#'
 pearson.test <- function(x,
-                         n.classes = ceiling(2 * (n^(2/5))),
+                         n.classes = ceiling(2 * (n^(2 / 5))),
                          adjust = TRUE,
                          data = NULL,
                          groups = NULL) {
-    test_(x,
-          n.classes = n.classes,
-          adjust = adjust,
-          data = data,
-          groups = groups,
-          FUN = nortest::pearson.test)
+  test_(x,
+    n.classes = n.classes,
+    adjust = adjust,
+    data = data,
+    groups = groups,
+    FUN = nortest::pearson.test
+  )
 }
 # =============================================================================
-

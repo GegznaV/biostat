@@ -23,9 +23,11 @@
 #'
 #'
 #' # Create a data frame
-#' df <- data.frame(letters  = letters[1:5],
-#'                  letters2 = LETTERS[1:5],
-#'                  stringsAsFactors = FALSE)
+#' df <- data.frame(
+#'   letters = letters[1:5],
+#'   letters2 = LETTERS[1:5],
+#'   stringsAsFactors = FALSE
+#' )
 #'
 #' mapply(class, df) # show classes of columns
 #'
@@ -34,18 +36,19 @@
 #'
 #' # Check the classes in each column
 #' mapply(class, df2)
-
-# # Works with tibbles too
-# tbl  <- tibble::as.tibble(df)
-# tbl2 <- all_chr_to_factor(tbl)
-# mapply(class, tbl2)
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# v0.3.1:
+#'
+#' # # Works with tibbles too
+#' # tbl  <- tibble::as.tibble(df)
+#' # tbl2 <- all_chr_to_factor(tbl)
+#' # mapply(class, tbl2)
+#' # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' # v0.3.1:
 all_chr_to_factor <- function(data) {
-    dplyr::mutate_if(
-        data,
-        is.character,
-        list(~forcats::fct_inorder(.)))
+  dplyr::mutate_if(
+    data,
+    is.character,
+    list(~ forcats::fct_inorder(.))
+  )
 }
 
 # =============================================================================
@@ -53,7 +56,7 @@ all_chr_to_factor <- function(data) {
 #
 # =============================================================================
 # v0.1: Changes the class:
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # data %<>%
 #     purrr::map_if(is.character, factor) %>%
 #     as.data.frame()
