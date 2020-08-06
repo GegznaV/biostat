@@ -25,4 +25,5 @@ Student's t-distribution based confidence interval of mean
 set.seed(999555)
 y <- rnorm(35, 10, 5)
 ci_mean_t(y)
+#
 }

@@ -4,15 +4,15 @@
 #'
 #' A very fast implementation of the basic nonparametric bootstrap for obtaining confidence limits for the population mean without assuming normality.
 #'
-#' The function is based on code of function \code{\link[Hmisc]{smean.cl.boot}()} from package \pkg{Hmisc}.
+#' The function is based on code of function [Hmisc::smean.cl.boot()] from package \pkg{Hmisc}.
 #'
 #'
-#' @param y (numeric) A numeric vector from which \code{NA}s will be removed automatically.
+#' @param y (numeric) A numeric vector from which `NA`s will be removed automatically.
 #' @param conf_level (number) Confidence level. Number from 0 to 1. Default 0.95.
 #' @param repetitions (integer) Number of bootstrap resamples.
-#' @param na.rm (logical) If \code{TRUE} (default), missing values (\code{NA}'s) are removed automatically.
-#' @param resampled_means (logical) If \code{TRUE}, the vector of bootstrapped means will be returned as the \code{resampled_means} attribute of the returned object.
-#' @param return_df (logical) If \code{TRUE} (default), result is returned as a data frame. If \code{FALSE} - as a matrix.
+#' @param na.rm (logical) If `TRUE` (default), missing values (`NA`'s) are removed automatically.
+#' @param resampled_means (logical) If `TRUE`, the vector of bootstrapped means will be returned as the `resampled_means` attribute of the returned object.
+#' @param return_df (logical) If `TRUE` (default), result is returned as a data frame. If `FALSE` - as a matrix.
 #'
 #' @return An object (data frame or matrix) with a point estimate and confidence interval of mean.
 #'

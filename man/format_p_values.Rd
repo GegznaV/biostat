@@ -24,7 +24,7 @@
 \alias{signif_stars_legend}
 \alias{rm_zero}
 \alias{format_as_p_columns}
-\title{[!!!] Format p-values}
+\title{\strong{\link{!!!}} Format p-values}
 \format{
 An object of class \code{numeric} of length 1.
 
@@ -149,12 +149,12 @@ format_as_p_columns(
 \item{p}{A (vector of) p-value(s). Numeric or coercible to numeric.}
 
 \item{digits_p}{(numeric) Number of significant digits to round a p value to.
-                  No less than 2. \itemize{
+No less than 2. \itemize{
 \item if \code{digits_p = 2}: \enumerate{
-      \item values below 0.001 are printed as \code{"<0.001"};
-      \item values between 0.001 and 0.01 as \code{"<0.01"};
-      \item all other values are rounded to two decimal places.
-      }
+\item values below 0.001 are printed as \code{"<0.001"};
+\item values between 0.001 and 0.01 as \code{"<0.01"};
+\item all other values are rounded to two decimal places.
+}
 \item if \code{digits_p = 3}, only formatting \code{"<0.01"} is skipped.
 }}
 
@@ -186,12 +186,12 @@ Functions to fromat p values.
 }
 \details{
 \itemize{
- \item \code{format_p} - formats single p value.
- \item \code{format_as_p_columns} - formats indicated numeric columns in a dataframe as p values (columns are converted into strings).
- \item \code{get_signif_stars} -  takes numeric p values brings appopriate stars of statistical significance.
- \item \code{add_signif_stars} - formats numeric p values by adding significance stars (result is character vector).
- \item \code{signif_stars_legend} - generates legend for significance stars (result is a string).
- \item \code{rm_zero} - function removes zero at the beginning of a number (returns a  string with the same value but without the leading zero).
+\item \code{format_p} - formats single p value.
+\item \code{format_as_p_columns} - formats indicated numeric columns in a dataframe as p values (columns are converted into strings).
+\item \code{get_signif_stars} -  takes numeric p values brings appopriate stars of statistical significance.
+\item \code{add_signif_stars} - formats numeric p values by adding significance stars (result is character vector).
+\item \code{signif_stars_legend} - generates legend for significance stars (result is a string).
+\item \code{rm_zero} - function removes zero at the beginning of a number (returns a  string with the same value but without the leading zero).
 }
 }
 \examples{
@@ -225,13 +225,19 @@ add_signif_stars(0.052147)
 
 signif_stars_legend()
 
-
 format_p(0)
 format_p(.02, digits_p = 2)
 format_p(.0002)
 format_p(.0002, signif_stars = FALSE)
 format_p(.0002, ss = c("*****" = 0.001))
-rm_zero(0.020)
 
+# TODO **[!!!]**:
+# 1. Add parameter to emable p value correction
+#    from p = 1 into, e.g., p > 0.999;
+#
+# 2. merge parameters `ss` and `signif_stars`
+# 3. test: format_p(NaN) -- [OK]
+# 4. test: format_p(NA) -- this function fails with NA as input.
+rm_zero(0.020)
 }
 \keyword{datasets}

@@ -43,7 +43,7 @@ do_corr
 }
 \examples{
 data(iris)
-ans <- do_corr(iris[,-5])
+ans <- do_corr(iris[, -5])
 ans
 
 library(pander)

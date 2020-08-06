@@ -6,19 +6,19 @@
 #'
 #' @param obj Object with pair-wise comparisons (e.g., post-hoc test results).
 #'   Currently supported objects: \itemize{
-#'   \item \emph{posthocTGH} from package \pkg{userfriendlyscience};
-#'   \item \emph{PMCMR} from package \pkg{PMCMR}.
+#'   \item *posthocTGH* from package \pkg{userfriendlyscience};
+#'   \item *PMCMR* from package \pkg{PMCMR}.
 #'   }
 #'
 #' @param ... Further arguments to methods.
 #'
 #' @param data A dataset with p values and names of comparisons. This argument
-#'            is used if \code{obj} is formula. More details in examples.
+#'            is used if `obj` is formula. More details in examples.
 #'
-#' @param formula An R model \code{\link[stats]{formula}} where left-hand side
+#' @param formula An R model [stats::formula()] where left-hand side
 #' term indicates variable with p values and right-hand side term defines
-#' variable with comparisons, e.g. \code{p.adjust ~ Comparison}. Usually is
-#' used in combination with \code{data}.
+#' variable with comparisons, e.g. `p.adjust ~ Comparison`. Usually is
+#' used in combination with `data`.
 #'
 #' @param alpha (numeric from 0 to 1) Significance level.
 #'

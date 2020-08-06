@@ -1,25 +1,25 @@
-#' [!] A QQ-plot for multiple groups
+#' **[!!]** A QQ-plot for multiple groups
 #'
 #' Make a quantile comparison plot (qq-plot) for each subset of groups separately
 #' using \pkg{ggplot2} graphics.
 #'
 #' @details
-#' Function \code{qq_plot} is inspired by \code{qqPlot()} in package \pkg{car}
+#' Function `qq_plot` is inspired by `qqPlot()` in package \pkg{car}
 #' (writen by J. Fox).
 #'
 #' @param y (formula|numeric|character)
 #'          Either a formula, a numeric vector or a name of a vector
-#'          in \code{data}.
-#'          If \code{y} is a formula (e.g. \code{variable ~ factor}), left-hand
+#'          in `data`.
+#'          If `y` is a formula (e.g. `variable ~ factor`), left-hand
 #'          side provides variable to be summarized. Right-hand side and condition
 #'          describe subsets. If the left-hand side is empty, right-hand side and
 #'          condition are shifted over as a convenience.
 #'
-#' @param data A data frame that contains the variables mentioned in \code{y}.
+#' @param data A data frame that contains the variables mentioned in `y`.
 #'
 #' @param sep (character)
 #'            Group name separator if more than one grouping variable is used.
-#'            default is \code{"|"}.
+#'            default is `"|"`.
 #'
 #' @inheritParams qq_data
 #' @inheritParams plot.qqdata
@@ -31,10 +31,10 @@
 #'
 #' @keywords ggplot2 plots
 #'
-#' @return A \code{ggplot2} object
+#' @return A `ggplot2` object
 #'
-#' @seealso \code{\link[car]{qqPlot}} from \pkg{car} package,
-#'          \code{\link[stats]{qqplot}} from \pkg{stats} package.
+#' @seealso [car::qqPlot()] from \pkg{car} package,
+#'          [stats::qqplot()] from \pkg{stats} package.
 #' @examples
 #' library(biostat)
 #' data(iris)

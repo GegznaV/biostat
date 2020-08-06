@@ -19,7 +19,7 @@ standardize_path <- function(path) {
 }
 
 
-#' [!!!]
+#' **[!!!]**
 #'
 #' @param path string with absolute path.
 #' @param wd string of path to absolute path.

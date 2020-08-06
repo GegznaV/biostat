@@ -1,4 +1,4 @@
-#' [!] Convert all character variables to factors
+#' **[!!]** Convert all character variables to factors
 #'
 #' A convenience function to convert all character variables in a data frame
 #' to factor variables.

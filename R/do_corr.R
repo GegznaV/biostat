@@ -17,7 +17,7 @@ do_corr <- function(
                     x,
                     y = NULL,
                     method = c("spearman", "kendall", "pearson")[1],
-                    use = "complete.cases", # [!!!] in the future allow pairwise complete cases
+                    use = "complete.cases", # **[!!!]** in the future allow pairwise complete cases
                     conf = 0.95,
                     R = 999,
                     sim = "balanced",

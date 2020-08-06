@@ -1,23 +1,23 @@
-#' [!] Compute Standardized Regression Coefficients
+#' **[!!]** Compute Standardized Regression Coefficients
 #'
-#' Compute the standardized regression coefficients (beta) from an object of class \code{lm}).
+#' Compute the standardized regression coefficients (beta) from an object of class `lm`).
 #'
-#' @param obj (\code{lm} object) A result of function \code{lm()}.
+#' @param obj (`lm` object) A result of function `lm()`.
 #'
 #' @return
-#' Object of class \code{lm_beta} which is a list with 2 named fields:
+#' Object of class `lm_beta` which is a list with 2 named fields:
 #' \itemize{
-#' \item \code{b} named numeric vector with regression coefficients (not standardized);
-#' \item \code{beta} named numeric vector  with standardized coefficients from \code{lm()} model.
+#' \item `b` named numeric vector with regression coefficients (not standardized);
+#' \item `beta` named numeric vector  with standardized coefficients from `lm()` model.
 #' }
 #'
 #'
 #' @details
-#' This function is inspired by function  \pkg{QuantPsyc}\code{::lm.beta()} written by Thomas D. Fletcher. \cr
-#' \code{coef_standardized()} provides standardized coefficients even when interaction members are present. This is achieved by computing whole model matrix (with all right-hand side members of formula used in call of \code{lm()}) and calculating standard deviations of each regressor (including interaction members) based on these columns. \cr
-#' \code{coef_standardized()} does not fail if intercept is not present.\cr
+#' This function is inspired by function  \pkg{QuantPsyc}`::lm.beta()` written by Thomas D. Fletcher. \cr
+#' `coef_standardized()` provides standardized coefficients even when interaction members are present. This is achieved by computing whole model matrix (with all right-hand side members of formula used in call of `lm()`) and calculating standard deviations of each regressor (including interaction members) based on these columns. \cr
+#' `coef_standardized()` does not fail if intercept is not present.\cr
 #'
-#' The remaining calculations are the same as in \pkg{QuantPsyc}\code{::lm.beta()}.
+#' The remaining calculations are the same as in \pkg{QuantPsyc}`::lm.beta()`.
 #'
 #'
 #'
@@ -26,8 +26,8 @@
 #'
 #' @seealso
 #' \itemize{
-#'     \item \code{\link[stats]{lm}} in package \pkg{stats}.
-#'     \item \code{\link[QuantPsyc]{lm.beta}} in package \pkg{QuantPsyc}.
+#'     \item [stats::lm()] in package \pkg{stats}.
+#'     \item [QuantPsyc::lm.beta()] in package \pkg{QuantPsyc}.
 #' }
 #' @keywords models
 #' @export
@@ -87,7 +87,7 @@ coef_standardized <- function(obj) {
 #' @description Depreceted functions. They exist for compatibility with
 #'              previous versions.
 #' @title Deprecated functions in `biostat` package
-#' @param obj \code{lm} object.
+#' @param obj `lm` object.
 #' @export
 standardized_coef <- function(obj) {
   .Deprecated("coef_standardized")
@@ -96,11 +96,11 @@ standardized_coef <- function(obj) {
 
 #' @rdname coef_standardized
 #'
-#' @param x \code{lm_beta} object.
-#' @param object \code{lm_beta} object.
+#' @param x `lm_beta` object.
+#' @param object `lm_beta` object.
 #' @param digits (integer) number of decimal places to round the answer to.
 #'               Default is 3.
-#' @param ... further parameters to \code{print} method.
+#' @param ... further parameters to `print` method.
 #'
 #' @export
 

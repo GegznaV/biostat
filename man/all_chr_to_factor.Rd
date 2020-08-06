@@ -2,7 +2,7 @@
 % Please edit documentation in R/all_chr_to_factor.R
 \name{all_chr_to_factor}
 \alias{all_chr_to_factor}
-\title{[!] Convert all character variables to factors}
+\title{\strong{\link{!!}} Convert all character variables to factors}
 \usage{
 all_chr_to_factor(data)
 }
@@ -31,9 +31,11 @@ PlantGrowth \%<>\% all_chr_to_factor()
 
 
 # Create a data frame
-df <- data.frame(letters  = letters[1:5],
-                 letters2 = LETTERS[1:5],
-                 stringsAsFactors = FALSE)
+df <- data.frame(
+  letters = letters[1:5],
+  letters2 = LETTERS[1:5],
+  stringsAsFactors = FALSE
+)
 
 mapply(class, df) # show classes of columns
 
@@ -42,4 +44,11 @@ df2 <- all_chr_to_factor(df)
 
 # Check the classes in each column
 mapply(class, df2)
+
+# # Works with tibbles too
+# tbl  <- tibble::as.tibble(df)
+# tbl2 <- all_chr_to_factor(tbl)
+# mapply(class, tbl2)
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# v0.3.1:
 }

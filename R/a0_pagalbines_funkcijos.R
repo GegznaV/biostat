@@ -46,7 +46,7 @@ first_capital <- function(str) {
 #' @param x (string) A text with command to evaluate.
 #'
 #' @param envir An environment to evaluate in.
-#' @param ... further parameters to \code{\link[base]{eval}}.
+#' @param ... further parameters to [base::eval()].
 #'
 #' @keywords internal
 #' @export
@@ -77,7 +77,7 @@ SIGNIF <- function(x, digits = 3) {
 #'
 #' @param x a vector to check and recycle
 #' @param data a data frame
-#' @param make_named (logical) If \code{TRUE}, vector elements will be given names
+#' @param make_named (logical) If `TRUE`, vector elements will be given names
 #' of data frame columns.
 #'
 #' @keywords internal

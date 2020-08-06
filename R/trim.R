@@ -5,9 +5,9 @@
 #' @param y A numeric vector
 #' @param trim (number) A proportion of values to be removed.
 #'                      A number between 0 and 1. Default is 0.1.
-#' @param na.rm  (logical) if \code{TRUE}, any \code{NA} and \code{NaN}'s are
-#'               removed from \code{y} before quantiles are computed.
-#' @param ... further argument to \code{\link[stats]{quantile}}.
+#' @param na.rm  (logical) if `TRUE`, any `NA` and `NaN`'s are
+#'               removed from `y` before quantiles are computed.
+#' @param ... further argument to [stats::quantile()].
 #'
 #' @return A trimmed vector.
 #' @export

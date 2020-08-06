@@ -7,15 +7,15 @@
 parse_formula(formula, data = NULL, keep_all_vars = FALSE)
 }
 \arguments{
-\item{formula}{A \code{\link[stats]{formula}} of form: \itemize{
-     \item \code{~ y};
-     \item \code{~ y1 + y2};
-     \item \code{y ~ x};
-     \item \code{y1 + y2 ~ x1 + x2};
-     \item \code{~ y|condition};
-     \item \code{y ~ x|condition};
-     \item \code{y1 + y2 ~ x1 + x2|cond1 + cond2};
-     \item  or similar.
+\item{formula}{A \code{\link[stats:formula]{stats::formula()}} of form: \itemize{
+\item \code{~ y};
+\item \code{~ y1 + y2};
+\item \code{y ~ x};
+\item \code{y1 + y2 ~ x1 + x2};
+\item \code{~ y|condition};
+\item \code{y ~ x|condition};
+\item \code{y1 + y2 ~ x1 + x2|cond1 + cond2};
+\item  or similar.
 }
 Variables can be expressed as function, e.g., \code{log(x)}, \code{as.factor(x)}, which will be evaluated. Dot (\code{.}) is not accepted.}
 
@@ -30,17 +30,17 @@ or an environment).}
 }
 \value{
 A list with fields: \enumerate{
-    \item \code{formula} - the formula used;
-    \item \code{names} - alist of character vectors with names in formula arranged in certain way (see below);
-    \item \code{data} - a data frame with variables and evaluated expressions in the formula and, optionally, with the remaining variables from the original data frame.
+\item \code{formula} - the formula used;
+\item \code{names} - alist of character vectors with names in formula arranged in certain way (see below);
+\item \code{data} - a data frame with variables and evaluated expressions in the formula and, optionally, with the remaining variables from the original data frame.
 }
 
 Contents of the field \code{names}: \itemize{
-    \item \code{all_names} - all names (and expressions) in the formula;
-    \item \code{y}, \code{x} - names for "x" and "y" variables (except condition variables);
-    \item \code{lhs}, \code{rhs} - names in left-hand and right-hand side of formula (except condition variables);
-    \item \code{condition} - names of condition variables and expressions;
-    \item \code{gr} - if condition exists, \code{gr} is the same as condition, otherwise it is the same as \code{x}.
+\item \code{all_names} - all names (and expressions) in the formula;
+\item \code{y}, \code{x} - names for "x" and "y" variables (except condition variables);
+\item \code{lhs}, \code{rhs} - names in left-hand and right-hand side of formula (except condition variables);
+\item \code{condition} - names of condition variables and expressions;
+\item \code{gr} - if condition exists, \code{gr} is the same as condition, otherwise it is the same as \code{x}.
 }
 }
 \description{

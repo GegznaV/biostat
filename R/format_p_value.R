@@ -2,7 +2,7 @@
 # 1. Include alpha paramerer to start marking significance.
 
 # ====================================================================
-#' [!!!] Format p-values
+#' **[!!!]** Format p-values
 #'
 #' Functions to fromat p values.
 #'
@@ -11,12 +11,12 @@
 #' @param p A (vector of) p-value(s). Numeric or coercible to numeric.
 #' @param digits_p (numeric) Number of significant digits to round a p value to.
 #'                           No less than 2. \itemize{
-#'         \item if \code{digits_p = 2}: \enumerate{
-#'               \item values below 0.001 are printed as \code{"<0.001"};
-#'               \item values between 0.001 and 0.01 as \code{"<0.01"};
+#'         \item if `digits_p = 2`: \enumerate{
+#'               \item values below 0.001 are printed as `"<0.001"`;
+#'               \item values between 0.001 and 0.01 as `"<0.01"`;
 #'               \item all other values are rounded to two decimal places.
 #'               }
-#'         \item if \code{digits_p = 3}, only formatting \code{"<0.01"} is skipped.
+#'         \item if `digits_p = 3`, only formatting `"<0.01"` is skipped.
 #'         }
 #' @param p_i (numeric) A single p value.
 #' @param str A string or convertible to string
@@ -33,12 +33,12 @@
 #' @details
 #'
 #' \itemize{
-#'  \item \code{format_p} - formats single p value.
-#'  \item \code{format_as_p_columns} - formats indicated numeric columns in a dataframe as p values (columns are converted into strings).
-#'  \item \code{get_signif_stars} -  takes numeric p values brings appopriate stars of statistical significance.
-#'  \item \code{add_signif_stars} - formats numeric p values by adding significance stars (result is character vector).
-#'  \item \code{signif_stars_legend} - generates legend for significance stars (result is a string).
-#'  \item \code{rm_zero} - function removes zero at the beginning of a number (returns a  string with the same value but without the leading zero).
+#'  \item `format_p` - formats single p value.
+#'  \item `format_as_p_columns` - formats indicated numeric columns in a dataframe as p values (columns are converted into strings).
+#'  \item `get_signif_stars` -  takes numeric p values brings appopriate stars of statistical significance.
+#'  \item `add_signif_stars` - formats numeric p values by adding significance stars (result is character vector).
+#'  \item `signif_stars_legend` - generates legend for significance stars (result is a string).
+#'  \item `rm_zero` - function removes zero at the beginning of a number (returns a  string with the same value but without the leading zero).
 #' }
 #'
 #'
@@ -136,7 +136,7 @@ format_p_values.default <- function(p,
 #' format_p(.0002, signif_stars = FALSE)
 #' format_p(.0002, ss = c("*****" = 0.001))
 #'
-#' # TODO [!!!]:
+#' # TODO **[!!!]**:
 #' # 1. Add parameter to emable p value correction
 #' #    from p = 1 into, e.g., p > 0.999;
 #' #
@@ -369,7 +369,7 @@ signif_stars_legend_2 <- function(ss = signif_syms) {
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @rdname format_p_values
 #' @export
-# [!!!] en dash (–) might cause error on CRAN checks.
+# **[!!!]** en dash (–) might cause error on CRAN checks.
 signif_stars_legend <- function(ss = signif_syms,
                                 decreasing = FALSE,
                                 collapse = c("  \n", ", ", "; ")) {

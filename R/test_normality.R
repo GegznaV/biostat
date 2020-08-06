@@ -68,23 +68,23 @@
 #'
 #' @param y (formula|numeric|character)\cr
 #'          Either a formula, a numeric vector or a name of a column
-#'             in \code{data}. \itemize{
-#'     \item If \code{y} is a formula (e.g. \code{variable ~ factor}), left-hand
+#'             in `data`. \itemize{
+#'     \item If `y` is a formula (e.g. `variable ~ factor`), left-hand
 #'     side provides the name of a variable to be tested. In the right-hand side
 #'     there are names of factor variables to be used to create subsets.
-#'     If the left-hand side is empty (e.g. \code{~ factor}), right-hand
+#'     If the left-hand side is empty (e.g. `~ factor`), right-hand
 #'                                     side is treated as variable name to test.
 #' }
 #'
-#' @param groups (\code{NULL}|factor|character) \cr
+#' @param groups (`NULL`|factor|character) \cr
 #'                An alternative way to provide groups.
-#'                If \code{y} is a numeric vector, \code{groups} must be
-#'                a factor (or \code{NULL}). If \code{y} is a sting,
-#'                \code{groups} must also be a string (or \code{NULL}).
+#'                If `y` is a numeric vector, `groups` must be
+#'                a factor (or `NULL`). If `y` is a sting,
+#'                `groups` must also be a string (or `NULL`).
 #'
-#' @param data (data frame|\code{NULL}) \cr
+#' @param data (data frame|`NULL`) \cr
 #'             Either a data frame that contains the
-#'             variables mentioned in \code{y} or \code{NULL} (if the variables
+#'             variables mentioned in `y` or `NULL` (if the variables
 #'             are in the function's environment).
 #'
 #' @param test (string | function) \cr
@@ -101,10 +101,10 @@
 #' }
 #'
 #' @param signif_stars (logical) \cr
-#'                     If \code{TRUE}, significance stars are printed.
+#'                     If `TRUE`, significance stars are printed.
 #'
 #' @param legend (logical) \cr
-#'                     If \code{TRUE}, legend for significance stars
+#'                     If `TRUE`, legend for significance stars
 #'                     is printed.
 #'
 #' @param digits_stat (integer)  \cr
@@ -115,33 +115,33 @@
 #'                     Number format "f", "g" or "auto" (default) for test
 #'                     statistic. More about number
 #'                    formats "f" and "g" you can find in documentation of
-#'                    function \code{\link[base]{formatC}} section \code{format}.
+#'                    function [base::formatC()] section `format`.
 #'
 #' @param show_col_method (logical) \cr
-#'                     If \code{FALSE} column "method" is not
-#'                   printed. Default is \code{FALSE}.
+#'                     If `FALSE` column "method" is not
+#'                   printed. Default is `FALSE`.
 #' @param hide_error_msg (logical) \cr
-#'                     If \code{FALSE} column "error_msg" is not printed.
-#'                     If \code{TRUE} the column is printed if error occurs
+#'                     If `FALSE` column "error_msg" is not printed.
+#'                     If `TRUE` the column is printed if error occurs
 #'                     in calcultations.
-#'                     Default is \code{FALSE}.
+#'                     Default is `FALSE`.
 #'
-#' @param caption (string|\code{NULL}|\code{NA}) \cr
+#' @param caption (string|`NULL`|`NA`) \cr
 #'                     A caption for the table with
-#'                results of a normality test. If \code{NA} — a default caption
-#'                is printed (default). If \code{NULL} – no caption is printed.
+#'                results of a normality test. If `NA` — a default caption
+#'                is printed (default). If `NULL` – no caption is printed.
 #'
-#' @param p_adjust_method (\code{NULL}|string) \cr
+#' @param p_adjust_method (`NULL`|string) \cr
 #'                     A name of p value adjustment
 #'               method for multiple comparisons. For available methods check
-#'               \code{\link[stats]{p.adjust.methods}}.
-#'               If \code{NULL}, no adjusted p value is calculated (default).
-#'               If string (e.g., \code{"holm"}), an additional column
-#'               \code{p.adjust} is calculated.
+#'               [stats::p.adjust.methods()].
+#'               If `NULL`, no adjusted p value is calculated (default).
+#'               If string (e.g., `"holm"`), an additional column
+#'               `p.adjust` is calculated.
 #'
 #' @param ... Further parameters to the function of normatity test.
 #'
-#' @param x \code{normality_test} object.
+#' @param x `normality_test` object.
 #'
 #' @inheritParams format_p_values
 #' @inheritParams stats::shapiro.test
@@ -150,11 +150,11 @@
 #'
 #'
 #' @return  \itemize{
-#'       \item Function \code{test_normality} returns a data frame with
+#'       \item Function `test_normality` returns a data frame with
 #'             normality test results for each group.
-#'       \item \code{print} and \code{pander} methods format and print the
-#'       results. By default, methods \code{print.test_normality} and
-#'       \code{pander.test_normality} do not print column called "method".
+#'       \item `print` and `pander` methods format and print the
+#'       results. By default, methods `print.test_normality` and
+#'       `pander.test_normality` do not print column called "method".
 #' }
 #'
 #'
@@ -164,12 +164,12 @@
 #' @import nortest
 #'
 #' @seealso \itemize{
-#'   \item \code{\link[stats]{shapiro.test}} in package \pkg{stats};
-#'   \item \code{\link[nortest]{lillie.test}} in package \pkg{nortest};
-#'   \item \code{\link[nortest]{pearson.test}} in package \pkg{nortest};
-#'   \item \code{\link[nortest]{ad.test}} in package \pkg{nortest};
-#'   \item \code{\link[nortest]{cvm.test}} in package \pkg{nortest};
-#'   \item \code{\link[nortest]{sf.test}} in package \pkg{nortest}.
+#'   \item [stats::shapiro.test()] in package \pkg{stats};
+#'   \item [nortest::lillie.test()] in package \pkg{nortest};
+#'   \item [nortest::pearson.test()] in package \pkg{nortest};
+#'   \item [nortest::ad.test()] in package \pkg{nortest};
+#'   \item [nortest::cvm.test()] in package \pkg{nortest};
+#'   \item [nortest::sf.test()] in package \pkg{nortest}.
 #' }
 #'
 #' @examples

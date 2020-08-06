@@ -10,7 +10,7 @@
 \alias{iqv}
 \alias{iqv.default}
 \alias{iqv.table}
-\title{[!] Descriptive statistics}
+\title{\strong{\link{!!}} Descriptive statistics}
 \usage{
 q1(y, na.rm = TRUE, type = 7, names = FALSE, ...)
 
@@ -46,6 +46,6 @@ iqv(y, ...)
 Summary statistic(s).
 }
 \description{
-[!] Descriptive statistics
+\strong{\link{!!}} Descriptive statistics
 }
 \keyword{utilities}

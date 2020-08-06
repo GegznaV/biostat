@@ -11,7 +11,7 @@ eval_(x, envir = parent.frame(), ...)
 
 \item{envir}{An environment to evaluate in.}
 
-\item{...}{further parameters to \code{\link[base]{eval}}.}
+\item{...}{further parameters to \code{\link[base:eval]{base::eval()}}.}
 }
 \description{
 eval text as a command

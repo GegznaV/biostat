@@ -10,28 +10,28 @@
 #' @param data data set
 #' @param stat (character) Descriptive statistics to compute. Currently supported statistics:
 #'  \itemize{
-#'      \item \code{"n"} - number of non-missing observations,
-#'      \item \code{"missing"} - number of missing observations,,
-#'      \item \code{"mean"} - arithmetic mean,
-#'      \item \code{"sd"} - standard deviation,
-#'      \item \code{"variance"} - variance,
-#'      \item \code{"trimmed"} - trimmed mean,
-#'      \item \code{"min"} - minimum value,
-#'      \item \code{"Q1"} - 1-st quartile,
-#'      \item \code{"Md"} - median,
-#'      \item \code{"Q3"} - 3-rd quartile,
-#'      \item \code{"max"} - maximum value,
-#'      \item \code{"mad"} - median absolute deviation from median (more details \link[stats]{mad}),
-#'      \item \code{"IQR"} - interquartile range,
-#'      \item \code{"range"} - range,
-#'      \item \code{"cv"} - coefficient of variation,
-#'      \item \code{"se"} - standard error of mean,
-#'      \item \code{"skewness"} - skewness,
-#'      \item \code{"kurtosis"} - excess kurtosis.
+#'      \item `"n"` - number of non-missing observations,
+#'      \item `"missing"` - number of missing observations,,
+#'      \item `"mean"` - arithmetic mean,
+#'      \item `"sd"` - standard deviation,
+#'      \item `"variance"` - variance,
+#'      \item `"trimmed"` - trimmed mean,
+#'      \item `"min"` - minimum value,
+#'      \item `"Q1"` - 1-st quartile,
+#'      \item `"Md"` - median,
+#'      \item `"Q3"` - 3-rd quartile,
+#'      \item `"max"` - maximum value,
+#'      \item `"mad"` - median absolute deviation from median (more details [mad][stats::mad]),
+#'      \item `"IQR"` - interquartile range,
+#'      \item `"range"` - range,
+#'      \item `"cv"` - coefficient of variation,
+#'      \item `"se"` - standard error of mean,
+#'      \item `"skewness"` - skewness,
+#'      \item `"kurtosis"` - excess kurtosis.
 #'  }
-#' @param na.rm (logical) Flag to remove missing values. Default is \code{TRUE}.
+#' @param na.rm (logical) Flag to remove missing values. Default is `TRUE`.
 #' @param type (integer: 1, 2, 3) The type of skewness and kurtosis estimate.
-#'             See \code{\link[psych]{describe}} and \code{\link[psych]{mardia}}
+#'             See [psych::describe()] and [psych::mardia()]
 #'             for details.
 #' @param trim The fraction (0 to 0.5) of observations to be trimmed from each end of sorted variable before the mean is computed. Values of trim outside that range are taken as the nearest endpoint.
 #'

@@ -49,6 +49,5 @@ set.seed(254)
 x <- rnorm(50)
 
 qq_line_coeffs(x)
-
 }
 \keyword{internal}

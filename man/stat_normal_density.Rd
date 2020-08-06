@@ -75,9 +75,9 @@ distributions.
 
 
 \describe{
-   \item{density}{normal density}
-   \item{ndensity}{normal density scaled to maximum of 1}
-   \item{count}{normal density * number of points}
+\item{density}{normal density}
+\item{ndensity}{normal density scaled to maximum of 1}
+\item{count}{normal density * number of points}
 }
 }
 
@@ -85,12 +85,12 @@ distributions.
 library(ggplot2)
 library(biostat)
 
-ggplot(mtcars, aes(mpg)) + stat_normal_density()
+ggplot(mtcars, aes(mpg)) +
+  stat_normal_density()
 
 ggplot(mtcars, aes(mpg)) +
-     stat_density(alpha = 0.8) +
-     stat_normal_density(color = "red", size = 1)
-
+  stat_density(alpha = 0.8) +
+  stat_normal_density(color = "red", size = 1)
 }
 \keyword{ggplot2}
 \keyword{plots}

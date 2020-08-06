@@ -5,16 +5,16 @@
 #' distribution.
 #'
 #' @details
-#' The code is based on code of \code{qqline()} in package \pkg{stats}.
+#' The code is based on code of `qqline()` in package \pkg{stats}.
 #' But instead of plotting a reference line, it returns its coefficients.
 #'
 #' @param y (numeric) A numeric vector.
 #'
 #' @inheritParams stats::qqline
 #' @inheritParams stats::quantile
-#' @param ... Further arguments for \code{distribution}.
+#' @param ... Further arguments for `distribution`.
 #'
-#' @return A vector with a \code{slope} and an \code{intercept} for a qq-line.
+#' @return A vector with a `slope` and an `intercept` for a qq-line.
 #' @export
 #' @keywords internal
 #' @examples

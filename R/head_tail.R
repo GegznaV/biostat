@@ -1,6 +1,6 @@
 # head_tail -------------------------------------------------------------------
 
-#' [!] Show several first and last rows of a data frame
+#' **[!!]** Show several first and last rows of a data frame
 #'
 #' This function selects several top and bottom rows of a data frame for a preview.
 #'
@@ -8,15 +8,15 @@
 #' @param n (integer) Number of top and bottom rows to display.
 #' @param top (integer) Number of top rows to display.
 #' @param bottom (integer) Number of bottom rows to display.
-#' @param tolerance (integer) For small datasets, number of rows to show in addition to \code{top} and \code{bottom} before the dataset is truncated.
+#' @param tolerance (integer) For small datasets, number of rows to show in addition to `top` and `bottom` before the dataset is truncated.
 #' @param sep (character) Separator between displayed top and bottom lines.
-#' @param signif_digits (integer, \code{NULL})
+#' @param signif_digits (integer, `NULL`)
 #'        Number of significant digits used to determine appropriate rounding.
-#'        If \code{NULL}, all digits are used to determine the appropriate
+#'        If `NULL`, all digits are used to determine the appropriate
 #'        rounding.
-#' @param max_decimals (integer, \code{NULL})
+#' @param max_decimals (integer, `NULL`)
 #'        Maximum number of decimal digits to bpint.
-#'        If \code{NULL}, no restrictions applied.
+#'        If `NULL`, no restrictions applied.
 #' @inheritParams base::formatC
 #'
 #' @return A truncated data frame (which is intended to be printed) with all
@@ -191,7 +191,7 @@ round_numbers <- function(data,
 #' @param x a vector
 #' @param na.rm logical passed to min
 #'
-#' @return Return minimum value if \code{x} is numeric and \code{NA} oterwise.
+#' @return Return minimum value if `x` is numeric and `NA` oterwise.
 #' @export
 #' @keywords internal
 #'

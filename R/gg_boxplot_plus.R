@@ -13,28 +13,28 @@
 # ============================================================================
 
 
-#' [!] A boxplot with additional components
+#' **[!!]** A boxplot with additional components
 #'
 #' A boxplot (in the style of Tukey) with additional components: mean and its confidence intervals as well as jittered points.
 #'
 #' The boxplot compactly displays the distribution of a continuous numeric variable. It visualises five summary statistics (including the first quartile, the median, and the third quartile) as well as all "outlying" points individually.
 #'
-#' The plot is based on \pkg{ggplot2}, thus \code{ggplot2} elements can be
+#' The plot is based on \pkg{ggplot2}, thus `ggplot2` elements can be
 #' added to modify the plot.
 #'
-#' @param formula a formula with two variable names to analyze. First one is numeric, second one is a factor, e.g. \code{y ~ group}.
+#' @param formula a formula with two variable names to analyze. First one is numeric, second one is a factor, e.g. `y ~ group`.
 #' @param data a data frame with data.
-#' @param cld a data frame with cld results (object of class \code{cld_object}).
-#' @param sort_groups (\code{"no"}|\code{"yes"}|\code{"ascending"}|\code{"descending"}) \cr
-#'                    Sort groups by position of either median or other statistic indicated in \code{sort_fun}.
+#' @param cld a data frame with cld results (object of class `cld_object`).
+#' @param sort_groups (`"no"`|`"yes"`|`"ascending"`|`"descending"`) \cr
+#'                    Sort groups by position of either median or other statistic indicated in `sort_fun`.
 #' @param sort_fun A function that calculates one numeric statistic
-#' (name without quotes). May be \code{median},
-#' \code{mean}, \code{sd}, \code{var}, \code{IQR}, or similar.
-#' @param add_points (\code{TRUE}|\code{FALSE})  \cr If \code{TRUE}, jittered point are added to the left of the boxplot.
-#' @param add_mean_ci (\code{TRUE}|\code{FALSE})  \cr If \code{TRUE}, mean with its confidence interval are added to the right of the boxplot.
-#' @param notch (\code{TRUE}|\code{FALSE})
-#'  \cr if \code{FALSE} (default) make a standard box plot.
-#'  If \code{TRUE}, notched boxplot is drawn. If the notches of two plots do not overlap this is a ‘strong evidence’ that the two medians statistically signigicantly differ (Chambers et al, 1983, p. 62).
+#' (name without quotes). May be `median`,
+#' `mean`, `sd`, `var`, `IQR`, or similar.
+#' @param add_points (`TRUE`|`FALSE`)  \cr If `TRUE`, jittered point are added to the left of the boxplot.
+#' @param add_mean_ci (`TRUE`|`FALSE`)  \cr If `TRUE`, mean with its confidence interval are added to the right of the boxplot.
+#' @param notch (`TRUE`|`FALSE`)
+#'  \cr if `FALSE` (default) make a standard box plot.
+#'  If `TRUE`, notched boxplot is drawn. If the notches of two plots do not overlap this is a ‘strong evidence’ that the two medians statistically signigicantly differ (Chambers et al, 1983, p. 62).
 #' @param conf_level (numeric) Confidence level for confidence interval. Number from 0 to 1. Default is 0.95.
 #' @param ci_boot_reps (numeric) Number of bootstrap repetitions for mean confidence interval calculation.
 #'
@@ -44,25 +44,25 @@
 #'
 #' @param ci_x_adj (numeric) \cr x position correction factor (additive) for mean confidence interval lines/dots.
 #' @param points_x_adj (numeric) \cr x position correction factor (additive) for jittered points.
-#' @param ... arguments to \code{sort_fun}.
+#' @param ... arguments to `sort_fun`.
 #' @param xlab (character)  \cr Title for the x-axis.
 #' @param ylab (character)  \cr Title the y-axis.
-#' @param gr_sep (character)  \cr Separator used if move than one grouping variabe is chosen. Default is \code{"|"}.
+#' @param gr_sep (character)  \cr Separator used if move than one grouping variabe is chosen. Default is `"|"`.
 #' @param x_rotate (character|numeric)  \cr An angle to rotete x axis tick labels. Supported values are 0, 30, 60, and 90. If theme is added, this parameter has no effect.
 #'
 #' @param legend_title (character)  \cr Title for the legend.
 #' @param varwidth (logical) \cr
-#'        If \code{FALSE} (default) make a standard box plot.
-#'        If \code{TRUE}, boxes are drawn with widths proportional to the
+#'        If `FALSE` (default) make a standard box plot.
+#'        If `TRUE`, boxes are drawn with widths proportional to the
 #'        square-roots of the number of observations in the groups.
 #'
 #' @seealso
 #'
-#' \url{https://en.wikipedia.org/wiki/Box_plot}
+#' <https://en.wikipedia.org/wiki/Box_plot>
 #'
 #' @references
 #'
-#' Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) \emph{Graphical Methods for Data Analysis.} Wadsworth & Brooks/Cole.
+#' Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) *Graphical Methods for Data Analysis.* Wadsworth & Brooks/Cole.
 #'
 #'
 #' @return A ggplot2 plot object.

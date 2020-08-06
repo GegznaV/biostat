@@ -1,6 +1,6 @@
 context("posthoc_anova")
 
-# [!!!] A more reliable unit test is needed
+# **[!!!]** A more reliable unit test is needed
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 test_that("`posthoc_anova`, method = 'Games-Howell' works", {
   data(ChickWeight)

@@ -15,7 +15,7 @@ A number between 0 and 1. Default is 0.1.}
 \item{na.rm}{(logical) if \code{TRUE}, any \code{NA} and \code{NaN}'s are
 removed from \code{y} before quantiles are computed.}
 
-\item{...}{further argument to \code{\link[stats]{quantile}}.}
+\item{...}{further argument to \code{\link[stats:quantile]{stats::quantile()}}.}
 }
 \value{
 A trimmed vector.
@@ -32,5 +32,4 @@ trim(1:10)
 
 trim(1:10, trim = 0.4)
 # [1] 3 4 5 6 7 8
-
 }

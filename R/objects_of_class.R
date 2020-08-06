@@ -1,8 +1,8 @@
 #' List objects of a certain class.
 #'
 #' @param class (character) The name of class.
-#' @param all.names (logical) If \code{TRUE}, all object names are returned.
-#'           If \code{FALSE}, names which begin with a \code{.} are omitted.
+#' @param all.names (logical) If `TRUE`, all object names are returned.
+#'           If `FALSE`, names which begin with a `.` are omitted.
 #' @param envir The environment to search for objects in.
 #'
 #' @return Character vector.

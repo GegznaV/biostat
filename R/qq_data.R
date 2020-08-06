@@ -1,65 +1,65 @@
-#' [!] Compute data for a qq-plot
+#' **[!!]** Compute data for a qq-plot
 #'
 #' Compute data necessary to plot a quantile comparison plot (qq-plot).
 #'
 #' @details
-#' Function \code{qq_data} is inspired by \code{qqPlot()} in package \pkg{car}
+#' Function `qq_data` is inspired by `qqPlot()` in package \pkg{car}
 #' (writen by J. Fox).
 #'
-#' @param envelope (numeric | \code{FALSE}) confidence level for point-wise
+#' @param envelope (numeric | `FALSE`) confidence level for point-wise
 #'                 confidence envelope.
 #' @param line (string) A parameter, that controls how reference line is drawn.
 #'            Options:\itemize{
-#'     \item{\code{"0,1"} or \code{"int=0,slope=1"} to plot a line
+#'     \item{`"0,1"` or `"int=0,slope=1"` to plot a line
 #'             with intercept = 0 and slope = 1;}
-#'     \item{ \code{"quartiles"} to pass a line through the quartile-pairs;}
-#'     \item{ \code{"robust"} for a robust-regression line;
-#'             the latter uses the \code{rlm} function from the \pkg{MASS} package};
-#'     \item{option \code{"none"} is not implemented yet.}
+#'     \item{ `"quartiles"` to pass a line through the quartile-pairs;}
+#'     \item{ `"robust"` for a robust-regression line;
+#'             the latter uses the `rlm` function from the \pkg{MASS} package};
+#'     \item{option `"none"` is not implemented yet.}
 #' }
 #'
-#' @param method (string: \code{"trimmed-normal"}, \code{"normal"},
-#'              \code{"any"}). A method, that controls how estimates of
-#'              parameters for \code{distribution} are computed.
+#' @param method (string: `"trimmed-normal"`, `"normal"`,
+#'              `"any"`). A method, that controls how estimates of
+#'              parameters for `distribution` are computed.
 #'      Options:
 #'      \itemize{
 #'
-#'            \item{\code{"mle-normal"} (default) all data values are used to
+#'            \item{`"mle-normal"` (default) all data values are used to
 #'            estimate parameters of theoretical normal distribution using
 #'            method of maximum likelihood;}
 #'
-#'            \item{\code{"trimmed-normal"} 10\% of the most extreme
+#'            \item{`"trimmed-normal"` 10\% of the most extreme
 #'            data values are trimmed before parameters of theoretical normal
 #'            distribution are estimated using method of moments;}
 #'
-#'            \item{\code{"moment-normal"} all data values are used to estimate
+#'            \item{`"moment-normal"` all data values are used to estimate
 #'            parameters of theoretical normal distribution using method of moments;}
 #'
-#'            \item{\code{"any"} either parameters are provided manually by user
+#'            \item{`"any"` either parameters are provided manually by user
 #'            or default parameters are used (if any).}
 #'      }
-#'           Options \code{"mle-normal"}, \code{"trimmed-normal"} and
-#'           \code{"moment-normal"} are applicable only if
-#'           \code{distribution = "norm"}.
-#'           Otherwise \code{"any"} is selected automatically.
+#'           Options `"mle-normal"`, `"trimmed-normal"` and
+#'           `"moment-normal"` are applicable only if
+#'           `distribution = "norm"`.
+#'           Otherwise `"any"` is selected automatically.
 #'
 #' @param sep (not used yet).
 #'
-#' @param ... Parameters to be passed to function, selected in \code{distribution}.
-#'            In \code{print} method, further parameters to function \code{print}.
+#' @param ... Parameters to be passed to function, selected in `distribution`.
+#'            In `print` method, further parameters to function `print`.
 #'
 #' @inheritParams test_normality
 #' @inheritParams car::qqPlot
 #'
-#' @return An object, which inherits from classes \code{qqdata} and
-#'         \code{data.frame}. The object contains information, needed
+#' @return An object, which inherits from classes `qqdata` and
+#'         `data.frame`. The object contains information, needed
 #'         to plot a qqplot with reference line and its confidence intervals.
 #'         These variables are contained: \itemize{
-#'         \item\strong{x} – x axis values;
-#'         \item\strong{y} – y axis values for points of qq plot;
-#'         \item\strong{labels} – labels for each point;
-#'         \item\strong{ref_y} – y axis values for reference line
-#'         \item\strong{ref_ci_upper} and \strong{ref_ci_lower}
+#'         \item**x** – x axis values;
+#'         \item**y** – y axis values for points of qq plot;
+#'         \item**labels** – labels for each point;
+#'         \item**ref_y** – y axis values for reference line
+#'         \item**ref_ci_upper** and **ref_ci_lower**
 #'           – y axis values for upper and lower pointwise
 #'            confidence interval of a reference line.
 #'         }
@@ -110,8 +110,8 @@
 #' my_qq_df <- qq_data(chickwts$weight, groups = chickwts$feed)
 #' head(my_qq_df)
 #' coef(my_qq_df)
-#' @seealso \code{\link[car]{qqPlot}} in \pkg{car} package,
-#'  \code{\link[stats]{qqplot}} in \pkg{stats} package.
+#' @seealso [car::qqPlot()] in \pkg{car} package,
+#'  [stats::qqplot()] in \pkg{stats} package.
 #'
 
 qq_data <- function(y,
@@ -264,7 +264,7 @@ qq_data.formula <- function(
                             labels = NULL,
                             groups = NULL,
                             sep = " | ") {
-  # [!!!] qq_data.formula method needs revision
+  # **[!!!]** qq_data.formula method needs revision
   DF <- model.frame(y, data = data)
 
   qq_main <- function(y, groups = NULL) {
@@ -404,7 +404,7 @@ qq_data_ <- function(y,
 
 
 # =============================================================================
-#' @param object A \code{qqdata} object.
+#' @param object A `qqdata` object.
 #' @export
 #' @method coef qqdata
 #' @rdname qq_data
@@ -416,10 +416,10 @@ coef.qqdata <- function(object, ...) {
 # A method to plot a `qqdata` object as a qq-plot
 
 #' @rdname qq_data
-#' @param x A \code{qqdata} object.
+#' @param x A `qqdata` object.
 #' @param scales ("free"|"free_x"|"free_y"|"fixed")
 #'               a parmeter to be passed to
-#'                \code{\link[ggplot2]{facet_wrap}}.
+#'                [ggplot2::facet_wrap()].
 #' @param use_colors (logical) use colors for multiple groups
 #' @import ggplot2
 #' @examples

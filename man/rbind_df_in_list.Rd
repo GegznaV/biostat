@@ -19,13 +19,17 @@ Row-bind data frames which are inside a list and keep the names of the list fiel
 # Data:
 
 data <- list(
-    A = read.table(text =
-"           intercept    slope      type conf
-qq_refline -39.55714 1.123535 quartiles 0.95"),
+  A = read.table(
+    text =
+      "           intercept    slope      type conf
+qq_refline -39.55714 1.123535 quartiles 0.95"
+  ),
 
-    B = read.table(text =
-"           intercept     slope      type conf
-qq_refline  29.42192 0.7940267 quartiles 0.95")
+  B = read.table(
+    text =
+      "           intercept     slope      type conf
+qq_refline  29.42192 0.7940267 quartiles 0.95"
+  )
 )
 
 
@@ -34,6 +38,5 @@ rbind_df_in_list(data)
 # .group intercept     slope      type
 # 1      A -39.55714 1.1235350 quartiles
 # 2      B  29.42192 0.7940267 quartiles
-
 }
 \keyword{internal}

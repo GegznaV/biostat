@@ -2,7 +2,7 @@
 #'
 #' @param x A vector
 #'
-#' @return Vector of logical values indicating \code{TRUE} for values which are unique.
+#' @return Vector of logical values indicating `TRUE` for values which are unique.
 #' @export
 #'
 #' @keywords utilities

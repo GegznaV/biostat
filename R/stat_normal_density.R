@@ -11,7 +11,7 @@
 #' @param trim (numeric) Fraction of points to trim before computing mean and
 #'                       standard deviation, which are used to construct
 #'                       theoretical normal distribution.
-#'                       Number between 0 and 1. Default is \code{0}.
+#'                       Number between 0 and 1. Default is `0`.
 #'
 #' @section Computed variables:
 #'

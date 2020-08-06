@@ -2,22 +2,22 @@
 # 1. review is needed.
 #
 
-#' [!] Post-hoc tests for ANOVA and Welch ANOVA
+#' **[!!]** Post-hoc tests for ANOVA and Welch ANOVA
 #'
 #' Games-Howell, Tukey HSD and other post-hoc tests for ANOVA and Welch ANOVA.
 #' Either Games-Howell test or Tukey honestly significant difference (HSD)
 #' post-hoc tests for one-way analysis of variance (ANOVA).
 #'
 #' The main part of the  function code and descriptions were
-#' imported from \code{posthocTGH()} in package \pkg{userfriendlyscience}.
+#' imported from `posthocTGH()` in package \pkg{userfriendlyscience}.
 #'
 #' @param y (numeric|formula)\cr Either a numeric vector or formula.
 #' @param group (factor)\cr a vector that either is a factor or can be converted into
-#' one. If \code{y} is a formula, \code{group} is ignored.
+#' one. If `y` is a formula, `group` is ignored.
 #' @param data (data frame)\cr a data frame with data to be used in combination with formula.
-#' @param method (\code{"games-howell"}|\code{"tukey"})\cr Name of post-hoc
+#' @param method (`"games-howell"`|`"tukey"`)\cr Name of post-hoc
 #'                tests to conduct. Valid values are "tukey" and "games-howell".
-#' @param conf_level (number)\cr Confidence level (equals to \code{1 - alpha}, where alpha is significanve level). Number from 0 to 1. Default is 0.95.
+#' @param conf_level (number)\cr Confidence level (equals to `1 - alpha`, where alpha is significanve level). Number from 0 to 1. Default is 0.95.
 #' @param sep (character)\cr A string with a symbol to separate group names if several grouping variables are used.
 #' @param digits (integer)\cr The number of digits to round data related numbers to.
 #' @param digits_p (integer)\cr The number of digits to round p values to. Must be 2, 3 or more.
@@ -25,7 +25,7 @@
 #' standards (i.e. replace all values lower than .001 with '<.001'). This only
 #' applies to the printing of the object, not to the way the p values are
 #' stored in the object.
-#' @param p_adjust Any valid \code{\link[stats]{p.adjust}} method.
+#' @param p_adjust Any valid [stats::p.adjust()] method.
 #' @param x object to print.
 #' @param ... Further arguments to methods.
 #'
@@ -36,7 +36,7 @@
 #'
 #' @note
 #' Options that carry out Games-Howell and Tukey HSD analyses are based
-#' on code of function \code{posthocTGH()} in package \pkg{userfriendlyscience}
+#' on code of function `posthocTGH()` in package \pkg{userfriendlyscience}
 #' (version 0.7.0).
 #'
 #'
@@ -44,10 +44,10 @@
 #' @seealso
 #'
 #' \itemize{
-#'   \item{\url{http://www.gcf.dkf.unibe.ch/BCB/files/BCB_10Jan12_Alexander.pdf}}
-#'   \item{\url{https://rpubs.com/aaronsc32/games-howell-test}}
-#'   \item{\url{http://aoki2.si.gunma-u.ac.jp/R/src/tukey.R}}
-#'   \item{\url{https://stats.stackexchange.com/questions/83941/games-howell-post-hoc-test-in-r}}
+#'   \item{<http://www.gcf.dkf.unibe.ch/BCB/files/BCB_10Jan12_Alexander.pdf>}
+#'   \item{<https://rpubs.com/aaronsc32/games-howell-test>}
+#'   \item{<http://aoki2.si.gunma-u.ac.jp/R/src/tukey.R>}
+#'   \item{<https://stats.stackexchange.com/questions/83941/games-howell-post-hoc-test-in-r>}
 #'
 #' }
 #'
@@ -96,7 +96,7 @@ posthoc_anova.formula <- function(y,
                                   data = NULL,
                                   ...,
                                   sep = " | ") {
-  # [!!!] posthoc_anova.formula method needs revision
+  # **[!!!]** posthoc_anova.formula method needs revision
   DF <- model.frame(y, data = data)
 
   if (length(y) > 2) {
@@ -183,7 +183,7 @@ posthoc_anova.default <-
       tukey_ci_low <- mean_diffs - (qcrit * se)
       tukey_ci_high <- mean_diffs + (qcrit * se)
 
-      # Is `p_adjusted` needed? [!!!]
+      # Is `p_adjusted` needed? **[!!!]**
       # Tukey HSD test is correction itself.
       p_adjusted <- stats::p.adjust(p_tukey, method = tolower(p_adjust))
 
@@ -229,7 +229,7 @@ posthoc_anova.default <-
         lower.tail = FALSE
       )
 
-      # Is `p_adjusted` needed? [!!!]
+      # Is `p_adjusted` needed? **[!!!]**
       # Games-Howell test is correction itself.
       p_adjusted <- stats::p.adjust(p, method = tolower(p_adjust))
 

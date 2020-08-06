@@ -44,7 +44,7 @@ Currently supported objects: \itemize{
 \item{data}{A dataset with p values and names of comparisons. This argument
 is used if \code{obj} is formula. More details in examples.}
 
-\item{formula}{An R model \code{\link[stats]{formula}} where left-hand side
+\item{formula}{An R model \code{\link[stats:formula]{stats::formula()}} where left-hand side
 term indicates variable with p values and right-hand side term defines
 variable with comparisons, e.g. \code{p.adjust ~ Comparison}. Usually is
 used in combination with \code{data}.}
@@ -72,9 +72,8 @@ make_cld(obj2)
 
 
 # Example 3: class `pairwise.htest`
-
 \donttest{
-smokers  <- c(83, 90, 129, 70)
+smokers <- c(83, 90, 129, 70)
 patients <- c(86, 93, 136, 82)
 obj3 <- pairwise.prop.test(smokers, patients)
 
@@ -82,7 +81,6 @@ make_cld(obj3)
 }
 
 # Example 4: class `PMCMR`
-
 \donttest{
 obj4 <- PMCMR::posthoc.kruskal.conover.test(count ~ spray, data = InsectSprays)
 make_cld(obj4)
@@ -92,26 +90,29 @@ make_cld(obj4)
 # Example 5: class `posthocTGH`
 
 obj5 <- posthoc_anova(weight ~ Diet,
-                      data = ChickWeight,
-                      method = "Games-Howell")
+  data = ChickWeight,
+  method = "Games-Howell"
+)
 make_cld(obj5)
 
 
 # Example 6: class `posthoc_anova`
 
 obj6 <- posthoc_anova(weight ~ Diet,
-                     data = ChickWeight,
-                     method = "Games-Howell")
+  data = ChickWeight,
+  method = "Games-Howell"
+)
 make_cld(obj6)
 
 
 # Example 7: class `formula`
 
 my_dataframe <- data.table::fread(
-    'Comparison     p.value p.adjust
+  'Comparison     p.value p.adjust
     "EE - GB = 0"        1 1.000000
     "EE - CY = 0" 0.001093 0.003279
-    "GB - CY = 0" 0.005477 0.008216')
+    "GB - CY = 0" 0.005477 0.008216'
+)
 
 make_cld(p.adjust ~ Comparison, data = my_dataframe)
 
@@ -121,16 +122,16 @@ make_cld(p.adjust ~ Comparison, data = my_dataframe)
 # (for symetric matrices of p values)
 
 # Create matrix
-m <- c(1.00, 0.22, 0.05, 0.00,
-       0.22, 1.00, 0.17, 0.01,
-       0.05, 0.17, 1.00, 0.22,
-       0.00, 0.01, 0.22, 1.00)
+m <- c(
+  1.00, 0.22, 0.05, 0.00,
+  0.22, 1.00, 0.17, 0.01,
+  0.05, 0.17, 1.00, 0.22,
+  0.00, 0.01, 0.22, 1.00
+)
 obj8 <- matrix(m, nrow = 4)
 rownames(obj8) <- colnames(obj8) <- c("P", "O", "I", "U")
 obj8
 
 # Make cld
 make_cld(obj8)
-
-
 }

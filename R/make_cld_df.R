@@ -1,13 +1,13 @@
-#' [!] Make a data frame with cld
+#' **[!!]** Make a data frame with cld
 #'
 #' Compute a compact letter display (cld) of statistically significant
 #' differences in pairwise comparisons and output he results as a dataframe.
 #'
 #' @note
-#' This function is based on code in function \code{\link[rcompanion]{cldList}()}
+#' This function is based on code in function [rcompanion::cldList()]
 #' from package \pkg{rcompanion} by Salvatore Mangiafico.
 #'
-#' @param swap_compared_names (logical) \cr If \code{TRUE}, group names are swapped
+#' @param swap_compared_names (logical) \cr If `TRUE`, group names are swapped
 #' from, e.g., "2-1" or "second-first" to "1-2" or "first-second". This leads to
 #' different order of cld letters and different order of compared groups (if
 #' without swapping the result is incorrect order of groups.)
@@ -36,7 +36,7 @@ make_cld_df <- function(
                         # comparison_order = NULL,
                         ...) {
   if (!is.null(formula)) {
-    # # [!!!] Formula interface needs review.
+    # # **[!!!]** Formula interface needs review.
     # p.value    = eval(parse(text = paste0("data", "$", all.vars(formula[[2]])[1])))
     # comparison = eval(parse(text = paste0("data", "$", all.vars(formula[[3]])[1])))
     p.value <- eval_glue("data${all.vars(formula[[2]])[1]}")

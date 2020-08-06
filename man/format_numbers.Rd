@@ -9,7 +9,7 @@ format_numbers(data, digits = 3, format = "f", fun = formatC, ...)
 \arguments{
 \item{data}{A data frame.}
 
-\item{digits}{(numeric or \code{NA}) a desired number of digits after the decimal point (if \code{format = "f"}) or a number of significant digits (\code{format = "g"}, \code{= "e"} or \code{= "fg"}). \cr
+\item{digits}{(numeric or \code{NA}) a desired number of digits after the decimal point (if \code{format = "f"}) or a number of significant digits (\code{format = "g"}, \verb{= "e"} or \verb{= "fg"}). \cr
 Either one integer (to set the same formatting for all columns) or a vector of inegers (to set formatting for each column separately).\cr
 Use \code{NA} to leave column unformatted.}
 
@@ -21,7 +21,7 @@ Each value will be passed to \code{fun} separately.\cr
 \code{"fg"} uses fixed format as \code{"f"}, but digits as the minimum number of significant digits. This can lead to quite long result strings}
 
 \item{fun}{A function that does the formatting.
-Default is \code{\link[base]{formatC}}.}
+Default is \code{\link[base:formatc]{base::formatC()}}.}
 
 \item{...}{Other parameters to be passed to \code{fun}.}
 }
@@ -37,8 +37,8 @@ DATA <- head(iris)
 format_numbers(DATA, 2)
 
 # Different rounding for different columns
-format_numbers(DATA, c(2,2,3,3,NA))
+format_numbers(DATA, c(2, 2, 3, 3, NA))
 
 # Use `NA` to leave a column unformatted
-format_numbers(DATA, c(4,NA,3,NA,NA))
+format_numbers(DATA, c(4, NA, 3, NA, NA))
 }

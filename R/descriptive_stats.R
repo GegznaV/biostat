@@ -1,4 +1,4 @@
-#' [!] Descriptive statistics
+#' **[!!]** Descriptive statistics
 #'
 #' @param y Variable to summarize
 #' @param ... futher arguments to methods

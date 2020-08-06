@@ -1,6 +1,6 @@
 # Based on:
 # <environment: namespace:mosaicCore>
-# [!!!]
+# **[!!!]**
 formula_parts <- function(formula) {
   # op <- formula[[1]]
 

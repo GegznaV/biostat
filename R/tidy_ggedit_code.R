@@ -2,7 +2,7 @@
 #' Extract and tidy code from ggedit object.
 #'
 #' @param x A `ggedit` object.
-#' @param ... Other parameters to \code{\link[styler]{style_text}()}.
+#' @param ... Other parameters to [styler::style_text()].
 #'
 #' @return String.
 #' @export

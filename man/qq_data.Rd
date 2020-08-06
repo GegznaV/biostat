@@ -4,7 +4,7 @@
 \alias{qq_data}
 \alias{coef.qqdata}
 \alias{plot.qqdata}
-\title{[!] Compute data for a qq-plot}
+\title{\strong{\link{!!}} Compute data for a qq-plot}
 \usage{
 qq_data(
   y,
@@ -25,13 +25,13 @@ qq_data(
 }
 \arguments{
 \item{y}{(formula|numeric|character)\cr
-         Either a formula, a numeric vector or a name of a column
-            in \code{data}. \itemize{
-    \item If \code{y} is a formula (e.g. \code{variable ~ factor}), left-hand
-    side provides the name of a variable to be tested. In the right-hand side
-    there are names of factor variables to be used to create subsets.
-    If the left-hand side is empty (e.g. \code{~ factor}), right-hand
-                                    side is treated as variable name to test.
+Either a formula, a numeric vector or a name of a column
+in \code{data}. \itemize{
+\item If \code{y} is a formula (e.g. \code{variable ~ factor}), left-hand
+side provides the name of a variable to be tested. In the right-hand side
+there are names of factor variables to be used to create subsets.
+If the left-hand side is empty (e.g. \code{~ factor}), right-hand
+side is treated as variable name to test.
 }}
 
 \item{data}{(data frame|\code{NULL}) \cr
@@ -46,42 +46,41 @@ are in the function's environment).}
 In \code{print} method, further parameters to function \code{print}.}
 
 \item{line}{(string) A parameter, that controls how reference line is drawn.
-           Options:\itemize{
-    \item{\code{"0,1"} or \code{"int=0,slope=1"} to plot a line
-            with intercept = 0 and slope = 1;}
-    \item{ \code{"quartiles"} to pass a line through the quartile-pairs;}
-    \item{ \code{"robust"} for a robust-regression line;
-            the latter uses the \code{rlm} function from the \pkg{MASS} package};
-    \item{option \code{"none"} is not implemented yet.}
+Options:\itemize{
+\item{\code{"0,1"} or \code{"int=0,slope=1"} to plot a line
+with intercept = 0 and slope = 1;}
+\item{ \code{"quartiles"} to pass a line through the quartile-pairs;}
+\item{ \code{"robust"} for a robust-regression line;
+the latter uses the \code{rlm} function from the \pkg{MASS} package};
+\item{option \code{"none"} is not implemented yet.}
 }}
 
 \item{envelope}{(numeric | \code{FALSE}) confidence level for point-wise
 confidence envelope.}
 
 \item{method}{(string: \code{"trimmed-normal"}, \code{"normal"},
-             \code{"any"}). A method, that controls how estimates of
-             parameters for \code{distribution} are computed.
-     Options:
-     \itemize{
+\code{"any"}). A method, that controls how estimates of
+parameters for \code{distribution} are computed.
+Options:
+\itemize{\preformatted{       \\item\{`"mle-normal"` (default) all data values are used to
+       estimate parameters of theoretical normal distribution using
+       method of maximum likelihood;\}
 
-           \item{\code{"mle-normal"} (default) all data values are used to
-           estimate parameters of theoretical normal distribution using
-           method of maximum likelihood;}
+       \\item\{`"trimmed-normal"` 10\\\% of the most extreme
+       data values are trimmed before parameters of theoretical normal
+       distribution are estimated using method of moments;\}
 
-           \item{\code{"trimmed-normal"} 10\% of the most extreme
-           data values are trimmed before parameters of theoretical normal
-           distribution are estimated using method of moments;}
+       \\item\{`"moment-normal"` all data values are used to estimate
+       parameters of theoretical normal distribution using method of moments;\}
 
-           \item{\code{"moment-normal"} all data values are used to estimate
-           parameters of theoretical normal distribution using method of moments;}
-
-           \item{\code{"any"} either parameters are provided manually by user
-           or default parameters are used (if any).}
-     }
-          Options \code{"mle-normal"}, \code{"trimmed-normal"} and
-          \code{"moment-normal"} are applicable only if
-          \code{distribution = "norm"}.
-          Otherwise \code{"any"} is selected automatically.}
+       \\item\{`"any"` either parameters are provided manually by user
+       or default parameters are used (if any).\}
+ \}
+      Options `"mle-normal"`, `"trimmed-normal"` and
+      `"moment-normal"` are applicable only if
+      `distribution = "norm"`.
+      Otherwise `"any"` is selected automatically.
+}}
 
 \item{groups}{(\code{NULL}|factor|character) \cr
 An alternative way to provide groups.
@@ -99,21 +98,21 @@ a factor (or \code{NULL}). If \code{y} is a sting,
 
 \item{scales}{("free"|"free_x"|"free_y"|"fixed")
 a parmeter to be passed to
- \code{\link[ggplot2]{facet_wrap}}.}
+\code{\link[ggplot2:facet_wrap]{ggplot2::facet_wrap()}}.}
 }
 \value{
 An object, which inherits from classes \code{qqdata} and
-        \code{data.frame}. The object contains information, needed
-        to plot a qqplot with reference line and its confidence intervals.
-        These variables are contained: \itemize{
-        \item\strong{x} – x axis values;
-        \item\strong{y} – y axis values for points of qq plot;
-        \item\strong{labels} – labels for each point;
-        \item\strong{ref_y} – y axis values for reference line
-        \item\strong{ref_ci_upper} and \strong{ref_ci_lower}
-          – y axis values for upper and lower pointwise
-           confidence interval of a reference line.
-        }
+\code{data.frame}. The object contains information, needed
+to plot a qqplot with reference line and its confidence intervals.
+These variables are contained: \itemize{
+\item\strong{x} – x axis values;
+\item\strong{y} – y axis values for points of qq plot;
+\item\strong{labels} – labels for each point;
+\item\strong{ref_y} – y axis values for reference line
+\item\strong{ref_ci_upper} and \strong{ref_ci_lower}
+– y axis values for upper and lower pointwise
+confidence interval of a reference line.
+}
 }
 \description{
 Compute data necessary to plot a quantile comparison plot (qq-plot).
@@ -149,7 +148,7 @@ my_qq_df <- qq_data("weight", data = chickwts)
 head(my_qq_df)
 coef(my_qq_df)
 
-my_qq_df <- qq_data("weight",groups = "feed", data = chickwts)
+my_qq_df <- qq_data("weight", groups = "feed", data = chickwts)
 head(my_qq_df)
 coef(my_qq_df)
 
@@ -167,9 +166,6 @@ coef(my_qq_df)
 my_qq_df <- qq_data(chickwts$weight, groups = chickwts$feed)
 head(my_qq_df)
 coef(my_qq_df)
-
-
-
 library(biostat)
 data(chickwts, package = "datasets")
 
@@ -201,14 +197,13 @@ class(qq_single)
 # More than one grouping variable
 data(CO2, package = "datasets")
 
- qq_co2 <- qq_data(uptake ~ Type + Treatment, data = CO2)
- plot(qq_co2)
+qq_co2 <- qq_data(uptake ~ Type + Treatment, data = CO2)
+plot(qq_co2)
 
- qq_co2_B <- qq_data(uptake ~ Type + Treatment, data = CO2, line = "robust")
- plot(qq_co2_B)
-
+qq_co2_B <- qq_data(uptake ~ Type + Treatment, data = CO2, line = "robust")
+plot(qq_co2_B)
 }
 \seealso{
-\code{\link[car]{qqPlot}} in \pkg{car} package,
- \code{\link[stats]{qqplot}} in \pkg{stats} package.
+\code{\link[car:qqPlot]{car::qqPlot()}} in \pkg{car} package,
+\code{\link[stats:qqnorm]{stats::qqplot()}} in \pkg{stats} package.
 }

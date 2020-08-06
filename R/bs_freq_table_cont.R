@@ -1,6 +1,6 @@
 # TODO:
 #
-# 1 [!!!]
+# 1 **[!!!]**
 #
 #
 #' Frequency table for continuous data
@@ -8,14 +8,14 @@
 #' @param y (numeric) A numeric vector with data.
 #' @param nbins (integer) Number of bins.
 #' @param bin_width (number) Bin width.
-#' @param xmin (number) Lower position of the lowest bin. Not bigger than \code{min(x)}.
-#' @param xmax (number) Upper position of the highest bin. Not smaller than \code{max(x)}.
+#' @param xmin (number) Lower position of the lowest bin. Not bigger than `min(x)`.
+#' @param xmax (number) Upper position of the highest bin. Not smaller than `max(x)`.
 #' @param max_bin_decimals (integer) Maximum number of significant decimal digits to display in bin names.
 #' @param percent_decimals (integer) Number of decimal numbers in percentages.
 #' @param right (logical) Flag that indicates if the intervals should be closed
 #'              on the right and open on the left (default) or vice versa.
 #'
-#' @return Object of classes \code{bs_freq_table_cont}, \code{data.frame}.
+#' @return Object of classes `bs_freq_table_cont`, `data.frame`.
 #' @export
 #'
 #' @examples
