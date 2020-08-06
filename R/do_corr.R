@@ -101,7 +101,8 @@ do_corr <- function(
   rez$n <- n
   rez$method <- method
 
-  structure(rez,
+  structure(
+    rez,
     class = c("do_corr", "data.frame"),
     p_adjust_method = p_adjust_method,
     conf = conf,
