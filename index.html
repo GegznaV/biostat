@@ -94,32 +94,29 @@
 <!-- badges: start --><!-- [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/GegznaV/biostat?branch=master&svg=true)](https://ci.appveyor.com/project/GegznaV/biostat) --><!-- [![Travis-CI](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat) -->
 <hr>
 <p><img src="https://raw.githubusercontent.com/GegznaV/biostat/master/docs/logo.png" width="30%" height="30%" style="display: block; margin: auto;"></p>
-<div id="package-biostat--routines-for-basic-biostatistics" class="section level1">
+<div id="package-biostat-routines-for-basic-biostatistics" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#package-biostat--routines-for-basic-biostatistics" class="anchor"></a>Package <strong><em>biostat</em></strong> – Routines for Basic (Bio)Statistics</h1></div>
+<a href="#package-biostat-routines-for-basic-biostatistics" class="anchor"></a>Package <strong><em>biostat</em></strong>: Routines for Basic (Bio)Statistics</h1></div>
 <p>Package <strong><em>biostat</em></strong> is an <em>R</em> package that contains a collection of functions that either are intended to be used with R Commander plugin <em>RcmdrPlugin.biostat</em> or to do several common statistical routines (without writing to much code). The functions are created to complement other <em>R Commander</em> plugins that can be used to teach basic statistics in biostatistics and biometry lectures.</p>
 <p><font color="red"> The package is still in its <strong>early development stage</strong> and some functions are for demonstration and test purposes only as they may change in the future. </font></p>
-<p>Documentation and more information available at <a href="http://gegznav.github.io/biostat/" class="uri">http://gegznav.github.io/biostat/</a></p>
+<p>Documentation and more information available at <a href="https://gegznav.github.io/biostat">gegznav.github.io/biostat</a>.</p>
 <!-- ## Install package -->
 <!-- To install a released version of the package from *CRAN*: -->
 <!-- ```{r, eval=FALSE} -->
 <!-- install.packages("biostat") -->
 <!-- ``` -->
 <p>To install a developement version of the package from <em>GitHub</em>:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span> (!<span class="st">"devtools"</span> <span class="kw">%in%</span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html">installed.packages</a></span>())
-    <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-
-<span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"GegznaV/biostat"</span>)</pre></div>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="kw">if</span> (!<span class="fu"><a href="https://rdrr.io/r/base/library.html">require</a></span>(<span class="st">"remotes"</span>))  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"GegznaV/biostat"</span>)</pre></div>
 <!-- *** -->
 <div id="related-packages" class="section level2">
 <h2 class="hasAnchor">
 <a href="#related-packages" class="anchor"></a>Related packages</h2>
-<!-- Other related packages are *R Commander* (*Rcmdr*) plugins: -->
 <ol>
 <li>
-<strong>RcmdrPlugin.biostat</strong> – an <em>R Commander</em> plugin for <strong>biostat</strong> package (<a href="https://gegznav.github.io/RcmdrPlugin.biostat/">homepage</a>)</li>
+<strong>RcmdrPlugin.biostat</strong> – an <em>R Commander</em> plugin (<a href="https://gegznav.github.io/RcmdrPlugin.biostat/">homepage</a>).</li>
 </ol>
-<!-- b. **RcmdrPlugin.EZR.2** -- an *R Commander* plugin for the most common statistical analyses (the same as *RcmdrPlugin.EZR*, except that *RcmdrPlugin.EZR.2* does not modify original *Rcmdr* menu so dramatically); --><!-- c. **RcmdrPlugin.KMggplot2** -- an *R Commander* plugin for *ggplot2* graphics. --><!-- To install these packages, use the following code: --><!-- ```{r Install other packages, eval=FALSE} --><!-- # RcmdrPlugin.biostat --><!-- devtools::install_github("GegznaV/RcmdrPlugin.biostat") --><!-- # RcmdrPlugin.EZR.2 --><!-- devtools::install_github("GegznaV/RcmdrPlugin.EZR@unmodified_Rcmdr_menu") --><!-- # RcmdrPlugin.KMggplot2 --><!-- install.packages("RcmdrPlugin.KMggplot2") --><!-- ``` --><!--  <p align="right"> </p>     --><hr>
+<!--  <p align="right"> </p>     --><hr>
 </div>
 </div>
 
@@ -151,9 +148,9 @@
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
+<li><a href="https://github.com/GegznaV/biostat"><img src="https://img.shields.io/badge/GitHub-v0.0.19-brightgreen.svg" alt="GitHub version"></a></li>
 <li><a href="https://CRAN.R-project.org/package=biostat"><img src="https://www.r-pkg.org/badges/version/biostat" alt="CRAN status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="lifecycle"></a></li>
-<li><a href="https://github.com/GegznaV/biostat"><img src="https://img.shields.io/badge/GitHub-v0.0.19-brightgreen.svg" alt="GitHub version"></a></li>
 <li><a href="https://github.com/GegznaV/biostat/actions"><img src="https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://codecov.io/github/GegznaV/biostat?branch=master"><img src="https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master" alt="codecov.io"></a></li>
 <li><a href="/commits/master"><img src="https://img.shields.io/badge/Updated%20on-2020--08--06-yellowgreen.svg" alt="Updated-on"></a></li>

@@ -223,7 +223,7 @@ with a name of a normality test. Possible names of tests:</p><ul>
       <td><p>(<code>NULL</code>|string) <br />
 A name of p value adjustment
 method for multiple comparisons. For available methods check
-<code><a href='https://rdrr.io/r/stats/p.adjust.html'>p.adjust.methods</a></code>.
+<code><a href='https://rdrr.io/r/stats/p.adjust.html'>stats::p.adjust.methods()</a></code>.
 If <code>NULL</code>, no adjusted p value is calculated (default).
 If string (e.g., <code>"holm"</code>), an additional column
 <code>p.adjust</code> is calculated.</p></td>
@@ -281,7 +281,7 @@ significant digits to round test statistic to.</p></td>
 Number format "f", "g" or "auto" (default) for test
 statistic. More about number
 formats "f" and "g" you can find in documentation of
-function <code><a href='https://rdrr.io/r/base/formatc.html'>formatC</a></code> section <code>format</code>.</p></td>
+function <code><a href='https://rdrr.io/r/base/formatc.html'>base::formatC()</a></code> section <code>format</code>.</p></td>
     </tr>
     <tr>
       <th>rm_zero</th>
@@ -324,12 +324,12 @@ results. By default, methods <code>print.test_normality</code> and
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></code> in package <span class="pkg">stats</span>;</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/nortest/man/lillie.test.html'>lillie.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/nortest/man/pearson.test.html'>pearson.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/nortest/man/ad.test.html'>ad.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/nortest/man/cvm.test.html'>cvm.test</a></code> in package <span class="pkg">nortest</span>;</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/nortest/man/sf.test.html'>sf.test</a></code> in package <span class="pkg">nortest</span>.</p></li>
+<li><p><code><a href='https://rdrr.io/r/stats/shapiro.test.html'>stats::shapiro.test()</a></code> in package <span class="pkg">stats</span>;</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/nortest/man/lillie.test.html'>nortest::lillie.test()</a></code> in package <span class="pkg">nortest</span>;</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/nortest/man/pearson.test.html'>nortest::pearson.test()</a></code> in package <span class="pkg">nortest</span>;</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/nortest/man/ad.test.html'>nortest::ad.test()</a></code> in package <span class="pkg">nortest</span>;</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/nortest/man/cvm.test.html'>nortest::cvm.test()</a></code> in package <span class="pkg">nortest</span>;</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/nortest/man/sf.test.html'>nortest::sf.test()</a></code> in package <span class="pkg">nortest</span>.</p></li>
 </ul>
 </div>
 
