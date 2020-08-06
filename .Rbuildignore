@@ -16,3 +16,4 @@ functions-removed*
 functions-under-development*
 README.Rmd
 tutorials-under-development*
+^pkgdown$
