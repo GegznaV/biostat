@@ -38,6 +38,9 @@ do_corr(
   p_col = c("p", "p.adj")
 )
 }
+\arguments{
+\item{x, y, method, use, conf, R, sim, ci_type, p_adjust_method, ss}{\verb{# FIXME:} \emph{not documented}}
+}
 \description{
 do_corr
 }

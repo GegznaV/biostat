@@ -1,5 +1,5 @@
-#' **[!!]** A QQ-plot for multiple groups
-#'
+#' @title **[!!]** A QQ-plot for multiple groups
+#' @description
 #' Make a quantile comparison plot (qq-plot) for each subset of groups separately
 #' using \pkg{ggplot2} graphics.
 #'

@@ -72,7 +72,7 @@ bs_freq_table_cont <- function(
   }
 
   # Avoid too many decimal digits
-  dec <- max(biostat:::n_decimals_max(signif(bin_breaks,
+  dec <- max(n_decimals_max(signif(bin_breaks,
     digits = max_bin_decimals
   )))
 

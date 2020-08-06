@@ -46,13 +46,12 @@ are in the function's environment).}
 In \code{print} method, further parameters to function \code{print}.}
 
 \item{line}{(string) A parameter, that controls how reference line is drawn.
-Options:\itemize{
-\item{\code{"0,1"} or \code{"int=0,slope=1"} to plot a line
-with intercept = 0 and slope = 1;}
-\item{ \code{"quartiles"} to pass a line through the quartile-pairs;}
-\item{ \code{"robust"} for a robust-regression line;
-the latter uses the \code{rlm} function from the \pkg{MASS} package};
-\item{option \code{"none"} is not implemented yet.}
+Options:
+\itemize{
+\item \code{"0,1"} or \code{"int=0,slope=1"} to plot a line with intercept = 0 and slope = 1;
+\item \code{"quartiles"} to pass a line through the quartile-pairs;
+\item \code{"robust"} for a robust-regression line; the latter uses the \code{rlm} function from the \pkg{MASS} package;
+\item option \code{"none"} is not implemented yet.
 }}
 
 \item{envelope}{(numeric | \code{FALSE}) confidence level for point-wise
@@ -62,24 +61,21 @@ confidence envelope.}
 \code{"any"}). A method, that controls how estimates of
 parameters for \code{distribution} are computed.
 Options:
-\itemize{\preformatted{       \\item\{`"mle-normal"` (default) all data values are used to
-       estimate parameters of theoretical normal distribution using
-       method of maximum likelihood;\}
-
-       \\item\{`"trimmed-normal"` 10\\\% of the most extreme
-       data values are trimmed before parameters of theoretical normal
-       distribution are estimated using method of moments;\}
-
-       \\item\{`"moment-normal"` all data values are used to estimate
-       parameters of theoretical normal distribution using method of moments;\}
-
-       \\item\{`"any"` either parameters are provided manually by user
-       or default parameters are used (if any).\}
- \}
-      Options `"mle-normal"`, `"trimmed-normal"` and
-      `"moment-normal"` are applicable only if
-      `distribution = "norm"`.
-      Otherwise `"any"` is selected automatically.
+\itemize{
+\item \code{"mle-normal"} (default) all data values are used to
+estimate parameters of theoretical normal distribution using
+method of maximum likelihood;
+\item \code{"trimmed-normal"} 10\\% of the most extreme
+data values are trimmed before parameters of theoretical normal
+distribution are estimated using method of moments;
+\item \code{"moment-normal"} all data values are used to estimate
+parameters of theoretical normal distribution using method of moments;
+\item \code{"any"} either parameters are provided manually by user
+or default parameters are used (if any).\preformatted{    Options `"mle-normal"`, `"trimmed-normal"` and
+    `"moment-normal"` are applicable only if
+    `distribution = "norm"`.
+    Otherwise `"any"` is selected automatically.
+}
 }}
 
 \item{groups}{(\code{NULL}|factor|character) \cr
@@ -104,14 +100,14 @@ a parmeter to be passed to
 An object, which inherits from classes \code{qqdata} and
 \code{data.frame}. The object contains information, needed
 to plot a qqplot with reference line and its confidence intervals.
-These variables are contained: \itemize{
-\item\strong{x} – x axis values;
-\item\strong{y} – y axis values for points of qq plot;
-\item\strong{labels} – labels for each point;
-\item\strong{ref_y} – y axis values for reference line
-\item\strong{ref_ci_upper} and \strong{ref_ci_lower}
-– y axis values for upper and lower pointwise
-confidence interval of a reference line.
+These variables are contained:
+\itemize{
+\item \strong{x} – x axis values;
+\item \strong{y} – y axis values for points of qq plot;
+\item \strong{labels} – labels for each point;
+\item \strong{ref_y} – y axis values for reference line
+\item \strong{ref_ci_upper} and \strong{ref_ci_lower} – y axis values for upper and lower
+pointwise confidence interval of a reference line.
 }
 }
 \description{

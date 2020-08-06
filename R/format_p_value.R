@@ -5,10 +5,12 @@
 #' **[!!!]** Format p-values
 #'
 #' Functions to fromat p values.
+#' **NOTE:** concider using [scales::pvalue()] instead.
 #'
 #' @return A character vector with formatted p values.
 #'
 #' @param p A (vector of) p-value(s). Numeric or coercible to numeric.
+#'          Or a `data.frame`.
 #' @param digits_p (numeric) Number of significant digits to round a p value to.
 #'                           No less than 2. \itemize{
 #'         \item if `digits_p = 2`: \enumerate{
@@ -18,17 +20,14 @@
 #'               }
 #'         \item if `digits_p = 3`, only formatting `"<0.01"` is skipped.
 #'         }
-#' @param p_i (numeric) A single p value.
-#' @param str A string or convertible to string
 #' @param signif_stars (logical) Flag if significance stars should be added to each p value.
 #'                           Not less than 2.
 #' @param rm_zero (logical) Flag if leading zero before the point should be
 #'                removed.
-#' @param data A dataset.
-#' @param colnames (character) vector with column names to be formatted as p values.
 #' @param add_p (logical) Flag if letter "p" should included in the expression.
 #' @param rm_spaces (logical) Flag if all spaces should be removed.
 #' @param ... Arguments to further methods.
+#' @param cols,alpha,ss,decreasing,collapse,dec `# FIXME:` _not documented_
 #'
 #' @details
 #'
@@ -206,7 +205,7 @@ format_p <-
 # ============================================================================
 #' @rdname format_p_values
 #' @export
-format_p_values.data.frame <- function(data,
+format_p_values.data.frame <- function(p,
                                        digits_p = 3,
                                        # colnames = NULL,
                                        cols = NULL,

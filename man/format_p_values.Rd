@@ -87,7 +87,7 @@ format_p(
 )
 
 \method{format_p_values}{data.frame}(
-  data,
+  p,
   digits_p = 3,
   cols = NULL,
   ...,
@@ -146,7 +146,8 @@ format_as_p_columns(
 )
 }
 \arguments{
-\item{p}{A (vector of) p-value(s). Numeric or coercible to numeric.}
+\item{p}{A (vector of) p-value(s). Numeric or coercible to numeric.
+Or a \code{data.frame}.}
 
 \item{digits_p}{(numeric) Number of significant digits to round a p value to.
 No less than 2. \itemize{
@@ -157,6 +158,8 @@ No less than 2. \itemize{
 }
 \item if \code{digits_p = 3}, only formatting \code{"<0.01"} is skipped.
 }}
+
+\item{cols, alpha, ss, decreasing, collapse, dec}{\verb{# FIXME:} \emph{not documented}}
 
 \item{...}{Arguments to further methods.}
 
@@ -169,20 +172,13 @@ removed.}
 \item{add_p}{(logical) Flag if letter "p" should included in the expression.}
 
 \item{rm_spaces}{(logical) Flag if all spaces should be removed.}
-
-\item{p_i}{(numeric) A single p value.}
-
-\item{data}{A dataset.}
-
-\item{str}{A string or convertible to string}
-
-\item{colnames}{(character) vector with column names to be formatted as p values.}
 }
 \value{
 A character vector with formatted p values.
 }
 \description{
 Functions to fromat p values.
+\strong{NOTE:} concider using \code{\link[scales:label_pvalue]{scales::pvalue()}} instead.
 }
 \details{
 \itemize{

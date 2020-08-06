@@ -5,6 +5,9 @@
 
 #' do_corr
 #'
+#' @param x,y,method,use,conf,R,sim,ci_type,p_adjust_method,ss
+#'  `# FIXME:` _not documented_
+#'
 #' @export
 #' @examples
 #' data(iris)

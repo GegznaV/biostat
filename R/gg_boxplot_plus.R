@@ -279,7 +279,7 @@ gg_boxplot_plus <- function(
 
         stat_summary(aes(x = as.numeric(.group) + ci_x_adj),
           geom = "point",
-          fun.y = mean
+          fun = mean
         )
     } else {
       p <- p +
@@ -302,7 +302,7 @@ gg_boxplot_plus <- function(
           color = .group
         ),
         geom = "point",
-        fun.y = mean
+        fun = mean
         )
     }
   }

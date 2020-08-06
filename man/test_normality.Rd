@@ -91,6 +91,8 @@ If \code{y} is a numeric vector, \code{groups} must be
 a factor (or \code{NULL}). If \code{y} is a sting,
 \code{groups} must also be a string (or \code{NULL}).}
 
+\item{ss}{\verb{# FIXME:} \emph{not documented}}
+
 \item{hide_error_msg}{(logical) \cr
 If \code{FALSE} column "error_msg" is not printed.
 If \code{TRUE} the column is printed if error occurs
