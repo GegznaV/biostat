@@ -16,14 +16,14 @@ set.seed(123456)
 
 ***
 <!-- badges: start -->
+<!-- [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/GegznaV/biostat?branch=master&svg=true)](https://ci.appveyor.com/project/GegznaV/biostat) -->
+<!-- [![Travis-CI](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat) -->
+[![CRAN status](https://www.r-pkg.org/badges/version/biostat)](https://CRAN.R-project.org/package=biostat)
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/biostat)](https://cran.r-project.org/package=biostat)
 [![GitHub version](https://img.shields.io/badge/GitHub-v`r packageVersion("biostat")`-brightgreen.svg)](https://github.com/GegznaV/biostat)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/GegznaV/biostat?branch=master&svg=true)](https://ci.appveyor.com/project/GegznaV/biostat)
-[![Travis-CI Build Status](https://travis-ci.org/GegznaV/biostat.png?branch=master)](https://travis-ci.org/GegznaV/biostat)
+[![R-CMD-check](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 [![codecov.io](https://codecov.io/github/GegznaV/biostat/coverage.svg?branch=master)](https://codecov.io/github/GegznaV/biostat?branch=master)
 [![Updated-on](https://img.shields.io/badge/Updated%20on-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
-[![R build status](https://github.com/GegznaV/biostat/workflows/R-CMD-check/badge.svg)](https://github.com/GegznaV/biostat/actions)
 <!-- badges: end -->
 
 ***
