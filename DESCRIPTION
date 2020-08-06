@@ -7,8 +7,8 @@ Description: A collection of functions that either are intended to be used with
              The functions are created to complement other R Commander plugins 
              that are used to teach basic statistics especially in 
              biostatistics and biometry lectures.
-Version: 0.0.19
-Date: 2019-05-02
+Version: 0.0.20
+Date: 2020-08-06
 Authors@R: c(
     person("Vilmantas", "Gegzna", role = c("aut","cre"),
            comment = c(ORCID = "0000-0002-9500-5167"),
@@ -25,7 +25,7 @@ ByteCompile: TRUE
 Depends:
     R (>= 3.3),
     magrittr,
-    ggplot2
+    ggplot2 (>= 3.0.0)
 Imports:
     boot,
     broom,
@@ -52,7 +52,6 @@ Imports:
     tibble,
     tidyr,
     withr
-RoxygenNote: 7.1.1
 Suggests:
     covr,
     data.table,
@@ -60,5 +59,7 @@ Suggests:
     PMCMR,
     QuantPsyc,
     rcompanion,
+    scales,
     testthat
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
