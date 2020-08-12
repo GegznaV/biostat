@@ -9,6 +9,7 @@
 ^docs$
 ^docs*
 ^LICENSE\.md$
+^pkgdown$
 _pkgdown.yaml
 codecov.yml
 data-raw*
@@ -16,4 +17,3 @@ functions-removed*
 functions-under-development*
 README.Rmd
 tutorials-under-development*
-^pkgdown$
