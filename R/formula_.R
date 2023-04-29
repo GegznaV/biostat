@@ -42,7 +42,8 @@
 #' @export
 #'
 parse_formula <- function(formula, data = NULL, keep_all_vars = FALSE) {
-  if (!rlang::is_formulaish(formula)) stop("Variable `formula` is not a formula!")
+  if (!rlang::is_formula(formula)) stop("Variable `formula` is not a formula!")
+  # if (!rlang::is_formulaish(formula)) stop("Variable `formula` is not a formula!")
   checkmate::assert_data_frame(data, null.ok = TRUE)
   checkmate::assert_logical(keep_all_vars)
 
