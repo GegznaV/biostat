@@ -178,7 +178,7 @@ A character vector with formatted p values.
 }
 \description{
 Functions to fromat p values.
-\strong{NOTE:} concider using \code{\link[scales:label_pvalue]{scales::pvalue()}} instead.
+\strong{NOTE:} concider using \code{\link[scales:pvalue_format]{scales::pvalue()}} instead.
 }
 \details{
 \itemize{
